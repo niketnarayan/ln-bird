@@ -77,7 +77,10 @@ function Productslider() {
                     ₹ {product.originalPrice}
                   </div>
                 </div>
-                <div style={{ fontSize: "14px", color: "green" }}>{product.discount}</div>
+                <div style={{display:"flex",gap:"15px"}}>
+                  <span style={{backgroundColor:"lightgray"}}>3pc</span>
+                <div style={{ fontSize: "14px", color: "green",marginTop:"3px" }}>{product.discount}</div>
+                </div>
                 
                 {/* Slab Pricing Section */}
                 <div style={{ display: "flex", gap: "5px", alignItems: "center", marginTop: "5px" }}>
@@ -100,17 +103,17 @@ function Productslider() {
 
                 {/* Quantity and Add to Cart Section */}
                 <div className="d-flex align-items-center gap-2" style={{ marginTop: "10px" }}>
-                  <div className="input-group" style={{ width: '120px' }}>
+                  <div className="input-group" style={{ width: '110px' }}>
                     <button className="btn btn-outline-secondary" type="button" onClick={decreaseQuantity}>-</button>
                     <input type="text" className="form-control" value={quantity} readOnly style={{ width: "38px" }} />
                     <button className="btn btn-outline-secondary" type="button" onClick={increaseQuantity}>+</button>
                   </div>
-                  <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px" }}>
+                  <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
                     <button className="btn">
                       <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
                     </button>
                     <div>
-                      <span style={{ fontSize: "12px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
+                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
                     </div>
                   </div>
                 </div>

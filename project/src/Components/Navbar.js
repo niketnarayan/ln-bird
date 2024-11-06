@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { Tab, Tabs, Form } from 'react-bootstrap';
+
+
 
 function Navbar() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -9,6 +14,24 @@ function Navbar() {
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
+
+
+
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const Login =() =>{
+    handleShow()
+  }
+
+
+
+
+
+  const [key, setKey] = useState('otp');
  
   return (
     <>
@@ -36,9 +59,136 @@ function Navbar() {
           </div>
 
           {/* Login Button */}
-          <a className="btn btn-light ms-auto" href="#">
+          <a className="btn btn-light ms-auto"   onClick={Login}>
             <i className="bi bi-box-arrow-in-right"></i> LOGIN
+
           </a>
+          {/* modal code---------------------------------- -------------------------------------------------------- */}
+
+
+          <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+         <div style={{display:"flex",gap:"25px"}}>
+          <div>
+            <img src='https://www.lotswholesale.com/vendor/image/Logo/LogoLandscapeNoborder.png' style={{width:"8rem"}}></img>
+          </div>
+          <div>
+            <span style={{fontSize:"22px",fontWeight:"bold",lineHeight:"2px"}}>Login for More convenient shopping</span>
+            <p style={{marginTop:"10px",fontSize:"13px", fontWeight:"bold"}}>And receive special privileges only for LOTS Wholesale Solutions Members</p>
+          </div>
+         </div>
+
+         <div>
+          <label style={{fontWeight:"bold"}}>Membership Id or Mobile Number</label><br/>
+          <input type='text' placeholder='Enter your Membership Id or Mobile Number' style={{width:"28rem",height:"40px", border:"2px solid lightblue",borderRadius:"10px"}}></input>
+         </div>
+         {/* password and otp start ------------------------------------------------------------------------------ */}
+
+         <div className="p-3" style={{ maxWidth: '450px', margin: '30px auto', backgroundColor: '#f0f0f0', borderRadius: '8px' }}>
+      <Tabs
+
+        id="login-tabs"
+        activeKey={key}
+        onSelect={(k) => setKey(k)}
+        className="mb-3"
+        style={{ borderBottom: 'none',padding:"0" }}
+      >
+        <Tab 
+          eventKey="password"
+          title={
+            <span
+              style={{
+                color: key === 'password' ? '#ffffff' : 'grey',
+                fontWeight: key === 'password' ? 'bold' : 'normal',
+                padding: '10px',
+                backgroundColor: key === 'password' ? '#D71920' : '#cccccc', // Red if active, grey if inactive
+                borderRadius: '5px 5px 0 0'
+              }}
+            >
+              Password login
+            </span>
+          }
+        >
+          {key === 'password' && (
+            <div style={{ backgroundColor: '#D71920', width: '100%', height: '3px', marginTop: '-8px' }}></div>
+          )}
+          <div style={{ padding: '10px' }}>
+            <Form>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Enter password" />
+              </Form.Group>
+            </Form>
+          </div>
+        </Tab>
+        
+        <Tab
+          eventKey="otp"
+          title={
+            <span
+              style={{
+                color: key === 'otp' ? '#ffffff' : 'grey',
+                fontWeight: key === 'otp' ? 'bold' : 'normal',
+                padding: '10px',
+                backgroundColor: key === 'otp' ? '#D71920' : '#cccccc', // Red if active, grey if inactive
+                borderRadius: '5px 5px 0 0'
+              }}
+            >
+              OTP code login
+            </span>
+          }
+        >
+          {key === 'otp' && (
+            <div style={{ backgroundColor: '#D71920', width: '100%', height: '3px', marginTop: '-8px' }}></div>
+          )}
+          <div style={{ padding: '10px' }}>
+            <Form>
+              <Form.Group controlId="formOtpCode">
+                <Form.Label>OTP Code</Form.Label>
+                <Form.Control type="text" placeholder="OTP Code" />
+              </Form.Group>
+            </Form>
+          </div>
+        </Tab>
+      </Tabs>
+    </div>
+         {/* password and otp end---------------------------------------------------------------------------- */}
+         <div  style={{display:"flex", gap:"14rem"}}>
+         <label style={{fontWeight:"bold"}}>
+  <input type="checkbox" name="exampleCheckbox" value="value1" style={{margin:"5px"}}/>
+  Rembember Login
+</label>
+<div>
+  <label style={{fontWeight:"bold"}}>Get OTP</label>
+</div>
+</div>
+
+<button style={{width:"29rem", marginTop:"20px", backgroundColor:"#D71920", color:"white", border:"#D71920", height:"35px", borderRadius:"5px"}}>
+  Login
+</button>
+
+
+
+        </Modal.Body>
+        <Modal.Footer style={{ backgroundColor: "#D71920", height: "90px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+  <div>
+    <a href='' style={{ textDecoration: "none" }}>
+      <span style={{ color: "white", textAlign: "center",fontWeight:"bold" }}>Activate Your Member</span>
+    </a>
+  </div>
+  <div>
+    <a href='' style={{ textDecoration: "none" }}>
+      <span style={{ color: "white", textAlign: "center",fontWeight:"bold" }}>Generate Password</span>
+    </a>
+  </div>
+</Modal.Footer>
+      </Modal>
+
+
+          {/* modal code end ---------------- -------------------------------------------------------------- */}
         </div>
       </nav>
 

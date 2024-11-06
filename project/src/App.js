@@ -1,5 +1,7 @@
 import './App.css';
 import Banner from './Components/Banner';
+import Banner2 from './Components/Banner2';
+import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 import Productslider from './Components/Productslider';
 import Shopslider from './Components/Shopslider';
@@ -13,7 +15,8 @@ function App() {
     <Shopslider/>
     <Banner/>
     <Productslider/>
-    
+    <Banner2/>
+    <Footer/>
     
     
     

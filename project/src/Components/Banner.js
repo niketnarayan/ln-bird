@@ -157,7 +157,7 @@ function Banner() {
         <div className='container'>
         <div className='row'>
           <div className='col'>
-            <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1728376623077.jpeg' alt='...'className='img-fluid'></img>
+            <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1730090840815.jpeg' alt='...'className='img-fluid'></img>
           </div>
 
         </div>
