@@ -5,7 +5,7 @@ import { Dropdown, DropdownButton } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Tab, Tabs, Form } from 'react-bootstrap';
-
+import { Link } from "react-router-dom";
 
 
 function Navbar() {
@@ -28,15 +28,15 @@ function Navbar() {
   }
 
 
-
-
-
   const [key, setKey] = useState('otp');
+
+
  
   return (
     <>
+   <div style={{ position: "sticky", top: "0", zIndex: "1000" }}>
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: 'rgb(215, 25, 32)' }}>
+      <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: '#00363A' }}>
         <div className="container-fluid">
           {/* Logo with left margin */}
           <a className="navbar-brand text-white d-flex align-items-center" href="#" style={{ marginLeft: '50px', marginRight: '50px' }}>
@@ -44,6 +44,7 @@ function Navbar() {
             <div className="ms-2 text-white">
             </div>
           </a>
+          
 
           {/* Centered Search Bar */}
           <div className="input-group mx-auto" style={{ maxWidth: '400px' }}>
@@ -56,6 +57,11 @@ function Navbar() {
             <button className="btn btn-light" type="submit">
               <i className="bi bi-search"></i> {/* Bootstrap Search Icon */}
             </button>
+          </div>
+          <div style={{marginLeft:"199px"}}>
+            <Link to="/Contactus">
+            <Button style={{backgroundColor:"white",color:"black",border:"1px solid white"}}>Contact Us</Button>
+            </Link>
           </div>
 
           {/* Login Button */}
@@ -194,53 +200,77 @@ function Navbar() {
 
       {/* Categories Menu */}
       <div className="bg-light p-2">
-        <div className="container d-flex align-items-center">
-          {/* Categories Dropdown using react-bootstrap */}
-          <DropdownButton
-            id="dropdown-basic-button"
-            title={
-              <span
-                style={{
-                  fontWeight: 'bold', // Apply bold
-                  fontSize: '18px', // Apply larger font size
-                  color: isDropdownOpen ? 'red' : 'black', // Change text color based on open state
-                }}
-              >
-                Categories
-              </span>
-            }
-            className={`me-3 ${isDropdownOpen ? 'text-danger' : ''}`}
-            variant="light"
-            onClick={toggleDropdown}
-          >
-            <Dropdown.Item href="#" style={{ fontSize: '18px' }}>
-              Category 1
-            </Dropdown.Item>
-            <Dropdown.Item href="#" style={{ fontSize: '18px' }}>
-              Category 2
-            </Dropdown.Item>
-            <Dropdown.Item href="#" style={{ fontSize: '18px'}}>
-              Category 3
-            </Dropdown.Item>
-          </DropdownButton>
+<div className="container d-flex align-items-center">
+{/* Categories Dropdown using react-bootstrap */}
+<DropdownButton
+id="dropdown-basic-button"
+title={
+<span
+style={{
+fontWeight: 'bold', // Apply bold
+fontSize: '18px', // Apply larger font size
+color: isDropdownOpen ? 'red' : 'black', // Change text color based on open state
+}}
+>
+Categories
+</span>
+}
+className={`me-3 ${isDropdownOpen ? 'text-danger' : ''}`}
+variant="light"
+onClick={toggleDropdown}
+>
+<Dropdown.Item href="#" style={{ fontSize: '18px', display:"flex", gap:"20px" }}>
+<i class="fa-solid fa-apple-whole" style={{marginTop:"5px"}}></i>
+Fruits & Vegitables
+</Dropdown.Item>
+<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
+<i class="fa-solid fa-drumstick-bite" style={{marginTop:"5px"}}></i>
+Chicken & Meat
+</Dropdown.Item>
+<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
+<i class="fa-solid fa-egg" style={{marginTop:"5px"}}></i>
+Breakfast & Diary
+</Dropdown.Item>
+<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
+<i class="fa-solid fa-mug-hot" style={{marginTop:"5px"}}></i>
+Beverage
+</Dropdown.Item>
+<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
+<i class="fa-solid fa-bread-slice" style={{marginTop:"5px"}}></i>
+Bread & Bakery
+</Dropdown.Item>
+<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
+<i class="fa-solid fa-icicles" style={{marginTop:"5px"}}></i>
+Frozen Foods
+</Dropdown.Item>
+<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
+<i class="fa-solid fa-cookie"style={{marginTop:"5px"}}></i>
+Biscuits & Snacks
+</Dropdown.Item>
+<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
+<i class="fa-solid fa-wheat-awn"style={{marginTop:"5px"}}></i>
+Grocery & Staples
+</Dropdown.Item>
+</DropdownButton>
 
-          {/* Mailer Link */}
-          <a
-            href="#"
-            className=""
-            style={{
-              fontWeight: '500',
-              fontSize: '16px',
-              display: 'flex',
-              alignItems: 'center',
-              textDecoration: 'none',
-            }}
-          >
-            <i className="fa-solid fa-tag" style={{ color: 'red' }}></i>
-            {/* Discount icon */}
-            <span style={{ marginLeft: '5px', color: 'black' }}>LOTS Mailer</span>
-          </a>
-        </div>
+{/* Mailer Link */}
+<a
+href="#"
+className=""
+style={{
+fontWeight: '500',
+fontSize: '16px',
+display: 'flex',
+alignItems: 'center',
+textDecoration: 'none',
+}}
+>
+<i className="fa-solid fa-tag" style={{ color: 'red' }}></i>
+{/* Discount icon */}
+<span style={{ marginLeft: '5px', color: 'black' }}>LOTS Mailer</span>
+</a>
+</div>
+</div>
       </div>
 
       {/* Additional CSS for hover effects */}

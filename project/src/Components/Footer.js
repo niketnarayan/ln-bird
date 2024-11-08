@@ -6,7 +6,7 @@ function Footer() {
   return (
     <>
 
-<footer className="footer" style={{backgroundColor: 'rgb(215, 25, 32)'}}>
+<footer className="footer" style={{backgroundColor: '#00363A',height:"400px"}}>
       <Container>
         <Row className="footer-row">
           <Col md={2} sm={6} className="footer-column">
@@ -62,7 +62,7 @@ function Footer() {
             </ul>
           </Col>
 
-          <Col md={4} sm={12} className="footer-column contact">
+          <Col md={4} sm={12} className="footer-column contact" style={{height:"400px"}}>
             <h3>Contact Us</h3>
             <p>WhatsApp us: <a href="tel:7000370003">70003 70003</a></p>
             <p>Call us: <a href="tel:18008901222">1800 890 1222</a></p>
