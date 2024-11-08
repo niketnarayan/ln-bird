@@ -29,7 +29,7 @@ function Shopslider() {
                       alt="Snacks & Namkeen"
                     />
                     <div className="card-body">
-                      <h6 className="card-title">Snacks & Namkeen</h6>
+                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}> Namkeen</span>
                     </div>
                   </div>
                 </div>
@@ -43,7 +43,7 @@ function Shopslider() {
                       alt="Tea, Coffee & Cold Drinks"
                     />
                     <div className="card-body">
-                      <h6 className="card-title">Tea, Coffee & Cold Drinks</h6>
+                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Tea & Coffee </span>
                     </div>
                   </div>
                 </div>
@@ -57,7 +57,7 @@ function Shopslider() {
                       alt="Meat, Fish & Egg"
                     />
                     <div className="card-body">
-                      <h6 className="card-title">Meat, Fish & Egg</h6>
+                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Meat, Fish & Egg</span>
                     </div>
                   </div>
                 </div>
@@ -71,13 +71,13 @@ function Shopslider() {
                       alt="Bakery & Cakes"
                     />
                     <div className="card-body">
-                      <h6 className="card-title">Bakery & Cakes</h6>
+                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Bakery & Cakes</span>
                     </div>
                   </div>
                 </div>
 
                 
-                {/* Card 4 */}
+                {/* Card 5 */}
                 <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
                   <div className="card text-center mx-2 card-custom">
                     <img
@@ -86,7 +86,7 @@ function Shopslider() {
                       alt="Bakery & Cakes"
                     />
                     <div className="card-body">
-                      <h6 className="card-title">Bakery & Cakes</h6>
+                      <span className="card-title" style={{fontSize:"13px", fontWeight:"bold"}}>Bakery & Cakes</span>
                     </div>
                   </div>
                 </div>
@@ -97,7 +97,7 @@ function Shopslider() {
             {/* Second Slide */}
             <div className="carousel-item">
               <div className="row justify-content-center">
-                {/* Card 5 */}
+                {/* Card 6 */}
                 <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
                   <div className="card text-center mx-2 card-custom">
                     <img
@@ -106,21 +106,7 @@ function Shopslider() {
                       alt="Frozen Foods"
                     />
                     <div className="card-body">
-                      <h6 className="card-title">Frozen Foods</h6>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 6 */}
-                <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-                  <div className="card text-center mx-2 card-custom">
-                    <img
-                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1629264099034.jpeg"
-                      className="card-img-top"
-                      alt="Grocery"
-                    />
-                    <div className="card-body">
-                      <h6 className="card-title">Grocery</h6>
+                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Frozen Foods</span>
                     </div>
                   </div>
                 </div>
@@ -129,12 +115,12 @@ function Shopslider() {
                 <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
                   <div className="card text-center mx-2 card-custom">
                     <img
-                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1658218389245.jpeg"
+                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1629264099034.jpeg"
                       className="card-img-top"
-                      alt="Beverages"
+                      alt="Grocery"
                     />
                     <div className="card-body">
-                      <h6 className="card-title">Beverages</h6>
+                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Grocery</span>
                     </div>
                   </div>
                 </div>
@@ -148,12 +134,26 @@ function Shopslider() {
                       alt="Beverages"
                     />
                     <div className="card-body">
-                      <h6 className="card-title">Beverages</h6>
+                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Beverages</span>
                     </div>
                   </div>
                 </div>
 
-                  {/* Card 5 */}
+                {/* Card 9 */}
+                <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+                  <div className="card text-center mx-2 card-custom">
+                    <img
+                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1658218389245.jpeg"
+                      className="card-img-top"
+                      alt="Beverages"
+                    />
+                    <div className="card-body">
+                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Beverages</span>
+                    </div>
+                  </div>
+                </div>
+
+                  {/* Card 10 */}
                   <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
                   <div className="card text-center mx-2 card-custom">
                     <img
@@ -162,7 +162,7 @@ function Shopslider() {
                       alt="Frozen Foods"
                     />
                     <div className="card-body">
-                      <h6 className="card-title">Frozen Foods</h6>
+                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Frozen Foods</span>
                     </div>
                   </div>
                 </div>

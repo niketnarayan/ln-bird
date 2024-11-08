@@ -219,38 +219,65 @@ className={`me-3 ${isDropdownOpen ? 'text-danger' : ''}`}
 variant="light"
 onClick={toggleDropdown}
 >
-<Dropdown.Item href="#" style={{ fontSize: '18px', display:"flex", gap:"20px" }}>
-<i class="fa-solid fa-apple-whole" style={{marginTop:"5px"}}></i>
+  {/* --------------------------------------------------------- */}
+ 
+<Dropdown.Item href="#" style={{ fontSize: '18px', display:"flex", gap:"30px" }}>
+<Link to="/fruits" style={{textDecoration: 'none',color:"black" }}>
+<i class="fa-solid fa-apple-whole" style={{marginTop:"5px",color:"black"}}></i>
 Fruits & Vegitables
+</Link>
 </Dropdown.Item>
+
+{/* --------------------------------------------------------------------------- */}
 <Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<i class="fa-solid fa-drumstick-bite" style={{marginTop:"5px"}}></i>
+<Link to="/chicken" style={{textDecoration: 'none', color:"black" }}>
+<i class="fa-solid fa-drumstick-bite" style={{marginTop:"5px", color:"black"}}></i>
 Chicken & Meat
+</Link>
 </Dropdown.Item>
+{/* ------------------------------------------------------------------------------ */}
 <Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<i class="fa-solid fa-egg" style={{marginTop:"5px"}}></i>
+<Link to="/dairy" style={{textDecoration: 'none', color:"black" }}>
+<i class="fa-solid fa-egg" style={{marginTop:"5px", color:"black"}}></i>
 Breakfast & Diary
+</Link>
 </Dropdown.Item>
+{/* -------------------------------------------------------------------------------- */}
 <Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<i class="fa-solid fa-mug-hot" style={{marginTop:"5px"}}></i>
+<Link to="/beverage" style={{textDecoration: 'none',color:"black" }}>
+<i class="fa-solid fa-mug-hot" style={{marginTop:"5px",color:"black"}}></i>
 Beverage
+</Link>
 </Dropdown.Item>
+{/* --------------------------------------------------------------------------------- */}
 <Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<i class="fa-solid fa-bread-slice" style={{marginTop:"5px"}}></i>
+<Link to="/bread" style={{textDecoration: 'none',color:"black" }}>
+<i class="fa-solid fa-bread-slice" style={{marginTop:"5px",color:"black"}}></i>
 Bread & Bakery
+</Link>
 </Dropdown.Item>
+{/* ---------------------------------------------------------------------------------- */}
 <Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<i class="fa-solid fa-icicles" style={{marginTop:"5px"}}></i>
+<Link to="/frozen" style={{textDecoration: 'none',color:"black" }}>
+<i class="fa-solid fa-icicles" style={{marginTop:"5px",color:"black"}}></i>
 Frozen Foods
+</Link>
 </Dropdown.Item>
+{/* ----------------------------------------------------------------------------------- */}
 <Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<i class="fa-solid fa-cookie"style={{marginTop:"5px"}}></i>
+<Link to="/snacks" style={{textDecoration: 'none',color:"black" }}>
+<i class="fa-solid fa-cookie"style={{marginTop:"5px",color:"black"}}></i>
 Biscuits & Snacks
+</Link>
 </Dropdown.Item>
+{/* ------------------------------------------------------------------------------------ */}
 <Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<i class="fa-solid fa-wheat-awn"style={{marginTop:"5px"}}></i>
+<Link to="/grocery" style={{textDecoration: 'none',color:"black"}}>
+<i class="fa-solid fa-wheat-awn"style={{marginTop:"5px",color:"black"}}></i>
 Grocery & Staples
+</Link>
 </Dropdown.Item>
+{/* ------------------------------------------------------------------------------------ */}
 </DropdownButton>
 
 {/* Mailer Link */}
