@@ -293,10 +293,10 @@ function Banner() {
     {/* price range banner end---------------------------------------------------------------------------------- */}
     
     {/* --------------------------------------------------------------------------------------------------------- */}
-     <div className='container'>
+     <div className='container' style={{marginTop:"10px"}}>
       <div className='row'>
         <div className='col'>
-           <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1728642693623.jpeg' alt='...' className='img-fluid'></img>
+           <img src='https://media.starquik.com/bannerslider/s/t/starquik_fl_web_halfprice004_1400x400.jpg' alt='...' className='img-fluid'></img>
         </div>
         </div> 
         </div>

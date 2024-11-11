@@ -80,10 +80,10 @@ function Banner2() {
     {/* why choose start----------------------------------------------------------------------------------- */}
 
 
-    <div className="" style={{ backgroundColor: "#fff4e5" }}>
+    <div className="" style={{ backgroundColor: "#fff8f0" }}>
   <div className="text-center">
     <h2>
-      Why Choose <span className="text-warning">StarQuik</span>
+      Why Choose <span className="text-warning">LNBird</span>
     </h2>
     <hr
       className="mx-auto"
