@@ -14,185 +14,162 @@ function Shopslider() {
         </div>
       </div>
       {/* slider------------------------------------------------------------------------------------------------- */}
-      <div className="container mt-5">
-        <div id="categoryCarousel" className="carousel slide" data-bs-ride="carousel">
-          <div className="carousel-inner">
-            {/* First Slide */}
-            <div className="carousel-item active">
-              <div className="row justify-content-center">
-                {/* Card 1 */}
-                <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-                  <div className="card text-center mx-2 card-custom">
-                    <img
-                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1629264791686.jpeg"
-                      className="card-img-top"
-                      alt="Snacks & Namkeen"
-                    />
-                    <div className="card-body">
-                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}> Namkeen</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 2 */}
-                <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-                  <div className="card text-center mx-2 card-custom">
-                    <img
-                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1658218389245.jpeg"
-                      className="card-img-top"
-                      alt="Tea, Coffee & Cold Drinks"
-                    />
-                    <div className="card-body">
-                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Tea & Coffee </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 3 */}
-                <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-                  <div className="card text-center mx-2 card-custom">
-                    <img
-                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1658219469374.jpeg"
-                      className="card-img-top"
-                      alt="Meat, Fish & Egg"
-                    />
-                    <div className="card-body">
-                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Meat, Fish & Egg</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 4 */}
-                <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-                  <div className="card text-center mx-2 card-custom">
-                    <img
-                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1694589516028.jpeg"
-                      className="card-img-top"
-                      alt="Bakery & Cakes"
-                    />
-                    <div className="card-body">
-                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Bakery & Cakes</span>
-                    </div>
-                  </div>
-                </div>
-
-                
-                {/* Card 5 */}
-                <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-                  <div className="card text-center mx-2 card-custom">
-                    <img
-                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1694589516028.jpeg"
-                      className="card-img-top"
-                      alt="Bakery & Cakes"
-                    />
-                    <div className="card-body">
-                      <span className="card-title" style={{fontSize:"13px", fontWeight:"bold"}}>Bakery & Cakes</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            {/* Second Slide */}
-            <div className="carousel-item">
-              <div className="row justify-content-center">
-                {/* Card 6 */}
-                <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-                  <div className="card text-center mx-2 card-custom">
-                    <img
-                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1629264099034.jpeg"
-                      className="card-img-top"
-                      alt="Frozen Foods"
-                    />
-                    <div className="card-body">
-                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Frozen Foods</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 7 */}
-                <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-                  <div className="card text-center mx-2 card-custom">
-                    <img
-                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1629264099034.jpeg"
-                      className="card-img-top"
-                      alt="Grocery"
-                    />
-                    <div className="card-body">
-                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Grocery</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 8 */}
-                <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-                  <div className="card text-center mx-2 card-custom">
-                    <img
-                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1658218389245.jpeg"
-                      className="card-img-top"
-                      alt="Beverages"
-                    />
-                    <div className="card-body">
-                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Beverages</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 9 */}
-                <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-                  <div className="card text-center mx-2 card-custom">
-                    <img
-                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1658218389245.jpeg"
-                      className="card-img-top"
-                      alt="Beverages"
-                    />
-                    <div className="card-body">
-                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Beverages</span>
-                    </div>
-                  </div>
-                </div>
-
-                  {/* Card 10 */}
-                  <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-                  <div className="card text-center mx-2 card-custom">
-                    <img
-                      src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1629264099034.jpeg"
-                      className="card-img-top"
-                      alt="Frozen Foods"
-                    />
-                    <div className="card-body">
-                      <span className="card-title" style={{fontSize:"13px",fontWeight:"bold"}}>Frozen Foods</span>
-                    </div>
-                  </div>
-                </div>
-
-                
-              </div>
-            </div>
+      <div className='container mt-4'>
+      <div className='row d-flex flex-wrap gap-3 justify-content-center'>
+        {/* First Category */}
+        <div className="card shadow-sm border-1 rounded" style={{ width: "8rem", height: "10rem", overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+          <img 
+            className="card-img-top" 
+            src="https://media.starquik.com/mobile_images/category/new/451.jpg" 
+            alt="Foodgrain, Oil & Masala" 
+            style={{ height: "6rem", objectFit: "cover", borderTopLeftRadius: "0.5rem", borderTopRightRadius: "0.5rem" }} 
+          />
+          <div className="card-body d-flex flex-column justify-content-center align-items-center p-2">
+            <h5 className="card-title text-center" style={{ fontSize: "0.8rem", fontWeight: "bold", color: "#343a40" }}>
+              Foodgrain, Oil & Masala
+            </h5>
           </div>
-
-          {/* Carousel Controls */}
-          <button
-            className="carousel-control-prev custom-prev"
-            type="button"
-            data-bs-target="#categoryCarousel"
-            data-bs-slide="prev"
-          >
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button
-            className="carousel-control-next custom-next"
-            type="button"
-            data-bs-target="#categoryCarousel"
-            data-bs-slide="next"
-          >
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
-          </button>
         </div>
-      </div>
+
+        {/* Second Category */}
+        <div className="card shadow-sm border-1 rounded" style={{ width: "8rem", height: "10rem", overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+          <img 
+            className="card-img-top" 
+            src="https://media.starquik.com/mobile_images/category/new/513.jpg" 
+            alt="Fruits & Vegetables" 
+            style={{ height: "6rem", objectFit: "cover", borderTopLeftRadius: "0.5rem", borderTopRightRadius: "0.5rem" }} 
+          />
+          <div className="card-body d-flex flex-column justify-content-center align-items-center p-2">
+            <h5 className="card-title text-center" style={{ fontSize: "0.8rem", fontWeight: "bold", color: "#343a40" }}>
+              Fruits & Vegetables
+            </h5>
+          </div>
+        </div>
+
+        {/* Third Category */}
+        <div className="card shadow-sm border-1 rounded" style={{ width: "8rem", height: "10rem", overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+          <img 
+            className="card-img-top" 
+            src="https://media.starquik.com/mobile_images/category/new/854.jpg" 
+            alt="Dairy & Bakery" 
+            style={{ height: "6rem", objectFit: "cover", borderTopLeftRadius: "0.5rem", borderTopRightRadius: "0.5rem" }} 
+          />
+          <div className="card-body d-flex flex-column justify-content-center align-items-center p-2">
+            <h5 className="card-title text-center" style={{ fontSize: "0.8rem", fontWeight: "bold", color: "#343a40" }}>
+              Dairy & Bakery
+            </h5>
+          </div>
+        </div>
+
+        {/* Fourth Category */}
+        <div className="card shadow-sm border-1 rounded" style={{ width: "8rem", height: "10rem", overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+          <img 
+            className="card-img-top" 
+            src="https://media.starquik.com/mobile_images/category/new/539.jpg" 
+            alt="Home Care" 
+            style={{ height: "6rem", objectFit: "cover", borderTopLeftRadius: "0.5rem", borderTopRightRadius: "0.5rem" }} 
+          />
+          <div className="card-body d-flex flex-column justify-content-center align-items-center p-2">
+            <h5 className="card-title text-center" style={{ fontSize: "0.8rem", fontWeight: "bold", color: "#343a40" }}>
+              Home Care
+            </h5>
+          </div>
+        </div>
+
+        {/* Fifth Category */}
+        <div className="card shadow-sm border-1 rounded" style={{ width: "8rem", height: "10rem", overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+          <img 
+            className="card-img-top" 
+            src="https://media.starquik.com/mobile_images/category/new/368.jpg" 
+            alt="Branded Food" 
+            style={{ height: "6rem", objectFit: "cover", borderTopLeftRadius: "0.5rem", borderTopRightRadius: "0.5rem" }} 
+          />
+          <div className="card-body d-flex flex-column justify-content-center align-items-center p-2">
+            <h5 className="card-title text-center" style={{ fontSize: "0.8rem", fontWeight: "bold", color: "#343a40" }}>
+              Branded Food
+            </h5>
+          </div>
+        </div>
+
+        {/* Sixth Category */}
+        <div className="card shadow-sm border-1 rounded" style={{ width: "8rem", height: "10rem", overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+          <img 
+            className="card-img-top" 
+            src="https://3.imimg.com/data3/PW/JU/MY-10721674/dry-fruits-nuts.jpg" 
+            alt="Non Veg" 
+            style={{ height: "6rem", objectFit: "cover", borderTopLeftRadius: "0.5rem", borderTopRightRadius: "0.5rem" }} 
+          />
+          <div className="card-body d-flex flex-column justify-content-center align-items-center p-2">
+            <h5 className="card-title text-center" style={{ fontSize: "0.8rem", fontWeight: "bold", color: "#343a40" }}>
+            Dry Fruits & Nuts
+            </h5>
+          </div>
+        </div>
+
+        {/* Seventh Category */}
+        <div className="card shadow-sm border-1 rounded" style={{ width: "8rem", height: "10rem", overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+          <img 
+            className="card-img-top" 
+            src="https://media.starquik.com/mobile_images/category/new/344.jpg" 
+            alt="Beverages" 
+            style={{ height: "6rem", objectFit: "cover", borderTopLeftRadius: "0.5rem", borderTopRightRadius: "0.5rem" }} 
+          />
+          <div className="card-body d-flex flex-column justify-content-center align-items-center p-2">
+            <h5 className="card-title text-center" style={{ fontSize: "0.8rem", fontWeight: "bold", color: "#343a40" }}>
+              Beverages
+            </h5>
+          </div>
+        </div>
+
+        {/* Eighth Category */}
+        <div className="card shadow-sm border-1 rounded" style={{ width: "8rem", height: "10rem", overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+          <img 
+            className="card-img-top" 
+            src="https://media.starquik.com/mobile_images/category/new/845.jpg" 
+            alt="Frozen" 
+            style={{ height: "6rem", objectFit: "cover", borderTopLeftRadius: "0.5rem", borderTopRightRadius: "0.5rem" }} 
+          />
+          <div className="card-body d-flex flex-column justify-content-center align-items-center p-2">
+            <h5 className="card-title text-center" style={{ fontSize: "0.8rem", fontWeight: "bold", color: "#343a40" }}>
+              Frozen
+            </h5>
+          </div>
+          </div>
+        </div>
+
+        {/* Ninth Category */}
+        <div className='row d-flex flex-wrap gap-3' style={{marginTop:"10px"}}>
+        <div className="card shadow-sm border-1 rounded" style={{ width: "8rem", height: "10rem", overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+          <img 
+            className="card-img-top" 
+            src="https://media.starquik.com/mobile_images/category/new/600.jpg" 
+            alt="Personal Care" 
+            style={{ height: "6rem", objectFit: "cover", borderTopLeftRadius: "0.5rem", borderTopRightRadius: "0.5rem" }} 
+          />
+          <div className="card-body d-flex flex-column justify-content-center align-items-center p-2">
+            <h5 className="card-title text-center" style={{ fontSize: "0.8rem", fontWeight: "bold", color: "#343a40" }}>
+              Personal Care
+            </h5>
+          </div>
+        </div>
+
+        {/* Tenth Category */}
+        <div className="card shadow-sm border-1 rounded" style={{ width: "8rem", height: "10rem", overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+          <img 
+            className="card-img-top" 
+            src="https://media.starquik.com/mobile_images/category/new/717.jpg" 
+            alt="Home & Kitchen" 
+            style={{ height: "6rem", objectFit: "cover", borderTopLeftRadius: "0.5rem", borderTopRightRadius: "0.5rem" }} 
+          />
+          <div className="card-body d-flex flex-column justify-content-center align-items-center p-2">
+            <h5 className="card-title text-center" style={{ fontSize: "0.8rem", fontWeight: "bold", color: "#343a40" }}>
+              Home & Kitchen
+            </h5>
+          </div>
+        </div>
+        </div>
+    </div>
+
       {/* slider-end---------------------------------------------------------------------------------------------- */}
     </>
   );

@@ -120,7 +120,7 @@ function Slider() {
 
       {/* content start----------------------------------------------------------------------------------------- */}
 
-         <div className='container' style={{marginTop:"30px"}}>
+         {/* <div className='container' style={{marginTop:"30px"}}>
             <div className='row'>
                 <div className='col-md-12'>
                     <span style={{fontSize:"40px",fontWeight:"bold", marginLeft:"35px"}}>LNBird Wholesale - B2B Online Shopping Marketplace</span>
@@ -129,13 +129,13 @@ function Slider() {
 
             </div>
 
-         </div>
+         </div> */}
 
       {/* content end-------------------------------------------------------------------------------------------- */}
 
       {/* banner start------------------------------------------------------------------------------------------- */}
 
-      <div className='container lots-container'>
+      {/* <div className='container lots-container'>
   <div className='membership-section'>
     <div className='membership-image'>
       <img src='https://www.lotswholesale.com/vendor/image/Icons/card-02.png' alt='LOTS Membership Card' />
@@ -193,7 +193,7 @@ function Slider() {
       </div>
     </div>
   </div>
-</div>
+</div> */}
 
 
       

@@ -1,62 +1,21 @@
 import React from 'react'
 import './Banner.css';
+import { Carousel, Card, Button } from 'react-bootstrap';
 
 function Banner() {
   return (
     <>
-    <div className='container'>
+    <div className='container' style={{marginTop:"8rem"}}>
         <div className='row'>
             <div className='col'>
-                <div>
+                {/* <div>
                 <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1727951285140.jpeg' alt='banner'className='img-fluid'></img>
-                </div>
-                <div>
+                </div> */}
+                {/* <div>
                     <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1727951461854.jpeg' alt='banner'className='img-fluid'></img>
-                </div>
+                </div> */}
 {/* slider banner---------------------------------------------------------------- */}
-   <div id="carouselExample" className="carousel slide" style={{padding:"2rem"}}>
-  <div className="carousel-inner">
-    <div className="carousel-item active">
-      <img
-        src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1728017692251.jpeg"
-        className="d-block w-100 img-fluid"
-        alt="..."
-      />
-    </div>
-    <div className="carousel-item">
-      <img
-        src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1728017692721.jpeg"
-        className="d-block w-100 img-fluid"
-        alt="..."
-      />
-    </div>
-    <div className="carousel-item">
-      <img
-        src="https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1728017692251.jpeg" 
-        className="d-block w-100 img-fluid"
-        alt="..."
-      />
-    </div>
-  </div>
-  <button
-    className="carousel-control-prev"
-    type="button"
-    data-bs-target="#carouselExample"
-    data-bs-slide="prev"
-  >
-    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button
-    className="carousel-control-next"
-    type="button"
-    data-bs-target="#carouselExample"
-    data-bs-slide="next"
-  >
-    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Next</span>
-  </button>
-</div>
+
 {/* slider banner end-------------------------------------------------------------- */}
             </div>
         </div>
@@ -92,47 +51,244 @@ function Banner() {
     {/* offer section image end--------------------------------------------------------------------------------- */}
     
     {/* price range banner start---------------------------------------------------------------------------- */}
-      <div className='container'>
-        <div className='row'>
-          <div className='col'>
-              <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1727952057824.jpeg' alt='...'className='img-fluid'></img>
-          </div>
-        </div>
-      </div>
+   
       {/* -------------------------------------------------------------------------------------------------------- */}
 
-      <div className='container' style={{padding:"2rem"}}>
-        <div className='row'>
-          <div className='col-md-3'>
-            <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1728019226968.jpeg' alt='...'className='img-fluid'></img>
-          </div>
-          <div className='col-md-3'>
-             <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1728019227343.jpeg' alt='...'className='img-fluid'></img>
-          </div>
-          <div className='col-md-3'>
-             <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1728019227668.jpeg' alt='...'className='img-fluid'></img>
-          </div>
-          <div className='col-md-3'>
-             <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1728019228063.jpeg' alt='...'className='img-fluid'></img>
-          </div>
-        </div>
+      <div className="container ">
+            <h2 className="text-center mb-4">Add fresh to cart</h2>
+            <Carousel className='second-carousel' indicators={false}>
+                {/* Slide 1 */}
+                <Carousel.Item>
+                    <div className="d-flex flex-wrap">
+                        {/* Product Card 1 */}
+                        <Card className="product-card mx-2 my-2">
+                            <Card.Img variant="top" src="http://surl.li/bsvguq" alt="Apple" />
+                            <Card.Body className="text-center">
+                                <Card.Title className="card-title"> Apple </Card.Title>
+                                <Card.Text>1 PCS</Card.Text>
+                                <p className="price">₹189</p>
+                                <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
+                    <button className="btn">
+                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
+                    </button>
+                    <div>
+                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
+                    </div>
+                  </div>
+                            </Card.Body>
+                        </Card>
+                        
+                        {/* Product Card 2 */}
+                        <Card className="product-card mx-2 my-2">
+                            <Card.Img variant="top" src="http://surl.li/oalbxp" alt="Blueberry" />
+                            <Card.Body className="text-center">
+                                <Card.Title className="card-title">Blueberry</Card.Title>
+                                <Card.Text>1 PCS</Card.Text>
+                                <p className="price">₹239</p>
+                                <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
+                    <button className="btn">
+                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
+                    </button>
+                    <div>
+                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
+                    </div>
+                  </div>
+                            </Card.Body>
+                        </Card>
 
-        <div className='row'>
-          <div className='col-md-3'>
-             <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1728019228441.jpeg' alt='...'className='img-fluid'></img>
-          </div>
-          <div className='col-md-3'>
-             <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1728019228754.jpeg' alt='...'className='img-fluid'></img>
-          </div>
-          <div className='col-md-3'>
-             <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1728019229144.jpeg' alt='...'className='img-fluid'></img>
-          </div>
-          <div className='col-md-3'>
-             <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/cms_1728019229450.jpeg' alt='...'className='img-fluid'></img>
-          </div>
-        </div>
-      </div>
+                        {/* Product Card 3 */}
+                        <Card className="product-card mx-2 my-2">
+                            <Card.Img variant="top" src="http://surl.li/hbjlek" alt="Kiwi" />
+                            <Card.Body className="text-center">
+                                <Card.Title className="card-title">Kiwi</Card.Title>
+                                <Card.Text>1 PCS</Card.Text>
+                                <p className="price">₹109</p>
+                                <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
+                    <button className="btn">
+                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
+                    </button>
+                    <div>
+                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
+                    </div>
+                  </div>
+                            </Card.Body>
+                        </Card>
 
+                        {/* Product Card 4 */}
+                        <Card className="product-card mx-2 my-2">
+                            <Card.Img variant="top" src="http://surl.li/gxppev" alt="Papaya" />
+                            <Card.Body className="text-center">
+                                <Card.Title className="card-title">Papaya Raw</Card.Title>
+                                <Card.Text>500 GM</Card.Text>
+                                <p className="price">₹26</p>
+                                <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
+                    <button className="btn">
+                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
+                    </button>
+                    <div>
+                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
+                    </div>
+                  </div>
+                            </Card.Body>
+                        </Card>
+                        
+                        {/* Product Card 5 */}
+                        <Card className="product-card mx-2 my-2">
+                            <Card.Img variant="top" src="http://surl.li/wtjdax" alt="Aloe Vera" />
+                            <Card.Body className="text-center">
+                                <Card.Title className="card-title">Aloevera</Card.Title>
+                                <Card.Text>1 PCS</Card.Text>
+                                <p className="price">₹38</p>
+                                <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
+                    <button className="btn">
+                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
+                    </button>
+                    <div>
+                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
+                    </div>
+                  </div>
+                            </Card.Body>
+                        </Card>
+
+                        {/* Product Card 6 */}
+                        <Card className="product-card mx-2 my-2">
+                            <Card.Img variant="top" src="http://surl.li/wzdvac" alt="Beans Bush" />
+                            <Card.Body className="text-center">
+                                <Card.Title className="card-title">Beans Bush</Card.Title>
+                                <Card.Text>250 GM</Card.Text>
+                                <p className="price">₹16.5</p>
+                                <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
+                    <button className="btn">
+                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
+                    </button>
+                    <div>
+                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
+                    </div>
+                  </div>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                </Carousel.Item>
+
+
+                <Carousel.Item>
+                    <div className="d-flex flex-wrap ">
+                        {/* Product Card 7 */}
+                        <Card className="product-card mx-2 my-2">
+                            <Card.Img variant="top" src="http://surl.li/jnyxmc" alt="Apple" />
+                            <Card.Body className="text-center">
+                                <Card.Title className="card-title">Persimon</Card.Title>
+                                <Card.Text>1 PCS</Card.Text>
+                                <p className="price">₹189</p>
+                                <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
+                    <button className="btn">
+                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
+                    </button>
+                    <div>
+                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
+                    </div>
+                  </div>
+                            </Card.Body>
+                        </Card>
+                        
+                        {/* Product Card 8 */}
+                        <Card className="product-card mx-2 my-2">
+                            <Card.Img variant="top" src="http://surl.li/katknn" alt="Blueberry" />
+                            <Card.Body className="text-center">
+                                <Card.Title className="card-title">Orange mini</Card.Title>
+                                <Card.Text>1 PCS</Card.Text>
+                                <p className="price">₹239</p>
+                                <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
+                    <button className="btn">
+                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
+                    </button>
+                    <div>
+                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
+                    </div>
+                  </div>
+                            </Card.Body>
+                        </Card>
+
+                        {/* Product Card 9 */}
+                        <Card className="product-card mx-2 my-2">
+                            <Card.Img variant="top" src="http://surl.li/cteorv" alt="Kiwi" />
+                            <Card.Body className="text-center">
+                                <Card.Title className="card-title">Drigon fruits</Card.Title>
+                                <Card.Text>1 PCS</Card.Text>
+                                <p className="price">₹109</p>
+                                <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
+                    <button className="btn">
+                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
+                    </button>
+                    <div>
+                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
+                    </div>
+                  </div>
+                            </Card.Body>
+                        </Card>
+
+                        {/* Product Card 10 */}
+                        <Card className="product-card mx-2 my-2">
+                            <Card.Img variant="top" src="http://surl.li/utebez" alt="Papaya" />
+                            <Card.Body className="text-center">
+                                <Card.Title className="card-title">Pear</Card.Title>
+                                <Card.Text>500 GM</Card.Text>
+                                <p className="price">₹26</p>
+                                <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
+                    <button className="btn">
+                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
+                    </button>
+                    <div>
+                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
+                    </div>
+                  </div>
+                            </Card.Body>
+                        </Card>
+                        
+                        {/* Product Card 11 */}
+                        <Card className="product-card mx-2 my-2">
+                            <Card.Img variant="top" src="http://surl.li/ysfcyp" alt="Aloe Vera" />
+                            <Card.Body className="text-center">
+                                <Card.Title className="card-title">Avocado</Card.Title>
+                                <Card.Text>1 PCS</Card.Text>
+                                <p className="price">₹38</p>
+                                <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
+                    <button className="btn">
+                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
+                    </button>
+                    <div>
+                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
+                    </div>
+                  </div>
+                            </Card.Body>
+                        </Card>
+
+                        {/* Product Card 12 */}
+                        <Card className="product-card mx-2 my-2">
+                            <Card.Img variant="top" src="http://surl.li/redpda" alt="Beans Bush" />
+                            <Card.Body className="text-center">
+                                <Card.Title className="card-title">Sitaphal</Card.Title>
+                                <Card.Text>250 GM</Card.Text>
+                                <p className="price">₹16.5</p>
+                                <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
+                    <button className="btn">
+                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
+                    </button>
+                    <div>
+                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
+                    </div>
+                  </div>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                </Carousel.Item>
+
+
+
+                {/* Add more slides here if needed */}
+            </Carousel>
+        </div>
+      
 
     {/* price range banner end---------------------------------------------------------------------------------- */}
     
