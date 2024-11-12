@@ -136,38 +136,6 @@ function Shopslider() {
           </div>
           </div>
         </div>
-
-        {/* Ninth Category */}
-        {/* <div className='row d-flex flex-wrap gap-3' style={{marginTop:"10px"}}>
-        <div className="card shadow-sm border-1 rounded" style={{ width: "8rem", height: "10rem", overflow: "hidden", backgroundColor: "#f8f9fa" }}>
-          <img 
-            className="card-img-top" 
-            src="https://media.starquik.com/mobile_images/category/new/600.jpg" 
-            alt="Personal Care" 
-            style={{ height: "6rem", objectFit: "cover", borderTopLeftRadius: "0.5rem", borderTopRightRadius: "0.5rem" }} 
-          />
-          <div className="card-body d-flex flex-column justify-content-center align-items-center p-2">
-            <h5 className="card-title text-center" style={{ fontSize: "0.8rem", fontWeight: "bold", color: "#343a40" }}>
-              Personal Care
-            </h5>
-          </div>
-        </div> */}
-
-        {/* Tenth Category */}
-        {/* <div className="card shadow-sm border-1 rounded" style={{ width: "8rem", height: "10rem", overflow: "hidden", backgroundColor: "#f8f9fa" }}>
-          <img 
-            className="card-img-top" 
-            src="https://media.starquik.com/mobile_images/category/new/717.jpg" 
-            alt="Home & Kitchen" 
-            style={{ height: "6rem", objectFit: "cover", borderTopLeftRadius: "0.5rem", borderTopRightRadius: "0.5rem" }} 
-          />
-          <div className="card-body d-flex flex-column justify-content-center align-items-center p-2">
-            <h5 className="card-title text-center" style={{ fontSize: "0.8rem", fontWeight: "bold", color: "#343a40" }}>
-              Home & Kitchen
-            </h5>
-          </div>
-        </div>
-        </div> */}
     </div>
 
       {/* slider-end---------------------------------------------------------------------------------------------- */}

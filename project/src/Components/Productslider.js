@@ -7,6 +7,7 @@ function Productslider() {
   const [quantity, setQuantity] = useState(1);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+
   // Sample Product Data Array
   const products = [
     { title: "KELLOGGS CHOCOS 385 G", price: 88.99, originalPrice: 100.88, discount: "15.83% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/104456709_1.webp" },
@@ -19,10 +20,28 @@ function Productslider() {
     { title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp" },
   ];
 
+  const products1 = [
+    { title: "KELLOGGS CHOCOS 385 G", price: 88.99, originalPrice: 100.88, discount: "15.83% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/104456709_1.webp" },
+    { title: "NISSIN CUP NOODLES GEKI HOT & SPICY KOREAN VEG 70 G", price: 90.00, originalPrice: 110.00, discount: "10% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1705469291669.webp" },
+    { title: "BAMBINO PREMIUM ALL SEASONS FUSILLI PASTA 400 G", price: 78.00, originalPrice: 100.00, discount: "22% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1688109188935.webp" },
+    { title: "YIPPEE MAGIC MASALA NOODLES 60 G PK96", price: 95.00, originalPrice: 120.00, discount: "15% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1653452890738.webp" },
+    { title: "QUAKER OATS MEAL 1 KG", price: 85.00, originalPrice: 110.00, discount: "12% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103691567_1.webp" },
+    { title: "MAGGI VEG ATTA SPINACH NOODLES 284 G", price: 88.00, originalPrice: 100.00, discount: "15% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1689834504733.webp" },
+    { title: "DEL MONTE PENNE RIGATE PASTA 500 G", price: 92.00, originalPrice: 105.00, discount: "13% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1717478191935.jpeg" },
+    { title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp" },
+  ];
+
+
+
   // Group products into sets of four
   const productChunks = [];
   for (let i = 0; i < products.length; i += 4) {
     productChunks.push(products.slice(i, i + 4));
+  }
+
+  const productChunks1 = [];
+  for (let i = 0; i < products1.length; i += 4) {
+    productChunks1.push(products1.slice(i, i + 4));
   }
 
   // Function to navigate to the next set of products
@@ -32,32 +51,68 @@ function Productslider() {
     }
   };
 
+
+
   // Function to navigate to the previous set of products
   const prevProducts = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     }
   };
+ 
 
-  const increaseQuantity = () => {
-    setQuantity(prevQuantity => prevQuantity + 1);
-  };
 
-  const decreaseQuantity = () => {
-    setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
-  };
+  // const increaseQuantity = () => {
+  //   setQuantity(prevQuantity => prevQuantity + 1);
+  // };
+
+  // const decreaseQuantity = () => {
+  //   setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
+  // };
 
   return (
-    <div className="container position-relative">
+    <>
+    <div className="container position-relative" style={{marginTop:"20px"}}>
+    {/* Left Arrow */}
+   
     {/* Left Arrow */}
     <button
-      className="btn btn-outline-secondary position-absolute"
-      style={{ top: "50%", left: "-20px", transform: "translateY(-50%)" }}
+      className="btn btn-outline-secondary"
+      style={{
+        border: "none",
+        zIndex: 1,
+        height: "50px",
+        width: "50px",
+        position: "relative",
+      }}
       onClick={prevProducts}
       disabled={currentIndex === 0}
     >
       <i className="bi bi-chevron-left" style={{ fontSize: "24px" }}></i>
     </button>
+
+    {/* right arrow */}
+
+    <button
+    className="btn btn-outline-secondary"
+    style={{
+      border: "none",
+      height: "50px",
+      width: "50px",
+      float: "right",
+      border: "none",
+                                 
+    }}
+    onClick={nextProducts}
+    disabled={currentIndex === productChunks.length - 1}
+  >
+    <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
+  </button>
+
+
+
+
+
 
     {/* Products Grid */}
     <div className="row">
@@ -69,22 +124,6 @@ function Productslider() {
             <div className="card-body">
               <h5 className="card-title" style={{ fontSize: "15px",height:"30px" }}>{product.title}</h5>
               
-              {/* Price and Discount Section */}
-              <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-                <div className='price' style={{ fontWeight: "bold", fontSize: "18px" }}>
-                  ₹ {product.price}
-                </div>
-                <div style={{ fontSize: "13px", textDecoration: "line-through", color: "gray" }}>
-                  ₹ {product.originalPrice}
-                </div>
-                 
-
-                <div style={{ display:"flex", gap:"15px"}}>
-                <span style={{backgroundColor:"lightgray", fontSize:"12px"}}>3pc</span>
-              <div style={{ fontSize: "12px", color: "green",marginTop:"3px" }}>{product.discount}</div>
-              </div>
-
-              </div>
               
               {/* Slab Pricing Section */}
               <div style={{ display: "flex", gap: "5px", alignItems: "center", marginTop: "5px" }}>
@@ -106,21 +145,149 @@ function Productslider() {
               </div>
 
               {/* Quantity and Add to Cart Section */}
-              <div className="d-flex align-items-center gap-2" style={{ marginTop: "10px" }}>
-                <div className="input-group" style={{ width: '110px' }}>
-                  <button className="btn btn-outline-secondary" type="button" onClick={decreaseQuantity}>-</button>
-                  <input type="text" className="form-control" value={quantity} readOnly style={{ width: "38px" }} />
-                  <button className="btn btn-outline-secondary" type="button" onClick={increaseQuantity}>+</button>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
-                  <button className="btn">
-                    <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
-                  </button>
-                  <div>
-                    <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
-                  </div>
-                </div>
+              <div className="" style={{ marginTop: "10px" }}>
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "red",
+      height: "40px",
+      borderRadius: "5px",
+      width: "14rem",
+    }}
+  >
+    <button
+      className="btn"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        border: "none",
+        background: "transparent",
+      }}
+    >
+      <i
+        className="bi bi-cart-fill"
+        style={{
+          fontSize: "22px",
+          color: "white",
+          marginRight: "5px",
+        }}
+      ></i>
+      <span
+        style={{
+          fontSize: "12px",
+          fontWeight: "bold",
+          color: "white",
+        }}
+      >
+        Add to Cart
+      </span>
+    </button>
+  </div>
+</div>
+
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Right Arrow */}
+
+  </div>
+
+{/* second slider-------------------------------------------------------------------------------------- */}
+
+
+<div className="container position-relative" style={{marginTop:"20px"}}>
+    {/* Left Arrow */}
+    <button
+      className="btn btn-outline-secondary position-absolute"
+      style={{ top: "50%", left: "-20px", transform: "translateY(-50%)" }}
+      onClick={prevProducts}
+      disabled={currentIndex === 0}
+    >
+      <i className="bi bi-chevron-left" style={{ fontSize: "24px" }}></i>
+    </button>
+
+    {/* Products Grid */}
+    <div className="row">
+      {productChunks1[currentIndex].map((product1, idx) => (
+        <div className="col-md-3 mb-3" key={idx}>
+          <div className="card" style={{ width: "100%", height:"100%" }}>
+            <img src={product1.image} className="card-img-top " alt={product1.title} style={{ height: "150px", width:"260px", 
+  padding:"20px" }} />
+            <div className="card-body">
+              <h5 className="card-title" style={{ fontSize: "15px",height:"30px" }}>{product1.title}</h5>
+              
+              
+              {/* Slab Pricing Section */}
+              <div style={{ display: "flex", gap: "5px", alignItems: "center", marginTop: "5px" }}>
+                <img src='https://www.lotswholesale.com/vendor/image/slab_pricing_flag.png' alt='...' style={{ width: "25px" }} />
+                <span style={{ color: "red", fontWeight: "bold" }}>Slab Price</span>
+
+                <div style={{backgroundColor:"red", width:"6rem",height:"1px"}}></div>
               </div>
+              
+              
+              <div style={{ display: "flex", gap: "10px", marginTop: "5px" }}>
+                <div style={{ backgroundColor: "lightgray", fontSize: "13px", padding: "3px 5px" }}>
+                  1-2 pc
+                </div>
+                <div>
+                  ₹ {product1.price}
+                </div>
+                <span style={{ fontSize: "14px", color: "green", marginLeft: "30px" }}>100% OFF</span>
+              </div>
+
+              {/* Quantity and Add to Cart Section */}
+              <div className="" style={{ marginTop: "10px" }}>
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "red",
+      height: "40px",
+      borderRadius: "5px",
+      width: "14rem",
+    }}
+  >
+    <button
+      className="btn"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        border: "none",
+        background: "transparent",
+      }}
+    >
+      <i
+        className="bi bi-cart-fill"
+        style={{
+          fontSize: "22px",
+          color: "white",
+          marginRight: "5px",
+        }}
+      ></i>
+      <span
+        style={{
+          fontSize: "12px",
+          fontWeight: "bold",
+          color: "white",
+        }}
+      >
+        Add to Cart
+      </span>
+    </button>
+  </div>
+</div>
+
             </div>
           </div>
         </div>
@@ -137,6 +304,10 @@ function Productslider() {
       <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
     </button>
   </div>
+
+
+{/* second slider end-------------------------------------------------------------------------------------- */}
+</>
   );
 }
 

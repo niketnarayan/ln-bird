@@ -163,23 +163,6 @@ function Banner() {
               <div className="card-body">
                 <h5 className="card-title" style={{ fontSize: "15px",height:"30px" }}>{product.title}</h5>
                 
-                {/* Price and Discount Section */}
-                <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-                  <div className='price' style={{ fontWeight: "bold", fontSize: "18px" }}>
-                    ₹ {product.price}
-                  </div>
-                  <div style={{ fontSize: "13px", textDecoration: "line-through", color: "gray" }}>
-                    ₹ {product.originalPrice}
-                  </div>
-                   
-
-                  <div style={{ display:"flex", gap:"15px"}}>
-                  <span style={{backgroundColor:"lightgray", fontSize:"12px"}}>3pc</span>
-                <div style={{ fontSize: "12px", color: "green",marginTop:"3px" }}>{product.discount}</div>
-                </div>
-
-                </div>
-                
                 {/* Slab Pricing Section */}
                 <div style={{ display: "flex", gap: "5px", alignItems: "center", marginTop: "5px" }}>
                   <img src='https://www.lotswholesale.com/vendor/image/slab_pricing_flag.png' alt='...' style={{ width: "25px" }} />
@@ -200,21 +183,50 @@ function Banner() {
                 </div>
 
                 {/* Quantity and Add to Cart Section */}
-                <div className="d-flex align-items-center gap-2" style={{ marginTop: "10px" }}>
-                  <div className="input-group" style={{ width: '110px' }}>
-                    <button className="btn btn-outline-secondary" type="button" onClick={decreaseQuantity}>-</button>
-                    <input type="text" className="form-control" value={quantity} readOnly style={{ width: "38px" }} />
-                    <button className="btn btn-outline-secondary" type="button" onClick={increaseQuantity}>+</button>
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
-                    <button className="btn">
-                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
-                    </button>
-                    <div>
-                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
-                    </div>
-                  </div>
-                </div>
+                <div className="" style={{ marginTop: "10px" }}>
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "red",
+      height: "40px",
+      borderRadius: "5px",
+      width: "14rem",
+    }}
+  >
+    <button
+      className="btn"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        border: "none",
+        background: "transparent",
+      }}
+    >
+      <i
+        className="bi bi-cart-fill"
+        style={{
+          fontSize: "22px",
+          color: "white",
+          marginRight: "5px",
+        }}
+      ></i>
+      <span
+        style={{
+          fontSize: "12px",
+          fontWeight: "bold",
+          color: "white",
+        }}
+      >
+        Add to Cart
+      </span>
+    </button>
+  </div>
+</div>
+
               </div>
             </div>
           </div>
@@ -268,23 +280,7 @@ function Banner() {
               <div className="card-body">
                 <h5 className="card-title" style={{ fontSize: "15px",height:"30px" }}>{product1.title}</h5>
                 
-                {/* Price and Discount Section */}
-                <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-                  <div className='price' style={{ fontWeight: "bold", fontSize: "18px" }}>
-                    ₹ {product1.price}
-                  </div>
-                  <div style={{ fontSize: "13px", textDecoration: "line-through", color: "gray" }}>
-                    ₹ {product1.originalPrice}
-                  </div>
-                   
-
-                  <div style={{ display:"flex", gap:"15px"}}>
-                  <span style={{backgroundColor:"lightgray", fontSize:"12px"}}>3pc</span>
-                <div style={{ fontSize: "12px", color: "green",marginTop:"3px" }}>{product1.discount}</div>
-                </div>
-
-                </div>
-                
+             
                 {/* Slab Pricing Section */}
                 <div style={{ display: "flex", gap: "5px", alignItems: "center", marginTop: "5px" }}>
                   <img src='https://www.lotswholesale.com/vendor/image/slab_pricing_flag.png' alt='...' style={{ width: "25px" }} />
@@ -305,21 +301,50 @@ function Banner() {
                 </div>
 
                 {/* Quantity and Add to Cart Section */}
-                <div className="d-flex align-items-center gap-2" style={{ marginTop: "10px" }}>
-                  <div className="input-group" style={{ width: '110px' }}>
-                    <button className="btn btn-outline-secondary" type="button" onClick={decreaseQuantity}>-</button>
-                    <input type="text" className="form-control" value={quantity} readOnly style={{ width: "38px" }} />
-                    <button className="btn btn-outline-secondary" type="button" onClick={increaseQuantity}>+</button>
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
-                    <button className="btn">
-                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
-                    </button>
-                    <div>
-                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
-                    </div>
-                  </div>
-                </div>
+                <div className="" style={{ marginTop: "10px" }}>
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "red",
+      height: "40px",
+      borderRadius: "5px",
+      width: "14rem",
+    }}
+  >
+    <button
+      className="btn"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        border: "none",
+        background: "transparent",
+      }}
+    >
+      <i
+        className="bi bi-cart-fill"
+        style={{
+          fontSize: "22px",
+          color: "white",
+          marginRight: "5px",
+        }}
+      ></i>
+      <span
+        style={{
+          fontSize: "12px",
+          fontWeight: "bold",
+          color: "white",
+        }}
+      >
+        Add to Cart
+      </span>
+    </button>
+  </div>
+</div>
+
               </div>
             </div>
           </div>
@@ -370,22 +395,6 @@ function Banner() {
               <div className="card-body">
                 <h5 className="card-title" style={{ fontSize: "15px",height:"30px" }}>{product2.title}</h5>
                 
-                {/* Price and Discount Section */}
-                <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-                  <div className='price' style={{ fontWeight: "bold", fontSize: "18px" }}>
-                    ₹ {product2.price}
-                  </div>
-                  <div style={{ fontSize: "13px", textDecoration: "line-through", color: "gray" }}>
-                    ₹ {product2.originalPrice}
-                  </div>
-                   
-
-                  <div style={{ display:"flex", gap:"15px"}}>
-                  <span style={{backgroundColor:"lightgray", fontSize:"12px"}}>3pc</span>
-                <div style={{ fontSize: "12px", color: "green",marginTop:"3px" }}>{product2.discount}</div>
-                </div>
-
-                </div>
                 
                 {/* Slab Pricing Section */}
                 <div style={{ display: "flex", gap: "5px", alignItems: "center", marginTop: "5px" }}>
@@ -407,21 +416,50 @@ function Banner() {
                 </div>
 
                 {/* Quantity and Add to Cart Section */}
-                <div className="d-flex align-items-center gap-2" style={{ marginTop: "10px" }}>
-                  <div className="input-group" style={{ width: '110px' }}>
-                    <button className="btn btn-outline-secondary" type="button" onClick={decreaseQuantity}>-</button>
-                    <input type="text" className="form-control" value={quantity} readOnly style={{ width: "38px" }} />
-                    <button className="btn btn-outline-secondary" type="button" onClick={increaseQuantity}>+</button>
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
-                    <button className="btn">
-                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
-                    </button>
-                    <div>
-                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
-                    </div>
-                  </div>
-                </div>
+                <div className="" style={{ marginTop: "10px" }}>
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "red",
+      height: "40px",
+      borderRadius: "5px",
+      width: "14rem",
+    }}
+  >
+    <button
+      className="btn"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        border: "none",
+        background: "transparent",
+      }}
+    >
+      <i
+        className="bi bi-cart-fill"
+        style={{
+          fontSize: "22px",
+          color: "white",
+          marginRight: "5px",
+        }}
+      ></i>
+      <span
+        style={{
+          fontSize: "12px",
+          fontWeight: "bold",
+          color: "white",
+        }}
+      >
+        Add to Cart
+      </span>
+    </button>
+  </div>
+</div>
+
               </div>
             </div>
           </div>
@@ -478,22 +516,6 @@ function Banner() {
               <div className="card-body">
                 <h5 className="card-title" style={{ fontSize: "15px",height:"30px" }}>{product3.title}</h5>
                 
-                {/* Price and Discount Section */}
-                <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-                  <div className='price' style={{ fontWeight: "bold", fontSize: "18px" }}>
-                    ₹ {product3.price}
-                  </div>
-                  <div style={{ fontSize: "13px", textDecoration: "line-through", color: "gray" }}>
-                    ₹ {product3.originalPrice}
-                  </div>
-                   
-
-                  <div style={{ display:"flex", gap:"15px"}}>
-                  <span style={{backgroundColor:"lightgray", fontSize:"12px"}}>3pc</span>
-                <div style={{ fontSize: "12px", color: "green",marginTop:"3px" }}>{product3.discount}</div>
-                </div>
-
-                </div>
                 
                 {/* Slab Pricing Section */}
                 <div style={{ display: "flex", gap: "5px", alignItems: "center", marginTop: "5px" }}>
@@ -515,21 +537,50 @@ function Banner() {
                 </div>
 
                 {/* Quantity and Add to Cart Section */}
-                <div className="d-flex align-items-center gap-2" style={{ marginTop: "10px" }}>
-                  <div className="input-group" style={{ width: '110px' }}>
-                    <button className="btn btn-outline-secondary" type="button" onClick={decreaseQuantity}>-</button>
-                    <input type="text" className="form-control" value={quantity} readOnly style={{ width: "38px" }} />
-                    <button className="btn btn-outline-secondary" type="button" onClick={increaseQuantity}>+</button>
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center", backgroundColor: "red", height: "40px", borderRadius: "5px",width:"7rem"}}>
-                    <button className="btn">
-                      <i className="bi bi-cart-fill" style={{ fontSize: "22px", color: "white" }}></i>
-                    </button>
-                    <div>
-                      <span style={{ fontSize: "9px", fontWeight: "bold", color: "white" }}>Add to Cart</span>
-                    </div>
-                  </div>
-                </div>
+                <div className="" style={{ marginTop: "10px" }}>
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "red",
+      height: "40px",
+      borderRadius: "5px",
+      width: "14rem",
+    }}
+  >
+    <button
+      className="btn"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        border: "none",
+        background: "transparent",
+      }}
+    >
+      <i
+        className="bi bi-cart-fill"
+        style={{
+          fontSize: "22px",
+          color: "white",
+          marginRight: "5px",
+        }}
+      ></i>
+      <span
+        style={{
+          fontSize: "12px",
+          fontWeight: "bold",
+          color: "white",
+        }}
+      >
+        Add to Cart
+      </span>
+    </button>
+  </div>
+</div>
+
               </div>
             </div>
           </div>
