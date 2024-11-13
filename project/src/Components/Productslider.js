@@ -91,41 +91,55 @@ function Productslider() {
     
    
     {/* Left Arrow */}
-    <button
-      className="btn btn-outline-secondary"
-      style={{
-        border: "none",
-        zIndex: 1,
-        height: "50px",
-        width: "50px",
-        position: "relative",
-      }}
-      onClick={prevProducts}
-      disabled={currentIndex === 0}
-    >
-      <i className="bi bi-chevron-left" style={{ fontSize: "24px" }}></i>
-    </button>
-
-    {/* right arrow */}
-
-    <button
-    className="btn btn-outline-secondary"
+    <div className='row'>
+  <div
+    className='col'
     style={{
-      border: "none",
-      height: "50px",
-      width: "50px",
-      float: "right",
-      border: "none",
-                                 
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '10px',
+      padding: '10px 20px',
     }}
-    onClick={nextProducts}
-    disabled={currentIndex === productChunks.length - 1}
   >
-    <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
-  </button>
+    {/* Cereals Title and View All Button */}
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Dry Fruits </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+    </div>
 
+    {/* Arrow Buttons */}
+    <div style={{ display: 'flex', gap: '10px' }}>
+      {/* Left Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={prevProducts}
+        disabled={currentIndex === 0}
+      >
+        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+      </button>
 
-
+      {/* Right Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={nextProducts}
+        disabled={currentIndex === productChunks.length - 1}
+      >
+        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+      </button>
+    </div>
+  </div>
+</div>
 
 
 
@@ -220,39 +234,55 @@ function Productslider() {
 <div className="container position-relative" style={{marginTop:"20px"}}>
     {/* Left Arrow */}
    {/* Left Arrow */}
-   <button
-      className="btn btn-outline-secondary"
-      style={{
-        border: "none",
-        zIndex: 1,
-        height: "50px",
-        width: "50px",
-        position: "relative",
-      }}
-      onClick={prevProducts1}
-      disabled={currentIndex1 === 0}
-    >
-      <i className="bi bi-chevron-left" style={{ fontSize: "24px" }}></i>
-    </button>
-
-
-     {/* right arrow */}
-
-     <button
-    className="btn btn-outline-secondary"
+   <div className='row'>
+  <div
+    className='col'
     style={{
-      border: "none",
-      height: "50px",
-      width: "50px",
-      float: "right",
-      border: "none",
-                                 
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '10px',
+      padding: '10px 20px',
     }}
-    onClick={nextProducts1}
-    disabled={currentIndex1 === productChunks1.length - 1}
   >
-    <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
-  </button>
+    {/* Cereals Title and View All Button */}
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Maggie & Pasta </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+    </div>
+
+    {/* Arrow Buttons */}
+    <div style={{ display: 'flex', gap: '10px' }}>
+      {/* Left Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={prevProducts1}
+        disabled={currentIndex1 === 0}
+      >
+        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+      </button>
+
+      {/* Right Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={nextProducts1}
+        disabled={currentIndex1 === productChunks1.length - 1}
+      >
+        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+      </button>
+    </div>
+  </div>
+</div>
 
     {/* Products Grid */}
     <div className="row">

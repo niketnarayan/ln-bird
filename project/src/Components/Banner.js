@@ -278,43 +278,63 @@ function Banner() {
     {/* offer section image end--------------------------------------------------------------------------------- */}
     
     {/* price range banner start---------------------------------------------------------------------------- */}
+
+    
    
       {/* 1 slider----------------------------------------------------------------------------------------------- */}
 
       <div className="container position-relative">
       {/* Left Arrow */}
-    <button
-      className="btn btn-outline-secondary"
-      style={{
-        border: "none",
-        zIndex: 1,
-        height: "50px",
-        width: "50px",
-        position: "relative",
-      }}
-      onClick={prevProducts}
-      disabled={currentIndex === 0}
-    >
-      <i className="bi bi-chevron-left" style={{ fontSize: "24px" }}></i>
-    </button>
 
-    {/* right arrow */}
-
-    <button
-    className="btn btn-outline-secondary"
+      <div className='row'>
+  <div
+    className='col'
     style={{
-      border: "none",
-      height: "50px",
-      width: "50px",
-      float: "right",
-      border: "none",
-                                 
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '10px',
+      padding: '10px 20px',
     }}
-    onClick={nextProducts}
-    disabled={currentIndex === productChunks.length - 1}
   >
-    <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
-  </button>
+    {/* Cereals Title and View All Button */}
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Basic Groceries</span>
+      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+    </div>
+
+    {/* Arrow Buttons */}
+    <div style={{ display: 'flex', gap: '10px' }}>
+      {/* Left Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={prevProducts}
+        disabled={currentIndex === 0}
+      >
+        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+      </button>
+
+      {/* Right Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={nextProducts}
+        disabled={currentIndex === productChunks.length - 1}
+      >
+        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+      </button>
+    </div>
+  </div>
+</div>
 
 
       {/* Products Grid */}
@@ -403,40 +423,57 @@ function Banner() {
          
       <div className="container position-relative">
       {/* Left Arrow */}
-    <button
-      className="btn btn-outline-secondary"
-      style={{
-        border: "none",
-        zIndex: 1,
-        height: "50px",
-        width: "50px",
-        position: "relative",
-      }}
-      onClick={prevProducts1}
-      disabled={currentIndex2 === 0}
-    >
-      <i className="bi bi-chevron-left" style={{ fontSize: "24px" }}></i>
-    </button>
-
-    {/* right arrow */}
-
-    <button
-    className="btn btn-outline-secondary"
+      <div className='row'>
+  <div
+    className='col'
     style={{
-      border: "none",
-      height: "50px",
-      width: "50px",
-      float: "right",
-      border: "none",
-                                 
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '10px',
+      padding: '10px 20px',
     }}
-    onClick={nextProducts1}
-    disabled={currentIndex2 === productChunkss.length - 1}
   >
-    <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
-  </button>
+    {/* Cereals Title and View All Button */}
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Staples</span>
+      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+    </div>
 
+    {/* Arrow Buttons */}
+    <div style={{ display: 'flex', gap: '10px' }}>
+      {/* Left Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={prevProducts1}
+        disabled={currentIndex2 === 0}
+      >
+        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+      </button>
 
+      {/* Right Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={nextProducts1}
+        disabled={currentIndex2 === productChunkss.length - 1}
+      >
+        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+ 
       {/* Products Grid */}
       <div className="row">
         {productChunkss[currentIndex2].map((products, idx) => (
@@ -538,39 +575,55 @@ function Banner() {
 
         <div className="container position-relative" style={{marginTop:"3rem"}}>
       {/* Left Arrow */}
-{/* Left Arrow */}
-<button
-      className="btn btn-outline-secondary"
-      style={{
-        border: "none",
-        zIndex: 1,
-        height: "50px",
-        width: "50px",
-        position: "relative",
-      }}
-      onClick={prevProducts}
-      disabled={currentIndex === 0}
-    >
-      <i className="bi bi-chevron-left" style={{ fontSize: "24px" }}></i>
-    </button>
-
-    {/* right arrow */}
-
-    <button
-    className="btn btn-outline-secondary"
+      <div className='row'>
+  <div
+    className='col'
     style={{
-      border: "none",
-      height: "50px",
-      width: "50px",
-      float: "right",
-      border: "none",
-                                 
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '10px',
+      padding: '10px 20px',
     }}
-    onClick={nextProducts}
-    disabled={currentIndex === productChunks.length - 1}
   >
-    <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
-  </button>
+    {/* Cereals Title and View All Button */}
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Detergents </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+    </div>
+
+    {/* Arrow Buttons */}
+    <div style={{ display: 'flex', gap: '10px' }}>
+      {/* Left Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={prevProducts}
+        disabled={currentIndex === 0}
+      >
+        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+      </button>
+
+      {/* Right Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={nextProducts}
+        disabled={currentIndex === productChunks.length - 1}
+      >
+        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+      </button>
+    </div>
+  </div>
+</div>
 
       {/* Products Grid */}
       <div className="row">
@@ -662,39 +715,55 @@ function Banner() {
 
         <div className="container position-relative" style={{marginTop:"3rem"}}>
       {/* Left Arrow */}
-{/* Left Arrow */}
-<button
-      className="btn btn-outline-secondary"
-      style={{
-        border: "none",
-        zIndex: 1,
-        height: "50px",
-        width: "50px",
-        position: "relative",
-      }}
-      onClick={prevProducts2}
-      disabled={currentIndex3 === 0}
-    >
-      <i className="bi bi-chevron-left" style={{ fontSize: "24px" }}></i>
-    </button>
-
-    {/* right arrow */}
-
-    <button
-    className="btn btn-outline-secondary"
+      <div className='row'>
+  <div
+    className='col'
     style={{
-      border: "none",
-      height: "50px",
-      width: "50px",
-      float: "right",
-      border: "none",
-                                 
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '10px',
+      padding: '10px 20px',
     }}
-    onClick={nextProducts2}
-    disabled={currentIndex3 === productChunks11.length - 1}
   >
-    <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
-  </button>
+    {/* Cereals Title and View All Button */}
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Wash Essentials </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+    </div>
+
+    {/* Arrow Buttons */}
+    <div style={{ display: 'flex', gap: '10px' }}>
+      {/* Left Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={prevProducts2}
+        disabled={currentIndex3 === 0}
+      >
+        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+      </button>
+
+      {/* Right Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={nextProducts2}
+        disabled={currentIndex3 === productChunks11.length - 1}
+      >
+        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+      </button>
+    </div>
+  </div>
+</div>
 
       {/* Products Grid */}
       <div className="row">
@@ -795,40 +864,55 @@ function Banner() {
 
           <div className="container position-relative" style={{marginTop:"3rem"}}>
       {/* Left Arrow */}
-     {/* Left Arrow */}
-    <button
-      className="btn btn-outline-secondary"
-      style={{
-        border: "none",
-        zIndex: 1,
-        height: "50px",
-        width: "50px",
-        position: "relative",
-      }}
-      onClick={prevProducts}
-      disabled={currentIndex === 0}
-    >
-      <i className="bi bi-chevron-left" style={{ fontSize: "24px" }}></i>
-    </button>
-
-    {/* right arrow */}
-
-    <button
-    className="btn btn-outline-secondary"
+      <div className='row'>
+  <div
+    className='col'
     style={{
-      border: "none",
-      height: "50px",
-      width: "50px",
-      float: "right",
-      border: "none",
-                                 
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '10px',
+      padding: '10px 20px',
     }}
-    onClick={nextProducts}
-    disabled={currentIndex === productChunks.length - 1}
   >
-    <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
-  </button>
+    {/* Cereals Title and View All Button */}
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Biscuits & Cookies </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+    </div>
 
+    {/* Arrow Buttons */}
+    <div style={{ display: 'flex', gap: '10px' }}>
+      {/* Left Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={prevProducts}
+        disabled={currentIndex === 0}
+      >
+        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+      </button>
+
+      {/* Right Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={nextProducts}
+        disabled={currentIndex === productChunks.length - 1}
+      >
+        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+      </button>
+    </div>
+  </div>
+</div>
       {/* Products Grid */}
       <div className="row">
         {productChunks2[currentIndex].map((product2, idx) => (
@@ -921,38 +1005,55 @@ function Banner() {
           <div className="container position-relative" style={{marginTop:"3rem"}}>
       
      {/* Left Arrow */}
-    <button
-      className="btn btn-outline-secondary"
-      style={{
-        border: "none",
-        zIndex: 1,
-        height: "50px",
-        width: "50px",
-        position: "relative",
-      }}
-      onClick={prevProducts3}
-      disabled={currentIndex4 === 0}
-    >
-      <i className="bi bi-chevron-left" style={{ fontSize: "24px" }}></i>
-    </button>
-
-    {/* right arrow */}
-
-    <button
-    className="btn btn-outline-secondary"
+     <div className='row'>
+  <div
+    className='col'
     style={{
-      border: "none",
-      height: "50px",
-      width: "50px",
-      float: "right",
-      border: "none",
-                                 
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '10px',
+      padding: '10px 20px',
     }}
-    onClick={nextProducts3}
-    disabled={currentIndex4 === productChunks22.length - 1}
   >
-    <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
-  </button>
+    {/* Cereals Title and View All Button */}
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Mixture </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+    </div>
+
+    {/* Arrow Buttons */}
+    <div style={{ display: 'flex', gap: '10px' }}>
+      {/* Left Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={prevProducts3}
+        disabled={currentIndex4 === 0}
+      >
+        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+      </button>
+
+      {/* Right Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={nextProducts3}
+        disabled={currentIndex4 === productChunks22.length - 1}
+      >
+        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+      </button>
+    </div>
+  </div>
+</div>
 
       {/* Products Grid */}
       <div className="row">
@@ -1057,38 +1158,55 @@ function Banner() {
 
         <div className="container position-relative" style={{marginTop:"3rem"}}>
      {/* Left Arrow */}
-    <button
-      className="btn btn-outline-secondary"
-      style={{
-        border: "none",
-        zIndex: 1,
-        height: "50px",
-        width: "50px",
-        position: "relative",
-      }}
-      onClick={prevProducts}
-      disabled={currentIndex === 0}
-    >
-      <i className="bi bi-chevron-left" style={{ fontSize: "24px" }}></i>
-    </button>
-
-    {/* right arrow */}
-
-    <button
-    className="btn btn-outline-secondary"
+     <div className='row'>
+  <div
+    className='col'
     style={{
-      border: "none",
-      height: "50px",
-      width: "50px",
-      float: "right",
-      border: "none",
-                                 
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '10px',
+      padding: '10px 20px',
     }}
-    onClick={nextProducts}
-    disabled={currentIndex === productChunks.length - 1}
   >
-    <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
-  </button>
+    {/* Cereals Title and View All Button */}
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Masala </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+    </div>
+
+    {/* Arrow Buttons */}
+    <div style={{ display: 'flex', gap: '10px' }}>
+      {/* Left Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={prevProducts}
+        disabled={currentIndex === 0}
+      >
+        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+      </button>
+
+      {/* Right Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={nextProducts}
+        disabled={currentIndex === productChunks.length - 1}
+      >
+        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+      </button>
+    </div>
+  </div>
+</div>
       {/* Products Grid */}
       <div className="row">
         {productChunks3[currentIndex].map((product3, idx) => (
@@ -1180,38 +1298,55 @@ function Banner() {
 
         <div className="container position-relative" style={{marginTop:"3rem"}}>
      {/* Left Arrow */}
-    <button
-      className="btn btn-outline-secondary"
-      style={{
-        border: "none",
-        zIndex: 1,
-        height: "50px",
-        width: "50px",
-        position: "relative",
-      }}
-      onClick={prevProducts4}
-      disabled={currentIndex5 === 0}
-    >
-      <i className="bi bi-chevron-left" style={{ fontSize: "24px" }}></i>
-    </button>
-
-    {/* right arrow */}
-
-    <button
-    className="btn btn-outline-secondary"
+     <div className='row'>
+  <div
+    className='col'
     style={{
-      border: "none",
-      height: "50px",
-      width: "50px",
-      float: "right",
-      border: "none",
-                                 
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '10px',
+      padding: '10px 20px',
     }}
-    onClick={nextProducts4}
-    disabled={currentIndex5 === productChunks33.length - 1}
   >
-    <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
-  </button>
+    {/* Cereals Title and View All Button */}
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Spice Mixes </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+    </div>
+
+    {/* Arrow Buttons */}
+    <div style={{ display: 'flex', gap: '10px' }}>
+      {/* Left Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={prevProducts4}
+        disabled={currentIndex5 === 0}
+      >
+        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+      </button>
+
+      {/* Right Arrow Button */}
+      <button
+        className='btn btn-outline-secondary'
+        style={{
+          border: 'none',
+          height: '50px',
+          width: '50px',
+        }}
+        onClick={nextProducts4}
+        disabled={currentIndex5 === productChunks33.length - 1}
+      >
+        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+      </button>
+    </div>
+  </div>
+</div>
       {/* Products Grid */}
       <div className="row">
         {productChunks33[currentIndex5].map((product33, idx) => (

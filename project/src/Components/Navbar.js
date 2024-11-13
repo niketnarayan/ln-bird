@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Tab, Tabs, Form } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import kiranawala from "../Components/Assests/mr. KiranaWala logo.png";
 
 
 function Navbar() {
@@ -39,15 +40,15 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: ' #3D215D' }}>
         <div className="container-fluid">
           {/* Logo with left margin */}
-          <a className="navbar-brand text-white d-flex align-items-center" href="#" style={{ marginLeft: '50px', marginRight: '50px' }}>
-            <img src="https://www.lotswholesale.com/vendor/image/Logo/lotswholesale-logo.svg" alt="Logo" style={{width:"auto",height:"45px",marginTop:"0px"}} />
+          <a className="navbar-brand text-white d-flex align-items-center" href="#" style={{ marginLeft: '5rem' }}>
+            <img src={kiranawala} alt="Logo" style={{width:"auto",height:"70px",marginTop:"0px"}} />
             <div className="ms-2 text-white">
             </div>
           </a>
           
 
           {/* Centered Search Bar */}
-          <div className="input-group mx-auto" style={{ maxWidth: '400px' }}>
+          <div className="input-group mx-auto" style={{ maxWidth: '400px',marginRight:"5rem" }}>
             <input
               className="form-control"
               type="search"
@@ -58,17 +59,19 @@ function Navbar() {
               <i className="bi bi-search"></i> {/* Bootstrap Search Icon */}
             </button>
           </div>
-          <div style={{marginLeft:"199px"}}>
-            <Link to="/Contactus">
-            <Button style={{backgroundColor:"white",color:"black",border:"1px solid white"}}>Contact Us</Button>
-            </Link>
-          </div>
+          <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: "10px", marginRight: "8rem" }}>
+  {/* Contact Us Button */}
+  <Link to="/Contactus">
+    <Button style={{ backgroundColor: "white", color: "black", border: "1px solid white" }}>
+      Contact Us
+    </Button>
+  </Link>
 
-          {/* Login Button */}
-          <a className="btn btn-light ms-auto"   onClick={Login}>
-            <i className="bi bi-box-arrow-in-right"></i> LOGIN
-
-          </a>
+  {/* Login Button */}
+  <button className="btn btn-light" onClick={Login} style={{ display: "flex", alignItems: "center" }}>
+    <i className="bi bi-box-arrow-in-right" style={{ marginRight: "5px" }}></i> LOGIN
+  </button>
+</div>
           {/* modal code---------------------------------- -------------------------------------------------------- */}
 
 
@@ -79,7 +82,7 @@ function Navbar() {
         <Modal.Body>
          <div style={{display:"flex",gap:"25px"}}>
           <div>
-            <img src='https://www.lotswholesale.com/vendor/image/Logo/LogoLandscapeNoborder.png' style={{width:"8rem"}}></img>
+            <img src={kiranawala} style={{width:"8rem", height:"5rem"}}></img>
           </div>
           <div>
             <span style={{fontSize:"22px",fontWeight:"bold",lineHeight:"2px"}}>Login for More convenient shopping</span>
@@ -223,23 +226,23 @@ onClick={toggleDropdown}
  
 <Dropdown.Item href="#" style={{ fontSize: '18px', display:"flex", gap:"30px" }}>
 <Link to="/fruits" style={{textDecoration: 'none',color:"black" }}>
-<i class="fa-solid fa-apple-whole" style={{marginTop:"5px",color:"black"}}></i>
-Fruits & Vegitables
+<i class="fa-solid fa-wheat-awn" style={{marginTop:"5px",color:"black"}}></i>
+Foodgain & Oil
 </Link>
 </Dropdown.Item>
 
 {/* --------------------------------------------------------------------------- */}
 <Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
 <Link to="/chicken" style={{textDecoration: 'none', color:"black" }}>
-<i class="fa-solid fa-drumstick-bite" style={{marginTop:"5px", color:"black"}}></i>
-Chicken & Meat
+<i class="fa-brands fa-square-font-awesome" style={{marginTop:"5px", color:"black"}}></i>
+Home Care
 </Link>
 </Dropdown.Item>
 {/* ------------------------------------------------------------------------------ */}
 <Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
 <Link to="/dairy" style={{textDecoration: 'none', color:"black" }}>
 <i class="fa-solid fa-egg" style={{marginTop:"5px", color:"black"}}></i>
-Breakfast & Diary
+Dry Fruits
 </Link>
 </Dropdown.Item>
 {/* -------------------------------------------------------------------------------- */}
@@ -253,14 +256,14 @@ Beverage
 <Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
 <Link to="/bread" style={{textDecoration: 'none',color:"black" }}>
 <i class="fa-solid fa-bread-slice" style={{marginTop:"5px",color:"black"}}></i>
-Bread & Bakery
+Branded Food
 </Link>
 </Dropdown.Item>
 {/* ---------------------------------------------------------------------------------- */}
 <Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
 <Link to="/frozen" style={{textDecoration: 'none',color:"black" }}>
 <i class="fa-solid fa-icicles" style={{marginTop:"5px",color:"black"}}></i>
-Frozen Foods
+Frozen 
 </Link>
 </Dropdown.Item>
 {/* ----------------------------------------------------------------------------------- */}
@@ -273,8 +276,8 @@ Biscuits & Snacks
 {/* ------------------------------------------------------------------------------------ */}
 <Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
 <Link to="/grocery" style={{textDecoration: 'none',color:"black"}}>
-<i class="fa-solid fa-wheat-awn"style={{marginTop:"5px",color:"black"}}></i>
-Grocery & Staples
+<i class="fa-solid fa-person"style={{marginTop:"5px",color:"black"}}></i>
+Personal Care
 </Link>
 </Dropdown.Item>
 {/* ------------------------------------------------------------------------------------ */}
