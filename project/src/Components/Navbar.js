@@ -36,7 +36,7 @@ function Navbar() {
     <>
    <div style={{ position: "sticky", top: "0", zIndex: "1000" }}>
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: '#00363A' }}>
+      <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: ' #3D215D' }}>
         <div className="container-fluid">
           {/* Logo with left margin */}
           <a className="navbar-brand text-white d-flex align-items-center" href="#" style={{ marginLeft: '50px', marginRight: '50px' }}>

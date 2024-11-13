@@ -7,6 +7,8 @@ function Productslider() {
   const [quantity, setQuantity] = useState(1);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [currentIndex1, setCurrentIndex1] = useState(0);
+
 
   // Sample Product Data Array
   const products = [
@@ -52,6 +54,13 @@ function Productslider() {
   };
 
 
+  const nextProducts1 = () => {
+    if (currentIndex1 < productChunks1.length - 1) {
+      setCurrentIndex1(currentIndex1 + 1);
+    }
+  };
+
+
 
   // Function to navigate to the previous set of products
   const prevProducts = () => {
@@ -60,6 +69,12 @@ function Productslider() {
     }
   };
  
+
+  const prevProducts1 = () => {
+    if (currentIndex1 > 0) {
+      setCurrentIndex1(currentIndex1 - 1);
+    }
+  };
 
 
   // const increaseQuantity = () => {
@@ -73,7 +88,7 @@ function Productslider() {
   return (
     <>
     <div className="container position-relative" style={{marginTop:"20px"}}>
-    {/* Left Arrow */}
+    
    
     {/* Left Arrow */}
     <button
@@ -204,18 +219,44 @@ function Productslider() {
 
 <div className="container position-relative" style={{marginTop:"20px"}}>
     {/* Left Arrow */}
-    <button
-      className="btn btn-outline-secondary position-absolute"
-      style={{ top: "50%", left: "-20px", transform: "translateY(-50%)" }}
-      onClick={prevProducts}
-      disabled={currentIndex === 0}
+   {/* Left Arrow */}
+   <button
+      className="btn btn-outline-secondary"
+      style={{
+        border: "none",
+        zIndex: 1,
+        height: "50px",
+        width: "50px",
+        position: "relative",
+      }}
+      onClick={prevProducts1}
+      disabled={currentIndex1 === 0}
     >
       <i className="bi bi-chevron-left" style={{ fontSize: "24px" }}></i>
     </button>
 
+
+     {/* right arrow */}
+
+     <button
+    className="btn btn-outline-secondary"
+    style={{
+      border: "none",
+      height: "50px",
+      width: "50px",
+      float: "right",
+      border: "none",
+                                 
+    }}
+    onClick={nextProducts1}
+    disabled={currentIndex1 === productChunks1.length - 1}
+  >
+    <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
+  </button>
+
     {/* Products Grid */}
     <div className="row">
-      {productChunks1[currentIndex].map((product1, idx) => (
+      {productChunks1[currentIndex1].map((product1, idx) => (
         <div className="col-md-3 mb-3" key={idx}>
           <div className="card" style={{ width: "100%", height:"100%" }}>
             <img src={product1.image} className="card-img-top " alt={product1.title} style={{ height: "150px", width:"260px", 
@@ -295,14 +336,14 @@ function Productslider() {
     </div>
 
     {/* Right Arrow */}
-    <button
+    {/* <button
       className="btn btn-outline-secondary position-absolute"
       style={{ top: "50%", right: "-20px", transform: "translateY(-50%)" }}
-      onClick={nextProducts}
-      disabled={currentIndex === productChunks.length - 1}
+      onClick={nextProducts1}
+      disabled={currentIndex1 === productChunks1.length - 1}
     >
       <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
-    </button>
+    </button> */}
   </div>
 
 
