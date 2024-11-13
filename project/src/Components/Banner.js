@@ -32,6 +32,8 @@ function Banner() {
     { title: "PAN SOOJI 500 G", price: 88.00, originalPrice: 100.00, discount: "15% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1651820864946.webp" },
     { title: "RAJDHANI CHAKKI ATTA (VFPL) 50 KG", price: 92.00, originalPrice: 105.00, discount: "13% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1624879578088.webp" },
     { title: "FORTUNE ATTA PP 10 KG", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686263_1.webp" },
+    { title: "FORTUNE ATTA PP 10 KG", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686263_1.webp" },
+    { title: "FORTUNE ATTA PP 10 KG", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686263_1.webp" },
   ];
 
 
@@ -45,6 +47,9 @@ function Banner() {
     { title: "PAN SOOJI 500 G", price: 88.00, originalPrice: 100.00, discount: "15% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1651820864946.webp" },
     { title: "RAJDHANI CHAKKI ATTA (VFPL) 50 KG", price: 92.00, originalPrice: 105.00, discount: "13% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1624879578088.webp" },
     { title: "FORTUNE ATTA PP 10 KG", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686263_1.webp" },
+    { title: "FORTUNE ATTA PP 10 KG", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686263_1.webp" },
+    { title: "FORTUNE ATTA PP 10 KG", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686263_1.webp" },
+
   ];
 
 
@@ -59,6 +64,7 @@ function Banner() {
     { title: "GODREJ EZEE LIQUID DETERGENT 500 G", price: 88.00, originalPrice: 100.00, discount: "15% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103678600_1.webp" },
     { title: "REVIVE LIQUID 400 G", price: 92.00, originalPrice: 105.00, discount: "13% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1708495554262.webp" },
     { title: "HENKO MATIC FRONT LOAD 2LT", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1680667959964.webp" },
+    { title: "CHUK-DE KASHMIRI MIRCH POWDER 8 G", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1610184896245.webp" },
   ];
 
 
@@ -95,6 +101,7 @@ function Banner() {
     { title: "HALDIRAM KAJU MIXTURE 400 G", price: 88.00, originalPrice: 100.00, discount: "15% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1675673107961.webp" },
     { title: "GOLDIEE MEAT/MUTTON MASALA SPECIAL 100 G", price: 92.00, originalPrice: 105.00, discount: "13% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103667167_1.webp" },
     { title: "CHUK-DE KASHMIRI MIRCH POWDER 8 G", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1610184896245.webp" },
+    { title: "CHUK-DE KASHMIRI MIRCH POWDER 8 G", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1610184896245.webp" },
   ];
 
   const products3 = [
@@ -122,13 +129,13 @@ function Banner() {
 
   // Group products into sets of four
   const productChunks = [];
-  for (let i = 0; i < products.length; i += 4) {
-    productChunks.push(products.slice(i, i + 4));
+  for (let i = 0; i < products.length; i += 5) {
+    productChunks.push(products.slice(i, i + 5));
   }
 
   const productChunkss = [];
-  for (let i = 0; i < productss.length; i += 4) {
-    productChunkss.push(productss.slice(i, i + 4));
+  for (let i = 0; i < productss.length; i += 5) {
+    productChunkss.push(productss.slice(i, i + 5));
   }
   
 
@@ -294,17 +301,17 @@ function Banner() {
       alignItems: 'center',
       justifyContent: 'space-between',
       gap: '10px',
-      padding: '10px 20px',
+      // padding: '10px 20px',
     }}
   >
     {/* Cereals Title and View All Button */}
     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Basic Groceries</span>
-      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+      <span style={{ fontSize: '16px', fontWeight: 'bold', color: '#858585' }}>Basic Groceries</span>
+      <button style={{ border: 'none', background: 'none', fontSize: '14px', color: '858585' }}>View All</button>
     </div>
 
     {/* Arrow Buttons */}
-    <div style={{ display: 'flex', gap: '10px' }}>
+    <div style={{ display: 'flex' }}>
       {/* Left Arrow Button */}
       <button
         className='btn btn-outline-secondary'
@@ -312,11 +319,12 @@ function Banner() {
           border: 'none',
           height: '50px',
           width: '50px',
+          
         }}
         onClick={prevProducts}
         disabled={currentIndex === 0}
       >
-        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+        <i className='bi bi-chevron-left ' style={{ fontSize: '12px' }}></i>
       </button>
 
       {/* Right Arrow Button */}
@@ -330,7 +338,7 @@ function Banner() {
         onClick={nextProducts}
         disabled={currentIndex === productChunks.length - 1}
       >
-        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+        <i className='bi bi-chevron-right' style={{ fontSize: '12px' }}></i>
       </button>
     </div>
   </div>
@@ -340,8 +348,8 @@ function Banner() {
       {/* Products Grid */}
       <div className="row">
         {productChunks[currentIndex].map((product, idx) => (
-          <div className="col-md-3 mb-3" key={idx}>
-            <div className="card" style={{ width: "100%", height:"100%" }}>
+          <div className="col-md-2 mb-3" key={idx} style={{marginLeft:"30px"}}>
+            <div className="card" style={{ width: "200px", height:"100%" }}>
               <img src={product.image} className="card-img-top " alt={product.title} style={{ height: "150px", width:"200px", 
     padding:"20px",alignItems:"center" }} />
               <div className="card-body">
@@ -356,14 +364,14 @@ function Banner() {
                 </div>
                 
                 
-                <div style={{ display: "flex", gap: "10px", marginTop: "5px" }}>
-                  <div style={{ backgroundColor: "lightgray", fontSize: "13px", padding: "3px 5px" }}>
-                    1-2 pc
+                <div className="fs-6" style={{ display: "flex", marginTop: "5px" }}>
+                  <div className='fs-6' style={{ backgroundColor: "lightgray" }}>
+                   <p className='d-flex fs-6'> 1-2 pc</p>
                   </div>
                   <div>
                     ₹ {product.price}
                   </div>
-                  <span style={{ fontSize: "14px", color: "green", marginLeft: "30px" }}>100% OFF</span>
+                  <span style={{  color: "green", marginLeft: "30px" }}>100% OFF</span>
                 </div>
 
                 {/* Quantity and Add to Cart Section */}
@@ -376,7 +384,7 @@ function Banner() {
       backgroundColor: "red",
       height: "40px",
       borderRadius: "5px",
-      width: "14rem",
+      // width: "10rem",
     }}
   >
     <button
@@ -436,8 +444,8 @@ function Banner() {
   >
     {/* Cereals Title and View All Button */}
     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Staples</span>
-      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+      <span style={{ fontSize: '15px', fontWeight: 'bold', color: '#858585' }}>Staples</span>
+      <button style={{ border: 'none', background: 'none', fontSize: '14px', color: '858585' }}>View All</button>
     </div>
 
     {/* Arrow Buttons */}
@@ -453,7 +461,7 @@ function Banner() {
         onClick={prevProducts1}
         disabled={currentIndex2 === 0}
       >
-        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+        <i className='bi bi-chevron-left' style={{ fontSize: '12px' }}></i>
       </button>
 
       {/* Right Arrow Button */}
@@ -467,7 +475,7 @@ function Banner() {
         onClick={nextProducts1}
         disabled={currentIndex2 === productChunkss.length - 1}
       >
-        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+        <i className='bi bi-chevron-right' style={{ fontSize: '12px' }}></i>
       </button>
     </div>
   </div>
@@ -477,7 +485,7 @@ function Banner() {
       {/* Products Grid */}
       <div className="row">
         {productChunkss[currentIndex2].map((products, idx) => (
-          <div className="col-md-3 mb-3" key={idx}>
+          <div className="col-md-2 mb-3" key={idx}>
             <div className="card" style={{ width: "100%", height:"100%" }}>
               <img src={products.image} className="card-img-top " alt={products.title} style={{ height: "150px", width:"200px", 
     padding:"20px",alignItems:"center" }} />
@@ -513,7 +521,7 @@ function Banner() {
       backgroundColor: "red",
       height: "40px",
       borderRadius: "5px",
-      width: "14rem",
+      width: "10rem",
     }}
   >
     <button
@@ -522,7 +530,7 @@ function Banner() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        width: "100%",
+        width: "50%",
         border: "none",
         background: "transparent",
       }}
@@ -588,8 +596,8 @@ function Banner() {
   >
     {/* Cereals Title and View All Button */}
     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Detergents </span>
-      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+      <span style={{ fontSize: '15px', fontWeight: 'bold', color: '#858585' }}>Detergents </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '14px', color: '858585' }}>View All</button>
     </div>
 
     {/* Arrow Buttons */}
@@ -728,8 +736,8 @@ function Banner() {
   >
     {/* Cereals Title and View All Button */}
     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Wash Essentials </span>
-      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+      <span style={{ fontSize: '15px', fontWeight: 'bold', color: '#858585' }}>Wash Essentials </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '14px', color: '858585' }}>View All</button>
     </div>
 
     {/* Arrow Buttons */}
@@ -877,8 +885,8 @@ function Banner() {
   >
     {/* Cereals Title and View All Button */}
     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Biscuits & Cookies </span>
-      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+      <span style={{ fontSize: '15px', fontWeight: 'bold', color: '#858585' }}>Biscuits & Cookies </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '14px', color: '858585' }}>View All</button>
     </div>
 
     {/* Arrow Buttons */}
@@ -1018,8 +1026,8 @@ function Banner() {
   >
     {/* Cereals Title and View All Button */}
     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Mixture </span>
-      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+      <span style={{ fontSize: '15px', fontWeight: 'bold', color: '#858585' }}>Mixture </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '14px', color: '858585' }}>View All</button>
     </div>
 
     {/* Arrow Buttons */}
@@ -1171,8 +1179,8 @@ function Banner() {
   >
     {/* Cereals Title and View All Button */}
     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Masala </span>
-      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+      <span style={{ fontSize: '15px', fontWeight: 'bold', color: '#858585' }}>Masala </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '14px', color: '858585' }}>View All</button>
     </div>
 
     {/* Arrow Buttons */}
@@ -1311,8 +1319,8 @@ function Banner() {
   >
     {/* Cereals Title and View All Button */}
     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Spice Mixes </span>
-      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+      <span style={{ fontSize: '15px', fontWeight: 'bold', color: '#858585' }}>Spice Mixes </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '14px', color: '858585' }}>View All</button>
     </div>
 
     {/* Arrow Buttons */}
