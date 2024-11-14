@@ -406,6 +406,7 @@ function Banner() {
         width: "100%",
         border: "none",
         background: "transparent",
+        backgroundColor:"#3D215D",
       }}
     >
       <i
@@ -468,6 +469,7 @@ function Banner() {
           border: 'none',
           height: '50px',
           width: '50px',
+          backgroundColor:"#3D215D",
           
         }}
         onClick={prevProducts1}
@@ -545,6 +547,7 @@ function Banner() {
         width: "100%",
         border: "none",
         background: "transparent",
+        backgroundColor:"#3D215D",
       }}
     >
       <i
@@ -695,6 +698,7 @@ function Banner() {
         width: "100%",
         border: "none",
         background: "transparent",
+        backgroundColor:"#3D215D",
       }}
     >
       <i
@@ -835,6 +839,7 @@ function Banner() {
         width: "100%",
         border: "none",
         background: "transparent",
+        backgroundColor:"#3D215D",
       }}
     >
       <i
@@ -984,6 +989,7 @@ function Banner() {
         width: "100%",
         border: "none",
         background: "transparent",
+        backgroundColor:"#3D215D",
       }}
     >
       <i
@@ -1126,6 +1132,7 @@ function Banner() {
         width: "100%",
         border: "none",
         background: "transparent",
+        backgroundColor:"#3D215D",
       }}
     >
       <i
@@ -1280,6 +1287,7 @@ function Banner() {
         width: "100%",
         border: "none",
         background: "transparent",
+        backgroundColor:"#3D215D",
       }}
     >
       <i
@@ -1423,6 +1431,7 @@ function Banner() {
         width: "100%",
         border: "none",
         background: "transparent",
+        backgroundColor:"#3D215D",
       }}
     >
       <i

@@ -197,6 +197,7 @@ function Productslider() {
         width: "100%",
         border: "none",
         background: "transparent",
+        backgroundColor:"#3D215D",
       }}
     >
       <i
@@ -337,6 +338,7 @@ function Productslider() {
         width: "100%",
         border: "none",
         background: "transparent",
+        backgroundColor:"#3D215D",
       }}
     >
       <i
