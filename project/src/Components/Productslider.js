@@ -20,6 +20,8 @@ function Productslider() {
     { title: "MAGGI VEG ATTA SPINACH NOODLES 284 G", price: 88.00, originalPrice: 100.00, discount: "15% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1689834504733.webp" },
     { title: "DEL MONTE PENNE RIGATE PASTA 500 G", price: 92.00, originalPrice: 105.00, discount: "13% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1717478191935.jpeg" },
     { title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp" },
+    { title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp" },
+    { title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp" },
   ];
 
   const products1 = [
@@ -31,19 +33,21 @@ function Productslider() {
     { title: "MAGGI VEG ATTA SPINACH NOODLES 284 G", price: 88.00, originalPrice: 100.00, discount: "15% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1689834504733.webp" },
     { title: "DEL MONTE PENNE RIGATE PASTA 500 G", price: 92.00, originalPrice: 105.00, discount: "13% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1717478191935.jpeg" },
     { title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp" },
+    { title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp" },
+    { title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G", price: 78.50, originalPrice: 99.00, discount: "20% OFF", image: "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp" },
   ];
 
 
 
   // Group products into sets of four
   const productChunks = [];
-  for (let i = 0; i < products.length; i += 4) {
-    productChunks.push(products.slice(i, i + 4));
+  for (let i = 0; i < products.length; i += 5) {
+    productChunks.push(products.slice(i, i + 5));
   }
 
   const productChunks1 = [];
-  for (let i = 0; i < products1.length; i += 4) {
-    productChunks1.push(products1.slice(i, i + 4));
+  for (let i = 0; i < products1.length; i += 5) {
+    productChunks1.push(products1.slice(i, i + 5));
   }
 
   // Function to navigate to the next set of products
@@ -87,11 +91,10 @@ function Productslider() {
 
   return (
     <>
-    <div className="container position-relative" style={{marginTop:"20px"}}>
-    
-   
-    {/* Left Arrow */}
-    <div className='row'>
+     <div className="container position-relative" style={{marginTop:"3rem"}}>
+      {/* Left Arrow */}
+
+      <div className='row'>
   <div
     className='col'
     style={{
@@ -99,17 +102,17 @@ function Productslider() {
       alignItems: 'center',
       justifyContent: 'space-between',
       gap: '10px',
-      padding: '10px 20px',
+      // padding: '10px 20px',
     }}
   >
     {/* Cereals Title and View All Button */}
-    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Dry Fruits </span>
-      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center',marginLeft:"40px" }}>
+      <span style={{ fontSize: '16px', fontWeight: 'bold', color: '#858585' }}>Dry Fruits  </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '14px', color: '858585' }}>View All</button>
     </div>
 
     {/* Arrow Buttons */}
-    <div style={{ display: 'flex', gap: '10px' }}>
+    <div style={{ display: 'flex' }}>
       {/* Left Arrow Button */}
       <button
         className='btn btn-outline-secondary'
@@ -117,11 +120,12 @@ function Productslider() {
           border: 'none',
           height: '50px',
           width: '50px',
+          
         }}
         onClick={prevProducts}
         disabled={currentIndex === 0}
       >
-        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+        <i className='bi bi-chevron-left ' style={{ fontSize: '12px' }}></i>
       </button>
 
       {/* Right Arrow Button */}
@@ -135,46 +139,44 @@ function Productslider() {
         onClick={nextProducts}
         disabled={currentIndex === productChunks.length - 1}
       >
-        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+        <i className='bi bi-chevron-right' style={{ fontSize: '12px' }}></i>
       </button>
     </div>
   </div>
 </div>
 
 
+      {/* Products Grid */}
+      <div className="row">
+        {productChunks[currentIndex].map((product, idx) => (
+          <div className="col-md-2 mb-3" key={idx} style={{marginLeft:"30px"}}>
+            <div className="card" style={{ width: "200px", height:"100%" }}>
+              <img src={product.image} className="card-img-top " alt={product.title} style={{ height: "120px", width:"150px", 
+    padding:"20px",alignItems:"center" }} />
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontSize: "13px",height:"37px" }}>{product.title}</h5>
+                
+                {/* Slab Pricing Section */}
+                <div style={{ display: "flex", gap: "5px", alignItems: "center", marginTop: "5px" }}>
+                  <img src='https://www.lotswholesale.com/vendor/image/slab_pricing_flag.png' alt='...' style={{ width: "20px" }} />
+                  <span style={{ color: "red", fontWeight: "bold",fontSize:"13px" }}>Slab Price</span>
 
-    {/* Products Grid */}
-    <div className="row">
-      {productChunks[currentIndex].map((product, idx) => (
-        <div className="col-md-3 mb-3" key={idx}>
-          <div className="card" style={{ width: "100%", height:"100%" }}>
-            <img src={product.image} className="card-img-top " alt={product.title} style={{ height: "150px", width:"260px", 
-  padding:"20px" }} />
-            <div className="card-body">
-              <h5 className="card-title" style={{ fontSize: "15px",height:"30px" }}>{product.title}</h5>
-              
-              
-              {/* Slab Pricing Section */}
-              <div style={{ display: "flex", gap: "5px", alignItems: "center", marginTop: "5px" }}>
-                <img src='https://www.lotswholesale.com/vendor/image/slab_pricing_flag.png' alt='...' style={{ width: "25px" }} />
-                <span style={{ color: "red", fontWeight: "bold" }}>Slab Price</span>
-
-                <div style={{backgroundColor:"red", width:"6rem",height:"1px"}}></div>
-              </div>
-              
-              
-              <div style={{ display: "flex", gap: "10px", marginTop: "5px" }}>
-                <div style={{ backgroundColor: "lightgray", fontSize: "13px", padding: "3px 5px" }}>
-                  1-2 pc
+                  <div style={{backgroundColor:"red", width:"4.5rem",height:"1px"}}></div>
                 </div>
-                <div>
-                  ₹ {product.price}
+                
+                
+                <div className="" style={{ display: "flex", marginTop: "5px",gap:"10px" }}>
+                  <div className='' style={{  }}>
+                   <p className='d-flex' style={{fontSize:"14px", height:"fit-content",backgroundColor:"lightgray"}}> 1-2 pc</p>
+                  </div>
+                  <div style={{fontSize:"14px"}}>
+                    ₹ {product.price}
+                  </div>
+                  <span style={{  color: "green",fontSize:"14px" }}>100% OFF</span>
                 </div>
-                <span style={{ fontSize: "14px", color: "green", marginLeft: "30px" }}>100% OFF</span>
-              </div>
 
-              {/* Quantity and Add to Cart Section */}
-              <div className="" style={{ marginTop: "10px" }}>
+                {/* Quantity and Add to Cart Section */}
+                <div className="" style={{ marginTop: "10px" }}>
   <div
     style={{
       display: "flex",
@@ -183,7 +185,7 @@ function Productslider() {
       backgroundColor: "red",
       height: "40px",
       borderRadius: "5px",
-      width: "14rem",
+      // width: "10rem",
     }}
   >
     <button
@@ -218,23 +220,21 @@ function Productslider() {
   </div>
 </div>
 
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
     </div>
-
-    {/* Right Arrow */}
-
-  </div>
 
 {/* second slider-------------------------------------------------------------------------------------- */}
 
 
-<div className="container position-relative" style={{marginTop:"20px"}}>
-    {/* Left Arrow */}
-   {/* Left Arrow */}
-   <div className='row'>
+<div className="container position-relative">
+      {/* Left Arrow */}
+
+      <div className='row'>
   <div
     className='col'
     style={{
@@ -242,17 +242,17 @@ function Productslider() {
       alignItems: 'center',
       justifyContent: 'space-between',
       gap: '10px',
-      padding: '10px 20px',
+      // padding: '10px 20px',
     }}
   >
     {/* Cereals Title and View All Button */}
-    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-      <span style={{ fontSize: '30px', fontWeight: 'bold', color: '#858585' }}>Maggie & Pasta </span>
-      <button style={{ border: 'none', background: 'none', fontSize: '20px', color: '858585' }}>View All</button>
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center',marginLeft:"40px" }}>
+      <span style={{ fontSize: '16px', fontWeight: 'bold', color: '#858585' }}>Maggie & Pasta  </span>
+      <button style={{ border: 'none', background: 'none', fontSize: '14px', color: '858585' }}>View All</button>
     </div>
 
     {/* Arrow Buttons */}
-    <div style={{ display: 'flex', gap: '10px' }}>
+    <div style={{ display: 'flex' }}>
       {/* Left Arrow Button */}
       <button
         className='btn btn-outline-secondary'
@@ -260,11 +260,12 @@ function Productslider() {
           border: 'none',
           height: '50px',
           width: '50px',
+          
         }}
         onClick={prevProducts1}
         disabled={currentIndex1 === 0}
       >
-        <i className='bi bi-chevron-left' style={{ fontSize: '24px' }}></i>
+        <i className='bi bi-chevron-left ' style={{ fontSize: '12px' }}></i>
       </button>
 
       {/* Right Arrow Button */}
@@ -278,44 +279,44 @@ function Productslider() {
         onClick={nextProducts1}
         disabled={currentIndex1 === productChunks1.length - 1}
       >
-        <i className='bi bi-chevron-right' style={{ fontSize: '24px' }}></i>
+        <i className='bi bi-chevron-right' style={{ fontSize: '12px' }}></i>
       </button>
     </div>
   </div>
 </div>
 
-    {/* Products Grid */}
-    <div className="row">
-      {productChunks1[currentIndex1].map((product1, idx) => (
-        <div className="col-md-3 mb-3" key={idx}>
-          <div className="card" style={{ width: "100%", height:"100%" }}>
-            <img src={product1.image} className="card-img-top " alt={product1.title} style={{ height: "150px", width:"260px", 
-  padding:"20px" }} />
-            <div className="card-body">
-              <h5 className="card-title" style={{ fontSize: "15px",height:"30px" }}>{product1.title}</h5>
-              
-              
-              {/* Slab Pricing Section */}
-              <div style={{ display: "flex", gap: "5px", alignItems: "center", marginTop: "5px" }}>
-                <img src='https://www.lotswholesale.com/vendor/image/slab_pricing_flag.png' alt='...' style={{ width: "25px" }} />
-                <span style={{ color: "red", fontWeight: "bold" }}>Slab Price</span>
 
-                <div style={{backgroundColor:"red", width:"6rem",height:"1px"}}></div>
-              </div>
-              
-              
-              <div style={{ display: "flex", gap: "10px", marginTop: "5px" }}>
-                <div style={{ backgroundColor: "lightgray", fontSize: "13px", padding: "3px 5px" }}>
-                  1-2 pc
-                </div>
-                <div>
-                  ₹ {product1.price}
-                </div>
-                <span style={{ fontSize: "14px", color: "green", marginLeft: "30px" }}>100% OFF</span>
-              </div>
+      {/* Products Grid */}
+      <div className="row">
+        {productChunks1[currentIndex1].map((product1, idx) => (
+          <div className="col-md-2 mb-3" key={idx} style={{marginLeft:"30px"}}>
+            <div className="card" style={{ width: "200px", height:"100%" }}>
+              <img src={product1.image} className="card-img-top " alt={product1.title} style={{ height: "120px", width:"150px", 
+    padding:"20px",alignItems:"center" }} />
+              <div className="card-body">
+                <h5 className="card-title" style={{ fontSize: "13px",height:"37px" }}>{product1.title}</h5>
+                
+                {/* Slab Pricing Section */}
+                <div style={{ display: "flex", gap: "5px", alignItems: "center", marginTop: "5px" }}>
+                  <img src='https://www.lotswholesale.com/vendor/image/slab_pricing_flag.png' alt='...' style={{ width: "20px" }} />
+                  <span style={{ color: "red", fontWeight: "bold",fontSize:"13px" }}>Slab Price</span>
 
-              {/* Quantity and Add to Cart Section */}
-              <div className="" style={{ marginTop: "10px" }}>
+                  <div style={{backgroundColor:"red", width:"4.5rem",height:"1px"}}></div>
+                </div>
+                
+                
+                <div className="" style={{ display: "flex", marginTop: "5px",gap:"10px" }}>
+                  <div className='' style={{  }}>
+                   <p className='d-flex' style={{fontSize:"14px", height:"fit-content",backgroundColor:"lightgray"}}> 1-2 pc</p>
+                  </div>
+                  <div style={{fontSize:"14px"}}>
+                    ₹ {product1.price}
+                  </div>
+                  <span style={{  color: "green",fontSize:"14px" }}>100% OFF</span>
+                </div>
+
+                {/* Quantity and Add to Cart Section */}
+                <div className="" style={{ marginTop: "10px" }}>
   <div
     style={{
       display: "flex",
@@ -324,7 +325,7 @@ function Productslider() {
       backgroundColor: "red",
       height: "40px",
       borderRadius: "5px",
-      width: "14rem",
+      // width: "10rem",
     }}
   >
     <button
@@ -359,22 +360,13 @@ function Productslider() {
   </div>
 </div>
 
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
 
-    {/* Right Arrow */}
-    {/* <button
-      className="btn btn-outline-secondary position-absolute"
-      style={{ top: "50%", right: "-20px", transform: "translateY(-50%)" }}
-      onClick={nextProducts1}
-      disabled={currentIndex1 === productChunks1.length - 1}
-    >
-      <i className="bi bi-chevron-right" style={{ fontSize: "24px" }}></i>
-    </button> */}
-  </div>
+    </div>
 
 
 {/* second slider end-------------------------------------------------------------------------------------- */}

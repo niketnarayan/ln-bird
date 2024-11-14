@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Tab, Tabs, Form } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import kiranawala from "../Components/Assests/mr. KiranaWala logo.png";
+import kiranawala from "../Components/Assests/mr. Kirana logo.png";
 
 
 function Navbar() {
@@ -41,7 +41,7 @@ function Navbar() {
         <div className="container-fluid">
           {/* Logo with left margin */}
           <a className="navbar-brand text-white d-flex align-items-center" href="#" style={{ marginLeft: '5rem' }}>
-            <img src={kiranawala} alt="Logo" style={{width:"auto",height:"70px",marginTop:"0px"}} />
+            <img src={kiranawala} alt="Logo" style={{width:"auto",height:"50px",marginTop:"0px"}} />
             <div className="ms-2 text-white">
             </div>
           </a>
@@ -85,7 +85,7 @@ function Navbar() {
             <img src={kiranawala} style={{width:"8rem", height:"5rem"}}></img>
           </div>
           <div>
-            <span style={{fontSize:"22px",fontWeight:"bold",lineHeight:"2px"}}>Login for More convenient shopping</span>
+            <span style={{fontSize:"17px",fontWeight:"bold",lineHeight:"2px"}}>Login for More convenient shopping</span>
             <p style={{marginTop:"10px",fontSize:"13px", fontWeight:"bold"}}>And receive special privileges only for LOTS Wholesale Solutions Members</p>
           </div>
          </div>

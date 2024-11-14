@@ -16,13 +16,13 @@ function Fruitsveg() {
             <h5>Product Categories</h5>
             <div className="list-group mb-3">
               <a href="#" className="list-group-item list-group-item-action">
-                Herbs &amp; Seasonings
+                Foodgain,Oil & masala
               </a>
               <a href="#" className="list-group-item list-group-item-action">
-                Packaged Produce
+                Home Care
               </a>
               <a href="#" className="list-group-item list-group-item-action">
-                Party Trays
+                Beverages
               </a>
               <a href="#" className="list-group-item list-group-item-action">
                 Cuts &amp; Sprouts
@@ -31,10 +31,10 @@ function Fruitsveg() {
                 Exotic Fruits &amp; Veggies
               </a>
               <a href="#" className="list-group-item list-group-item-action">
-                Fresh Fruits
+                Frozen
               </a>
               <a href="#" className="list-group-item list-group-item-action">
-                Fresh Vegetables
+                Home & Kitchen
               </a>
             </div>
             <h5>Filter by Price</h5>

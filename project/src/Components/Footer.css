@@ -1,6 +1,7 @@
 .footer {
-  color: #fff;
+  color: white;
   padding: 40px 0;
+  background-color: #00263B;
   
 }
 
@@ -74,7 +75,7 @@
 
 
 .footer-bottom {
-  background-color: #333;
+  background-color: #3D215D;
   color: #ccc;
   text-align: center;
   padding: 10px 0;

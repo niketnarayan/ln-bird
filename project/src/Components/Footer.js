@@ -6,7 +6,7 @@ function Footer() {
   return (
     <>
 
-<footer className="footer" style={{backgroundColor: ' #3D215D',height:"400px"}}>
+<footer className="footer" style={{ height:"400px"}}>
       <Container>
         <Row className="footer-row">
           <Col md={2} sm={6} className="footer-column">

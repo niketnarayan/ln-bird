@@ -4,7 +4,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { FaSearch, FaBoxes, FaGift, FaMoneyBillWave, FaTruck, FaSyncAlt } from 'react-icons/fa';
 import './Banner2.css';
-import kiranawala from "../Components/Assests/mr. KiranaWala logo.png";
+import kiranawala from "../Components/Assests/mr. Kirana logo.png";
 
 function Banner2() {
   return (

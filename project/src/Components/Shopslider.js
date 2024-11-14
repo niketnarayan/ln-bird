@@ -6,7 +6,7 @@ import './Shopslider.css';
 function Shopslider() {
   return (
     <>
-      <div className='container'>
+      <div className='container' style={{marginTop:"3rem"}}>
         <div className='row'>
           <div className='col'>
             <span style={{fontSize: "30px", fontWeight: "bold"}}>SHOP BY CATEGORIES</span>
