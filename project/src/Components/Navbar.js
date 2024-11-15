@@ -8,324 +8,156 @@ import { Tab, Tabs, Form } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import kiranawala from "../Components/Assests/mr. Kirana logo.png";
 
-
 function Navbar() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setDropdownOpen(!isDropdownOpen);
-  };
-
-
-
-
   const [show, setShow] = useState(false);
+  const [key, setKey] = useState('otp');
 
+  const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const Login =() =>{
-    handleShow()
-  }
-
-
-  const [key, setKey] = useState('otp');
-
-
- 
   return (
     <>
-   <div style={{ position: "sticky", top: "0", zIndex: "1000" }}>
-      {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: ' #3D215D' }}>
-        <div className="container-fluid">
-          {/* Logo with left margin */}
-          <a className="navbar-brand text-white d-flex align-items-center" href="#" style={{ marginLeft: '5rem' }}>
-            <img src={kiranawala} alt="Logo" style={{width:"auto",height:"50px",marginTop:"0px"}} />
-            <div className="ms-2 text-white">
-            </div>
-          </a>
-          
+      <div style={{ position: "sticky", top: "0", zIndex: "1000" }}>
+        {/* Navbar */}
+        <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: '#3D215D' }}>
+          <div className="container-lg">
+            {/* Logo */}
+            <a className="navbar-brand text-white d-flex align-items-center" href="#">
+              <img src={kiranawala} alt="Logo" style={{ width: "auto", height: "50px" }} />
+            </a>
 
-          {/* Centered Search Bar */}
-          <div className="input-group mx-auto" style={{ maxWidth: '400px',marginRight:"5rem" }}>
-            <input
-              className="form-control"
-              type="search"
-              placeholder="Search your products here"
-              aria-label="Search"
-            />
-            <button className="btn btn-light" type="submit">
-              <i className="bi bi-search"></i> {/* Bootstrap Search Icon */}
+            {/* Toggler for Mobile */}
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              style={{ borderColor: 'white',backgroundColor:"white" }}
+            >
+              <span className="navbar-toggler-icon"></span>
             </button>
+
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              {/* Search Bar */}
+              <div
+                className="input-group mx-auto"
+                style={{ maxWidth: '400px', flexGrow: 1, marginLeft: '20px', marginRight: '20px' }}
+              >
+                <input
+                  className="form-control"
+                  type="search"
+                  placeholder="Search your products here"
+                  aria-label="Search"
+                />
+                <button className="btn btn-light" type="submit">
+                  <i className="bi bi-search"></i>
+                </button>
+              </div>
+
+              {/* Right-side Buttons */}
+              <div className="d-flex align-items-center gap-3">
+                <Link to="/Contactus">
+                  <Button style={{ backgroundColor: "white", color: "black", border: "1px solid white" }}>
+                    Contact Us
+                  </Button>
+                </Link>
+
+                <button
+                  className="btn btn-light d-flex align-items-center"
+                  onClick={handleShow}
+                >
+                  <i className="bi bi-box-arrow-in-right" style={{ marginRight: "5px" }}></i> LOGIN
+                </button>
+              </div>
+            </div>
           </div>
-          <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: "10px", marginRight: "8rem" }}>
-  {/* Contact Us Button */}
-  <Link to="/Contactus">
-    <Button style={{ backgroundColor: "white", color: "black", border: "1px solid white" }}>
-      Contact Us
-    </Button>
-  </Link>
+        </nav>
 
-  {/* Login Button */}
-  <button className="btn btn-light" onClick={Login} style={{ display: "flex", alignItems: "center" }}>
-    <i className="bi bi-box-arrow-in-right" style={{ marginRight: "5px" }}></i> LOGIN
-  </button>
-</div>
-          {/* modal code---------------------------------- -------------------------------------------------------- */}
+        {/* Modal */}
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Login</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div style={{ display: "flex", gap: "25px" }}>
+              <img src={kiranawala} style={{ width: "8rem", height: "5rem" }} alt="Logo" />
+              <div>
+                <h6 style={{ fontWeight: "bold" }}>Login for More Convenient Shopping</h6>
+                <p>Receive special privileges only for members</p>
+              </div>
+            </div>
+            <Form.Group>
+              <Form.Label>Membership Id or Mobile Number</Form.Label>
+              <Form.Control type="text" placeholder="Enter your Membership Id or Mobile Number" />
+            </Form.Group>
 
+            {/* Tabs for Login */}
+            <Tabs activeKey={key} onSelect={(k) => setKey(k)} className="mb-3">
+              <Tab eventKey="password" title="Password login">
+                <Form.Group>
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type="password" placeholder="Enter password" />
+                </Form.Group>
+              </Tab>
+              <Tab eventKey="otp" title="OTP code login">
+                <Form.Group>
+                  <Form.Label>OTP Code</Form.Label>
+                  <Form.Control type="text" placeholder="Enter OTP code" />
+                </Form.Group>
+              </Tab>
+            </Tabs>
 
-          <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Login</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-         <div style={{display:"flex",gap:"25px"}}>
-          <div>
-            <img src={kiranawala} style={{width:"8rem", height:"5rem"}}></img>
-          </div>
-          <div>
-            <span style={{fontSize:"17px",fontWeight:"bold",lineHeight:"2px"}}>Login for More convenient shopping</span>
-            <p style={{marginTop:"10px",fontSize:"13px", fontWeight:"bold"}}>And receive special privileges only for LOTS Wholesale Solutions Members</p>
-          </div>
-         </div>
+            <div className="d-flex justify-content-between">
+              <Form.Check type="checkbox" label="Remember Login" />
+              <Button variant="link">Get OTP</Button>
+            </div>
 
-         <div>
-          <label style={{fontWeight:"bold"}}>Membership Id or Mobile Number</label><br/>
-          <input type='text' placeholder='Enter your Membership Id or Mobile Number' style={{width:"28rem",height:"40px", border:"2px solid lightblue",borderRadius:"10px"}}></input>
-         </div>
-         {/* password and otp start ------------------------------------------------------------------------------ */}
-
-         <div className="p-3" style={{ maxWidth: '450px', margin: '30px auto', backgroundColor: '#f0f0f0', borderRadius: '8px' }}>
-      <Tabs
-
-        id="login-tabs"
-        activeKey={key}
-        onSelect={(k) => setKey(k)}
-        className="mb-3"
-        style={{ borderBottom: 'none',padding:"0" }}
-      >
-        <Tab 
-          eventKey="password"
-          title={
-            <span
+            <Button
               style={{
-                color: key === 'password' ? '#ffffff' : 'grey',
-                fontWeight: key === 'password' ? 'bold' : 'normal',
-                padding: '10px',
-                backgroundColor: key === 'password' ? '#D71920' : '#cccccc', // Red if active, grey if inactive
-                borderRadius: '5px 5px 0 0'
+                width: "100%",
+                backgroundColor: "#D71920",
+                color: "white",
+                marginTop: "15px"
               }}
             >
-              Password login
-            </span>
-          }
-        >
-          {key === 'password' && (
-            <div style={{ backgroundColor: '#D71920', width: '100%', height: '3px', marginTop: '-8px' }}></div>
-          )}
-          <div style={{ padding: '10px' }}>
-            <Form>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Enter password" />
-              </Form.Group>
-            </Form>
-          </div>
-        </Tab>
-        
-        <Tab
-          eventKey="otp"
-          title={
-            <span
-              style={{
-                color: key === 'otp' ? '#ffffff' : 'grey',
-                fontWeight: key === 'otp' ? 'bold' : 'normal',
-                padding: '10px',
-                backgroundColor: key === 'otp' ? '#D71920' : '#cccccc', // Red if active, grey if inactive
-                borderRadius: '5px 5px 0 0'
-              }}
-            >
-              OTP code login
-            </span>
-          }
-        >
-          {key === 'otp' && (
-            <div style={{ backgroundColor: '#D71920', width: '100%', height: '3px', marginTop: '-8px' }}></div>
-          )}
-          <div style={{ padding: '10px' }}>
-            <Form>
-              <Form.Group controlId="formOtpCode">
-                <Form.Label>OTP Code</Form.Label>
-                <Form.Control type="text" placeholder="OTP Code" />
-              </Form.Group>
-            </Form>
-          </div>
-        </Tab>
-      </Tabs>
-    </div>
-         {/* password and otp end---------------------------------------------------------------------------- */}
-         <div  style={{display:"flex", gap:"14rem"}}>
-         <label style={{fontWeight:"bold"}}>
-  <input type="checkbox" name="exampleCheckbox" value="value1" style={{margin:"5px"}}/>
-  Rembember Login
-</label>
-<div>
-  <label style={{fontWeight:"bold"}}>Get OTP</label>
-</div>
-</div>
-
-<button style={{width:"29rem", marginTop:"20px", backgroundColor:"#D71920", color:"white", border:"#D71920", height:"35px", borderRadius:"5px"}}>
-  Login
-</button>
-
-
-
-        </Modal.Body>
-        <Modal.Footer style={{ backgroundColor: "#D71920", height: "90px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
-  <div>
-    <a href='' style={{ textDecoration: "none" }}>
-      <span style={{ color: "white", textAlign: "center",fontWeight:"bold" }}>Activate Your Member</span>
-    </a>
-  </div>
-  <div>
-    <a href='' style={{ textDecoration: "none" }}>
-      <span style={{ color: "white", textAlign: "center",fontWeight:"bold" }}>Generate Password</span>
-    </a>
-  </div>
-</Modal.Footer>
-      </Modal>
-
-
-          {/* modal code end ---------------- -------------------------------------------------------------- */}
-        </div>
-      </nav>
-
-      {/* Categories Menu */}
-      <div className="bg-light p-2">
-<div className="container d-flex align-items-center">
-{/* Categories Dropdown using react-bootstrap */}
-<DropdownButton
-id="dropdown-basic-button"
-title={
-<span
-style={{
-fontWeight: 'bold', // Apply bold
-fontSize: '18px', // Apply larger font size
-color: isDropdownOpen ? 'red' : 'black', // Change text color based on open state
-}}
->
-Categories
-</span>
-}
-className={`me-3 ${isDropdownOpen ? 'text-danger' : ''}`}
-variant="light"
-onClick={toggleDropdown}
->
-  {/* --------------------------------------------------------- */}
- 
-<Dropdown.Item href="#" style={{ fontSize: '18px', display:"flex", gap:"30px" }}>
-<Link to="/fruits" style={{textDecoration: 'none',color:"black" }}>
-<i class="fa-solid fa-wheat-awn" style={{marginTop:"5px",color:"black"}}></i>
-Foodgain & Oil
-</Link>
-</Dropdown.Item>
-
-{/* --------------------------------------------------------------------------- */}
-<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<Link to="/chicken" style={{textDecoration: 'none', color:"black" }}>
-<i class="fa-brands fa-square-font-awesome" style={{marginTop:"5px", color:"black"}}></i>
-Home Care
-</Link>
-</Dropdown.Item>
-{/* ------------------------------------------------------------------------------ */}
-<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<Link to="/dairy" style={{textDecoration: 'none', color:"black" }}>
-<i class="fa-solid fa-egg" style={{marginTop:"5px", color:"black"}}></i>
-Dry Fruits
-</Link>
-</Dropdown.Item>
-{/* -------------------------------------------------------------------------------- */}
-<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<Link to="/beverage" style={{textDecoration: 'none',color:"black" }}>
-<i class="fa-solid fa-mug-hot" style={{marginTop:"5px",color:"black"}}></i>
-Beverage
-</Link>
-</Dropdown.Item>
-{/* --------------------------------------------------------------------------------- */}
-<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<Link to="/bread" style={{textDecoration: 'none',color:"black" }}>
-<i class="fa-solid fa-bread-slice" style={{marginTop:"5px",color:"black"}}></i>
-Branded Food
-</Link>
-</Dropdown.Item>
-{/* ---------------------------------------------------------------------------------- */}
-<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<Link to="/frozen" style={{textDecoration: 'none',color:"black" }}>
-<i class="fa-solid fa-icicles" style={{marginTop:"5px",color:"black"}}></i>
-Frozen 
-</Link>
-</Dropdown.Item>
-{/* ----------------------------------------------------------------------------------- */}
-<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<Link to="/snacks" style={{textDecoration: 'none',color:"black" }}>
-<i class="fa-solid fa-cookie"style={{marginTop:"5px",color:"black"}}></i>
-Biscuits & Snacks
-</Link>
-</Dropdown.Item>
-{/* ------------------------------------------------------------------------------------ */}
-<Dropdown.Item href="#" style={{ fontSize: '18px' , display:"flex", gap:"20px"}}>
-<Link to="/grocery" style={{textDecoration: 'none',color:"black"}}>
-<i class="fa-solid fa-person"style={{marginTop:"5px",color:"black"}}></i>
-Personal Care
-</Link>
-</Dropdown.Item>
-{/* ------------------------------------------------------------------------------------ */}
-</DropdownButton>
-
-{/* Mailer Link */}
-<a
-href="#"
-className=""
-style={{
-fontWeight: '500',
-fontSize: '16px',
-display: 'flex',
-alignItems: 'center',
-textDecoration: 'none',
-}}
->
-<i className="fa-solid fa-tag" style={{ color: 'red' }}></i>
-{/* Discount icon */}
-<span style={{ marginLeft: '5px', color: 'black' }}>LOTS Mailer</span>
-</a>
-</div>
-</div>
+              Login
+            </Button>
+          </Modal.Body>
+          <Modal.Footer style={{ backgroundColor: "#D71920" }}>
+            <Button variant="link" style={{ color: "white" }}>Activate Your Member</Button>
+            <Button variant="link" style={{ color: "white" }}>Generate Password</Button>
+          </Modal.Footer>
+        </Modal>
       </div>
 
-      {/* Additional CSS for hover effects */}
-      <style jsx>{`
-        .dropdown-menu a:hover {
-          background-color: #f8f9fa;
-          color: red;
-          transition: all 0.3s ease-in-out;
-        }
-
-        .navbar a:hover {
-          color: #fff;
-          text-decoration: none;
-        }
-
-        .dropdown-toggle:hover {
-          color: red !important;
-        }
-
-        .dropdown-toggle.text-danger {
-          color: red !important;
-        }
-
-        
-      `}</style>
+      {/* Categories Dropdown */}
+      <div className="bg-light p-2">
+        <div className="container-lg d-flex justify-content-between align-items-center">
+          <DropdownButton
+            id="dropdown-basic-button"
+            title="Categories"
+            variant="light"
+            onClick={toggleDropdown}
+          >
+            <Dropdown.Item as={Link} to="/fruits">Foodgain & Oil</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/chicken">Home Care</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/dairy">Dry Fruits</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/beverage">Beverage</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/bread">Branded Food</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/frozen">Frozen</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/snacks">Biscuits & Snacks</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/grocery">Personal Care</Dropdown.Item>
+          </DropdownButton>
+          <a href="#" style={{ textDecoration: 'none', color: 'black' }}>
+            <i className="fa-solid fa-tag" style={{ color: 'red' }}></i> LOTS Mailer
+          </a>
+        </div>
+      </div>
     </>
   );
 }
