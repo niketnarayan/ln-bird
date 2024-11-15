@@ -331,10 +331,10 @@ function Productslider() {
       transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
       color: '#fff',
       cursor: 'pointer',
-      opacity: currentIndex === 0 ? 0.5 : 1,
+      opacity: currentIndex1 === 0 ? 0.5 : 1,
     }}
-    onClick={prevProducts}
-    disabled={currentIndex === 0}
+    onClick={prevProducts1}
+    disabled={currentIndex1 === 0}
     onMouseEnter={(e) => {
       e.currentTarget.style.transform = 'translateY(-4px)';
       e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
@@ -371,10 +371,10 @@ function Productslider() {
       transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
       color: '#fff',
       cursor: 'pointer',
-      opacity: currentIndex === productChunks.length - 1 ? 0.5 : 1,
+      opacity: currentIndex1 === productChunks1.length - 1 ? 0.5 : 1,
     }}
-    onClick={nextProducts}
-    disabled={currentIndex === productChunks.length - 1}
+    onClick={nextProducts1}
+    disabled={currentIndex === productChunks1.length - 1}
     onMouseEnter={(e) => {
       e.currentTarget.style.transform = 'translateY(-4px)';
       e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
