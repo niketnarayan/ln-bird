@@ -202,11 +202,13 @@ function Grocery() {
                     </span>
                   </div>
                   <button
-                    className="btn btn-outline-primary btn-sm ms-2"
+                    className="btn btn-outline btn-sm ms-2"
                     style={{
                       width: "100%", // Full width
                       marginTop: "5px",
                       borderRadius: "10px",
+                      backgroundColor:"#3D215D",
+                      color:"white",
                     }}
                   >
                     Add to Cart
@@ -251,11 +253,13 @@ function Grocery() {
                     </span>
                   </div>
                   <button
-                    className="btn btn-outline-primary btn-sm ms-2"
+                    className="btn btn-outline btn-sm ms-2"
                     style={{
                       width: "100%", // Full width
                       marginTop: "5px",
                       borderRadius: "10px",
+                      backgroundColor:"#3D215D",
+                      color:"white",
                     }}
                   >
                     Add to Cart
@@ -300,11 +304,13 @@ function Grocery() {
                     </span>
                   </div>
                   <button
-                    className="btn btn-outline-primary btn-sm ms-2"
+                    className="btn btn-outline btn-sm ms-2"
                     style={{
                       width: "100%", // Full width
                       marginTop: "5px",
                       borderRadius: "10px",
+                      backgroundColor:"#3D215D",
+                      color:"white",
                     }}
                   >
                     Add to Cart
