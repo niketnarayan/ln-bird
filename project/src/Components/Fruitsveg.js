@@ -5,11 +5,11 @@ import Footer from "../Components/Footer";
 function Fruitsveg() {
   return (
     <>
-      <div>
+      <div >
         <Navbar />
       </div>
 
-      <div className="container-fluid">
+      <div className="container-fluid" style={{marginTop:"10rem"}}>
         <div className="row py-4" style={{ margin: "0 5rem" }}>
           {/* Sidebar Filters */}
           <div className="col-md-3 filter-sidebar">

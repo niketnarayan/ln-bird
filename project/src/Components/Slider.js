@@ -9,7 +9,7 @@ function Slider() {
   return (
     <>
     {/* Carousel start------------------------------------------------------------------------------------------ */}
-      <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel" style={{marginTop:"5rem"}}>
+      <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel" style={{marginTop:"10rem"}}>
         {/* Carousel Indicators */}
         <div className="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>

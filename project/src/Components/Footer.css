@@ -1,8 +1,9 @@
+/* General Footer Styling */
 .footer {
   color: white;
-  padding: 40px 0;
+  padding: 40px 20px; /* Added padding for smaller screens */
   background-color: #00263B;
-  
+  height: fit-content;
 }
 
 .footer-row {
@@ -18,7 +19,7 @@
   font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 15px;
-  color: #ffff;
+  color: #ffffff;
 }
 
 .footer ul {
@@ -32,7 +33,7 @@
 }
 
 .footer ul li a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -41,6 +42,7 @@
   color: #ffcc00;
 }
 
+/* Contact Section Styling */
 .footer .contact p {
   margin: 5px 0;
 }
@@ -50,6 +52,7 @@
   text-decoration: underline;
 }
 
+/* App Links Styling */
 .footer .app-links img {
   width: 120px;
   margin-right: 10px;
@@ -60,23 +63,13 @@
   transform: scale(1.05);
 }
 
-/* Responsive styling */
-@media (max-width: 768px) {
-  .footer-row {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer .app-links img {
-    width: 100px;
-    margin: 0 auto;
-  }
-}
-
-
+/* Footer Bottom Styling */
 .footer-bottom {
   background-color: #3D215D;
   color: #ccc;
   text-align: center;
   padding: 10px 0;
+  font-size: 0.85rem;
 }
+
+/* Responsive Styling */

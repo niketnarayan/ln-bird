@@ -18,8 +18,8 @@ function Navbar() {
   const handleShow = () => setShow(true);
 
   return (
-    <>
-      <div style={{ position: "sticky", top: "0", zIndex: "1000" }}>
+    < div style={{ position: "fixed", top: "0", zIndex: "1000" ,left:"0",right:"0" }}>
+      <div >
         {/* Navbar */}
         <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: '#3D215D' }}>
           <div className="container-lg">
@@ -80,59 +80,134 @@ function Navbar() {
 
         {/* Modal */}
         <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Login</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <div style={{ display: "flex", gap: "25px" }}>
-              <img src={kiranawala} style={{ width: "8rem", height: "5rem" }} alt="Logo" />
-              <div>
-                <h6 style={{ fontWeight: "bold" }}>Login for More Convenient Shopping</h6>
-                <p>Receive special privileges only for members</p>
-              </div>
-            </div>
-            <Form.Group>
-              <Form.Label>Membership Id or Mobile Number</Form.Label>
-              <Form.Control type="text" placeholder="Enter your Membership Id or Mobile Number" />
-            </Form.Group>
+<Modal.Header closeButton>
+<Modal.Title>
 
-            {/* Tabs for Login */}
-            <Tabs activeKey={key} onSelect={(k) => setKey(k)} className="mb-3">
-              <Tab eventKey="password" title="Password login">
-                <Form.Group>
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Enter password" />
-                </Form.Group>
-              </Tab>
-              <Tab eventKey="otp" title="OTP code login">
-                <Form.Group>
-                  <Form.Label>OTP Code</Form.Label>
-                  <Form.Control type="text" placeholder="Enter OTP code" />
-                </Form.Group>
-              </Tab>
-            </Tabs>
-
-            <div className="d-flex justify-content-between">
-              <Form.Check type="checkbox" label="Remember Login" />
-              <Button variant="link">Get OTP</Button>
-            </div>
-
-            <Button
-              style={{
-                width: "100%",
-                backgroundColor: "#D71920",
-                color: "white",
-                marginTop: "15px"
-              }}
-            >
-              Login
-            </Button>
-          </Modal.Body>
-          <Modal.Footer style={{ backgroundColor: "#D71920" }}>
-            <Button variant="link" style={{ color: "white" }}>Activate Your Member</Button>
-            <Button variant="link" style={{ color: "white" }}>Generate Password</Button>
-          </Modal.Footer>
-        </Modal>
+</Modal.Title>
+</Modal.Header>
+<Modal.Body>
+  <div style={{display:"flex"}}>
+  <img
+src={kiranawala}
+alt="LOTS Wholesale Solutions"
+style={{ width: "100px",height:"100px" }}
+/>
+<div style={{ textAlign: "center", marginBottom: "15px" }}>
+<h5 style={{ fontWeight: "bold" }}>
+Login for More Convenient Shopping
+</h5>
+<p>And receive special privileges only for Kirana Wholesale Solutions Members</p>
+</div>
+</div>
+<Form.Group>
+<Form.Label style={{ fontWeight: "bold" }}>
+Membership Id or Mobile Number
+</Form.Label>
+<Form.Control
+type="text"
+placeholder="Enter your Membership Id or Mobile Number"
+style={{
+marginBottom: "15px",
+padding: "10px",
+borderRadius: "8px",
+}}
+/>
+</Form.Group>
+<Tabs
+activeKey={key}
+onSelect={(k) => setKey(k)}
+className="mb-3"
+justify
+style={{
+borderBottom: "2px solid #D71920",
+}}
+>
+<Tab
+eventKey="password"
+title={
+<span style={{ color: key === "password" ? "#D71920" : "black" }}>
+Password login
+</span>
+}
+>
+<Form.Group>
+<Form.Label style={{ fontWeight: "bold" }}>Password</Form.Label>
+<Form.Control
+type="password"
+placeholder="Enter password"
+style={{
+marginBottom: "15px",
+padding: "10px",
+borderRadius: "8px",
+}}
+/>
+</Form.Group>
+</Tab>
+<Tab
+eventKey="otp"
+title={
+<span style={{ color: key === "otp" ? "#D71920" : "black" }}>
+OTP code login
+</span>
+}
+>
+<Form.Group>
+<Form.Label style={{ fontWeight: "bold" }}>OTP Code</Form.Label>
+<Form.Control
+type="text"
+placeholder="Enter OTP code"
+style={{
+marginBottom: "15px",
+padding: "10px",
+borderRadius: "8px",
+}}
+/>
+</Form.Group>
+</Tab>
+</Tabs>
+<div className="d-flex justify-content-between align-items-center">
+<Form.Check
+type="checkbox"
+label="Remember login"
+style={{ fontWeight: "bold" }}
+/>
+<a href="#" style={{ textDecoration: "none", color: "#D71920" }}>
+Forgot password?
+</a>
+</div>
+<Button
+style={{
+width: "100%",
+backgroundColor: "#3D215D",
+color: "white",
+marginTop: "15px",
+padding: "10px",
+borderRadius: "8px",
+fontWeight: "bold",
+}}
+>
+Login
+</Button>
+</Modal.Body>
+<Modal.Footer style={{ backgroundColor: "#3D215D",display:"flex",justifyContent:"center" }}>
+<div className="">
+<Button
+variant="link"
+style={{ color: "white", textDecoration: "none", fontWeight: "bold" }}
+>
+Activate Your Membership
+</Button>
+<div>
+<Button
+variant="link"
+style={{ color: "white", textDecoration: "none", fontWeight: "bold",marginLeft:"25px"}}
+>
+Generate Password
+</Button>
+</div>
+</div>
+</Modal.Footer>
+</Modal>
       </div>
 
       {/* Categories Dropdown */}
@@ -178,11 +253,11 @@ function Navbar() {
             Personal Care</Dropdown.Item>
           </DropdownButton>
           <a href="#" style={{ textDecoration: 'none', color: 'black', marginRight:"55rem" }}>
-            <i className="fa-solid fa-tag" style={{ color: 'red' }}></i> LOTS Mailer
+            <i className="fa-solid fa-tag" style={{ color: '#3D215D' }}></i>  Wholesale
           </a>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
