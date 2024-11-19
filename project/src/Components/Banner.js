@@ -321,36 +321,101 @@ function Banner() {
     </div>
 
     {/* Arrow Buttons */}
-    <div style={{ display: 'flex' }}>
-      {/* Left Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-          
-        }}
-        onClick={prevProducts}
-        disabled={currentIndex === 0}
-      >
-        <i className='bi bi-chevron-left ' style={{ fontSize: '12px' }}></i>
-      </button>
+    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', justifyContent: 'center' }}>
+  {/* Left Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex === 0 ? 0.5 : 1,
+    }}
+    onClick={prevProducts}
+    disabled={currentIndex === 0}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-left'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
 
-      {/* Right Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-        }}
-        onClick={nextProducts}
-        disabled={currentIndex === productChunks.length - 1}
-      >
-        <i className='bi bi-chevron-right' style={{ fontSize: '12px' }}></i>
-      </button>
-    </div>
+  {/* Right Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex === productChunks.length - 1 ? 0.5 : 1,
+    }}
+    onClick={nextProducts}
+    disabled={currentIndex === productChunks.length - 1}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-right'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
+</div>
+
+{/* Bouncing Icon Animation */}
+<style>
+  {`
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-5px);
+      }
+    }
+  `}
+</style>
   </div>
 </div>
 
@@ -461,37 +526,101 @@ function Banner() {
     </div>
 
     {/* Arrow Buttons */}
-    <div style={{ display: 'flex' }}>
-      {/* Left Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-          backgroundColor:"#3D215D",
-          
-        }}
-        onClick={prevProducts1}
-        disabled={currentIndex2 === 0}
-      >
-        <i className='bi bi-chevron-left ' style={{ fontSize: '12px' }}></i>
-      </button>
+    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', justifyContent: 'center' }}>
+  {/* Left Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex2 === 0 ? 0.5 : 1,
+    }}
+    onClick={prevProducts1}
+    disabled={currentIndex2 === 0}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-left'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
 
-      {/* Right Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-        }}
-        onClick={nextProducts1}
-        disabled={currentIndex2 === productChunkss.length - 1}
-      >
-        <i className='bi bi-chevron-right' style={{ fontSize: '12px' }}></i>
-      </button>
-    </div>
+  {/* Right Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex2 === productChunkss.length - 1 ? 0.5 : 1,
+    }}
+    onClick={nextProducts1}
+    disabled={nextProducts1 === productChunkss.length - 1}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-right'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
+</div>
+
+{/* Bouncing Icon Animation */}
+<style>
+  {`
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-5px);
+      }
+    }
+  `}
+</style>
   </div>
 </div>
 
@@ -613,36 +742,101 @@ function Banner() {
     </div>
 
     {/* Arrow Buttons */}
-    <div style={{ display: 'flex' }}>
-      {/* Left Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-          
-        }}
-        onClick={prevProducts}
-        disabled={currentIndex === 0}
-      >
-        <i className='bi bi-chevron-left ' style={{ fontSize: '12px' }}></i>
-      </button>
+    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', justifyContent: 'center' }}>
+  {/* Left Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex === 0 ? 0.5 : 1,
+    }}
+    onClick={prevProducts}
+    disabled={currentIndex === 0}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-left'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
 
-      {/* Right Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-        }}
-        onClick={nextProducts}
-        disabled={currentIndex === productChunks.length - 1}
-      >
-        <i className='bi bi-chevron-right' style={{ fontSize: '12px' }}></i>
-      </button>
-    </div>
+  {/* Right Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex === productChunks.length - 1 ? 0.5 : 1,
+    }}
+    onClick={nextProducts}
+    disabled={currentIndex === productChunks.length - 1}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-right'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
+</div>
+
+{/* Bouncing Icon Animation */}
+<style>
+  {`
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-5px);
+      }
+    }
+  `}
+</style>
   </div>
 </div>
 
@@ -754,36 +948,101 @@ function Banner() {
     </div>
 
     {/* Arrow Buttons */}
-    <div style={{ display: 'flex' }}>
-      {/* Left Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-          
-        }}
-        onClick={prevProducts2}
-        disabled={currentIndex3 === 0}
-      >
-        <i className='bi bi-chevron-left ' style={{ fontSize: '12px' }}></i>
-      </button>
+    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', justifyContent: 'center' }}>
+  {/* Left Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex === 0 ? 0.5 : 1,
+    }}
+    onClick={prevProducts2}
+    disabled={currentIndex3 === 0}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-left'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
 
-      {/* Right Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-        }}
-        onClick={nextProducts2}
-        disabled={currentIndex3 === productChunks11.length - 1}
-      >
-        <i className='bi bi-chevron-right' style={{ fontSize: '12px' }}></i>
-      </button>
-    </div>
+  {/* Right Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex3 === productChunks11.length - 1 ? 0.5 : 1,
+    }}
+    onClick={nextProducts2}
+    disabled={currentIndex3 === productChunks11.length - 1}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-right'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
+</div>
+
+{/* Bouncing Icon Animation */}
+<style>
+  {`
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-5px);
+      }
+    }
+  `}
+</style>
   </div>
 </div>
 
@@ -883,7 +1142,7 @@ function Banner() {
           {/* 3 slider------------------------------------------------------------------------------------------ */}
 
 
-          <div className="container position-relative">
+          <div className="container position-relative"style={{marginTop:"3rem"}}>
       {/* Left Arrow */}
 
       <div className='row'>
@@ -904,36 +1163,101 @@ function Banner() {
     </div>
 
     {/* Arrow Buttons */}
-    <div style={{ display: 'flex' }}>
-      {/* Left Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-          
-        }}
-        onClick={prevProducts}
-        disabled={currentIndex === 0}
-      >
-        <i className='bi bi-chevron-left ' style={{ fontSize: '12px' }}></i>
-      </button>
+    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', justifyContent: 'center' }}>
+  {/* Left Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex === 0 ? 0.5 : 1,
+    }}
+    onClick={prevProducts}
+    disabled={currentIndex === 0}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-left'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
 
-      {/* Right Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-        }}
-        onClick={nextProducts}
-        disabled={currentIndex === productChunks.length - 1}
-      >
-        <i className='bi bi-chevron-right' style={{ fontSize: '12px' }}></i>
-      </button>
-    </div>
+  {/* Right Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex === productChunks.length - 1 ? 0.5 : 1,
+    }}
+    onClick={nextProducts}
+    disabled={currentIndex === productChunks.length - 1}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-right'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
+</div>
+
+{/* Bouncing Icon Animation */}
+<style>
+  {`
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-5px);
+      }
+    }
+  `}
+</style>
   </div>
 </div>
 
@@ -1047,36 +1371,101 @@ function Banner() {
     </div>
 
     {/* Arrow Buttons */}
-    <div style={{ display: 'flex' }}>
-      {/* Left Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-          
-        }}
-        onClick={prevProducts3}
-        disabled={currentIndex4 === 0}
-      >
-        <i className='bi bi-chevron-left ' style={{ fontSize: '12px' }}></i>
-      </button>
+    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', justifyContent: 'center' }}>
+  {/* Left Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex4 === 0 ? 0.5 : 1,
+    }}
+    onClick={prevProducts3}
+    disabled={currentIndex4 === 0}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-left'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
 
-      {/* Right Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-        }}
-        onClick={nextProducts3}
-        disabled={currentIndex4 === productChunks22.length - 1}
-      >
-        <i className='bi bi-chevron-right' style={{ fontSize: '12px' }}></i>
-      </button>
-    </div>
+  {/* Right Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex4 === productChunks22.length - 1 ? 0.5 : 1,
+    }}
+    onClick={nextProducts3}
+    disabled={currentIndex4 === productChunks22.length - 1}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-right'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
+</div>
+
+{/* Bouncing Icon Animation */}
+<style>
+  {`
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-5px);
+      }
+    }
+  `}
+</style>
   </div>
 </div>
 
@@ -1181,7 +1570,7 @@ function Banner() {
         {/* 4 slider------------------------------------------------------------------------------------------------- */}
 
 
-        <div className="container position-relative">
+        <div className="container position-relative" style={{marginTop:"3rem"}}>
       {/* Left Arrow */}
 
       <div className='row'>
@@ -1202,36 +1591,101 @@ function Banner() {
     </div>
 
     {/* Arrow Buttons */}
-    <div style={{ display: 'flex' }}>
-      {/* Left Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-          
-        }}
-        onClick={prevProducts}
-        disabled={currentIndex === 0}
-      >
-        <i className='bi bi-chevron-left ' style={{ fontSize: '12px' }}></i>
-      </button>
+    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', justifyContent: 'center' }}>
+  {/* Left Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex === 0 ? 0.5 : 1,
+    }}
+    onClick={prevProducts}
+    disabled={currentIndex === 0}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-left'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
 
-      {/* Right Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-        }}
-        onClick={nextProducts}
-        disabled={currentIndex === productChunks.length - 1}
-      >
-        <i className='bi bi-chevron-right' style={{ fontSize: '12px' }}></i>
-      </button>
-    </div>
+  {/* Right Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex === productChunks.length - 1 ? 0.5 : 1,
+    }}
+    onClick={nextProducts}
+    disabled={currentIndex === productChunks.length - 1}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-right'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
+</div>
+
+{/* Bouncing Icon Animation */}
+<style>
+  {`
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-5px);
+      }
+    }
+  `}
+</style>
   </div>
 </div>
 
@@ -1346,36 +1800,101 @@ function Banner() {
     </div>
 
     {/* Arrow Buttons */}
-    <div style={{ display: 'flex' }}>
-      {/* Left Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-          
-        }}
-        onClick={prevProducts4}
-        disabled={currentIndex5 === 0}
-      >
-        <i className='bi bi-chevron-left ' style={{ fontSize: '12px' }}></i>
-      </button>
+    <div style={{ display: 'flex', gap: '6px', alignItems: 'center', justifyContent: 'center' }}>
+  {/* Left Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex5 === 0 ? 0.5 : 1,
+    }}
+    onClick={prevProducts4}
+    disabled={currentIndex5 === 0}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-left'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
 
-      {/* Right Arrow Button */}
-      <button
-        className='btn btn-outline-secondary'
-        style={{
-          border: 'none',
-          height: '50px',
-          width: '50px',
-        }}
-        onClick={nextProducts4}
-        disabled={currentIndex5 === productChunks33.length - 1}
-      >
-        <i className='bi bi-chevron-right' style={{ fontSize: '12px' }}></i>
-      </button>
-    </div>
+  {/* Right Arrow Button */}
+  <button
+    className='btn'
+    style={{
+      height: '25px',
+      width: '25px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: '12px',
+      background: 'linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%)',
+      border: 'none',
+      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      backdropFilter: 'blur(10px)',
+      transition: 'transform 0.3s, box-shadow 0.3s, opacity 0.2s',
+      color: '#fff',
+      cursor: 'pointer',
+      opacity: currentIndex5 === productChunks33.length - 1 ? 0.5 : 1,
+    }}
+    onClick={nextProducts4}
+    disabled={currentIndex5 === productChunks33.length - 1}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.2)';
+    }}
+  >
+    <i
+      className='bi bi-chevron-right'
+      style={{
+        fontSize: '15px',
+        animation: 'bounce 1s infinite alternate',
+        color: '#fff',
+      }}
+    ></i>
+  </button>
+</div>
+
+{/* Bouncing Icon Animation */}
+<style>
+  {`
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-5px);
+      }
+    }
+  `}
+</style>
   </div>
 </div>
 

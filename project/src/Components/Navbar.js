@@ -136,7 +136,7 @@ function Navbar() {
       </div>
 
       {/* Categories Dropdown */}
-      <div className="bg-light p-2">
+      <div className="bg-light p-2" style={{position:"fixed",zIndex:"1000",right:"0",left:"0"}}>
         <div className="container-lg d-flex justify-content-between align-items-center">
           <DropdownButton
             id="dropdown-basic-button"
@@ -144,16 +144,40 @@ function Navbar() {
             variant="light"
             onClick={toggleDropdown}
           >
-            <Dropdown.Item as={Link} to="/fruits">Foodgain & Oil</Dropdown.Item>
-            <Dropdown.Item as={Link} to="/chicken">Home Care</Dropdown.Item>
-            <Dropdown.Item as={Link} to="/dairy">Dry Fruits</Dropdown.Item>
-            <Dropdown.Item as={Link} to="/beverage">Beverage</Dropdown.Item>
-            <Dropdown.Item as={Link} to="/bread">Branded Food</Dropdown.Item>
-            <Dropdown.Item as={Link} to="/frozen">Frozen</Dropdown.Item>
-            <Dropdown.Item as={Link} to="/snacks">Biscuits & Snacks</Dropdown.Item>
-            <Dropdown.Item as={Link} to="/grocery">Personal Care</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/fruits">
+            <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1629264486507.jpeg' style={{width:"25px",height:"30px",border:"2px solid white"}}></img>
+            
+            Foodgain & Oil</Dropdown.Item>
+           <div style={{backgroundColor:"black",boxShadow: "0 0 0 0.1px black"}}></div>
+            <Dropdown.Item as={Link} to="/chicken">
+            <img src='https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/MENU_1658219469374.jpeg'style={{width:"25px",height:"30px",border:"2px solid white"}} ></img>
+            Home Care</Dropdown.Item>
+            <div style={{backgroundColor:"black",boxShadow: "0 0 0 0.1px black"}}></div>
+            <Dropdown.Item as={Link} to="/dairy">
+             <img src='https://thumbs.dreamstime.com/b/mixed-dry-fruits-25481129.jpg?w=768'style={{width:"25px",height:"30px",border:"2px solid white"}}></img>
+            Dry Fruits</Dropdown.Item>
+            <div style={{backgroundColor:"black",boxShadow: "0 0 0 0.1px black"}}></div>
+            <Dropdown.Item as={Link} to="/beverage">
+            <img src='https://thumbs.dreamstime.com/b/cans-beverages-19492376.jpg?w=768' style={{width:"25px",height:"30px",border:"2px solid white"}}></img>
+            Beverage</Dropdown.Item>
+            <div style={{backgroundColor:"black",boxShadow: "0 0 0 0.1px black"}}></div>
+            <Dropdown.Item as={Link} to="/bread">
+            <img src='https://media.istockphoto.com/id/458990173/photo/food-drive-collection.jpg?s=612x612&w=0&k=20&c=lyxmqez8_GFBYg1lHshyHCou2KpWPNsXiHJqOuP2DI8=' style={{width:"25px",height:"30px",border:"2px solid white"}}></img>
+            Branded Food</Dropdown.Item>
+            <div style={{backgroundColor:"black",boxShadow: "0 0 0 0.1px black"}}></div>
+            <Dropdown.Item as={Link} to="/frozen">
+            <img src='https://www.eatright.org/-/media/images/eatright-articles/eatright-article-feature-images/frozenfoodsconveninentandnutritious_600x450.jpg?as=0&w=967&rev=f23a06f8fafc47bc8c4bcd77e0fd18c9&hash=3C7783EBD220341CB893DE8477649F3A'style={{width:"25px",height:"30px",border:"2px solid white"}}></img>
+            Frozen</Dropdown.Item>
+            <div style={{backgroundColor:"black",boxShadow: "0 0 0 0.1px black"}}></div>
+            <Dropdown.Item as={Link} to="/snacks">
+            <img src='https://www.gortsa.com/storage/category/28/3ZjIecCwHcn1K1hXb5B4KKIHUAiV1qqYM73LTA2s.jpeg'style={{width:"25px",height:"30px",border:"2px solid white"}}></img>
+            Biscuits & Snacks</Dropdown.Item>
+            <div style={{backgroundColor:"black",boxShadow: "0 0 0 0.1px black"}}></div>
+            <Dropdown.Item as={Link} to="/grocery">
+            <img src='https://www.shutterstock.com/image-photo/jakarta-indonesia-december-11-2023-260nw-2412796699.jpg'style={{width:"25px",height:"30px",border:"2px solid white"}}></img>
+            Personal Care</Dropdown.Item>
           </DropdownButton>
-          <a href="#" style={{ textDecoration: 'none', color: 'black' }}>
+          <a href="#" style={{ textDecoration: 'none', color: 'black', marginRight:"55rem" }}>
             <i className="fa-solid fa-tag" style={{ color: 'red' }}></i> LOTS Mailer
           </a>
         </div>

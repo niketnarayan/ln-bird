@@ -4,7 +4,7 @@ import './Productslider.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function Productslider() {
-  const [quantity, setQuantity] = useState(1);
+  
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [currentIndex1, setCurrentIndex1] = useState(0);
@@ -109,8 +109,8 @@ function Productslider() {
   <button
     className='btn'
     style={{
-      height: '50px',
-      width: '50px',
+      height: '25px',
+      width: '25px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -138,7 +138,7 @@ function Productslider() {
     <i
       className='bi bi-chevron-left'
       style={{
-        fontSize: '20px',
+        fontSize: '15px',
         animation: 'bounce 1s infinite alternate',
         color: '#fff',
       }}
@@ -149,8 +149,8 @@ function Productslider() {
   <button
     className='btn'
     style={{
-      height: '50px',
-      width: '50px',
+      height: '25px',
+      width: '25px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -178,7 +178,7 @@ function Productslider() {
     <i
       className='bi bi-chevron-right'
       style={{
-        fontSize: '20px',
+        fontSize: '15px',
         animation: 'bounce 1s infinite alternate',
         color: '#fff',
       }}
@@ -318,8 +318,8 @@ function Productslider() {
   <button
     className='btn'
     style={{
-      height: '50px',
-      width: '50px',
+      height: '25px',
+      width: '25px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -347,7 +347,7 @@ function Productslider() {
     <i
       className='bi bi-chevron-left'
       style={{
-        fontSize: '20px',
+        fontSize: '15px',
         animation: 'bounce 1s infinite alternate',
         color: '#fff',
       }}
@@ -358,8 +358,8 @@ function Productslider() {
   <button
     className='btn'
     style={{
-      height: '50px',
-      width: '50px',
+      height: '25px',
+      width: '25px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -387,7 +387,7 @@ function Productslider() {
     <i
       className='bi bi-chevron-right'
       style={{
-        fontSize: '20px',
+        fontSize: '15px',
         animation: 'bounce 1s infinite alternate',
         color: '#fff',
       }}
