@@ -24,9 +24,9 @@ function Productslider() {
 
 
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex6, setCurrentIndex6] = useState(0);
 
-  const [currentIndex1, setCurrentIndex1] = useState(0);
+  const [currentIndex7, setCurrentIndex7] = useState(0);
 
 
   
@@ -35,7 +35,7 @@ function Productslider() {
 
 
   // Sample Product Data Array
-  const products = [
+  const pproducts = [
     {
       title: "KELLOGGS CHOCOS 385 G",
       price: 88.99,
@@ -118,7 +118,7 @@ function Productslider() {
     },
   ];
 
-  const products1 = [
+  const pproducts1 = [
     {
       title: "KELLOGGS CHOCOS 385 G",
       price: 88.99,
@@ -202,39 +202,39 @@ function Productslider() {
   ];
 
   // Group products into sets of four
-  const productChunks = [];
-  for (let i = 0; i < products.length; i += 5) {
-    productChunks.push(products.slice(i, i + 5));
+  const productChunks6 = [];
+  for (let i = 0; i < pproducts.length; i += 5) {
+    productChunks6.push(pproducts.slice(i, i + 5));
   }
 
-  const productChunks1 = [];
-  for (let i = 0; i < products1.length; i += 5) {
-    productChunks1.push(products1.slice(i, i + 5));
+  const productChunks7 = [];
+  for (let i = 0; i < pproducts1.length; i += 5) {
+    productChunks7.push(pproducts1.slice(i, i + 5));
   }
 
   // Function to navigate to the next set of products
-  const nextProducts = () => {
-    if (currentIndex < productChunks.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+  const nextProductss = () => {
+    if (currentIndex6 < productChunks6.length - 1) {
+      setCurrentIndex6(currentIndex6 + 1);
     }
   };
 
-  const nextProducts1 = () => {
-    if (currentIndex1 < productChunks1.length - 1) {
-      setCurrentIndex1(currentIndex1 + 1);
+  const nextProductss1 = () => {
+    if (currentIndex7 < productChunks7.length - 1) {
+      setCurrentIndex7(currentIndex7 + 1);
     }
   };
 
   // Function to navigate to the previous set of products
-  const prevProducts = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+  const prevProductss = () => {
+    if (currentIndex6 > 0) {
+      setCurrentIndex6(currentIndex6 - 1);
     }
   };
 
-  const prevProducts1 = () => {
-    if (currentIndex1 > 0) {
-      setCurrentIndex1(currentIndex1 - 1);
+  const prevProductss1 = () => {
+    if (currentIndex7 > 0) {
+      setCurrentIndex7(currentIndex7 - 1);
     }
   };
 
@@ -766,10 +766,10 @@ Save Changes
                   transition: "transform 0.3s, box-shadow 0.3s, opacity 0.2s",
                   color: "#fff",
                   cursor: "pointer",
-                  opacity: currentIndex === 0 ? 0.5 : 1,
+                  opacity: currentIndex6 === 0 ? 0.5 : 1,
                 }}
-                onClick={prevProducts}
-                disabled={currentIndex === 0}
+                onClick={prevProductss}
+                disabled={currentIndex6 === 0}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-4px)";
                   e.currentTarget.style.boxShadow =
@@ -809,10 +809,10 @@ Save Changes
                   transition: "transform 0.3s, box-shadow 0.3s, opacity 0.2s",
                   color: "#fff",
                   cursor: "pointer",
-                  opacity: currentIndex === productChunks.length - 1 ? 0.5 : 1,
+                  opacity: currentIndex6 === productChunks6.length - 1 ? 0.5 : 1,
                 }}
-                onClick={nextProducts}
-                disabled={currentIndex === productChunks.length - 1}
+                onClick={nextProductss}
+                disabled={currentIndex6 === productChunks6.length - 1}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-4px)";
                   e.currentTarget.style.boxShadow =
@@ -853,7 +853,7 @@ transform: translateY(-5px);
 
         {/* Products Grid */}
         <div className="row">
-          {productChunks[currentIndex].map((product, idx) => (
+          {productChunks6[currentIndex6].map((product, idx) => (
             <div
               className="col-md-2 mb-3"
               key={idx}
@@ -1061,10 +1061,10 @@ transform: translateY(-5px);
                   transition: "transform 0.3s, box-shadow 0.3s, opacity 0.2s",
                   color: "#fff",
                   cursor: "pointer",
-                  opacity: currentIndex1 === 0 ? 0.5 : 1,
+                  opacity: currentIndex7 === 0 ? 0.5 : 1,
                 }}
-                onClick={prevProducts1}
-                disabled={currentIndex1 === 0}
+                onClick={prevProductss1}
+                disabled={currentIndex7 === 0}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-4px)";
                   e.currentTarget.style.boxShadow =
@@ -1105,10 +1105,10 @@ transform: translateY(-5px);
                   color: "#fff",
                   cursor: "pointer",
                   opacity:
-                    currentIndex1 === productChunks1.length - 1 ? 0.5 : 1,
+                    currentIndex7 === productChunks7.length - 1 ? 0.5 : 1,
                 }}
-                onClick={nextProducts1}
-                disabled={currentIndex === productChunks1.length - 1}
+                onClick={nextProductss1}
+                disabled={currentIndex7 === productChunks7.length - 1}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-4px)";
                   e.currentTarget.style.boxShadow =
@@ -1149,7 +1149,7 @@ transform: translateY(-5px);
 
         {/* Products Grid */}
         <div className="row">
-          {productChunks1[currentIndex1].map((product1, idx) => (
+          {productChunks7[currentIndex7].map((product1, idx) => (
             <div
               className="col-md-2 mb-3"
               key={idx}
