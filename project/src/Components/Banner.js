@@ -1159,6 +1159,10 @@ function Banner() {
  
   
 
+  const [show3, setShow3] = useState(false);
+
+  const handleClose3 = () => setShow3(false);
+  const handleShow3 = () => {setShow3(true);handleClose1()}
 
 
 
@@ -1625,6 +1629,7 @@ function Banner() {
           </div>
         </div>
       </div>
+      {/* --------------------------------------------------------------------------------------- */}
       <div
         className="container position-relative"
         style={{ marginTop: "3rem" }}
@@ -1923,6 +1928,7 @@ transform: translateY(-5px);
           ))}
         </div>
       </div>
+      {/* -------------------------------------------------------------------------------------------- */}
 
       {/* second slider-------------------------------------------------------------------------------------- */}
 
@@ -2264,7 +2270,7 @@ transform: translateY(-5px);
             <Button variant="secondary" onClick={handleClose1}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose1}>
+            <Button  variant="primary" onClick={handleShow3}>
               CheckOut
             </Button>
           </Modal.Footer>
@@ -4776,6 +4782,103 @@ transform: translateY(-5px);
       </div>
 
       {/* ---------------------------------------------------------------------------------------------------------- */}
+      <Modal
+  show={show3}
+  onHide={() => setShow3(false)}
+  dialogClassName="modal-90w"
+  aria-labelledby="example-custom-modal-styling-title"
+>
+  <Modal.Header closeButton>
+    <Modal.Title id="example-custom-modal-styling-title">
+      <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+        <div>
+          <img
+            src={kiranawala}
+            alt="Kiranawala"
+            style={{ height: "40px", width: "auto" }}
+          />
+        </div>
+        <span style={{ fontSize: "20px", fontWeight: "bold", color: "#333" }}>
+          Payment
+        </span>
+      </div>
+    </Modal.Title>
+  </Modal.Header>
+
+  <Modal.Body>
+    <h5>Select Your Payment Method</h5>
+
+    {/* Payment Options */}
+    <div className="row">
+      <div className="col-md-4">
+        <div className="paypal-card" style={{ cursor: "pointer" }}>
+          <img
+            src="https://images.ctfassets.net/y6oq7udscnj8/7pGYJSsSu8IjvuscnxPcng/ae9dc800b649640406b5bfa1ae9b02d6/PayPal.png?w=592&h=368&q=50&fm=png"
+            alt="PayPal"
+            className="paypal-card-img img-fluid" style={{height:"5rem",width:"10rem"}}
+          />
+          <div className="paypal-card-body">
+            <h6 className="paypal-card-title">PayPal</h6>
+            <p className="paypal-card-description" style={{fontSize:"15px"}}>Pay securely with your PayPal account.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="col-md-4">
+        <div className="googlepay-card" style={{ cursor: "pointer" }}>
+          <img
+            src="https://lh3.googleusercontent.com/CBDhGDth7rqSnLcRPjOdfw_HwgKS8Gu-KMIJKQQIXym3J32lqSrrBFTFRjIbKcFR7LNli8O-ChWEzL_Jz94G64jayZIgv5C2Bq3G"
+            alt="Google Pay"
+            className="googlepay-card-img img-fluid" style={{height:"5rem",width:"10rem"}}
+          />
+          <div className="googlepay-card-body">
+            <h6 className="googlepay-card-title">Google Pay</h6>
+            <p className="googlepay-card-description"style={{fontSize:"15px"}}>Pay easily with Google Pay.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="col-md-4">
+        <div className="creditcard-card" style={{ cursor: "pointer" }}>
+          <img
+            src="https://static.vecteezy.com/system/resources/thumbnails/009/384/393/small_2x/credit-card-clipart-design-illustration-free-png.png"
+            alt="Credit Card"
+            className="creditcard-card-img img-fluid" style={{height:"5rem",width:"10rem"}}
+          />
+          <div className="creditcard-card-body">
+            <h6 className="creditcard-card-title">Credit Card</h6>
+            <p className="creditcard-card-description"style={{fontSize:"15px"}}>Use your credit card for payment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>
+    Total Price: <span>₹{calculateTotalPrice().toFixed(2)}</span>
+  </h3>
+
+
+    {/* Optionally add more payment methods */}
+    <div className="mt-4 text-center">
+      <button className="btn btn-success btn-lg payment-btn">
+        Proceed to Payment
+      </button>
+    </div>
+  </Modal.Body>
+
+  <Modal.Footer>
+    <Button variant="secondary" onClick={() => setShow3(false)}>
+      Close
+    </Button>
+    {/* <Button variant="primary" onClick={handleShow3}>
+      Save Changes
+    </Button> */}
+  </Modal.Footer>
+</Modal>
+
+
+    
+
     </>
   );
 }
