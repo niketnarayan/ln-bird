@@ -50,6 +50,7 @@ function Banner() {
       discount: "15.83% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/104456709_1.webp",
+        quantity: 1,
     },
     {
       title: "NISSIN CUP NOODLES GEKI HOT & SPICY KOREAN VEG 70 G",
@@ -58,6 +59,7 @@ function Banner() {
       discount: "10% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1705469291669.webp",
+        quantity: 1,
     },
     {
       title: "BAMBINO PREMIUM ALL SEASONS FUSILLI PASTA 400 G",
@@ -66,6 +68,7 @@ function Banner() {
       discount: "22% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1688109188935.webp",
+        quantity: 1,
     },
     {
       title: "YIPPEE MAGIC MASALA NOODLES 60 G PK96",
@@ -74,6 +77,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1653452890738.webp",
+        quantity: 1,
     },
     {
       title: "QUAKER OATS MEAL 1 KG",
@@ -82,6 +86,7 @@ function Banner() {
       discount: "12% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103691567_1.webp",
+        quantity: 1,
     },
     {
       title: "MAGGI VEG ATTA SPINACH NOODLES 284 G",
@@ -90,6 +95,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1689834504733.webp",
+        quantity: 1,
     },
     {
       title: "DEL MONTE PENNE RIGATE PASTA 500 G",
@@ -98,6 +104,7 @@ function Banner() {
       discount: "13% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1717478191935.jpeg",
+        quantity: 1,
     },
     {
       title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G",
@@ -106,6 +113,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp",
+        quantity: 1,
     },
     {
       title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G",
@@ -114,6 +122,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp",
+        quantity: 1,
     },
     {
       title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G",
@@ -122,6 +131,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp",
+        quantity: 1,
     },
   ];
 
@@ -133,6 +143,7 @@ function Banner() {
       discount: "15.83% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/104456709_1.webp",
+        quantity: 1,
     },
     {
       title: "NISSIN CUP NOODLES GEKI HOT & SPICY KOREAN VEG 70 G",
@@ -141,6 +152,7 @@ function Banner() {
       discount: "10% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1705469291669.webp",
+        quantity: 1,
     },
     {
       title: "BAMBINO PREMIUM ALL SEASONS FUSILLI PASTA 400 G",
@@ -149,6 +161,7 @@ function Banner() {
       discount: "22% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1688109188935.webp",
+        quantity: 1,
     },
     {
       title: "YIPPEE MAGIC MASALA NOODLES 60 G PK96",
@@ -157,6 +170,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1653452890738.webp",
+        quantity: 1,
     },
     {
       title: "QUAKER OATS MEAL 1 KG",
@@ -165,6 +179,7 @@ function Banner() {
       discount: "12% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103691567_1.webp",
+        quantity: 1,
     },
     {
       title: "MAGGI VEG ATTA SPINACH NOODLES 284 G",
@@ -173,6 +188,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1689834504733.webp",
+        quantity: 1,
     },
     {
       title: "DEL MONTE PENNE RIGATE PASTA 500 G",
@@ -181,6 +197,7 @@ function Banner() {
       discount: "13% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1717478191935.jpeg",
+        quantity: 1,
     },
     {
       title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G",
@@ -189,6 +206,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp",
+        quantity: 1,
     },
     {
       title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G",
@@ -197,6 +215,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp",
+        quantity: 1,
     },
     {
       title: "MTR GULAB JAMUN MIX 2 (1+1) U 175 G",
@@ -205,6 +224,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686678_1.webp",
+        quantity: 1,
     },
   ];
 
@@ -270,6 +290,7 @@ function Banner() {
       originalPrice: 100.88,
       discount: "15.83% OFF",
       image: "https://m.media-amazon.com/images/I/91CI0QEuy8L._AC_UL320_.jpg",
+      quantity: 1,
     },
     {
       title: "PANSARI RAGI ATTA - FINGER MILLET FLOUR 500 G",
@@ -277,6 +298,7 @@ function Banner() {
       originalPrice: 110.0,
       discount: "10% OFF",
       image: "https://m.media-amazon.com/images/I/81dNXkl9ArL._AC_UL320_.jpg",
+      quantity: 1,
     },
     {
       title: "AASHIRVAAD MP CHAKKI ATTA 5 KG",
@@ -285,6 +307,7 @@ function Banner() {
       discount: "22% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1688532751540.webp",
+        quantity: 1,
     },
     {
       title: "RAJDHANI MAIDA 1 KG",
@@ -293,6 +316,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1624432867064.webp",
+        quantity: 1,
     },
     {
       title: "RAJDHANI SOOJI 1 KG",
@@ -301,6 +325,7 @@ function Banner() {
       discount: "12% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103691829_1.webp",
+        quantity: 1,
     },
     {
       title: "PAN SOOJI 500 G",
@@ -309,6 +334,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1651820864946.webp",
+        quantity: 1,
     },
     {
       title: "RAJDHANI CHAKKI ATTA (VFPL) 50 KG",
@@ -317,6 +343,7 @@ function Banner() {
       discount: "13% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1624879578088.webp",
+        quantity: 1,
     },
     {
       title: "FORTUNE ATTA PP 10 KG",
@@ -325,6 +352,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686263_1.webp",
+        quantity: 1,
     },
     {
       title: "FORTUNE ATTA PP 10 KG",
@@ -333,6 +361,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686263_1.webp",
+        quantity: 1,
     },
     {
       title: "FORTUNE ATTA PP 10 KG",
@@ -341,6 +370,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686263_1.webp",
+        quantity: 1,
     },
   ];
 
@@ -351,6 +381,7 @@ function Banner() {
       originalPrice: 100.88,
       discount: "15.83% OFF",
       image: "https://m.media-amazon.com/images/I/91CI0QEuy8L._AC_UL320_.jpg",
+      quantity: 1,
     },
     {
       title: "PANSARI RAGI ATTA - FINGER MILLET FLOUR 500 G",
@@ -358,6 +389,7 @@ function Banner() {
       originalPrice: 110.0,
       discount: "10% OFF",
       image: "https://m.media-amazon.com/images/I/81dNXkl9ArL._AC_UL320_.jpg",
+      quantity: 1,
     },
     {
       title: "AASHIRVAAD MP CHAKKI ATTA 5 KG",
@@ -366,6 +398,7 @@ function Banner() {
       discount: "22% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1688532751540.webp",
+        quantity: 1,
     },
     {
       title: "RAJDHANI MAIDA 1 KG",
@@ -374,6 +407,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1624432867064.webp",
+        quantity: 1,
     },
     {
       title: "RAJDHANI SOOJI 1 KG",
@@ -382,6 +416,7 @@ function Banner() {
       discount: "12% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103691829_1.webp",
+        quantity: 1,
     },
     {
       title: "PAN SOOJI 500 G",
@@ -390,6 +425,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1651820864946.webp",
+        quantity: 1,
     },
     {
       title: "RAJDHANI CHAKKI ATTA (VFPL) 50 KG",
@@ -398,6 +434,7 @@ function Banner() {
       discount: "13% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1624879578088.webp",
+        quantity: 1,
     },
     {
       title: "FORTUNE ATTA PP 10 KG",
@@ -406,6 +443,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686263_1.webp",
+        quantity: 1,
     },
     {
       title: "FORTUNE ATTA PP 10 KG",
@@ -414,6 +452,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686263_1.webp",
+        quantity: 1,
     },
     {
       title: "FORTUNE ATTA PP 10 KG",
@@ -422,6 +461,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103686263_1.webp",
+        quantity: 1,
     },
   ];
 
@@ -433,6 +473,7 @@ function Banner() {
       discount: "15.83% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/104453053_2.webp",
+        quantity: 1,
     },
     {
       title: "VANISH STAIN REMOVER LIQUID 400 ML",
@@ -441,6 +482,7 @@ function Banner() {
       discount: "10% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1646894636660.webp",
+        quantity: 1,
     },
     {
       title: "SURF EXCEL QUICK WASH DETERGENT WASHING POWDER 1 KG",
@@ -449,6 +491,7 @@ function Banner() {
       discount: "22% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103678369_1.webp",
+        quantity: 1,
     },
     {
       title: "FENA DETERGENT WASHING POWDER 500 G",
@@ -457,6 +500,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103668689_1.webp",
+        quantity: 1,
     },
     {
       title: "MORELIGHT EXTRA POWER DETERGENT POWDER 4 KG",
@@ -465,6 +509,7 @@ function Banner() {
       discount: "12% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1626348351818.webp",
+        quantity: 1,
     },
     {
       title: "GODREJ EZEE LIQUID DETERGENT 500 G",
@@ -473,6 +518,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103678600_1.webp",
+        quantity: 1,
     },
     {
       title: "REVIVE LIQUID 400 G",
@@ -481,6 +527,7 @@ function Banner() {
       discount: "13% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1708495554262.webp",
+        quantity: 1,
     },
     {
       title: "HENKO MATIC FRONT LOAD 2LT",
@@ -489,6 +536,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1680667959964.webp",
+        quantity: 1,
     },
     {
       title: "CHUK-DE KASHMIRI MIRCH POWDER 8 G",
@@ -497,6 +545,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1610184896245.webp",
+        quantity: 1,
     },
     {
       title: "CHUK-DE KASHMIRI MIRCH POWDER 8 G",
@@ -505,6 +554,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1610184896245.webp",
+        quantity: 1,
     },
   ];
 
@@ -516,6 +566,7 @@ function Banner() {
       discount: "15.83% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/104453053_2.webp",
+        quantity: 1,
     },
     {
       title: "VANISH STAIN REMOVER LIQUID 400 ML",
@@ -524,6 +575,7 @@ function Banner() {
       discount: "10% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1646894636660.webp",
+        quantity: 1,
     },
     {
       title: "SURF EXCEL QUICK WASH DETERGENT WASHING POWDER 1 KG",
@@ -532,6 +584,7 @@ function Banner() {
       discount: "22% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103678369_1.webp",
+        quantity: 1,
     },
     {
       title: "FENA DETERGENT WASHING POWDER 500 G",
@@ -540,6 +593,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103668689_1.webp",
+        quantity: 1,
     },
     {
       title: "MORELIGHT EXTRA POWER DETERGENT POWDER 4 KG",
@@ -548,6 +602,7 @@ function Banner() {
       discount: "12% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1626348351818.webp",
+        quantity: 1,
     },
     {
       title: "GODREJ EZEE LIQUID DETERGENT 500 G",
@@ -556,6 +611,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103678600_1.webp",
+        quantity: 1,
     },
     {
       title: "REVIVE LIQUID 400 G",
@@ -564,6 +620,7 @@ function Banner() {
       discount: "13% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1708495554262.webp",
+        quantity: 1,
     },
     {
       title: "HENKO MATIC FRONT LOAD 2LT",
@@ -572,6 +629,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1680667959964.webp",
+        quantity: 1,
     },
     {
       title: "HENKO MATIC FRONT LOAD 2LT",
@@ -580,6 +638,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1680667959964.webp",
+        quantity: 1,
     },
     {
       title: "HENKO MATIC FRONT LOAD 2LT",
@@ -588,6 +647,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1680667959964.webp",
+        quantity: 1,
     },
   ];
 
@@ -599,6 +659,7 @@ function Banner() {
       discount: "15.83% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1612952308545.webp",
+        quantity: 1,
     },
     {
       title: "HALDIRAM FATAFAT BHEL 150 G",
@@ -607,6 +668,7 @@ function Banner() {
       discount: "10% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1675673188739.webp",
+        quantity: 1,
     },
     {
       title: "PITARA BIKANERI BHUJIA 900 G",
@@ -615,6 +677,7 @@ function Banner() {
       discount: "22% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1712311257132.jpeg",
+        quantity: 1,
     },
     {
       title: "HALDIRAM PANCHRATTAN 200 G",
@@ -623,6 +686,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1675673024056.webp",
+        quantity: 1,
     },
     {
       title: "ACT II IPC GOLDEN SIZZLE 40 G",
@@ -631,6 +695,7 @@ function Banner() {
       discount: "12% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103692193_1.webp",
+        quantity: 1,
     },
     {
       title: "HALDIRAM KAJU MIXTURE 400 G",
@@ -639,6 +704,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1675673107961.webp",
+        quantity: 1,
     },
     {
       title: "GOLDIEE MEAT/MUTTON MASALA SPECIAL 100 G",
@@ -647,6 +713,7 @@ function Banner() {
       discount: "13% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103667167_1.webp",
+        quantity: 1,
     },
     {
       title: "CHUK-DE KASHMIRI MIRCH POWDER 8 G",
@@ -655,6 +722,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1610184896245.webp",
+        quantity: 1,
     },
     {
       title: "CHUK-DE KASHMIRI MIRCH POWDER 8 G",
@@ -663,6 +731,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1610184896245.webp",
+        quantity: 1,
     },
     {
       title: "CHUK-DE KASHMIRI MIRCH POWDER 8 G",
@@ -671,6 +740,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1610184896245.webp",
+        quantity: 1,
     },
   ];
 
@@ -682,6 +752,7 @@ function Banner() {
       discount: "15.83% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1612952308545.webp",
+        quantity: 1,
     },
     {
       title: "HALDIRAM FATAFAT BHEL 150 G",
@@ -690,6 +761,7 @@ function Banner() {
       discount: "10% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1675673188739.webp",
+        quantity: 1,
     },
     {
       title: "PITARA BIKANERI BHUJIA 900 G",
@@ -698,6 +770,7 @@ function Banner() {
       discount: "22% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1712311257132.jpeg",
+        quantity: 1,
     },
     {
       title: "HALDIRAM PANCHRATTAN 200 G",
@@ -706,6 +779,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1675673024056.webp",
+        quantity: 1,
     },
     {
       title: "ACT II IPC GOLDEN SIZZLE 40 G",
@@ -714,6 +788,7 @@ function Banner() {
       discount: "12% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103692193_1.webp",
+        quantity: 1,
     },
     {
       title: "HALDIRAM KAJU MIXTURE 400 G",
@@ -722,6 +797,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1675673107961.webp",
+        quantity: 1,
     },
     {
       title: "GOLDIEE MEAT/MUTTON MASALA SPECIAL 100 G",
@@ -730,6 +806,7 @@ function Banner() {
       discount: "13% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103667167_1.webp",
+        quantity: 1,
     },
     {
       title: "CHUK-DE KASHMIRI MIRCH POWDER 8 G",
@@ -738,6 +815,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1610184896245.webp",
+        quantity: 1,
     },
     {
       title: "CHUK-DE KASHMIRI MIRCH POWDER 8 G",
@@ -746,6 +824,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1610184896245.webp",
+        quantity: 1,
     },
     {
       title: "CHUK-DE KASHMIRI MIRCH POWDER 8 G",
@@ -754,6 +833,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1610184896245.webp",
+        quantity: 1,
     },
   ];
 
@@ -765,6 +845,7 @@ function Banner() {
       discount: "15.83% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103671704_1.webp",
+        quantity: 1,
     },
     {
       title: "CATCH PERI PERI SPRINKLER 90 G",
@@ -773,6 +854,7 @@ function Banner() {
       discount: "10% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1687248407662.webp",
+        quantity: 1,
     },
     {
       title: "CATCH CHATPATA CHAT MASALA 100 G",
@@ -781,6 +863,7 @@ function Banner() {
       discount: "22% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1688108663864.webp",
+        quantity: 1,
     },
     {
       title: "CATCH JALJEERA MASALA 100 G",
@@ -789,6 +872,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1688108648256.webp",
+        quantity: 1,
     },
     {
       title: "GOLDIEE TURMERIC POWDER POUCH 200 G",
@@ -797,6 +881,7 @@ function Banner() {
       discount: "12% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1612427788992.webp",
+        quantity: 1,
     },
     {
       title: "CHUK-DE SAUNF 7G PK10",
@@ -805,6 +890,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1624618954925.webp",
+        quantity: 1,
     },
     {
       title: "HERSHEYS KISSES MILK CHOCOLATE 108 G",
@@ -813,6 +899,7 @@ function Banner() {
       discount: "13% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1638514177101.webp",
+        quantity: 1,
     },
     {
       title: "HALDIRAM TAKA TAK MASALA 105 G",
@@ -821,6 +908,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1675673446065.webp",
+        quantity: 1,
     },
     {
       title: "HALDIRAM TAKA TAK MASALA 105 G",
@@ -829,6 +917,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1675673446065.webp",
+        quantity: 1,
     },
     {
       title: "HALDIRAM TAKA TAK MASALA 105 G",
@@ -837,6 +926,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1675673446065.webp",
+        quantity: 1,
     },
   ];
 
@@ -848,6 +938,7 @@ function Banner() {
       discount: "15.83% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/103671704_1.webp",
+        quantity: 1,
     },
     {
       title: "CATCH PERI PERI SPRINKLER 90 G",
@@ -856,6 +947,7 @@ function Banner() {
       discount: "10% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1687248407662.webp",
+        quantity: 1,
     },
     {
       title: "CATCH CHATPATA CHAT MASALA 100 G",
@@ -864,6 +956,7 @@ function Banner() {
       discount: "22% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1688108663864.webp",
+        quantity: 1,
     },
     {
       title: "CATCH JALJEERA MASALA 100 G",
@@ -872,6 +965,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1688108648256.webp",
+        quantity: 1,
     },
     {
       title: "GOLDIEE TURMERIC POWDER POUCH 200 G",
@@ -880,6 +974,7 @@ function Banner() {
       discount: "12% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1612427788992.webp",
+        quantity: 1,
     },
     {
       title: "CHUK-DE SAUNF 7G PK10",
@@ -888,6 +983,7 @@ function Banner() {
       discount: "15% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1624618954925.webp",
+        quantity: 1,
     },
     {
       title: "HERSHEYS KISSES MILK CHOCOLATE 108 G",
@@ -896,6 +992,7 @@ function Banner() {
       discount: "13% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1638514177101.webp",
+        quantity: 1,
     },
     {
       title: "HALDIRAM TAKA TAK MASALA 105 G",
@@ -904,6 +1001,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1675673446065.webp",
+        quantity: 1,
     },
     {
       title: "HALDIRAM TAKA TAK MASALA 105 G",
@@ -912,6 +1010,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1675673446065.webp",
+        quantity: 1,
     },
     {
       title: "HALDIRAM TAKA TAK MASALA 105 G",
@@ -920,6 +1019,7 @@ function Banner() {
       discount: "20% OFF",
       image:
         "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PRODUCT_1675673446065.webp",
+        quantity: 1,
     },
   ];
 
@@ -1024,6 +1124,45 @@ function Banner() {
       setCurrentIndex5(currentIndex5 - 1);
     }
   };
+
+
+  const [cartItems, setCartItems] = useState(pproducts);
+
+  // Function to increment quantity
+  const incrementQuantity = (index) => {
+    setcart((prevCart) =>
+      prevCart.map((item, i) =>
+        i === index
+          ? { ...item, quantity: item.quantity + 1 } // Increment quantity for the specific item
+          : item // Leave other items unchanged
+      )
+    );
+  };
+
+  const decrementQuantity = (index) => {
+    setcart((prevCart) =>
+      prevCart
+        .map((item, i) =>
+          i === index && item.quantity >= 1
+            ? { ...item, quantity: item.quantity - 1 } // Decrease quantity
+            : item
+        )
+        .filter((item, i) => !(i === index && item.quantity === 0)) // Remove item if quantity reaches 0
+    );
+  };
+  
+  
+
+  const calculateTotalPrice = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+ 
+  
+
+
+
+
+
 
   return (
     <>
@@ -1959,7 +2098,7 @@ transform: translateY(-5px);
                   alt={product1.title}
                   style={{
                     height: "120px",
-                    width: "150px",
+                    width: "100%",
                     padding: "20px",
                     display: "flex",
                     justifyContent: "center",
@@ -2084,26 +2223,48 @@ transform: translateY(-5px);
 
         <Modal show={show1} onHide={handleClose1}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>
+
+             <div style={{display:"flex",gap:"40px"}}>
+             <div>
+                <img className="img-fluid" src={kiranawala} style={{height:"3rem",width:"7rem"}}></img>
+              </div>
+              <span> Product Details</span>
+             
+             </div>
+              
+              
+              </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {cart.map((item, index) => (
-              <div key={index}>
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  style={{ width: "50px", height: "50px" }}
-                />
-                <span style={{ fontSize: "12px" }}>{item.title}</span>
+              <div key={index} className="cart-item">
+                 <img src={item.image} alt={item.title} />
+          <div className="cart-item-info">
+            <div className="cart-item-title">{item.title}</div>
+            <div className="cart-item-price">₹{(item.price * item.quantity).toFixed(2)}</div>
+          </div>
+          <div className="cart-item-actions">
+            <button onClick={() => decrementQuantity(index)}>-</button>
+            <span className="quantity">{item.quantity}</span>
+            <button onClick={() => incrementQuantity(index)}>+</button>
+          </div>
               </div>
+              
             ))}
+                   <div className="cart-total">
+  <h3>
+    Total Price: <span>₹{calculateTotalPrice().toFixed(2)}</span>
+  </h3>
+</div>
+
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose1}>
               Close
             </Button>
             <Button variant="primary" onClick={handleClose1}>
-              Save Changes
+              CheckOut
             </Button>
           </Modal.Footer>
         </Modal>
@@ -2302,8 +2463,10 @@ transform: translateY(-5px);
                   alt={product.title}
                   style={{
                     height: "120px",
-                    width: "150px",
+                    width: "100%",
                     padding: "20px",
+                    display: "flex",
+                    justifyContent: "center",
                     alignItems: "center",
                   }}
                 />
@@ -2598,8 +2761,10 @@ transform: translateY(-5px);
                   alt={products.title}
                   style={{
                     height: "120px",
-                    width: "150px",
+                    width: "100%",
                     padding: "20px",
+                    display: "flex",
+                    justifyContent: "center",
                     alignItems: "center",
                   }}
                 />
@@ -2910,8 +3075,10 @@ transform: translateY(-5px);
                   alt={product1.title}
                   style={{
                     height: "120px",
-                    width: "150px",
+                    width: "100%",
                     padding: "20px",
+                    display: "flex",
+                    justifyContent: "center",
                     alignItems: "center",
                   }}
                 />
@@ -3206,8 +3373,10 @@ transform: translateY(-5px);
                   alt={product11.title}
                   style={{
                     height: "120px",
-                    width: "150px",
+                    width: "100%",
                     padding: "20px",
+                    display: "flex",
+                    justifyContent: "center",
                     alignItems: "center",
                   }}
                 />
@@ -3522,8 +3691,10 @@ transform: translateY(-5px);
                       alt={product2.title}
                       style={{
                         height: "120px",
-                        width: "150px",
+                        width: "100%",
                         padding: "20px",
+                        display: "flex",
+                        justifyContent: "center",
                         alignItems: "center",
                       }}
                     />
@@ -3831,8 +4002,10 @@ transform: translateY(-5px);
                       alt={product22.title}
                       style={{
                         height: "120px",
-                        width: "150px",
+                        width: "100%",
                         padding: "20px",
+                        display: "flex",
+                        justifyContent: "center",
                         alignItems: "center",
                       }}
                     />
@@ -4151,8 +4324,10 @@ transform: translateY(-5px);
                   alt={product3.title}
                   style={{
                     height: "120px",
-                    width: "150px",
+                    width: "100%",
                     padding: "20px",
+                    display: "flex",
+                    justifyContent: "center",
                     alignItems: "center",
                   }}
                 />
@@ -4449,8 +4624,10 @@ transform: translateY(-5px);
                   alt={product33.title}
                   style={{
                     height: "120px",
-                    width: "150px",
+                    width: "100%",
                     padding: "20px",
+                    display: "flex",
+                    justifyContent: "center",
                     alignItems: "center",
                   }}
                 />
