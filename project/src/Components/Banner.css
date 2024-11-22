@@ -157,6 +157,29 @@ body {
 
 
 
+.modal-title {
+  display: flex;
+  align-items: center; /* Align image and text vertically */
+  gap: 20px; /* Space between image and text */
+}
+
+.modal-title img {
+  height: 3rem;
+  width: 7rem;
+  object-fit: contain; /* Ensures the image scales properly */
+  border-radius: 5px; /* Adds slight rounding to the image */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.modal-title span {
+  font-size: 1.5rem; /* Increase font size for better visibility */
+  font-weight: bold; /* Make text bold */
+  color: #333; /* Dark text color */
+}
+
+
+
+
 
 
 /* cart css end---------------------------------------------------------------------------------------------- */

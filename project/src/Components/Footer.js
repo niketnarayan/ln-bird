@@ -45,7 +45,7 @@ function Footer() {
             <li>My Orders</li>
             <li>Wishlist</li>
             <li>Delivery Addresses</li>
-            <li>JioMart Wallet</li>
+            <li>KiranaMart Wallet</li>
           </ul>
         </div>
         {/* Help & Support */}
@@ -73,6 +73,9 @@ function Footer() {
           </p>
           <p>8:00 AM to 8:00 PM, 365 days</p>
           <p>Should you encounter any issues with the website.</p>
+          <ul>
+          <li><a href="/Contactus">Contact Us</a></li>
+        </ul>
           <h3>Download the app</h3>
           <div className="app-links">
             <img

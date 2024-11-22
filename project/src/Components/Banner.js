@@ -1227,16 +1227,16 @@ function Banner() {
           >
             <div className="container-lg">
               {/* Logo */}
-              <a
-                className="navbar-brand text-white d-flex align-items-center"
-                href="#"
-              >
-                <img
-                  src={kiranawala}
-                  alt="Logo"
-                  style={{ width: "auto", height: "50px" }}
-                />
-              </a>
+              <Link
+  className="navbar-brand text-white d-flex align-items-center"
+  to="/"
+>
+  <img
+    src={kiranawala}
+    alt="Logo"
+    style={{ width: "auto", height: "50px" }}
+  />
+</Link>
 
               {/* Toggler for Mobile */}
               <button
@@ -2223,18 +2223,19 @@ transform: translateY(-5px);
 
         <Modal show={show1} onHide={handleClose1}>
           <Modal.Header closeButton>
-            <Modal.Title>
+          <Modal.Title>
+  <div className="modal-title">
+    <div>
+      <img 
+        className="img-fluid" 
+        src={kiranawala} 
+        alt="Product" 
+      />
+    </div>
+    <span>Product Details</span>
+  </div>
+</Modal.Title>
 
-             <div style={{display:"flex",gap:"40px"}}>
-             <div>
-                <img className="img-fluid" src={kiranawala} style={{height:"3rem",width:"7rem"}}></img>
-              </div>
-              <span> Product Details</span>
-             
-             </div>
-              
-              
-              </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {cart.map((item, index) => (
