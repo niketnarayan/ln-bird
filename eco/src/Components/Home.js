@@ -6,6 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Footer from './footer';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { Link } from 'react-router-dom';
 
 function Home() {
 
@@ -34,7 +35,7 @@ function Home() {
   ];
 
   const products3 = [
-    { id: 1, name: "Combo(Shampoo + hair oil + Soap)  ", price: "2000/-", image: "https://m.media-amazon.com/images/I/51K0Vy3VbjL.jpg" },
+    { id: 1, name: "Combo(Shampoo + hair oil + Soap)  ", price: "2000/-", image: "https://m.media-amazon.com/images/I/51K0Vy3VbjL.jpg",  quantity: 1, },
     { id: 2, name: "Commbo For(Shampoo + Hair oil + Vitamin C Face wash) ", price: "2100/-", image: "https://rukminim2.flixcart.com/image/850/1000/xif0q/combo-kit/w/z/l/lati-hair-care-and-face-care-kit-hair-oil-shampoo-hair-original-imagretefgfhuzyf.jpeg?q=90&crop=false",  quantity: 1, },
     { id: 3, name: "Combo (	Shampoo + Hair oil + Gold Scrub)  ", price: "1700/-", image: "https://mridulmadhok.in/cdn/shop/products/WhatsAppImage2021-12-31at4.07.04AM.jpg?v=1640996010",  quantity: 1, },
     { id: 4, name: "Combo(Hair Serum + Hair oil + Anti hair fall Shampoo) ", price: "2200/-", image: "https://products.drbatras.com/cdn/shop/products/pro-hair-fall-control-regime-shampoo-conditioner-hair-oil-hair-fall-serum-619381.jpg?v=1701180812",  quantity: 1, },
@@ -76,7 +77,7 @@ function Home() {
   
 
   const calculateTotalPrice = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cart.reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0);
   };
  
   
@@ -129,31 +130,31 @@ function Home() {
     {/* Navbar links */}
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav ms-auto">
+      <li className="nav-item">
+  <Link className="nav-link text-white" to="/">
+    Home
+  </Link>
+</li>
+<li className="nav-item">
+      <Link className="nav-link text-white" to="/about">
+        Product
+      </Link>
+    </li>
+    <li className="nav-item">
+      <Link className="nav-link text-white" to="/about">
+        Combo
+      </Link>
+    </li>
+    <li className="nav-item">
+      <Link className="nav-link text-white" to="/about">
+        Blog
+      </Link>
+    </li>
         <li className="nav-item">
-          <a className="nav-link text-white" href="#">
-            Home
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link text-white" href="#">
-            Product
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link text-white" href="#">
-            Combo
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link text-white" href="#">
-            Blog
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link text-white" href="#">
-            Contact Us
-          </a>
-        </li>
+  <Link className="nav-link text-white" to="/contact">
+    Contact Us
+  </Link>
+</li>
       </ul>
       <div className="button-header">
       <button onClick={handleShow1} className="buttons-header">
@@ -210,6 +211,8 @@ function Home() {
           <i className="fa-solid fa-magnifying-glass"  ></i>
         </button>
       </div>
+
+
     </div>
   </div>
 </div>
@@ -590,7 +593,7 @@ function Home() {
             />
             <span className="grocery-card-name">{product.name}</span>
             <p className="grocery-card-price" >MRP:₹{product.price}</p>
-            <button onClick={()=>handleprouctadd(products1)}className="grocery-card-button">Add to Cart</button>
+            <button onClick={() => handleprouctadd(product)} className="grocery-card-button">Add to Cart</button>
           </div>
         ))}
       </div>
@@ -626,7 +629,7 @@ function Home() {
             />
             <span className="grocery-card-name">{product.name}</span>
             <p className="grocery-card-price" >MRP:₹{product.price}</p>
-            <button onClick={()=>handleprouctadd(products2)} className="grocery-card-button">Add to Cart</button>
+            <button onClick={()=>handleprouctadd(product)} className="grocery-card-button">Add to Cart</button>
           </div>
         ))}
       </div>
@@ -658,7 +661,7 @@ function Home() {
             />
             <span className="grocery-card-name">{product.name}</span>
             <p className="grocery-card-price" >MRP:₹{product.price}</p>
-            <button onClick={()=>handleprouctadd(products3)} className="grocery-card-button">Add to Cart</button>
+            <button onClick={()=>handleprouctadd(product)} className="grocery-card-button">Add to Cart</button>
           </div>
         ))}
       </div>
@@ -676,7 +679,7 @@ function Home() {
     <div>
       <img 
         className="img-fluid" 
-      src="https://pbs.twimg.com/profile_images/1701878932176351232/AlNU3WTK_400x400.jpg"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVvPOK3a2x7ceTbTGkjYPJKWjwcWjVB0xqgg&s"
         alt="Product" 
       />
     </div>
@@ -691,7 +694,10 @@ function Home() {
                  <img src={item.image} alt={item.title} />
           <div className="cart-item-info">
             <div className="cart-item-title">{item.name}</div>
-            <div className="cart-item-price">₹{(item.price * item.quantity).toFixed(2)}</div>
+           
+            <div className="cart-item-price">
+          ₹{((parseFloat(item.price) || 0) * (parseInt(item.quantity) || 0)).toFixed(2)}
+        </div>
           </div>
           <div className="cart-item-actions">
             <button onClick={() => decrementQuantity(index)}>-</button>

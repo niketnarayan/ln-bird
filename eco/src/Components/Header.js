@@ -4,6 +4,7 @@ import "./Navbar.css";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { Link } from 'react-router-dom';
 function Header() {
 
 
@@ -39,11 +40,11 @@ function Header() {
     {/* Navbar links */}
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav ms-auto">
-        <li className="nav-item">
-          <a className="nav-link text-white" href="#">
-            Home
-          </a>
-        </li>
+      <li className="nav-item">
+  <Link className="nav-link text-white" to="/">
+    Home
+  </Link>
+</li>
         <li className="nav-item">
           <a className="nav-link text-white" href="#">
             Product
@@ -60,10 +61,10 @@ function Header() {
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-white" href="#">
-            Contact Us
-          </a>
-        </li>
+  <Link className="nav-link text-white" to="/contact">
+    Contact Us
+  </Link>
+</li>
       </ul>
       <div className="button-header">
       <button className="buttons-header">
@@ -120,6 +121,11 @@ function Header() {
           <i className="fa-solid fa-magnifying-glass"  ></i>
         </button>
       </div>
+
+
+
+
+
     </div>
   </div>
 </div>
