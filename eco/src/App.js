@@ -14,11 +14,12 @@ function App() {
 
 <div>
     
-    {/* <Routes>
+    <Routes>
 
     <Route path='/' element={<Home/>}/>
     <Route path='/contact' element={<Contact/>}/>
-    </Routes> */}
+    <Route path='/vitamincfacewash' element={<VitamincFacewash/>}/>
+    </Routes>
     
     
    
@@ -27,7 +28,7 @@ function App() {
 
     
     
-   <VitamincFacewash/>
+   {/* <VitamincFacewash/> */}
 
     {/* <Home/> */}
     {/* <Footer/> */}

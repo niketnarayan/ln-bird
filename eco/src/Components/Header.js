@@ -4,7 +4,7 @@ import "./Navbar.css";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 function Header() {
 
 
@@ -13,7 +13,7 @@ function Header() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
+const navigate=useNavigate()
 
 
   return (
@@ -22,7 +22,7 @@ function Header() {
 <nav className="navbar navbar-expand-lg" >
   <div className="container">
     {/* Brand Logo */}
-    <a className="navbar-brand text-white d-flex align-items-center" href="#">
+    <a style={{cursor:"pointer"}} className="navbar-brand text-white d-flex align-items-center" onClick={()=>navigate('/')}>
       <span className="logo-icon me-2">ⓒ</span>LNBird
     </a>
     {/* Toggler for mobile view */}

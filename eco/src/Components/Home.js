@@ -411,23 +411,20 @@ function Home() {
   }}
 >
   <h5 style={{ fontWeight: "bold", color: "#006400" }}>PRODUCTS</h5>
-  <ul style={{ listStyle: "none", padding: 0, flexGrow: 1 }}>
-    {[
-      "Vitamin C Face Wash",
-      "Anti-Acne Face Wash ",
-      "Gold Scrub Face Wash ",
-      "Anti Hair fall Shampoo ",
-      "Rosemary hair oil ",
-      "Hair Serum ",
-      "Gluta Soap   ",
-      
-      
-    ].map((item, index) => (
-      <li key={index} style={{ padding: "8px 0", cursor: "pointer" }}>
-        {item}
-      </li>
-    ))}
+  <ul style={{listStyleType:"none",lineHeight:"40px",cursor:"pointer",textDecoration:"none"}}>
+    <li ><Link to={'/vitamincfacewash'} style={{textDecoration:"none",color:"black"}}>Vitamin C Face Wash</Link></li>
+    <li>Anti-Acne Face Wash </li>
+    <li>Gold Scrub Face Wash</li>
+    <li>Anti Hair fall Shampoo</li>
+    <li>Rosemary hair oil</li>
+    <li>Hair Serum</li>
+    <li>Gluta Soap</li>
+    
   </ul>
+     
+      
+      
+   
 </div>
 
 
