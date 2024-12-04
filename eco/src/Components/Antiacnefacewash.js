@@ -1,23 +1,22 @@
 import React from 'react'
-import Header from './Header'
-import Footer from './footer'
-import "./VitamincFacewash.css";
+import "./Antiacnefacewash.css";
+import Header from './Header';
+import Footer from './footer';
 
-function VitamincFacewash() {
-
-    
-return (
-<div>
-
+function Antiacnefacewash() {
+  return (
     <div>
-        <Header/>
-    </div>
+
+        <div>
+            <Header/>
+        </div>
+
 <div className="container mt-5">
 <div className="row" style={{marginTop:"12rem"}}>
 {/* Product Image Section */}
 <div className="col-md-6 text-center">
 <img
-src="https://www.richfeelnaturals.com/cdn/shop/files/vitamin-c-face-wash1_a2da8366-3d65-4193-b1f9-94a5b965206a.jpg?v=1718106105" // Replace with actual image URL
+src="https://rukminim2.flixcart.com/image/850/1000/xif0q/toner/1/j/0/100-vitamin-c-face-toner-brightening-even-toned-glowing-skin-20-original-imagykjh7vhazh5y.jpeg?q=90&crop=false" // Replace with actual image URL
 alt="Product"
 className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px"}}
 />
@@ -25,8 +24,8 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
 
 {/* Product Details Section */}
 <div className="col-md-6">
-<h3>Vitamin C Face Wash</h3>
-<p>(Brightens & Evens Skin Tone),100gm</p>
+<h3>Anti-Acne Face Wash </h3>
+<p>Clear, Blemish-Free Skin 100ml </p>
 <div className="mb-3">
 <span className="text-danger fw-bold fs-4">₹583</span>{" "}
 <span className="text-muted text-decoration-line-through">₹1599</span>{" "}
@@ -71,36 +70,28 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
       data-bs-parent="#accordionExample"
     >
       <div className="accordion-body">
-  <h4 className="fw-bold mb-3">Vitamin C Face Wash</h4>
+  <h4 className="fw-bold mb-3">Anti-Acne Face Wash </h4>
+  <h5>Say Goodbye to Breakouts with Our Anti-Acne Face Wash</h5>
   <p>
-    Refresh and revitalize your skin with our Vitamin C Face Wash, a powerful yet gentle cleanser 
-    designed to give your skin a healthy, glowing complexion. Enriched with the goodness of Vitamin C, 
-    this daily face wash helps brighten and even out skin tone while protecting your skin from harmful 
-    environmental stressors.
+  Fight acne and blemishes head-on with our Anti-Acne Face Wash, specifically formulated to target acne-causing bacteria, reduce inflammation, and cleanse your skin deeply. Whether you’re dealing with occasional breakouts or persistent acne, this powerful yet gentle cleanser is your first step toward clearer, healthier-looking skin.
   </p>
 
   <h5 className="mt-4">Key Benefits:</h5>
   <ul className="list-group list-group-flush mt-3">
     <li className="list-group-item">
-      <strong>Brightens & Evens Skin Tone:</strong> The antioxidant properties of Vitamin C help 
-      reduce dullness, promoting a radiant and youthful glow. Regular use can also help lighten 
-      dark spots and pigmentation for a more even complexion.
+      <strong>Fights Acne & Breakouts: </strong> Formulated with proven ingredients like salicylic acid, this face wash penetrates deep into pores, unclogging them and reducing acne-causing bacteria. It helps treat and prevent acne while promoting a smoother, blemish-free complexion.
     </li>
     <li className="list-group-item">
-      <strong>Fights Free Radical Damage:</strong> Vitamin C’s powerful antioxidant properties neutralize 
-      harmful free radicals, preventing premature signs of aging and skin damage caused by pollution and UV exposure.
+      <strong>	Reduces Inflammation: </strong> The calming formula helps reduce redness and inflammation, making it ideal for sensitive or irritated skin. Say goodbye to swollen, inflamed pimples and hello to a more even and calm complexion.
     </li>
     <li className="list-group-item">
-      <strong>Deep Cleansing:</strong> Effectively removes dirt, excess oil, and impurities without 
-      stripping your skin's natural moisture. Perfect for everyday use to cleanse, refresh, and rejuvenate your skin.
+      <strong>Deep Cleansing</strong> Removes excess oil, dirt, and impurities without over-drying your skin. The face wash controls oil production, keeping your skin fresh and clear without causing dryness or irritation.
     </li>
     <li className="list-group-item">
-      <strong>Hydrates & Nourishes:</strong> Packed with Vitamin C, this face wash hydrates and nurtures 
-      your skin, leaving it feeling smooth, soft, and deeply refreshed after every wash.
+      <strong>Prevents Future Breakouts: </strong> Regular use helps to prevent new acne from forming by keeping pores clean and balancing skin oil levels, ensuring that your skin stays clear and smooth over time.
     </li>
     <li className="list-group-item">
-      <strong>Suitable for All Skin Types:</strong> Whether you have dry, oily, combination, or sensitive skin, 
-      this Vitamin C face wash is gentle enough for daily use and helps balance your skin’s natural pH.
+      <strong>Suitable for All Skin Types: </strong> Whether you have oily, combination, or sensitive skin, our Anti-Acne Face Wash is gentle enough for everyday use. It helps balance your skin without causing additional irritation or dryness.
     </li>
   </ul>
 </div>
@@ -133,7 +124,7 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
 >
   <div className="accordion-body">
     <div className="features-container">
-        <div style={{display:"flex", gap:"8.2rem"}}>
+        <div style={{display:"flex", gap:"9rem"}}>
       <div className="feature-item">
         <i className="fa-solid fa-globe feature-icon"></i>
         <span>On Time Delivery</span>
@@ -171,10 +162,10 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
 </div>
 
 
-
 <Footer />
-</div>
-)
+
+    </div>
+  )
 }
 
-export default VitamincFacewash
+export default Antiacnefacewash

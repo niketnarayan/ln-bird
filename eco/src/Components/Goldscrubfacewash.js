@@ -1,23 +1,20 @@
 import React from 'react'
 import Header from './Header'
 import Footer from './footer'
-import "./VitamincFacewash.css";
 
-function VitamincFacewash() {
-
-    
-return (
-<div>
-
+function Goldscrubfacewash() {
+  return (
     <div>
-        <Header/>
-    </div>
+        <div>
+            <Header/>
+        </div>
+
 <div className="container mt-5">
 <div className="row" style={{marginTop:"12rem"}}>
 {/* Product Image Section */}
 <div className="col-md-6 text-center">
 <img
-src="https://www.richfeelnaturals.com/cdn/shop/files/vitamin-c-face-wash1_a2da8366-3d65-4193-b1f9-94a5b965206a.jpg?v=1718106105" // Replace with actual image URL
+src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ42UXP9vdgdvl5INwaQzAnjlX6MNQZQBSj-w&s" // Replace with actual image URL
 alt="Product"
 className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px"}}
 />
@@ -25,8 +22,8 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
 
 {/* Product Details Section */}
 <div className="col-md-6">
-<h3>Vitamin C Face Wash</h3>
-<p>(Brightens & Evens Skin Tone),100gm</p>
+<h3>Gold Scrub Face Wash  </h3>
+<p>Radiance and Renewal in Every Wash 100ml </p>
 <div className="mb-3">
 <span className="text-danger fw-bold fs-4">₹583</span>{" "}
 <span className="text-muted text-decoration-line-through">₹1599</span>{" "}
@@ -71,36 +68,28 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
       data-bs-parent="#accordionExample"
     >
       <div className="accordion-body">
-  <h4 className="fw-bold mb-3">Vitamin C Face Wash</h4>
+  <h4 className="fw-bold mb-3">Gold Scrub Face Wash  </h4>
+  <h5>Indulge Your Skin with the Luxury of Gold</h5>
   <p>
-    Refresh and revitalize your skin with our Vitamin C Face Wash, a powerful yet gentle cleanser 
-    designed to give your skin a healthy, glowing complexion. Enriched with the goodness of Vitamin C, 
-    this daily face wash helps brighten and even out skin tone while protecting your skin from harmful 
-    environmental stressors.
+  Pamper your skin with the Gold Scrub Face Wash, a luxurious blend of gold particles and gentle exfoliating ingredients designed to reveal your skin’s natural radiance. This unique formula combines the purifying power of gold with a mild scrub to deeply cleanse, exfoliate, and nourish your skin, leaving it glowing, smooth, and refreshed.
   </p>
 
   <h5 className="mt-4">Key Benefits:</h5>
   <ul className="list-group list-group-flush mt-3">
     <li className="list-group-item">
-      <strong>Brightens & Evens Skin Tone:</strong> The antioxidant properties of Vitamin C help 
-      reduce dullness, promoting a radiant and youthful glow. Regular use can also help lighten 
-      dark spots and pigmentation for a more even complexion.
+      <strong>Gold-Infused Radiance:  </strong> Gold has been used for centuries in skincare for its brightening and rejuvenating properties. The tiny gold particles help to enhance skin’s natural glow, leaving your complexion looking luminous and youthful.
     </li>
     <li className="list-group-item">
-      <strong>Fights Free Radical Damage:</strong> Vitamin C’s powerful antioxidant properties neutralize 
-      harmful free radicals, preventing premature signs of aging and skin damage caused by pollution and UV exposure.
+      <strong>Gentle Exfoliation:  </strong> The scrub particles work to gently exfoliate, removing dead skin cells, dirt, and impurities. This promotes smoother, clearer skin while helping to reduce the appearance of fine lines and dullness.
     </li>
     <li className="list-group-item">
-      <strong>Deep Cleansing:</strong> Effectively removes dirt, excess oil, and impurities without 
-      stripping your skin's natural moisture. Perfect for everyday use to cleanse, refresh, and rejuvenate your skin.
+      <strong>Deep Cleansing: </strong> Cleanses your skin deeply, unclogging pores and removing excess oil. This face wash helps to refresh and revitalize your skin, making it feel clean and rejuvenated without drying it out.
     </li>
     <li className="list-group-item">
-      <strong>Hydrates & Nourishes:</strong> Packed with Vitamin C, this face wash hydrates and nurtures 
-      your skin, leaving it feeling smooth, soft, and deeply refreshed after every wash.
+      <strong>Nourishes & Hydrates:  </strong> Gold not only brightens but also nourishes the skin, keeping it hydrated and soft. This face wash helps to maintain your skin’s moisture balance, leaving it feeling smooth and moisturized after every use.
     </li>
     <li className="list-group-item">
-      <strong>Suitable for All Skin Types:</strong> Whether you have dry, oily, combination, or sensitive skin, 
-      this Vitamin C face wash is gentle enough for daily use and helps balance your skin’s natural pH.
+      <strong>Suitable for All Skin Types:  </strong> : Whether your skin is dry, oily, or sensitive, our Gold Scrub Face Wash is formulated to be gentle and effective for every skin type. Use it regularly for radiant, smooth skin.
     </li>
   </ul>
 </div>
@@ -133,7 +122,7 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
 >
   <div className="accordion-body">
     <div className="features-container">
-        <div style={{display:"flex", gap:"8.2rem"}}>
+        <div style={{display:"flex", gap:"9rem"}}>
       <div className="feature-item">
         <i className="fa-solid fa-globe feature-icon"></i>
         <span>On Time Delivery</span>
@@ -172,9 +161,13 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
 
 
 
-<Footer />
-</div>
-)
+
+<Footer/>
+
+
+
+    </div>
+  )
 }
 
-export default VitamincFacewash
+export default Goldscrubfacewash

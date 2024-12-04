@@ -410,15 +410,15 @@ function Home() {
     flexDirection: "column", // Ensures the list items stack vertically
   }}
 >
-  <h5 style={{ fontWeight: "bold", color: "#006400" }}>PRODUCTS</h5>
+  <h5 style={{ fontWeight: "bold", color: "#006400",textAlign:"center" }}>PRODUCTS</h5>
   <ul style={{listStyleType:"none",lineHeight:"40px",cursor:"pointer",textDecoration:"none"}}>
     <li ><Link to={'/vitamincfacewash'} style={{textDecoration:"none",color:"black"}}>Vitamin C Face Wash</Link></li>
-    <li>Anti-Acne Face Wash </li>
-    <li>Gold Scrub Face Wash</li>
-    <li>Anti Hair fall Shampoo</li>
-    <li>Rosemary hair oil</li>
-    <li>Hair Serum</li>
-    <li>Gluta Soap</li>
+    <li> <Link to={'/antiacnefacewash'} style={{textDecoration:"none",color:"black"}}>Anti-Acne Face Wash </Link></li>
+    <li> <Link to={'/goldscrubfacewash'}style={{textDecoration:"none",color:"black"}}>Gold Scrub Face Wash </Link></li>
+    <li> <Link to={'/antihairfallshampoo'} style={{textDecoration:"none",color:"black"}} >Anti Hair fall Shampoo</Link></li>
+    <li><Link to={'/Rosemaryhairoil'} style={{textDecoration:"none",color:"black"}}>Rosemary hair oil </Link></li>
+    <li><Link to={'/hairserum'} style={{textDecoration:"none",color:"black"}}>Hair Serum  </Link></li>
+    <li><Link to={'/glutasoap'} style={{textDecoration:"none",color:"black"}}>Gluta Soap </Link></li>
     
   </ul>
      
@@ -553,7 +553,7 @@ function Home() {
             />
             <span className="grocery-card-name">{product.name}</span>
             <p className="grocery-card-price" >MRP:₹{product.price}</p>
-            <button onClick={()=>handleprouctadd(product)} className="grocery-card-button">Add to Cart</button>
+            <button onClick={()=>handleprouctadd(product)} className="grocery-card-button" style={{cursor:"pointer"}}>Add to Cart</button>
           </div>
         ))}
       </div>
@@ -590,7 +590,7 @@ function Home() {
             />
             <span className="grocery-card-name">{product.name}</span>
             <p className="grocery-card-price" >MRP:₹{product.price}</p>
-            <button onClick={() => handleprouctadd(product)} className="grocery-card-button">Add to Cart</button>
+            <button onClick={() => handleprouctadd(product)} className="grocery-card-button" style={{cursor:"pointer"}}>Add to Cart</button>
           </div>
         ))}
       </div>
@@ -626,7 +626,7 @@ function Home() {
             />
             <span className="grocery-card-name">{product.name}</span>
             <p className="grocery-card-price" >MRP:₹{product.price}</p>
-            <button onClick={()=>handleprouctadd(product)} className="grocery-card-button">Add to Cart</button>
+            <button onClick={()=>handleprouctadd(product)} className="grocery-card-button" style={{cursor:"pointer"}}>Add to Cart</button>
           </div>
         ))}
       </div>
@@ -658,7 +658,7 @@ function Home() {
             />
             <span className="grocery-card-name">{product.name}</span>
             <p className="grocery-card-price" >MRP:₹{product.price}</p>
-            <button onClick={()=>handleprouctadd(product)} className="grocery-card-button">Add to Cart</button>
+            <button onClick={()=>handleprouctadd(product)} className="grocery-card-button" style={{cursor:"pointer"}}>Add to Cart</button>
           </div>
         ))}
       </div>

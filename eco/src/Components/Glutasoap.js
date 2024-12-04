@@ -1,23 +1,20 @@
 import React from 'react'
 import Header from './Header'
 import Footer from './footer'
-import "./VitamincFacewash.css";
 
-function VitamincFacewash() {
-
-    
-return (
-<div>
-
+function Glutasoap() {
+  return (
     <div>
-        <Header/>
-    </div>
+
+        <div>
+            <Header/>
+        </div>
 <div className="container mt-5">
 <div className="row" style={{marginTop:"12rem"}}>
 {/* Product Image Section */}
 <div className="col-md-6 text-center">
 <img
-src="https://www.richfeelnaturals.com/cdn/shop/files/vitamin-c-face-wash1_a2da8366-3d65-4193-b1f9-94a5b965206a.jpg?v=1718106105" // Replace with actual image URL
+src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ42UXP9vdgdvl5INwaQzAnjlX6MNQZQBSj-w&s" // Replace with actual image URL
 alt="Product"
 className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px"}}
 />
@@ -25,8 +22,8 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
 
 {/* Product Details Section */}
 <div className="col-md-6">
-<h3>Vitamin C Face Wash</h3>
-<p>(Brightens & Evens Skin Tone),100gm</p>
+<h3>Gluta Soap     </h3>
+<p>Gluta Soap   85gm    </p>
 <div className="mb-3">
 <span className="text-danger fw-bold fs-4">₹583</span>{" "}
 <span className="text-muted text-decoration-line-through">₹1599</span>{" "}
@@ -71,37 +68,55 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
       data-bs-parent="#accordionExample"
     >
       <div className="accordion-body">
-  <h4 className="fw-bold mb-3">Vitamin C Face Wash</h4>
+  <h4 className="fw-bold mb-3">Gluta Soap      </h4>
   <p>
-    Refresh and revitalize your skin with our Vitamin C Face Wash, a powerful yet gentle cleanser 
-    designed to give your skin a healthy, glowing complexion. Enriched with the goodness of Vitamin C, 
-    this daily face wash helps brighten and even out skin tone while protecting your skin from harmful 
-    environmental stressors.
+  Indulge your skin with the gentle yet effective power of Gulta Soap, a handcrafted soap made with all-natural ingredients to cleanse, nourish, and hydrate your skin. Whether you have sensitive, dry, or oily skin, Gulta Soap is the perfect solution for everyday skincare. Packed with herbal extracts and soothing oils, this soap provides a rich lather that removes impurities, leaving your skin feeling refreshed, soft, and rejuvenated. Experience the purity and luxury of nature with every use.
   </p>
 
   <h5 className="mt-4">Key Benefits:</h5>
   <ul className="list-group list-group-flush mt-3">
     <li className="list-group-item">
-      <strong>Brightens & Evens Skin Tone:</strong> The antioxidant properties of Vitamin C help 
-      reduce dullness, promoting a radiant and youthful glow. Regular use can also help lighten 
-      dark spots and pigmentation for a more even complexion.
+      <strong>Deep Cleansing:   </strong> Gently removes dirt, excess oil, and impurities without stripping the skin’s natural moisture balance.
     </li>
     <li className="list-group-item">
-      <strong>Fights Free Radical Damage:</strong> Vitamin C’s powerful antioxidant properties neutralize 
-      harmful free radicals, preventing premature signs of aging and skin damage caused by pollution and UV exposure.
+      <strong>Soothes & Hydrates:    </strong>  : Ideal for dry or sensitive skin, Gulta Soap leaves your skin feeling moisturized and soft after every wash.
     </li>
     <li className="list-group-item">
-      <strong>Deep Cleansing:</strong> Effectively removes dirt, excess oil, and impurities without 
-      stripping your skin's natural moisture. Perfect for everyday use to cleanse, refresh, and rejuvenate your skin.
+      <strong>Nourishes Skin:   </strong> Infused with herbal extracts, it provides essential vitamins and nutrients that nourish the skin and maintain its natural glow.
     </li>
     <li className="list-group-item">
-      <strong>Hydrates & Nourishes:</strong> Packed with Vitamin C, this face wash hydrates and nurtures 
-      your skin, leaving it feeling smooth, soft, and deeply refreshed after every wash.
+      <strong>Gentle & Non-Irritating:   </strong> Made with natural ingredients, this soap is gentle enough for daily use, even on sensitive skin.
     </li>
     <li className="list-group-item">
-      <strong>Suitable for All Skin Types:</strong> Whether you have dry, oily, combination, or sensitive skin, 
-      this Vitamin C face wash is gentle enough for daily use and helps balance your skin’s natural pH.
+      <strong>Anti-inflammatory & Healing:    </strong> Helps calm irritated or inflamed skin, promoting a smoother and healthier complexion.
     </li>
+   
+  </ul>
+
+  <h5 className="mt-4">Ingredients:</h5>
+  <ul className="list-group list-group-flush mt-3">
+  <li className="list-group-item">
+      <strong>Gulta Extract:     </strong>Known for its natural healing properties, this extract helps soothe the skin, reduce inflammation, and protect against skin damage.
+    </li>
+
+    <li className="list-group-item">
+      <strong>Coconut Oil:    </strong> Rich in antioxidants and fatty acids, it deeply moisturizes and nourishes the skin, leaving it soft and hydrated.
+    </li>
+    <li className="list-group-item">
+      <strong>Shea Butter:    </strong> Known for its skin-softening benefits, shea butter helps improve skin elasticity and retains moisture for long-lasting hydration.
+    </li>
+
+    <li className="list-group-item">
+      <strong>Olive Oil:    </strong> Provides nourishment, promoting a healthy, glowing complexion while protecting the skin’s natural barrier.
+    </li>
+
+    <li className="list-group-item">
+      <strong>Aloe Vera:     </strong>Hydrates and calms the skin, reducing redness and irritation.
+    </li>
+
+
+
+
   </ul>
 </div>
 
@@ -133,7 +148,7 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
 >
   <div className="accordion-body">
     <div className="features-container">
-        <div style={{display:"flex", gap:"8.2rem"}}>
+        <div style={{display:"flex", gap:"9rem"}}>
       <div className="feature-item">
         <i className="fa-solid fa-globe feature-icon"></i>
         <span>On Time Delivery</span>
@@ -172,9 +187,10 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
 
 
 
-<Footer />
-</div>
-)
+<Footer/>
+
+    </div>
+  )
 }
 
-export default VitamincFacewash
+export default Glutasoap

@@ -1,23 +1,21 @@
 import React from 'react'
 import Header from './Header'
 import Footer from './footer'
-import "./VitamincFacewash.css";
 
-function VitamincFacewash() {
-
-    
-return (
-<div>
-
+function Antihairfallshampoo() {
+  return (
     <div>
-        <Header/>
-    </div>
+
+      <div>
+        <Header />
+      </div>
+
 <div className="container mt-5">
 <div className="row" style={{marginTop:"12rem"}}>
 {/* Product Image Section */}
 <div className="col-md-6 text-center">
 <img
-src="https://www.richfeelnaturals.com/cdn/shop/files/vitamin-c-face-wash1_a2da8366-3d65-4193-b1f9-94a5b965206a.jpg?v=1718106105" // Replace with actual image URL
+src="https://www.ayouthveda.com/cdn/shop/files/Antihairfallshampooecommerce-03_1800x1800.jpg?v=1686936228" // Replace with actual image URL
 alt="Product"
 className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px"}}
 />
@@ -25,8 +23,8 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
 
 {/* Product Details Section */}
 <div className="col-md-6">
-<h3>Vitamin C Face Wash</h3>
-<p>(Brightens & Evens Skin Tone),100gm</p>
+<h3>Anti Hair fall Shampoo </h3>
+<p>Anti Hair fall Shampoo 200ml  </p>
 <div className="mb-3">
 <span className="text-danger fw-bold fs-4">₹583</span>{" "}
 <span className="text-muted text-decoration-line-through">₹1599</span>{" "}
@@ -71,36 +69,27 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
       data-bs-parent="#accordionExample"
     >
       <div className="accordion-body">
-  <h4 className="fw-bold mb-3">Vitamin C Face Wash</h4>
+  <h4 className="fw-bold mb-3">Anti Hair fall Shampoo  </h4>
   <p>
-    Refresh and revitalize your skin with our Vitamin C Face Wash, a powerful yet gentle cleanser 
-    designed to give your skin a healthy, glowing complexion. Enriched with the goodness of Vitamin C, 
-    this daily face wash helps brighten and even out skin tone while protecting your skin from harmful 
-    environmental stressors.
+  Our Anti-Hair Fall Shampoo is scientifically formulated to help reduce hair thinning and breakage, restoring your hair’s strength and vitality. Infused with a powerful blend of natural ingredients, this shampoo gently cleanses while nourishing your scalp and hair follicles. Whether you’re experiencing seasonal shedding or long-term thinning, this shampoo targets the root cause of hair fall, promoting healthier and thicker hair with regular use.
   </p>
 
   <h5 className="mt-4">Key Benefits:</h5>
   <ul className="list-group list-group-flush mt-3">
     <li className="list-group-item">
-      <strong>Brightens & Evens Skin Tone:</strong> The antioxidant properties of Vitamin C help 
-      reduce dullness, promoting a radiant and youthful glow. Regular use can also help lighten 
-      dark spots and pigmentation for a more even complexion.
+      <strong>Reduces Hair Fall </strong> The nourishing formula helps to strengthen hair from root to tip, minimizing breakage and thinning.
     </li>
     <li className="list-group-item">
-      <strong>Fights Free Radical Damage:</strong> Vitamin C’s powerful antioxidant properties neutralize 
-      harmful free radicals, preventing premature signs of aging and skin damage caused by pollution and UV exposure.
+      <strong>Promotes Hair Growth:  </strong> : Enriched with essential vitamins and natural botanicals that stimulate healthy scalp circulation, encouraging hair growth.
     </li>
     <li className="list-group-item">
-      <strong>Deep Cleansing:</strong> Effectively removes dirt, excess oil, and impurities without 
-      stripping your skin's natural moisture. Perfect for everyday use to cleanse, refresh, and rejuvenate your skin.
+      <strong>Deep Cleansing: </strong>Removes excess oil, dirt, and buildup without stripping hair of its natural moisture.
     </li>
     <li className="list-group-item">
-      <strong>Hydrates & Nourishes:</strong> Packed with Vitamin C, this face wash hydrates and nurtures 
-      your skin, leaving it feeling smooth, soft, and deeply refreshed after every wash.
+      <strong>Strengthens and Fortifies: </strong>: The blend of proteins and nutrients works to repair and protect hair, improving resilience.
     </li>
     <li className="list-group-item">
-      <strong>Suitable for All Skin Types:</strong> Whether you have dry, oily, combination, or sensitive skin, 
-      this Vitamin C face wash is gentle enough for daily use and helps balance your skin’s natural pH.
+      <strong>Suitable for All Hair Types:  </strong> : Whether your hair is curly, straight, thick, or fine, this shampoo is gentle yet effective for everyone.
     </li>
   </ul>
 </div>
@@ -133,7 +122,7 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
 >
   <div className="accordion-body">
     <div className="features-container">
-        <div style={{display:"flex", gap:"8.2rem"}}>
+        <div style={{display:"flex", gap:"9rem"}}>
       <div className="feature-item">
         <i className="fa-solid fa-globe feature-icon"></i>
         <span>On Time Delivery</span>
@@ -170,11 +159,10 @@ className="img-fluid" style={{marginBottom:"10rem",maxWidth:"100%",height:"380px
 </div>
 </div>
 
-
-
 <Footer />
-</div>
-)
+
+    </div>
+  )
 }
 
-export default VitamincFacewash
+export default Antihairfallshampoo
