@@ -10,6 +10,8 @@ import Antihairfallshampoo from './Components/Antihairfallshampoo';
 import Rosemaryhairoil from './Components/Rosemaryhairoil';
 import Hairserum from './Components/Hairserum';
 import Glutasoap from './Components/Glutasoap';
+import Home1 from './Components/home1';
+
 
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
     
     <Routes>
 
-    <Route path='/' element={<Home/>}/>
+    <Route path='/' element={<Home1/>}/>
     <Route path='/contact' element={<Contact/>}/>
     <Route path='/vitamincfacewash' element={<VitamincFacewash/>}/>
     <Route path='/antiacnefacewash' element={<Antiacnefacewash/>}/>
@@ -32,7 +34,7 @@ function App() {
     <Route path='/glutasoap' element={<Glutasoap/>}/>
     </Routes>
     
-    
+    {/* <Home/> */}
    
     
    

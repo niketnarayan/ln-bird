@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Navbar.css";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Link, useNavigate } from 'react-router-dom';
+import { useCart } from './cartcontext'
 function Header() {
 
+  const {cart,setcart}=useCart()
+  const[length,setlength]=useState(0)
+  useEffect(()=>
+  {
+    const clength=cart.length
+    setlength(clength)
+  })
 
   const [show, setShow] = useState(false);
 
@@ -14,6 +22,47 @@ function Header() {
   const handleShow = () => setShow(true);
 
 const navigate=useNavigate()
+
+
+
+
+const incrementQuantity = (index) => {
+  setcart((prevCart) =>
+    prevCart.map((item, i) =>
+      i === index
+        ? { ...item, quantity: item.quantity + 1 } // Increment quantity for the specific item
+        : item // Leave other items unchanged
+    )
+  );
+};
+
+const decrementQuantity = (index) => {
+  setcart((prevCart) =>
+    prevCart
+      .map((item, i) =>
+        i === index && item.quantity >= 1
+          ? { ...item, quantity: item.quantity - 1 } // Decrease quantity
+          : item
+      )
+      .filter((item, i) => !(i === index && item.quantity === 0)) // Remove item if quantity reaches 0
+  );
+};
+
+
+const calculateTotalPrice = () => {
+  return cart.reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0);
+};
+
+const [show1, setShow1] = useState(false);
+
+const handleClose1 = () => setShow1(false);
+const handleShow1 = () => {
+  setShow1(true);
+};
+
+
+
+
 
 
   return (
@@ -67,8 +116,8 @@ const navigate=useNavigate()
 </li>
       </ul>
       <div className="button-header">
-      <button className="buttons-header">
-      <i className="fa-solid fa-cart-shopping"></i> Cart
+      <button className="buttons-header" onClick={handleShow1 }>
+      <i className="fa-solid fa-cart-shopping"></i> Cart{length}
       </button>
       <button className="buttons-header" onClick={handleShow }>
       <i className="fa-solid fa-arrow-right-to-bracket"></i>Login
@@ -297,6 +346,63 @@ const navigate=useNavigate()
 
 
 {/* modal login end----------------------- */}
+
+
+{/* modal----------------------------------------------------------------- */}
+
+<Modal show={show1} onHide={handleClose1}>
+          <Modal.Header closeButton>
+          <Modal.Title>
+  <div className="modal-title">
+    <div>
+      <img 
+        className="img-fluid" 
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVvPOK3a2x7ceTbTGkjYPJKWjwcWjVB0xqgg&s"
+        alt="Product" 
+      />
+    </div>
+    <span>Product Details</span>
+  </div>
+</Modal.Title>
+
+          </Modal.Header>
+          <Modal.Body>
+            {cart.map((item, index) => (
+              <div key={index} className="cart-item">
+                 <img src={item.image} alt={item.title} />
+          <div className="cart-item-info">
+            <div className="cart-item-title">{item.name}</div>
+           
+            <div className="cart-item-price">
+          ₹{((parseFloat(item.price) || 0) * (parseInt(item.quantity) || 0)).toFixed(2)}
+        </div>
+          </div>
+          <div className="cart-item-actions">
+            <button onClick={() => decrementQuantity(index)}>-</button>
+            <span className="quantity">{item.quantity}</span>
+            <button onClick={() => incrementQuantity(index)}>+</button>
+          </div>
+              </div>
+              
+            ))}
+                   <div className="cart-total">
+  <h3>
+    Total Price: <span>₹{calculateTotalPrice().toFixed(2)}</span>
+  </h3>
+</div>
+
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose1}>
+              Close
+            </Button>
+            {/* <Button  variant="primary" onClick={handleShow3}>
+              CheckOut
+            </Button> */}
+          </Modal.Footer>
+        </Modal>
+
+{/* modal---------------------------------------------------------------------- */}
 
 
 

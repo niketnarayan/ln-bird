@@ -7,8 +7,13 @@ import Footer from './footer';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
+import { useCart } from "./cartcontext";
 
 function Home() {
+
+  const {cart, setcart}=useCart()
+  
+  // const [cart, setcart] = useState([]);
 
   const products = [
     { id: 1, name: "Vitamin C Face Wash (Brightens & Evens Skin Tone),100gm", price: "599/-", image: "https://www.richfeelnaturals.com/cdn/shop/files/vitamin-c-face-wash1_a2da8366-3d65-4193-b1f9-94a5b965206a.jpg?v=1718106105",  quantity: 1, },
@@ -87,15 +92,20 @@ function Home() {
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => {
     setShow1(true);
-    console.log(cart);
   };
-  const [cart, setcart] = useState([]);
+  
   const [cartlength, setcartlength] = useState(0);
+  // const handleprouctadd = (product) => {
+  //   setcart([...cart, product]);
+  //   const quantity = cart.length + 1;
+  //   setcartlength(quantity);
+  // };
   const handleprouctadd = (product) => {
+    debugger
+    console.log('Adding product to cart:', product);
     setcart([...cart, product]);
-    const quantity = cart.length + 1;
-    setcartlength(quantity);
   };
+console.log(cart);
 
 
 
@@ -113,7 +123,7 @@ function Home() {
   <div className="container">
     {/* Brand Logo */}
     <a className="navbar-brand text-white d-flex align-items-center" href="#">
-      <span className="logo-icon me-2">ⓒ</span>LNBird
+      <span className="logo-icon me-2">ⓒ</span>LNBird{cart}
     </a>
     {/* Toggler for mobile view */}
     <button
