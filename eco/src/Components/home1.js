@@ -45,11 +45,26 @@ const {cart,setcart}=useCart()
       
 
       const handleprouctadd = (product) => {
-        console.log('Adding product to cart:', product);
-        setcart([...cart, product]);
+        // Check if the product already exists in the cart
+        const isProductInCart = cart.some((item) => item.name === product.name);
+      
+        if (!isProductInCart) {
+          // Add the product to the cart if it's not already present
+          setcart([...cart, product]);
+        } else {
+          alert(`${product.name} is already in the cart.`);
+        }
       };
-    console.log(cart);
-    console.log(cart.length);
+    
+
+
+
+    //   const handleprouctadd = (product) => {
+    //     console.log('Adding product to cart:', product);
+    //     setcart([...cart, product]);
+    //   };
+    // console.log(cart);
+    // console.log(cart.length);
 
 
   return (

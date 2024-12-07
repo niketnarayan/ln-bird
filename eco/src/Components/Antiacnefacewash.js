@@ -79,7 +79,7 @@ function Antiacnefacewash() {
             <li>5% Unlimited Cashback on Flipkart Axis Bank Card</li>
             <li>10% off on HDFC Bank Credit Card EMI</li>
             <li>10 days return policy</li>
-          </ul>
+          </ul>            
         </div>
 
         {/* Action Buttons */}
