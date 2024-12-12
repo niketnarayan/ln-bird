@@ -4,7 +4,7 @@ import Header from './Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
-import "./Navbar.css";
+import "./Home.css";
 import Footer from "./footer";
 import { useEffect } from "react";
 import axios from "axios";
@@ -34,6 +34,14 @@ const[product1,setproduct1]=useState([])
   }
   
   
+  const banners = [
+    "https://www.reneecosmetics.in/cdn/shop/files/1000693230.jpg?v=1732552425&width=1500", // Banner 1
+    "https://images-static.nykaa.com/uploads/fb6935ac-7488-42d2-9d82-ce95f5332dec.jpg?tr=cm-pad_resize,w-1200",
+    "https://images-static.nykaa.com/uploads/1d08680f-7dc3-4c4b-a3a6-c129cd89a952.jpg?tr=cm-pad_resize,w-1200", // Banner 3
+  ];
+
+
+
 
     const products = [
         { id: 1, name: "Vitamin C Face Wash (Brightens & Evens Skin Tone),100gm", price: "599/-", image: "https://www.richfeelnaturals.com/cdn/shop/files/vitamin-c-face-wash1_a2da8366-3d65-4193-b1f9-94a5b965206a.jpg?v=1718106105",  quantity: 1, },
@@ -241,49 +249,188 @@ const[product1,setproduct1]=useState([])
 
 
 <div className="grocery-container">
-      <div className="grocery-row">
-        {product1.map((product, index) => {
-          console.log(`Rendering product at index: ${index}`); // Debug log
+<h2 className="grocery-heading">Our Products</h2>
+<div className="grocery-row">
+{product1.map((product, index) => {
+console.log(`Rendering product at index: ${index}`); // Debug log
 
-          return (
-            <React.Fragment key={product.id}>
-              {/* Render product card */}
-              <div className="col-md-2">
-                <img
-                  src={product.product_image}
-                  alt={product.product_name}
-                  className="grocery-card-image"
-                />
-                <span className="grocery-card-name">{product.product_name}</span>
-                <p className="grocery-card-price">MRP: ₹{product.product_price}</p>
-                <button
-                  onClick={() => handleprouctadd(product)}
-                  className="grocery-card-button"
-                  style={{ cursor: 'pointer' }}
-                >
-                  Add to Cart
-                </button>
-              </div>
+return (
+<React.Fragment key={product.id}>
+{/* Render product card */}
+<div
+className="col-md-2"
+style={{
+width: "250px", // Fixed width
+height: "400px", // Fixed height
+backgroundColor: "#fff",
+padding: "20px",
+border: "1px solid #ddd",
+borderRadius: "10px",
+boxShadow: "0 6px 10px rgba(0, 0, 0, 0.1)",
+display: "flex",
+flexDirection: "column",
+justifyContent: "space-between",
+flex: "0 0 auto",
+}}
+>
+<img
+src={product.product_image}
+alt={product.product_name}
+className="grocery-card-image"
+/>
+<span className="grocery-card-name">{product.product_name}</span>
+<p className="grocery-card-price">MRP: ₹{product.product_price}</p>
+<button
+onClick={() => handleprouctadd(product)}
+className="grocery-card-button"
+style={{ cursor: "pointer" }}
+>
+Add to Cart
+</button>
+</div>
 
-              {/* Add banner after every 4th product */}
-              {index % 4 === 3 && (
-                <div className="banner" style={{ width: '100%', marginTop: '20px' }}>
-                  <img
-                    src="https://i.ytimg.com/vi/eHikFbUGGLo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLA29x2AFD34qcuNP3dNw2wqfqV_YQ"
-                    alt="banner"
-                    style={{ width: '100%', height: 'auto' }}
-                  />
-                </div>
-              )}
-            </React.Fragment>
-          );
-        })}
+
+{/* Add banner after every 4th product */}
+{(index + 1) % 4 === 0 && (
+<div className="banner" style={{ width: "100%", marginTop: "20px" }}>
+<img
+className="img-fluid"
+src={banners[(index + 1) / 4 - 1 % banners.length]} // Cycle through banners
+// alt={`banner-${(index + 1) / 4}`}
+style={{ marginTop: "3rem", marginBottom: "3rem" }}
+/>
+</div>
+)}
+</React.Fragment>
+);
+})}
+</div>
+</div>
+
+
+{/* content */}
+
+<div
+  style={{
+    background: "linear-gradient(180deg, #FFD54F 0%, #FFF176 50%, #FFFFFF 100%)",
+    height: "20rem",
+  }}
+>
+
+<div className="container" style={{ marginTop: "6rem",marginBottom:"6rem",padding:"40px" }}>
+  <div
+    className="row"
+    style={{
+      display: "flex",
+      justifyContent: "space-between",
+      gap: "20px",
+      flexWrap: "wrap",
+    }}
+  >
+    <div
+      style={{
+        flex: "1 1 calc(33.333% - 20px)", // Makes each card occupy 1/3 of the row with proper gap
+        maxWidth: "calc(33.333% - 20px)",
+        border: "1px solid #ddd",
+        borderRadius: "10px",
+        padding: "20px",
+        textAlign: "center",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        backgroundColor: "#f9f9f9",
+        height: "250px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <i
+        className="fa-solid fa-credit-card"
+        style={{
+          fontSize: "5rem",
+          color: "#007bff",
+          marginBottom: "15px",
+        }}
+      ></i>
+      <div>
+      <h4 style={{ fontWeight: "bold" }}>Secure Transactions</h4>
+      <p>Your payment information is processed securely.</p>
       </div>
     </div>
 
+    <div
+      style={{
+        flex: "1 1 calc(33.333% - 20px)",
+        maxWidth: "calc(33.333% - 20px)",
+        border: "1px solid #ddd",
+        borderRadius: "10px",
+        padding: "20px",
+        textAlign: "center",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        backgroundColor: "#f9f9f9",
+        height: "250px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <i
+        className="fa-solid fa-truck-fast"
+        style={{
+          fontSize: "5rem",
+          color: "#28a745",
+          marginBottom: "15px",
+        }}
+      ></i>
+      <div>
+      <h4 style={{ fontWeight: "bold" }}>Zero-Hassle Shipping </h4>
+      <p>Brisk Shipping and No-worries returns fast and reliable shipping!</p>
+      </div>
+    </div>
+
+    <div
+      style={{
+        flex: "1 1 calc(33.333% - 20px)",
+        maxWidth: "calc(33.333% - 20px)",
+        border: "1px solid #ddd",
+        borderRadius: "10px",
+        padding: "20px",
+        textAlign: "center",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        backgroundColor: "#f9f9f9",
+        height: "250px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <i
+        className="fa-solid fa-phone"
+        style={{
+          fontSize: "5rem",
+          color: "#ffc107",
+          marginBottom: "15px",
+        }}
+      ></i>
+      <div>
+      <h4 style={{  fontWeight: "bold" }}>We Love To Talk</h4>
+      <p>Call, Email, Drop a Note. You'll find us there on the other side.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
 
-<div className="grocery-container">
+
+
+{/* content end */}
+
+
+
+{/* <div className="grocery-container">
       <h2 className="grocery-heading">Our Products</h2>
       <div className="grocery-row">
         {products.map((product) => (
@@ -299,7 +446,7 @@ const[product1,setproduct1]=useState([])
           </div>
         ))}
       </div>
-    </div>
+    </div> */}
 
 
 
@@ -309,23 +456,23 @@ const[product1,setproduct1]=useState([])
 
 {/* banner image------------------------------------------------------------------------------------------------ */}
 
-<div className="container">
+{/* <div className="container">
   <div className="row">
     <div className="col">
       <img src="https://www.reneecosmetics.in/cdn/shop/files/1000693230.jpg?v=1732552425&width=1500" alt="banner-image" className="img-fluid" style={{marginTop:"3rem",marginBottom:"3rem"}}></img>
 
     </div>
   </div>
-</div>
+</div> */}
 {/* banner image end---------------------------------------------------------------------------------------------- */}
 
 {/* 2product cart------------------------------------------------------------------------------------------------ */}
 
-<div className="grocery-container">
+{/* <div className="grocery-container">
   <div className="grocery-row">
     {products1.map((product, index) => (
       <React.Fragment key={product.id}>
-        {/* Render product card */}
+        
         <div className="grocery-card">
           <img
             src={product.image}
@@ -343,10 +490,10 @@ const[product1,setproduct1]=useState([])
           </button>
         </div>
 
-        {/* Insert banner after every 4th product (adjusted logic) */}
+       
         {index % 4 === 3 && (
           <div className="banner" style={{ width: "100%" }}>
-            {/* Add your banner content here */}
+        
             <img
               src="https://i.ytimg.com/vi/eHikFbUGGLo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLA29x2AFD34qcuNP3dNw2wqfqV_YQ"
               alt="banner"
@@ -357,7 +504,7 @@ const[product1,setproduct1]=useState([])
       </React.Fragment>
     ))}
   </div>
-</div>
+</div> */}
 
 
 
@@ -365,20 +512,20 @@ const[product1,setproduct1]=useState([])
 
 {/* product banner2 start----------------------------------------------------------------------------------------- */}
 
-<div className="container">
+{/* <div className="container">
   <div className="row">
     <div className="col">
       <img src="https://images-static.nykaa.com/uploads/fb6935ac-7488-42d2-9d82-ce95f5332dec.jpg?tr=cm-pad_resize,w-1200" alt="banner-image" className="img-fluid" style={{marginTop:"3rem",marginBottom:"3rem"}}></img>
 
     </div>
   </div>
-</div>
+</div> */}
 
 {/* product banner2 end------------------------------------------------------------------------------------------ */}
 
 {/* product 3 cart----------------------------------------------------------------------------------------------- */}
 
-<div className="grocery-container">
+{/* <div className="grocery-container">
       <h2 className="grocery-heading">Combo Products</h2>
       <div className="grocery-row">
         {products2.map((product) => (
@@ -394,24 +541,24 @@ const[product1,setproduct1]=useState([])
           </div>
         ))}
       </div>
-    </div>
+    </div> */}
 {/* product 3 cart end--------------------------------------------------------------------------------------------- */}
 
 {/* product banner 3-------------------------------------------------------------------------------------------- */}
-<div className="container">
+{/* <div className="container">
   <div className="row">
     <div className="col">
       <img src="https://images-static.nykaa.com/uploads/1d08680f-7dc3-4c4b-a3a6-c129cd89a952.jpg?tr=cm-pad_resize,w-1200" alt="banner-image" className="img-fluid" style={{marginTop:"3rem",marginBottom:"3rem"}}></img>
 
     </div>
   </div>
-</div>
+</div> */}
 
 {/* product banner 3 end---------------------------------------------------------------------------------------- */}
 
 {/* product cart 4 start---------------------------------------------------------------------------------------- */}
 
-<div className="grocery-container">
+{/* <div className="grocery-container">
       <div className="grocery-row">
         {products3.map((product) => (
           <div key={product.id} className="grocery-card">
@@ -426,7 +573,7 @@ const[product1,setproduct1]=useState([])
           </div>
         ))}
       </div>
-    </div>
+    </div> */}
 
 {/* product cart 4 end------------------------------------------------------------------------------------------- */}
 

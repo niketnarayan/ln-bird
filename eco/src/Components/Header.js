@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from './cartcontext'
+import logo from '../Components/Assets/Logo (2).png'
 function Header() {
 
   const {cart,setcart}=useCart()
@@ -72,7 +73,7 @@ const handleShow1 = () => {
   <div className="container">
     {/* Brand Logo */}
     <a style={{cursor:"pointer"}} className="navbar-brand text-white d-flex align-items-center" onClick={()=>navigate('/')}>
-      <span className="logo-icon me-2">ⓒ</span>LNBird
+      <span className="logo-icon me-1">ⓒ</span><img className="image-fluid" src={logo} style={{width:"175px",height:"50px"}}></img>
     </a>
     {/* Toggler for mobile view */}
     <button

@@ -39,6 +39,7 @@ function App() {
     <Route path='/hairserum' element={<Hairserum/>}/>
     <Route path='/glutasoap' element={<Glutasoap/>}/>
     <Route path='addproduct' element={<Addproduct/>}/>
+    <Route path='dashboard' element={<Dashboard/>}/>
     </Routes>
 
     {/* <Addproduct/> */}

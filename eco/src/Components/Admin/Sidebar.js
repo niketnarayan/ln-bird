@@ -159,17 +159,17 @@ whiteSpace: "nowrap",
 
         {/* Sidebar Menu */}
         <ul className="list-unstyled">
-          <li className="mb-3">
-            <a
-              href="#"
-              className="text-white text-decoration-none d-flex align-items-center"
-            >
-              <FaHome className="me-2" />
-              <span style={{ display: isSidebarCollapsed ? "none" : "inline" }}>
-                Dashboard
-              </span>
-            </a>
-          </li>
+        <li className="mb-3">
+  <Link
+    to="/dashboard" // Update the href with the desired route
+    className="text-white text-decoration-none d-flex align-items-center"
+  >
+    <FaHome className="me-2" />
+    <span style={{ display: isSidebarCollapsed ? "none" : "inline" }}>
+      Dashboard
+    </span>
+  </Link>
+</li>
      {/* Product Menu */}
      <li className="mb-3">
             <div

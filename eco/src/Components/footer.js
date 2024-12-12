@@ -6,6 +6,11 @@ function Footer() {
   return (
     <div>
 
+
+
+
+
+
 <footer className="footer">
     <div className="container-fluid">
       <div className="row footer-row">
