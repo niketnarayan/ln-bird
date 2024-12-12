@@ -8,6 +8,7 @@ import "./Navbar.css";
 import Footer from "./footer";
 import { useEffect } from "react";
 import axios from "axios";
+import api from '../Components/api'
 function Home1() {
 
 const {cart,setcart}=useCart()
@@ -22,7 +23,7 @@ const[product1,setproduct1]=useState([])
   const getproduct=async()=>
   {
     try {
-      const resp=await axios.get("http://localhost:5000/getproduct")
+      const resp=await api.get("getproduct")
       setproduct1(resp.data.product)
       // setcart(resp.data.product)
       

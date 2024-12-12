@@ -5,6 +5,7 @@ import "react-quill/dist/quill.snow.css"; // ReactQuill styles
 import ReactQuill from "react-quill";
 import axios from "axios";
 import Swal from 'sweetalert2';
+import api from '../api'
 
 function Addproduct() {
 
@@ -63,7 +64,7 @@ function Addproduct() {
       
       
         try {
-          const resp = await axios.post("http://localhost:5000/addproduct", product,{
+          const resp = await api.post("addproduct", product,{
             headers: {
                 "Content-Type": "multipart/form-data"
 
