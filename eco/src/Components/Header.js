@@ -30,7 +30,7 @@ const incrementQuantity = (index) => {
   setcart((prevCart) =>
     prevCart.map((item, i) =>
       i === index
-        ? { ...item, quantity: item.quantity + 1 } // Increment quantity for the specific item
+        ? { ...item, quantity: item.product + 1 } // Increment quantity for the specific item
         : item // Leave other items unchanged
     )
   );
@@ -68,7 +68,7 @@ const handleShow1 = () => {
   return (
     <div style={{position:"fixed",left:"0",right:"0",zIndex:"1000",top:"0"}}>
 
-<nav className="navbar navbar-expand-lg" >
+<nav className="navbar navbar-expand-lg" style={{background:"linear-gradient(to right, #fc2779, #ff79b0)"}} >
   <div className="container">
     {/* Brand Logo */}
     <a style={{cursor:"pointer"}} className="navbar-brand text-white d-flex align-items-center" onClick={()=>navigate('/')}>
@@ -369,12 +369,12 @@ const handleShow1 = () => {
           <Modal.Body>
             {cart.map((item, index) => (
               <div key={index} className="cart-item">
-                 <img src={item.image} alt={item.title} />
+                 <img src={item.image} alt={item.product} />
           <div className="cart-item-info">
-            <div className="cart-item-title">{item.name}</div>
+            <div className="cart-item-title">{item.product_name}</div>
            
             <div className="cart-item-price">
-          ₹{((parseFloat(item.price) || 0) * (parseInt(item.quantity) || 0)).toFixed(2)}
+          ₹{((parseFloat(item.product_price) || 0) * 1).toFixed(2)}
         </div>
           </div>
           <div className="cart-item-actions">

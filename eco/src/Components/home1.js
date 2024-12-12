@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCart } from './cartcontext'
 import Header from './Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,9 +6,33 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
 import "./Navbar.css";
 import Footer from "./footer";
+import { useEffect } from "react";
+import axios from "axios";
 function Home1() {
 
 const {cart,setcart}=useCart()
+
+  useEffect(()=>
+  {
+    getproduct()
+  })
+
+ 
+const[product1,setproduct1]=useState([])
+  const getproduct=async()=>
+  {
+    try {
+      const resp=await axios.get("http://localhost:5000/getproduct")
+      setproduct1(resp.data.product)
+      // setcart(resp.data.product)
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
+  
+  
 
     const products = [
         { id: 1, name: "Vitamin C Face Wash (Brightens & Evens Skin Tone),100gm", price: "599/-", image: "https://www.richfeelnaturals.com/cdn/shop/files/vitamin-c-face-wash1_a2da8366-3d65-4193-b1f9-94a5b965206a.jpg?v=1718106105",  quantity: 1, },
@@ -214,6 +238,50 @@ const {cart,setcart}=useCart()
 
 {/* product cart section------------------------------------------------------------------------------------- */}
 
+
+<div className="grocery-container">
+      <div className="grocery-row">
+        {product1.map((product, index) => {
+          console.log(`Rendering product at index: ${index}`); // Debug log
+
+          return (
+            <React.Fragment key={product.id}>
+              {/* Render product card */}
+              <div className="col-md-2">
+                <img
+                  src={product.product_image}
+                  alt={product.product_name}
+                  className="grocery-card-image"
+                />
+                <span className="grocery-card-name">{product.product_name}</span>
+                <p className="grocery-card-price">MRP: ₹{product.product_price}</p>
+                <button
+                  onClick={() => handleprouctadd(product)}
+                  className="grocery-card-button"
+                  style={{ cursor: 'pointer' }}
+                >
+                  Add to Cart
+                </button>
+              </div>
+
+              {/* Add banner after every 4th product */}
+              {index % 4 === 3 && (
+                <div className="banner" style={{ width: '100%', marginTop: '20px' }}>
+                  <img
+                    src="https://i.ytimg.com/vi/eHikFbUGGLo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLA29x2AFD34qcuNP3dNw2wqfqV_YQ"
+                    alt="banner"
+                    style={{ width: '100%', height: 'auto' }}
+                  />
+                </div>
+              )}
+            </React.Fragment>
+          );
+        })}
+      </div>
+    </div>
+
+
+
 <div className="grocery-container">
       <h2 className="grocery-heading">Our Products</h2>
       <div className="grocery-row">
@@ -253,21 +321,43 @@ const {cart,setcart}=useCart()
 {/* 2product cart------------------------------------------------------------------------------------------------ */}
 
 <div className="grocery-container">
-      <div className="grocery-row">
-        {products1.map((product) => (
-          <div key={product.id} className="grocery-card">
+  <div className="grocery-row">
+    {products1.map((product, index) => (
+      <React.Fragment key={product.id}>
+        {/* Render product card */}
+        <div className="grocery-card">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="grocery-card-image"
+          />
+          <span className="grocery-card-name">{product.name}</span>
+          <p className="grocery-card-price">MRP: ₹{product.price}</p>
+          <button
+            onClick={() => handleprouctadd(product)}
+            className="grocery-card-button"
+            style={{ cursor: 'pointer' }}
+          >
+            Add to Cart
+          </button>
+        </div>
+
+        {/* Insert banner after every 4th product (adjusted logic) */}
+        {index % 4 === 3 && (
+          <div className="banner" style={{ width: "100%" }}>
+            {/* Add your banner content here */}
             <img
-              src={product.image}
-              alt={product.name}
-              className="grocery-card-image"
+              src="https://i.ytimg.com/vi/eHikFbUGGLo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLA29x2AFD34qcuNP3dNw2wqfqV_YQ"
+              alt="banner"
+              style={{ width: '100%', height: 'auto' }}
             />
-            <span className="grocery-card-name">{product.name}</span>
-            <p className="grocery-card-price" >MRP:₹{product.price}</p>
-            <button onClick={() => handleprouctadd(product)} className="grocery-card-button" style={{cursor:"pointer"}}>Add to Cart</button>
           </div>
-        ))}
-      </div>
-    </div>
+        )}
+      </React.Fragment>
+    ))}
+  </div>
+</div>
+
 
 
 {/* 2 product cart end-------------------------------------------------------------------------------------------- */}

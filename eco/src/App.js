@@ -11,6 +11,12 @@ import Rosemaryhairoil from './Components/Rosemaryhairoil';
 import Hairserum from './Components/Hairserum';
 import Glutasoap from './Components/Glutasoap';
 import Home1 from './Components/home1';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Sidebar from './Components/Admin/Sidebar';
+import Dashboard from './Components/Admin/Dashboard';
+import Addproduct from './Components/Admin/Addproduct';
+
+
 
 
 
@@ -32,8 +38,13 @@ function App() {
     <Route path='/rosemaryhairoil' element={<Rosemaryhairoil/>}/>
     <Route path='/hairserum' element={<Hairserum/>}/>
     <Route path='/glutasoap' element={<Glutasoap/>}/>
+    <Route path='addproduct' element={<Addproduct/>}/>
     </Routes>
+
+    {/* <Addproduct/> */}
     
+    {/* <Sidebar/> */}
+    {/* <Dashboard/> */}
     {/* <Home/> */}
    
     
