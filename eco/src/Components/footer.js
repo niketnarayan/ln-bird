@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -54,14 +55,14 @@ function Footer() {
         <div className="col-md-2 col-sm-6 col-12 footer-column">
           <h3>Help &amp; Support</h3>
           <ul>
-            <li>About Us</li>
-            <li>FAQ</li>
-            <li>Terms &amp; Conditions</li>
-            <li>Privacy Policy</li>
-            <li>E-waste Policy</li>
-            <li>Cancellation &amp; Return Policy</li>
-            <li>Shipping &amp; Delivery Policy</li>
-          </ul>
+      <li><Link to="/aboutus">About Us</Link></li>
+      <li><Link to="/faq">FAQ</Link></li>
+      <li><Link to="/term&condition">Terms & Conditions</Link></li>
+      <li><Link to="/privacypolicy">Privacy Policy</Link></li>
+      <li><Link to="/ewaste">E-waste Policy</Link></li>
+      <li><Link to="/cancelpolicy">Cancellation & Return Policy</Link></li>
+      <li><Link to="/deliverycancel">Shipping & Delivery Policy</Link></li>
+    </ul>
         </div>
         {/* Contact Us */}
         <div className="col-md-4 col-sm-12 col-12 footer-column">

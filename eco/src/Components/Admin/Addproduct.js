@@ -18,8 +18,10 @@ function Addproduct() {
         product_image: [],
         product_description: "",
         product_benefits: [],
-      });
 
+      });
+      
+      
       const [benefitInput, setBenefitInput] = useState("");
 
       const handleAddBenefit = () => {

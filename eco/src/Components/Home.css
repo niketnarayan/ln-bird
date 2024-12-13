@@ -1,32 +1,32 @@
-.carousel-control-prev-icon,
+/* .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: transparent !important; /* No background color */
+  background-color: transparent !important; 
 }
 
 .carousel-control-prev,
 .carousel-control-next {
-  background-color: transparent !important; /* Ensures the button background is clear */
-  border: none !important; /* No border around the buttons */
-  box-shadow: none !important; /* No shadow effect */
+  background-color: transparent !important; 
+  border: none !important; 
+  box-shadow: none !important; 
 }
 
 .carousel-control-prev:hover .carousel-control-prev-icon,
 .carousel-control-next:hover .carousel-control-next-icon {
-  background-color: transparent !important; /* No background on hover */
+  background-color: transparent !important; 
 }
 
 .carousel-control-prev:focus .carousel-control-prev-icon,
 .carousel-control-next:focus .carousel-control-next-icon {
-  background-color: transparent !important; /* No background on focus */
+  background-color: transparent !important; 
 }
 
 .carousel-control-prev:hover,
 .carousel-control-next:hover,
 .carousel-control-prev:focus,
 .carousel-control-next:focus {
-  background-color: transparent !important; /* Remove hover/focus effect entirely */
-  outline: none !important; /* Remove any focus outline */
-}
+  background-color: transparent !important; 
+  outline: none !important; 
+} */
 /* product cart css-------------------------------------------------------------------------------------------------- */
 /* Container Styling */
 /* Container Styling */
@@ -477,4 +477,29 @@ button i {
 }
 
 /* search box in header code end------------------------------------------------------------------------ */
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  animation: upDown 2s infinite ease-in-out; /* Add animation */
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(0); /* Initial position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up by 10px */
+  }
+  100% {
+    transform: translateY(0); /* Return to the initial position */
+  }
+}
+
 

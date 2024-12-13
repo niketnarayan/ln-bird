@@ -25,6 +25,9 @@ function Header() {
 const navigate=useNavigate()
 
 
+const [quantity, setQuantity] = useState(1);    
+
+
 
 
 const incrementQuantity = (index) => {
@@ -370,7 +373,7 @@ const handleShow1 = () => {
           <Modal.Body>
             {cart.map((item, index) => (
               <div key={index} className="cart-item">
-                 <img src={item.image} alt={item.product} />
+                 <img src={item.product_image} alt={item.product} />
           <div className="cart-item-info">
             <div className="cart-item-title">{item.product_name}</div>
            

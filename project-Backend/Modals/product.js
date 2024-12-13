@@ -8,6 +8,7 @@ const add_product=new mongoose.Schema({
     product_image:{type:Array},
     product_description:{type:String},
     product_benefits:{type:Array},
+   
     
     },{timestamps:true})
 

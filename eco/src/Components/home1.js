@@ -9,6 +9,12 @@ import Footer from "./footer";
 import { useEffect } from "react";
 import axios from "axios";
 import api from '../Components/api'
+import Carousel from 'react-bootstrap/Carousel';
+import { Container, Row, Col } from "react-bootstrap";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+
+
 function Home1() {
 
 const {cart,setcart}=useCart()
@@ -100,20 +106,67 @@ const[product1,setproduct1]=useState([])
     // console.log(cart.length);
 
 
+    const reviews = [
+      {
+        name: "John Doe",
+        review: "This product has changed my life! Highly recommended.",
+        image: "https://via.placeholder.com/100",
+        rating: 5,
+      },
+      {
+        name: "Jane Smith",
+        review: "Amazing quality and great results. Will buy again!",
+        image: "https://via.placeholder.com/100",
+        rating: 4,
+      },
+      {
+        name: "Mike Johnson",
+        review: "Excellent customer service and fast delivery.",
+        image: "https://via.placeholder.com/100",
+        rating: 4,
+      },
+      {
+        name: "Sarah Lee",
+        review: "The best investment I’ve made for my skin care routine.",
+        image: "https://via.placeholder.com/100",
+        rating: 5,
+      },
+    ];
+  
+    // Function to render stars based on rating
+    const renderStars = (rating) => {
+      const totalStars = 5;
+      const stars = [];
+      for (let i = 1; i <= totalStars; i++) {
+        stars.push(
+          <i
+            key={i}
+            className={`bi bi-star${i <= rating ? "-fill" : ""}`}
+            style={{
+              color: i <= rating ? "#ffc107" : "#ddd",
+              marginRight: "3px",
+            }}
+          ></i>
+        );
+      }
+      return stars;
+    };
+
+
   return (
     <div>
         <Header/>
-        <div className="container d-flex" style={{ marginTop: "10rem" }}>
-        {/* Sidebar */}
+        {/* <div className="container d-flex" style={{ marginTop: "10rem" }}>
+     
         <div
   style={{
     width: "250px",
     backgroundColor: "#f4f4f4",
     padding: "20px",
     borderRight: "1px solid #ddd",
-    height: "60vh", // Correctly sets the height to the full viewport
+    height: "60vh", 
     display: "flex",
-    flexDirection: "column", // Ensures the list items stack vertically
+    flexDirection: "column", 
   }}
 >
   <h5 style={{ fontWeight: "bold", color: "#006400",textAlign:"center" }}>PRODUCTS</h5>
@@ -135,9 +188,9 @@ const[product1,setproduct1]=useState([])
 
 
 
-        {/* Main Carousel Section */}
+        
         <div style={{ flex: 1, padding: "20px" }}>
-          {/* Carousel */}
+          
           <div
             id="carouselExampleIndicators"
             className="carousel slide"
@@ -160,7 +213,7 @@ const[product1,setproduct1]=useState([])
               ></button>
             </div>
             <div className="carousel-inner">
-              {/* Slide 1 */}
+             
               <div className="carousel-item active">
                 <div
                   style={{
@@ -187,7 +240,7 @@ const[product1,setproduct1]=useState([])
                 
                 </div>
               </div>
-              {/* Slide 2 */}
+              
               <div className="carousel-item">
                 <div
                   style={{
@@ -242,8 +295,76 @@ const[product1,setproduct1]=useState([])
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
+
+{/* banner start----------------------------------------------------------------------------------------------- */}
+
+<Carousel data-bs-theme="dark" style={{marginTop:"9rem"}}>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://www.simpleskincare.in/cdn/shop/files/Desktop_Homepage_1360x512_e57f7152-84d4-456c-9c12-cb89ff4ffb91.jpg?v=1711025111"
+          alt="First slide"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://www.simpleskincare.in/cdn/shop/files/Desktop_Homepage_1360x512_3.jpg?v=1712916114"
+          alt="Second slide"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="https://www.simpleskincare.in/cdn/shop/files/Desktop_Homepage_1360x512_d685c4ec-0490-4f3c-aab0-85708fc74936.jpg?v=1713161048"
+          alt="Third slide"
+        />
+      </Carousel.Item>
+    </Carousel>
+
+
 {/* banner main end--------------------------------------------------------------------------------------------- */}
+
+
+{/* content start------------------------------------------------------------------- */}
+<div style={{ padding: "40px", backgroundColor: "#f9f9f9",marginBottom:"3rem",marginTop:"3rem" }}>
+      <h1
+        style={{
+          fontSize: "36px",
+          fontFamily: "'Times New Roman', serif",
+          fontWeight: "bold",
+          color: "#222",
+          textAlign: "center",
+          marginBottom: "20px",
+        }}
+      >
+        Kiona Skin Care: Embrace Your Natural Glow
+      </h1>
+      <p
+        style={{
+          fontSize: "17px",
+          fontFamily: "Georgia, serif",
+          color: "#444",
+          lineHeight: "1.8",
+          textAlign: "center",
+          margin: "0 auto",
+          maxWidth: "800px",
+        }}
+      >
+      Founded in 2020 by a team of skincare professionals and holistic health
+        experts, <strong>Kiona Skin Care</strong> was born out of a passion to bring
+        back the purity of nature to your skincare routine. In a world where
+        harsh chemicals dominate, we believe in the power of organic and
+        plant-based ingredients that nurture and protect your skin.<strong>Our products,
+        including face washes, shampoos, and serums, are crafted with love and
+        care, using only the finest natural ingredients.</strong> 
+      </p>
+    </div>
+
+
+
+{/* content end--------------------------------------------------------------------------- */}
 
 {/* product cart section------------------------------------------------------------------------------------- */}
 
@@ -306,6 +427,149 @@ style={{ marginTop: "3rem", marginBottom: "3rem" }}
 })}
 </div>
 </div>
+
+
+
+
+
+{/* our stander start------------------------------------------------------------------------------- */}
+
+<div className="row" style={{ display: 'flex', justifyContent: 'space-between', gap: '20px', marginTop: "6rem", marginLeft: "3rem", marginRight: "3rem" }}>
+  <h2 style={{textAlign:"center"}}>Everything your skin needs,<br/>
+  Nothing it doesn’t</h2>
+        <div className="col-md-3" style={{ flex: 1, textAlign: 'center', padding: '20px', backgroundColor: '#f0f0f0', borderRadius: '10px', border: '1px solid #ddd', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', height: '15rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <div className="icon-circle">
+            <i className="fa-solid fa-seedling" style={{ fontSize: '40px', color: '#fff' }}></i>
+          </div>
+          <h4 style={{ marginTop: '10px', color: '#333' }}>Spiritually Infused</h4>
+        </div>
+        <div className="col-md-3" style={{ flex: 1, textAlign: 'center', padding: '20px', backgroundColor: '#e3f2fd', borderRadius: '10px', border: '1px solid #ddd', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', height: '15rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <div className="icon-circle">
+            <i className="fa-solid fa-flask" style={{ fontSize: '40px', color: '#fff' }}></i>
+          </div>
+          <h4 style={{ marginTop: '10px', color: '#333' }}>Skin Safe Tested</h4>
+        </div>
+        <div className="col-md-3" style={{ flex: 1, textAlign: 'center', padding: '20px', backgroundColor: '#fff3e0', borderRadius: '10px', border: '1px solid #ddd', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', height: '15rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <div className="icon-circle">
+            <i className="fa-solid fa-cat" style={{ fontSize: '40px', color: '#fff' }}></i>
+          </div>
+          <h4 style={{ marginTop: '10px', color: '#333' }}>Ethically Tested</h4>
+        </div>
+        <div className="col-md-3" style={{ flex: 1, textAlign: 'center', padding: '20px', backgroundColor: '#c8e6c9', borderRadius: '10px', border: '1px solid #ddd', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', height: '15rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <div className="icon-circle">
+            <i className="fa-brands fa-pagelines" style={{ fontSize: '40px', color: '#fff' }}></i>
+          </div>
+          <h4 style={{ marginTop: '10px', color: '#333' }}>Free from Parabens</h4>
+        </div>
+      </div>
+
+      {/* second row */}
+      <div className="row" style={{ display: 'flex', justifyContent: 'space-between', gap: '20px', marginTop: "3rem", marginLeft: "3rem", marginRight: "3rem" }}>
+        <div className="col-md-3" style={{ flex: 1, textAlign: 'center', padding: '20px', backgroundColor: '#f0f0f0', borderRadius: '10px', border: '1px solid #ddd', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', height: '15rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <div className="icon-circle">
+            <i className="fa-brands fa-canadian-maple-leaf" style={{ fontSize: '40px', color: '#fff' }}></i>
+          </div>
+          <h4 style={{ marginTop: '10px', color: '#333' }}>100% Plant Based</h4>
+        </div>
+        <div className="col-md-3" style={{ flex: 1, textAlign: 'center', padding: '20px', backgroundColor: '#e3f2fd', borderRadius: '10px', border: '1px solid #ddd', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', height: '15rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <div className="icon-circle">
+            <i className="fa-solid fa-flask-vial" style={{ fontSize: '40px', color: '#fff' }}></i>
+          </div>
+          <h4 style={{ marginTop: '10px', color: '#333' }}>No Harsh Surfactants</h4>
+        </div>
+        <div className="col-md-3" style={{ flex: 1, textAlign: 'center', padding: '20px', backgroundColor: '#fff3e0', borderRadius: '10px', border: '1px solid #ddd', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', height: '15rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <div className="icon-circle">
+            <i className="fa-solid fa-leaf" style={{ fontSize: '40px', color: '#fff' }}></i>
+          </div>
+          <h4 style={{ marginTop: '10px', color: '#333' }}>All Natural Ingredients</h4>
+        </div>
+        <div className="col-md-3" style={{ flex: 1, textAlign: 'center', padding: '20px', backgroundColor: '#c8e6c9', borderRadius: '10px', border: '1px solid #ddd', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', height: '15rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <div className="icon-circle">
+            <i className="fa-solid fa-droplet" style={{ fontSize: '40px', color: '#fff' }}></i>
+          </div>
+          <h4 style={{ marginTop: '10px', color: '#333' }}>PH Neutral</h4>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+{/*our stander end-----------------------------------------------------------------------------------  */}
+
+{/* revie */}
+
+<Container fluid style={{ padding: "40px", backgroundColor: "#f9f9f9" }}>
+      <h2
+        style={{
+          textAlign: "center",
+          marginBottom: "20px",
+          fontSize: "32px",
+          color: "#333",
+          fontWeight: "bold",
+        }}
+      >
+        Customer Reviews
+      </h2>
+
+      <Carousel interval={3000} indicators={true} controls={true}>
+        {/* Render 2 reviews per slide */}
+        {reviews.reduce((result, _, index) => {
+          if (index % 2 === 0) {
+            result.push(reviews.slice(index, index + 2));
+          }
+          return result;
+        }, []).map((slide, idx) => (
+          <Carousel.Item key={idx}>
+            <Row
+              className="d-flex justify-content-center"
+              style={{ padding: "20px" }}
+            >
+              {slide.map((review, i) => (
+                <Col
+                  key={i}
+                  md={5}
+                  style={{
+                    backgroundColor: "#fff",
+                    borderRadius: "8px",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    padding: "20px",
+                    margin: "10px",
+                    textAlign: "center",
+                  }}
+                >
+                  <img
+                    src={review.image}
+                    alt={review.name}
+                    style={{
+                      borderRadius: "50%",
+                      width: "80px",
+                      height: "80px",
+                      marginBottom: "10px",
+                    }}
+                  />
+                  <h4 style={{ color: "#222", fontWeight: "bold" }}>
+                    {review.name}
+                  </h4>
+                  <div style={{ marginBottom: "10px"}}>
+                    {renderStars(review.rating)}
+                  </div>
+                  <p style={{ fontStyle: "italic", color: "#555" }}>
+                    "{review.review}"
+                  </p>
+                </Col>
+              ))}
+            </Row>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </Container>
 
 
 {/* content */}
