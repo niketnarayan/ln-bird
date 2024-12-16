@@ -34,27 +34,31 @@ const incrementQuantity = (index) => {
   setcart((prevCart) =>
     prevCart.map((item, i) =>
       i === index
-        ? { ...item, quantity: item.product + 1 } // Increment quantity for the specific item
-        : item // Leave other items unchanged
+        ? { ...item, product_quantity1: item.product_quantity1 + 1 }
+        : item
     )
   );
 };
 
+// Decrement quantity and remove if quantity <= 1
 const decrementQuantity = (index) => {
   setcart((prevCart) =>
     prevCart
       .map((item, i) =>
-        i === index && item.quantity >= 1
-          ? { ...item, quantity: item.quantity - 1 } // Decrease quantity
+        i === index && item.product_quantity1 > 1
+          ? { ...item, product_quantity1: item.product_quantity1 - 1 }
           : item
       )
-      .filter((item, i) => !(i === index && item.quantity === 0)) // Remove item if quantity reaches 0
+      .filter((item, i) => !(i === index && item.product_quantity1 <= 1))
   );
 };
 
-
+// Calculate total price
 const calculateTotalPrice = () => {
-  return cart.reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0);
+  return cart.reduce(
+    (total, item) => total + parseFloat(item.product_price) * item.product_quantity1,
+    0
+  );
 };
 
 const [show1, setShow1] = useState(false);
@@ -76,7 +80,7 @@ const handleShow1 = () => {
   <div className="container">
     {/* Brand Logo */}
     <a style={{cursor:"pointer"}} className="navbar-brand text-white d-flex align-items-center" onClick={()=>navigate('/')}>
-      <span className="logo-icon me-1">ⓒ</span><img className="image-fluid" src={logo} style={{width:"175px",height:"50px"}}></img>
+      <span className="logo-icon me-1">Ⓚ</span><img className="image-fluid" src={logo} style={{width:"175px",height:"50px"}}></img>
     </a>
     {/* Toggler for mobile view */}
     <button
@@ -361,7 +365,7 @@ const handleShow1 = () => {
     <div>
       <img 
         className="img-fluid" 
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVvPOK3a2x7ceTbTGkjYPJKWjwcWjVB0xqgg&s"
+      src={logo}
         alt="Product" 
       />
     </div>
@@ -383,7 +387,7 @@ const handleShow1 = () => {
           </div>
           <div className="cart-item-actions">
             <button onClick={() => decrementQuantity(index)}>-</button>
-            <span className="quantity">{item.quantity}</span>
+            <span className="quantity">{item.product_quantity1}</span>
             <button onClick={() => incrementQuantity(index)}>+</button>
           </div>
               </div>

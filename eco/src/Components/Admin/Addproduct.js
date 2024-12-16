@@ -18,6 +18,7 @@ function Addproduct() {
         product_image: [],
         product_description: "",
         product_benefits: [],
+        product_quantity1: 1,
 
       });
       

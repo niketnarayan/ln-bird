@@ -12,6 +12,7 @@ import api from '../Components/api'
 import Carousel from 'react-bootstrap/Carousel';
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import Swal from 'sweetalert2';
 
 
 
@@ -85,13 +86,18 @@ const[product1,setproduct1]=useState([])
 
       const handleprouctadd = (product) => {
         // Check if the product already exists in the cart
-        const isProductInCart = cart.some((item) => item.name === product.name);
+        const isProductInCart = cart.some((item) => item._id === product._id);
       
         if (!isProductInCart) {
           // Add the product to the cart if it's not already present
           setcart([...cart, product]);
         } else {
-          alert(`${product.name} is already in the cart.`);
+          Swal.fire({
+                        title: 'Error!',
+                        text: 'Product alredy in your cart',
+                        icon: 'Error',
+                        confirmButtonText: 'OK',
+                      });
         }
       };
     
@@ -151,6 +157,10 @@ const[product1,setproduct1]=useState([])
       }
       return stars;
     };
+
+
+   
+    
 
 
   return (
@@ -577,115 +587,50 @@ style={{ marginTop: "3rem", marginBottom: "3rem" }}
 <div
   style={{
     background: "linear-gradient(180deg, #FFD54F 0%, #FFF176 50%, #FFFFFF 100%)",
-    height: "20rem",
+    minHeight: "20rem",
   }}
 >
-
-<div className="container" style={{ marginTop: "6rem",marginBottom:"6rem",padding:"40px" }}>
-  <div
-    className="row"
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-      gap: "20px",
-      flexWrap: "wrap",
-    }}
-  >
-    <div
-      style={{
-        flex: "1 1 calc(33.333% - 20px)", // Makes each card occupy 1/3 of the row with proper gap
-        maxWidth: "calc(33.333% - 20px)",
-        border: "1px solid #ddd",
-        borderRadius: "10px",
-        padding: "20px",
-        textAlign: "center",
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        backgroundColor: "#f9f9f9",
-        height: "250px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <i
-        className="fa-solid fa-credit-card"
-        style={{
-          fontSize: "5rem",
-          color: "#007bff",
-          marginBottom: "15px",
-        }}
-      ></i>
-      <div>
-      <h4 style={{ fontWeight: "bold" }}>Secure Transactions</h4>
-      <p>Your payment information is processed securely.</p>
+  <div className="container-lg py-5">
+    <div className="row g-4 justify-content-center">
+      {/* Card 1 */}
+      <div className="col-12 col-sm-6 col-md-6 col-lg-4">
+        <div className="border rounded p-4 text-center shadow bg-light h-100 d-flex flex-column justify-content-between">
+          <i className="fa-solid fa-credit-card" style={{ fontSize: "4rem", color: "#007bff" }}></i>
+          <div>
+            <h4 className="fw-bold">Secure Transactions</h4>
+            <p>Your payment information is processed securely.</p>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div
-      style={{
-        flex: "1 1 calc(33.333% - 20px)",
-        maxWidth: "calc(33.333% - 20px)",
-        border: "1px solid #ddd",
-        borderRadius: "10px",
-        padding: "20px",
-        textAlign: "center",
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        backgroundColor: "#f9f9f9",
-        height: "250px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <i
-        className="fa-solid fa-truck-fast"
-        style={{
-          fontSize: "5rem",
-          color: "#28a745",
-          marginBottom: "15px",
-        }}
-      ></i>
-      <div>
-      <h4 style={{ fontWeight: "bold" }}>Zero-Hassle Shipping </h4>
-      <p>Brisk Shipping and No-worries returns fast and reliable shipping!</p>
+      {/* Card 2 */}
+      <div className="col-12 col-sm-6 col-md-6 col-lg-4">
+        <div className="border rounded p-4 text-center shadow bg-light h-100 d-flex flex-column justify-content-between">
+          <i className="fa-solid fa-truck-fast" style={{ fontSize: "4rem", color: "#28a745" }}></i>
+          <div>
+            <h4 className="fw-bold">Zero-Hassle Shipping</h4>
+            <p>Brisk shipping and no-worries returns. Fast and reliable shipping!</p>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div
-      style={{
-        flex: "1 1 calc(33.333% - 20px)",
-        maxWidth: "calc(33.333% - 20px)",
-        border: "1px solid #ddd",
-        borderRadius: "10px",
-        padding: "20px",
-        textAlign: "center",
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        backgroundColor: "#f9f9f9",
-        height: "250px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <i
-        className="fa-solid fa-phone"
-        style={{
-          fontSize: "5rem",
-          color: "#ffc107",
-          marginBottom: "15px",
-        }}
-      ></i>
-      <div>
-      <h4 style={{  fontWeight: "bold" }}>We Love To Talk</h4>
-      <p>Call, Email, Drop a Note. You'll find us there on the other side.</p>
+      {/* Card 3 */}
+      <div className="col-12 col-sm-6 col-md-6 col-lg-4">
+        <div className="border rounded p-4 text-center shadow bg-light h-100 d-flex flex-column justify-content-between">
+          <i className="fa-solid fa-phone" style={{ fontSize: "4rem", color: "#ffc107" }}></i>
+          <div>
+            <h4 className="fw-bold">We Love To Talk</h4>
+            <p>Call, email, drop a note. You'll find us there on the other side.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
+
+
+
+
 
 
 

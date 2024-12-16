@@ -22,6 +22,7 @@ import Cancilationpolicy from './Components/Cancilationpolicy';
 import Deliverycancel from './Components/Deliverycancel';
 import Aboutus from './Components/Aboutus';
 import Faq from './Components/Faq';
+import Allproductlist from './Components/Admin/Allproductlist';
 
 
 
@@ -54,6 +55,7 @@ function App() {
     <Route path='/deliverycancel' element={<Deliverycancel/>}/>
     <Route path='/aboutus' element={<Aboutus/>}/>
     <Route path='/faq' element={<Faq/>}/>
+    <Route path='allproductlist' element={<Allproductlist/>}/>
     </Routes>
 
     {/* <Addproduct/> */}

@@ -201,15 +201,15 @@ whiteSpace: "nowrap",
           <span>Add Product</span>
         </Link>
       </li>
-                <li className="mb-2">
-                  <a
-                    href="#"
-                    className="text-white text-decoration-none d-flex align-items-center"
-                  >
-                    <FaThList className="me-2" />
-                    <span>All Products</span>
-                  </a>
-                </li>
+      <li className="mb-2">
+  <Link
+    to="/allproductlist"
+    className="text-white text-decoration-none d-flex align-items-center"
+  >
+    <FaThList className="me-2" />
+    <span>All Products</span>
+  </Link>
+</li>
               </ul>
             )}
           </li>

@@ -71,3 +71,60 @@
     padding: 10px 0;
     font-size: 0.85rem;
   }
+
+
+
+
+
+
+  /* Social Media Icons Container */
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Space between icons */
+  margin-top: 20px;
+}
+
+/* Icon Links */
+.social-media-icons .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* Circular shape */
+  background-color: #f1f1f1; /* Light background */
+  color: #333; /* Default icon color */
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: all 0.3s ease; /* Smooth transition */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Hover Effects */
+.social-media-icons .icon:hover {
+  transform: scale(1.1); /* Slight zoom effect */
+  color: #fff; /* White icon color */
+}
+
+/* Individual Icon Colors */
+.icon.facebook:hover {
+  background-color: #1877f2; /* Facebook Blue */
+}
+.icon.twitter:hover {
+  background-color: #1da1f2; /* Twitter Blue */
+}
+.icon.instagram:hover {
+  background-color: #e4405f; /* Instagram Pinkish */
+}
+.icon.linkedin:hover {
+  background-color: #0077b5; /* LinkedIn Blue */
+}
+
+@media (max-width: 576px) {
+  .social-media-icons .icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}

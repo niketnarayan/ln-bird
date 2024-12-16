@@ -27,6 +27,22 @@ function Footer() {
             <li>Hair Serum </li>
             <li>Gluta Soap   </li>
           </ul>
+
+          <div className="social-media-icons">
+  <a href="#" className="icon facebook">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+  <a href="#" className="icon twitter">
+    <i class="fa-brands fa-twitter"></i>
+  </a>
+  <a href="#" className="icon instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+  <a href="#" className="icon linkedin">
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+</div>
+
         </div>
         {/* Popular Categories */}
         <div className="col-md-2 col-sm-6 col-12 footer-column">
@@ -96,7 +112,7 @@ function Footer() {
   {/* Footer Bottom */}
   <div className="footer-bottom">
     <p>
-      © (2020 - 2023) CP Wholesale India Private Limited. All rights reserved.
+      © (2020 - 2024) Kiona India Private Limited. All rights reserved.
     </p>
   </div>
 

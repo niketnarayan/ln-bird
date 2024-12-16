@@ -18,6 +18,7 @@ const add_product = async (req, res) => {
             product_image,
             product_description,
             product_benefits,
+            product_quantity1,
            
             
         } = req.body;
@@ -47,6 +48,7 @@ const add_product = async (req, res) => {
             product_image:newDocumentPic,
             product_description,
             product_benefits,
+            product_quantity1,
             
             
         });
