@@ -23,6 +23,8 @@ import Deliverycancel from './Components/Deliverycancel';
 import Aboutus from './Components/Aboutus';
 import Faq from './Components/Faq';
 import Allproductlist from './Components/Admin/Allproductlist';
+import Banner from './Components/Admin/Banner';
+import Accountsetting from './Components/Admin/Accountsetting';
 
 
 
@@ -36,7 +38,6 @@ function App() {
 <div>
     
     <Routes>
-
     <Route path='/' element={<Home1/>}/>
     <Route path='/contact' element={<Contact/>}/>
     <Route path='/vitamincfacewash' element={<VitamincFacewash/>}/>
@@ -55,7 +56,9 @@ function App() {
     <Route path='/deliverycancel' element={<Deliverycancel/>}/>
     <Route path='/aboutus' element={<Aboutus/>}/>
     <Route path='/faq' element={<Faq/>}/>
-    <Route path='allproductlist' element={<Allproductlist/>}/>
+    <Route path='/allproductlist' element={<Allproductlist/>}/>
+    <Route path='/banner' element={<Banner/>}/>
+    <Route path='/accountsetting' element={<Accountsetting/>}/>
     </Routes>
 
     {/* <Addproduct/> */}

@@ -215,16 +215,16 @@ whiteSpace: "nowrap",
           </li>
 
           <li className="mb-3">
-            <a
-              href="#"
-              className="text-white text-decoration-none d-flex align-items-center"
-            >
-              <FaImages className="me-2" />
-              <span style={{ display: isSidebarCollapsed ? "none" : "inline" }}>
-                Banner
-              </span>
-            </a>
-          </li>
+        <Link
+          to="/banner"
+          className="text-white text-decoration-none d-flex align-items-center"
+        >
+          <FaImages className="me-2" />
+          <span style={{ display: isSidebarCollapsed ? 'none' : 'inline' }}>
+            Banner
+          </span>
+        </Link>
+      </li>
           {/* Invoice Menu with Dropdown Arrow */}
           <li className="mb-3">
             <div
@@ -247,29 +247,29 @@ whiteSpace: "nowrap",
             {/* Nested Invoice List */}
             {isInvoiceMenuOpen && !isSidebarCollapsed && (
               <ul className="list-unstyled ms-4">
-                <li className="mb-2">
-                  <a
-                    href="#"
-                    className="text-white text-decoration-none d-flex align-items-center"
-                  >
-                    <FaPlus className="me-2" />
-                    <span>Invoice Template</span>
-                  </a>
-                </li>
+             <li className="mb-2">
+            <Link
+              to="/invoice-template"
+              className="text-white text-decoration-none d-flex align-items-center"
+            >
+              <FaPlus className="me-2" />
+              <span>Invoice Template</span>
+            </Link>
+          </li>
               </ul>
             )}
           </li>
        
           <li className="mb-3">
-            <a
-              href="#"
+            <Link
+              to="/accountsetting"
               className="text-white text-decoration-none d-flex align-items-center"
             >
               <FaUserCog className="me-2" />
               <span style={{ display: isSidebarCollapsed ? "none" : "inline" }}>
                 Account Setting
               </span>
-            </a>
+            </Link>
           </li>
           <li className="mb-3">
             <div
@@ -293,36 +293,36 @@ whiteSpace: "nowrap",
             {isUserMenuOpen && !isSidebarCollapsed && (
               <ul className="list-unstyled ms-4">
                 <li className="mb-2">
-                  <a
-                    href="#"
-                    className="text-white text-decoration-none d-flex align-items-center"
-                  >
-                    <FaThList className="me-2" />
-                    <span>User List</span>
-                  </a>
-                </li>
-                <li className="mb-2">
-                  <a
-                    href="#"
-                    className="text-white text-decoration-none d-flex align-items-center"
-                  >
-                    < FaRegEdit className="me-2" />
-                    <span>User Edit</span>
-                  </a>
-                </li>
+            <Link
+              to="/user-list"
+              className="text-white text-decoration-none d-flex align-items-center"
+            >
+              <FaThList className="me-2" />
+              <span>User List</span>
+            </Link>
+          </li>
+          <li className="mb-2">
+            <Link
+              to="/user-edit"
+              className="text-white text-decoration-none d-flex align-items-center"
+            >
+              <FaRegEdit className="me-2" />
+              <span>User Edit</span>
+            </Link>
+          </li>
               </ul>
             )}
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              to="/checkout"
               className="text-white text-decoration-none d-flex align-items-center"
             >
               <FaShoppingCart className="me-2" />
               <span style={{ display: isSidebarCollapsed ? "none" : "inline" }}>
                 Checkout
               </span>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
