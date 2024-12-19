@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const bannerSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  imageUrl: { type: Array, required: true }, // Cloudinary image URL
-  url: { type: String, required: true },      // External link for the banner
-});
+  bannerTitle: { type: String},
+  bannerLink: { type: String },
+  sliderBannerImage: { type: Array }, // URL from Cloudinary
+  productBannerImage: { type: Array }, // URL from Cloudinary
+}, { timestamps: true });
 
-const Banner = mongoose.model("Banner", bannerSchema);
-
-module.exports = Banner;
+const banner = mongoose.model('Banner', bannerSchema);
+module.exports = banner

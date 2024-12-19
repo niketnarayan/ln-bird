@@ -40,12 +40,47 @@ const[product1,setproduct1]=useState([])
     }
   }
   
+  const[fetchbanner,setfetchbanner]=useState([])
+  const [sliderImages, setSliderImages] = useState([]);
+  const [banners,setbanners] =useState([]);
+
+  useEffect(() => {
+    fetchSliderImages();
+  }, []);
+
+  const fetchSliderImages = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/getAllBanners"); // Replace with your API endpoint
+      setfetchbanner(response.data)
+      // Filter only sliderBannerImage data
+      const sliderData = response.data.filter((banner) => banner.sliderBannerImage);
+      setSliderImages(sliderData);
+
+      const productData = response.data.filter((banner) => banner.productBannerImage);
+      setbanners(productData.flatMap((item) => item.productBannerImage)); // Derive banners directly
+      
+      
+
+    } catch (error) {
+      console.error("Error fetching slider images:", error);
+    }
+  };
+
+  useEffect(() => {
+    console.log("Banners updated:", banners);
+  }, [banners]);
   
-  const banners = [
-    "https://www.reneecosmetics.in/cdn/shop/files/1000693230.jpg?v=1732552425&width=1500", // Banner 1
-    "https://images-static.nykaa.com/uploads/fb6935ac-7488-42d2-9d82-ce95f5332dec.jpg?tr=cm-pad_resize,w-1200",
-    "https://images-static.nykaa.com/uploads/1d08680f-7dc3-4c4b-a3a6-c129cd89a952.jpg?tr=cm-pad_resize,w-1200", // Banner 3
-  ];
+
+
+
+
+
+
+
+
+
+  
+  
 
 
 
@@ -309,7 +344,23 @@ const[product1,setproduct1]=useState([])
 
 {/* banner start----------------------------------------------------------------------------------------------- */}
 
-<Carousel data-bs-theme="dark" style={{marginTop:"9rem"}}>
+<Carousel data-bs-theme="dark" style={{ marginTop: "9rem" }}>
+      {sliderImages.map((banner, index) => (
+        <Carousel.Item key={index}>
+          <img
+            className="d-block w-100"
+            src={banner.sliderBannerImage} // Assuming `sliderBannerImage` is the URL
+            alt={`Slide ${index + 1}`}
+          />
+        </Carousel.Item>
+      ))}
+    </Carousel>
+
+
+
+
+
+{/* <Carousel data-bs-theme="dark" style={{marginTop:"9rem"}}>
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -331,7 +382,7 @@ const[product1,setproduct1]=useState([])
           alt="Third slide"
         />
       </Carousel.Item>
-    </Carousel>
+    </Carousel> */}
 
 
 {/* banner main end--------------------------------------------------------------------------------------------- */}
@@ -383,7 +434,7 @@ const[product1,setproduct1]=useState([])
 <h2 className="grocery-heading">Our Products</h2>
 <div className="grocery-row">
 {product1.map((product, index) => {
-console.log(`Rendering product at index: ${index}`); // Debug log
+// console.log(`Rendering product at index: ${index}`); // Debug log
 
 return (
 <React.Fragment key={product.id}>
@@ -422,16 +473,17 @@ Add to Cart
 
 
 {/* Add banner after every 4th product */}
-{(index + 1) % 4 === 0 && (
-<div className="banner" style={{ width: "100%", marginTop: "20px" }}>
-<img
-className="img-fluid"
-src={banners[(index + 1) / 4 - 1 % banners.length]} // Cycle through banners
-// alt={`banner-${(index + 1) / 4}`}
-style={{ marginTop: "3rem", marginBottom: "3rem" }}
-/>
-</div>
+{(index + 1) % 4 === 0 && banners.length > 0 && (
+  <div className="banner" style={{ width: "100%", marginTop: "20px" }}>
+    <img
+      className="img-fluid"
+      src={banners[(Math.floor((index + 1) / 4) - 1) % banners.length]} // Ensure valid index even for single image
+      alt={`banner-${(Math.floor((index + 1) / 4) - 1) % banners.length}`}
+      style={{ marginTop: "3rem", marginBottom: "3rem" }}
+    />
+  </div>
 )}
+
 </React.Fragment>
 );
 })}
