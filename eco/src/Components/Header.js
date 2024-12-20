@@ -7,16 +7,37 @@ import Modal from 'react-bootstrap/Modal';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from './cartcontext'
 import logo from '../Components/Assets/Logo (2).png'
+import axios from 'axios';
+import api from '../Components/api';
 function Header() {
 
   const {cart,setcart}=useCart()
+  const [formData, setFormData] = useState({
+    apartmentNumber: "",
+    apartmentName: "",
+    area: "",
+    landmark: "",
+    firstName: "",
+    lastName: "",
+    mobileNumber: "",
+    addressType: "Home",
+    pincode: "",
+    setDefault: false,
+    cartItems: [],
+  });
+  
+
+  
   const[length,setlength]=useState(0)
   useEffect(()=>
   {
     const clength=cart.length
     setlength(clength)
+    setFormData({...formData,cartItems:cart})
   })
 
+  
+  
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -34,11 +55,12 @@ const incrementQuantity = (index) => {
   setcart((prevCart) =>
     prevCart.map((item, i) =>
       i === index
-        ? { ...item, product_quantity1: item.product_quantity1 + 1 }
+        ? { ...item, product_quantity1: parseFloat(item.product_quantity1) + 1 }
         : item
     )
   );
 };
+
 
 // Decrement quantity and remove if quantity <= 1
 const decrementQuantity = (index) => {
@@ -66,6 +88,65 @@ const [show1, setShow1] = useState(false);
 const handleClose1 = () => setShow1(false);
 const handleShow1 = () => {
   setShow1(true);
+};
+
+
+
+const [show4, setShow4] = useState(false);
+
+const handleClose4 = () => setShow4(false);
+const handleShow4 = () => {
+  setShow4(true);
+  handleClose1()
+}
+
+
+
+
+
+
+
+const handleChange = (e) => {
+  const { name, value, type, checked } = e.target;
+  setFormData({
+    ...formData,
+    [name]: type === "checkbox" ? checked : value,
+  });
+};
+
+const handleAddressType = (type) => {
+  setFormData({ ...formData, addressType: type });
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log("Form Data Submitted:", formData);
+};
+
+
+const handleSubmit1 = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await api.post('createOrder', formData);
+    console.log('Response:', formData);
+    alert('Order created successfully!');
+    setFormData({
+      firstName: '',
+      lastName: '',
+      mobileNumber: '',
+      apartmentNumber: '',
+      apartmentName: '',
+      area: '',
+      landmark: '',
+      addressType: 'Home',
+      setDefault: false,
+      cartItems: [],
+      totalPrice: 0,
+    });
+  } catch (error) {
+    console.error('Error creating order:', error);
+    alert('Failed to create order');
+  }
 };
 
 
@@ -382,7 +463,8 @@ const handleShow1 = () => {
             <div className="cart-item-title">{item.product_name}</div>
            
             <div className="cart-item-price">
-          ₹{((parseFloat(item.product_price) || 0) * 1).toFixed(2)}
+          ₹{((parseFloat(item.product_price) || 0) * 1).toFixed(2)} 
+          <span style={{marginLeft:"14rem"}}>Quantity {item.product_quantity1}</span>
         </div>
           </div>
           <div className="cart-item-actions">
@@ -402,15 +484,358 @@ const handleShow1 = () => {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose1}>
-              Close
+              Closeh
             </Button>
-            {/* <Button  variant="primary" onClick={handleShow3}>
+            <Button  variant="primary" onClick={handleShow4}>
               CheckOut
-            </Button> */}
+            </Button>
           </Modal.Footer>
         </Modal>
 
 {/* modal---------------------------------------------------------------------- */}
+
+
+{/* billing form modal------------------------------------------------------------------------- */}
+
+
+<Modal show={show4} onHide={handleClose4}  size="xl">
+        <Modal.Header closeButton>
+          <Modal.Title>  <div>
+          <h3>Add New Address</h3>
+         </div></Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <div
+      className="container"
+      style={{
+        display: "flex",
+        gap: "2rem",
+        flexWrap: "wrap",
+        padding: "20px",
+        backgroundColor: "#f9f9f9",
+        borderRadius: "8px",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+      }}
+    >
+      {/* Form Section */}
+      <div
+        style={{
+          flex: "1",
+          backgroundColor: "#ffffff",
+          borderRadius: "8px",
+          padding: "20px",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+          maxWidth: "600px",
+        }}
+      >
+        <form onSubmit={handleSubmit1}>
+          <h5 style={{ marginBottom: "20px", fontWeight: "600" }}>
+            *Area Details
+          </h5>
+          <div className="mb-3 row">
+            <div className="col-md-6">
+              <label htmlFor="apartmentNumber" className="form-label">
+                *Apartment / House No.
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="apartmentNumber"
+                name="apartmentNumber"
+                value={formData.apartmentNumber}
+                onChange={handleChange}
+                placeholder="e.g. 12/228"
+                required
+                style={{
+                  borderRadius: "5px",
+                  padding: "10px",
+                  fontSize: "14px",
+                }}
+              />
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="apartmentName" className="form-label">
+                *Apartment Name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="apartmentName"
+                name="apartmentName"
+                value={formData.apartmentName}
+                onChange={handleChange}
+                placeholder="e.g. Park Avenue"
+                style={{
+                  borderRadius: "5px",
+                  padding: "10px",
+                  fontSize: "14px",
+                }}
+              />
+            </div>
+          </div>
+          <div className="mb-3 row">
+            <div className="col-md-6">
+              <label htmlFor="area" className="form-label">
+              *Area
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="area"
+                name="area"
+                value={formData.Area}
+                onChange={handleChange}
+                placeholder="e.g. 12/228"
+                required
+                style={{
+                  borderRadius: "5px",
+                  padding: "10px",
+                  fontSize: "14px",
+                }}
+              />
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="StreetDetails" className="form-label">
+              *Street Details/Landmark
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="Street Details"
+                name="StreetDetails"
+                value={formData.StreetDetails}
+                onChange={handleChange}
+                placeholder="e.g. Park Avenue"
+                style={{
+                  borderRadius: "5px",
+                  padding: "10px",
+                  fontSize: "14px",
+                }}
+              />
+            </div>
+          </div>
+          <div className="col-md-6 mb-3">
+            <label htmlFor="landmark" className="form-label">
+              *Pincode
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="landmark"
+              name="landmark"
+              value={formData.landmark}
+              onChange={handleChange}
+              style={{
+                borderRadius: "5px",
+                padding: "10px",
+                fontSize: "14px",
+              }}
+            />
+          </div>
+          <h5 style={{ marginTop: "20px", fontWeight: "600" }}>
+            Personal Details
+          </h5>
+          <div className="mb-3 row">
+            <div className="col-md-6">
+              <label htmlFor="firstName" className="form-label">
+                First Name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="firstName"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                placeholder="e.g. John"
+                required
+                style={{
+                  borderRadius: "5px",
+                  padding: "10px",
+                  fontSize: "14px",
+                }}
+              />
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="lastName" className="form-label">
+                Last Name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="lastName"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                placeholder="e.g. Doe"
+                style={{
+                  borderRadius: "5px",
+                  padding: "10px",
+                  fontSize: "14px",
+                }}
+              />
+            </div>
+          </div>
+          <div className="col-md-6 mb-3">
+            <label htmlFor="mobileNumber" className="form-label">
+              Mobile Number
+            </label>
+            <input
+              type="tel"
+              className="form-control"
+              id="mobileNumber"
+              name="mobileNumber"
+              value={formData.mobileNumber}
+              onChange={handleChange}
+              placeholder="e.g. 9876543210"
+              required
+              style={{
+                borderRadius: "5px",
+                padding: "10px",
+                fontSize: "14px",
+              }}
+            />
+          </div>
+          <div className="mb-3">
+            <div className="form-check">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="setDefault"
+                name="setDefault"
+                checked={formData.setDefault}
+                onChange={handleChange}
+              />
+              <label htmlFor="setDefault" className="form-check-label">
+                Set as Default Address
+              </label>
+            </div>
+          </div>
+          <h5 style={{ marginTop: "20px", fontWeight: "600" }}>Address Type</h5>
+          <div className="mb-3 address-type" style={{ marginBottom: "20px" }}>
+            <button
+              type="button"
+              className={`btn ${
+                formData.addressType === "Home"
+                  ? "btn-primary"
+                  : "btn-outline-primary"
+              }`}
+              onClick={() => handleAddressType("Home")}
+              style={{
+                marginRight: "10px",
+                fontSize: "14px",
+                padding: "8px 15px",
+                borderRadius: "5px",
+              }}
+            >
+              <i
+                className="fa-solid fa-house"
+                style={{ marginRight: "5px" }}
+              ></i>
+              Home
+            </button>
+            <button
+              type="button"
+              className={`btn ${
+                formData.addressType === "Office"
+                  ? "btn-primary"
+                  : "btn-outline-primary"
+              }`}
+              onClick={() => handleAddressType("Office")}
+              style={{
+                marginRight: "10px",
+                fontSize: "14px",
+                padding: "8px 15px",
+                borderRadius: "5px",
+              }}
+            >
+              <i
+                className="fa-solid fa-building"
+                style={{ marginRight: "5px" }}
+              ></i>
+              Office
+            </button>
+            <button
+              type="button"
+              className={`btn ${
+                formData.addressType === "Other"
+                  ? "btn-primary"
+                  : "btn-outline-primary"
+              }`}
+              onClick={() => handleAddressType("Other")}
+              style={{
+                marginRight: "10px",
+                fontSize: "14px",
+                padding: "8px 15px",
+                borderRadius: "5px",
+              }}
+            >
+              <i
+                className="fa-solid fa-ellipsis"
+                style={{ marginRight: "5px" }}
+              ></i>
+              Other
+            </button>
+          </div>
+        </form>
+      </div>
+
+      {/* Cart Section */}
+      <div
+        style={{
+          flex: "1",
+          backgroundColor: "#ffffff",
+          borderRadius: "8px",
+          padding: "20px",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+          maxWidth: "400px",
+        }}
+      >
+        <h5 style={{ marginBottom: "20px", fontWeight: "600" }}>Cart Items</h5>
+        {cart.map((item, index) => (
+          <div
+            key={index}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "15px",
+              padding: "10px",
+              border: "1px solid #ddd",
+              borderRadius: "5px",
+            }}
+          >
+            
+            <div>
+              <div style={{ fontWeight: "600", marginBottom: "5px" }}>
+                {item.product_name}
+              </div>
+              <div style={{ fontSize: "14px", color: "#555" }}>
+                ₹{((parseFloat(item.product_price) || 0) * 1).toFixed(2)}  <span style={{marginLeft:"13rem"}}>Quantity {item.product_quantity1}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+        <div style={{ fontWeight: "600", fontSize: "18px", marginTop: "20px" }}>
+          Total Price: ₹{calculateTotalPrice().toFixed(2)}
+        </div>
+      </div>
+    </div>
+
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose4}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleSubmit1}>
+           Go to Payment
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+
+
+{/* billing form modal end------------------------------------------------------------------------- */}
 
 
 

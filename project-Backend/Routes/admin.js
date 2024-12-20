@@ -3,6 +3,7 @@ const {add_product,viewproduct, delete_product,edit_product, viewproductbyid} = 
 const upload=require('../Middleware/file');
 const { uploadBanner, getAllBanners, deleteBanner, editBanner } = require('../Controllers/addbanner');
 const uploadFields = require('../Middleware/bannerfile');
+const { createOrder, getAllOrders } = require('../Controllers/order');
 const router=express.Router()
 
 
@@ -30,7 +31,16 @@ router.post(
   // Delete Banner
   router.delete('/deleteBanner/:_id', deleteBanner);
 
-  router.put('/editBanner/:_id',editBanner)
+  router.put(
+    "/editBanner/:_id",
+    upload.fields([
+      { name: "sliderBannerImage", maxCount: 1 },
+      { name: "productBannerImage", maxCount: 1 },
+    ]),
+    editBanner
+  );
   
+  router.post('/createOrder', createOrder);
+  router.get('/getAllOrders', getAllOrders);
 
 module.exports=router

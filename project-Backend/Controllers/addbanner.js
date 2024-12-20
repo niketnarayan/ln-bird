@@ -105,33 +105,60 @@ const deleteBanner = async (req, res) => {
 const editBanner = async (req, res) => {
   try {
     const id = req.params._id; // Get the banner ID from the request params
-    const { bannerTitle, bannerLink, sliderBannerImage, productBannerImage } = req.body; // Get the updated data from the request body
+    const { bannerTitle, bannerLink } = req.body; // Get text fields from the request body
 
-    // Find the banner by ID and update it with the new data
+    // Find the existing banner
+    const existingBanner = await banner.findById(id);
+    if (!existingBanner) {
+      return res.status(404).json({ message: "Banner not found" });
+    }
+
+    // Handle file uploads
+    let sliderBannerImage = existingBanner.sliderBannerImage; // Default to existing image
+    let productBannerImage = existingBanner.productBannerImage; // Default to existing image
+
+    if (req.files) {
+      if (req.files.sliderBannerImage) {
+        // Upload new slider banner image to Cloudinary
+        const sliderUploadResult = await cloudinary.uploader.upload(
+          req.files.sliderBannerImage[0].path // Assuming Multer saves the file path
+        );
+        sliderBannerImage = sliderUploadResult.secure_url; // Get the secure URL from Cloudinary
+      }
+
+      if (req.files.productBannerImage) {
+        // Upload new product banner image to Cloudinary
+        const productUploadResult = await cloudinary.uploader.upload(
+          req.files.productBannerImage[0].path
+        );
+        productBannerImage = productUploadResult.secure_url;
+      }
+    }
+
+    // Update the banner in the database
     const updatedBanner = await banner.findByIdAndUpdate(
       id,
       {
         bannerTitle,
         bannerLink,
-        sliderBannerImage, // You can update the image URLs as well (make sure images are handled correctly)
+        sliderBannerImage,
         productBannerImage,
       },
       { new: true } // Return the updated banner
     );
 
-    if (!updatedBanner) {
-      return res.status(404).json({ message: 'Banner not found' });
-    }
-
     res.status(200).json({
-      message: 'Banner updated successfully',
+      message: "Banner updated successfully",
       updatedBanner, // Return the updated banner data
     });
   } catch (error) {
-    console.error('Error updating banner:', error);
-    res.status(500).json({ message: 'Error updating banner' });
+    console.error("Error updating banner:", error);
+    res.status(500).json({ message: "Error updating banner" });
   }
 };
+
+
+
 
 
 

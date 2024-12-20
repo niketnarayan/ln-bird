@@ -9,7 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
 import Sidebar from "../Admin/Sidebar";
-import Swal from 'sweetalert2'; // Import Swal
+import Swal from "sweetalert2"; // Import Swal
 
 function Banner() {
   const [banners, setBanners] = useState([]);
@@ -56,44 +56,47 @@ function Banner() {
     }));
   };
 
+  // Reset form and dialog state
+  const resetForm = () => {
+    setNewBanner({
+      bannerTitle: "",
+      sliderBannerImage: null,
+      productBannerImage: null,
+      bannerLink: "",
+    });
+    setEditData(null);
+    setOpenDialog(false);
+  };
+
   // Handle banner submission (Adding or Editing)
   const handleBannerSubmit = async () => {
     const formData = new FormData();
     formData.append("bannerTitle", newBanner.bannerTitle);
     formData.append("bannerLink", newBanner.bannerLink);
 
-    // If an image is selected, append it to the form data
+    // Handle slider banner image
     if (newBanner.sliderBannerImage) {
       formData.append("sliderBannerImage", newBanner.sliderBannerImage);
-    } else if (editData && editData.sliderBannerImage) {
-      // If no new slider image is selected, keep the existing one
-      formData.append("sliderBannerImage", editData.sliderBannerImage);
+    } else if (editData?.sliderBannerImage && !newBanner.sliderBannerImage) {
+      formData.append("sliderBannerImage", editData.sliderBannerImage); // Use existing image URL
     }
 
+    // Handle product banner image
     if (newBanner.productBannerImage) {
       formData.append("productBannerImage", newBanner.productBannerImage);
-    } else if (editData && editData.productBannerImage) {
-      // If no new product image is selected, keep the existing one
-      formData.append("productBannerImage", editData.productBannerImage);
+    } else if (editData?.productBannerImage && !newBanner.productBannerImage) {
+      formData.append("productBannerImage", editData.productBannerImage); // Use existing image URL
     }
 
     try {
       if (editData) {
-        // Editing existing banner
         await axios.put(`http://localhost:5000/editBanner/${editData._id}`, formData);
         Swal.fire("Updated!", "Banner updated successfully.", "success");
       } else {
-        // Adding a new banner
         await axios.post("http://localhost:5000/uploadBanner", formData);
         Swal.fire("Added!", "Banner added successfully.", "success");
       }
-      setNewBanner({
-        bannerTitle: "",
-        sliderBannerImage: null,
-        productBannerImage: null,
-        bannerLink: "",
-      });
-      setOpenDialog(false);
+      resetForm();
       fetchBanners(); // Reload the banners list
     } catch (error) {
       console.error("Error submitting banner:", error);
@@ -107,8 +110,8 @@ function Banner() {
     setNewBanner({
       bannerTitle: row.bannerTitle,
       bannerLink: row.bannerLink,
-      sliderBannerImage: row.sliderBannerImage, // Save current slider image URL
-      productBannerImage: row.productBannerImage, // Save current product image URL
+      sliderBannerImage: null, // Reset to null for file upload
+      productBannerImage: null, // Reset to null for file upload
     });
     setOpenDialog(true);
   };
@@ -188,11 +191,11 @@ function Banner() {
   // Utility function to handle image preview
   const getImagePreview = (image) => {
     if (isFileOrBlob(image)) {
-      return URL.createObjectURL(image); // Only create object URL for File/Blob
+      return URL.createObjectURL(image); // Create object URL for File/Blob
     } else if (typeof image === "string") {
-      return image; // If it's a string (URL), return it as is
+      return image; // Return URL as is
     }
-    return null; // Default fallback
+    return null;
   };
 
   return (
@@ -235,7 +238,7 @@ function Banner() {
           />
         </Paper>
 
-        <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
+        <Dialog open={openDialog} onClose={resetForm}>
           <DialogTitle>{editData ? "Edit Banner" : "Add Banner"}</DialogTitle>
           <DialogContent>
             <TextField
@@ -267,14 +270,14 @@ function Banner() {
             />
             {newBanner.sliderBannerImage ? (
               <img
-                src={getImagePreview(newBanner.sliderBannerImage)} // Use the utility function
+                src={getImagePreview(newBanner.sliderBannerImage)}
                 alt="Preview"
                 style={{ width: "50px", height: "50px", marginTop: "10px" }}
               />
             ) : (
               editData?.sliderBannerImage && (
                 <img
-                  src={getImagePreview(editData.sliderBannerImage)} // Use the utility function
+                  src={getImagePreview(editData.sliderBannerImage)}
                   alt="Existing Slider Banner"
                   style={{ width: "50px", height: "50px", marginTop: "10px" }}
                 />
@@ -291,14 +294,14 @@ function Banner() {
             />
             {newBanner.productBannerImage ? (
               <img
-                src={getImagePreview(newBanner.productBannerImage)} // Use the utility function
+                src={getImagePreview(newBanner.productBannerImage)}
                 alt="Preview"
                 style={{ width: "50px", height: "50px", marginTop: "10px" }}
               />
             ) : (
               editData?.productBannerImage && (
                 <img
-                  src={getImagePreview(editData.productBannerImage)} // Use the utility function
+                  src={getImagePreview(editData.productBannerImage)}
                   alt="Existing Product Banner"
                   style={{ width: "50px", height: "50px", marginTop: "10px" }}
                 />
@@ -306,7 +309,7 @@ function Banner() {
             )}
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => setOpenDialog(false)} color="primary">
+            <Button onClick={resetForm} color="primary">
               Cancel
             </Button>
             <Button
