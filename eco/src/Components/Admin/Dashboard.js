@@ -421,7 +421,7 @@ function Dashboard() {
 
        {/* table------------------------------------------------------------------------------------------- */}
 
-
+       <h3>All Orders</h3>
        <Paper sx={{ height: 400, width: '100%' }}>
       <DataGrid
         rows={orders}

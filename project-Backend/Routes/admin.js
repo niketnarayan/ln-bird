@@ -5,7 +5,8 @@ const { uploadBanner, getAllBanners, deleteBanner, editBanner } = require('../Co
 const uploadFields = require('../Middleware/bannerfile');
 const { createOrder, getAllOrders } = require('../Controllers/order');
 const { signup, login } = require('../Controllers/user');
-const protectRoute=require('../Middleware/routemiddle')
+const protectRoute=require('../Middleware/routemiddle');
+const { getSalesData } = require('../Controllers/graph');
 const router=express.Router()
 
 
@@ -47,5 +48,7 @@ router.post(
 
   router.post('/signup', signup);
   router.post('/login', login)
+
+  router.get('/data',getSalesData);
 
 module.exports=router
