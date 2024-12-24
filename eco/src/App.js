@@ -25,6 +25,12 @@ import Faq from './Components/Faq';
 import Allproductlist from './Components/Admin/Allproductlist';
 import Banner from './Components/Admin/Banner';
 import Accountsetting from './Components/Admin/Accountsetting';
+import Sinup from './Components/Admin/Sinup';
+import Login from './Components/Admin/Login';
+import Forgatpassword from './Components/Admin/Forgatpassword';
+import PrivateRoute from './Components/protectedroute';
+import OAuthGuard from '../src/Components/protectedroute';
+import { AuthProvider } from '../src/Components/authguard';
 
 
 
@@ -32,54 +38,44 @@ import Accountsetting from './Components/Admin/Accountsetting';
 
 function App() {
   return (
-    
-    <BrowserRouter>
+    <AuthProvider>
+     <BrowserRouter>
 
-<div>
+ <div>
     
-    <Routes>
+     <Routes>
     <Route path='/' element={<Home1/>}/>
-    <Route path='/contact' element={<Contact/>}/>
-    <Route path='/vitamincfacewash' element={<VitamincFacewash/>}/>
-    <Route path='/antiacnefacewash' element={<Antiacnefacewash/>}/>
-    <Route path='/goldscrubfacewash' element={<Goldscrubfacewash/>}/>
-    <Route path='/antihairfallshampoo' element={<Antihairfallshampoo/>}/>
-    <Route path='/rosemaryhairoil' element={<Rosemaryhairoil/>}/>
-    <Route path='/hairserum' element={<Hairserum/>}/>
-    <Route path='/glutasoap' element={<Glutasoap/>}/>
-    <Route path='/addproduct' element={<Addproduct/>}/>
-    <Route path='/dashboard' element={<Dashboard/>}/>
-    <Route path='/term&condition' element={<Termcondition/>}/>
-    <Route path='/privacypolicy' element={<Privacypolicy/>}/>
-    <Route path='/ewaste' element={<Ewaste/>}/>
-    <Route path='/cancelpolicy' element={<Cancilationpolicy/>}/>
-    <Route path='/deliverycancel' element={<Deliverycancel/>}/>
-    <Route path='/aboutus' element={<Aboutus/>}/>
-    <Route path='/faq' element={<Faq/>}/>
-    <Route path='/allproductlist' element={<Allproductlist/>}/>
-    <Route path='/banner' element={<Banner/>}/>
-    <Route path='/accountsetting' element={<Accountsetting/>}/>
-    </Routes>
+     <Route path='/contact' element={<Contact/>}/>
+     <Route path='/vitamincfacewash' element={<VitamincFacewash/>}/>
+     <Route path='/antiacnefacewash' element={<Antiacnefacewash/>}/>
+     <Route path='/goldscrubfacewash' element={<Goldscrubfacewash/>}/>
+     <Route path='/antihairfallshampoo' element={<Antihairfallshampoo/>}/>
+     <Route path='/rosemaryhairoil' element={<Rosemaryhairoil/>}/>
+     <Route path='/hairserum' element={<Hairserum/>}/>
+     <Route path='/glutasoap' element={<Glutasoap/>}/>
+     <Route path='/addproduct' element={<PrivateRoute><Addproduct/></PrivateRoute>}/>
+     <Route path='/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
+     <Route path='/term&condition' element={<Termcondition/>}/>
+     <Route path='/privacypolicy' element={<Privacypolicy/>}/>
+     <Route path='/ewaste' element={<Ewaste/>}/>
+     <Route path='/cancelpolicy' element={<Cancilationpolicy/>}/>
+     <Route path='/deliverycancel' element={<Deliverycancel/>}/>
+     <Route path='/aboutus' element={<Aboutus/>}/>
+     <Route path='/faq' element={<Faq/>}/>
+     <Route path='/allproductlist' element={<PrivateRoute><Allproductlist/></PrivateRoute>}/>
+     <Route path='/banner' element={<PrivateRoute><Banner/></PrivateRoute>}/>
+     <Route path='/accountsetting' element={<PrivateRoute><Accountsetting/></PrivateRoute>}/>
+     <Route path='/login' element={<Login/>}/>
+    <Route path='/singup' element={<PrivateRoute><Sinup/></PrivateRoute>}/>
+     <Route path='/forgot' element={<PrivateRoute><Forgatpassword/></PrivateRoute>}/>
+     </Routes>
 
-    {/* <Addproduct/> */}
-    
-    {/* <Sidebar/> */}
-    {/* <Dashboard/> */}
-    {/* <Home/> */}
-   
-    
-   
-{/* 
-    <Antiacnefacewash/> */}
-    
-   {/* <VitamincFacewash/> */}
+     </div>
+     </BrowserRouter>
+</AuthProvider>
 
-    {/* <Home/> */}
-    {/* <Footer/> */}
-    {/* <Contact /> */}
-    </div>
-    </BrowserRouter>
-    
+
+
     
   );
 }

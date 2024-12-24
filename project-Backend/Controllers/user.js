@@ -1,0 +1,79 @@
+const jwt = require('jsonwebtoken');
+const User = require("../Modals/user");
+require('dotenv').config();
+
+
+
+// Signup Controller
+exports.signup = async (req, res) => {
+    const { username, email, password } = req.body;
+  
+    try {
+      // Check if user already exists
+      const existingUser = await User.findOne({ email });
+      if (existingUser) {
+        return res.status(400).json({ message: "User already exists" });
+      }
+  
+      // Create new user instance
+      const user = new User({
+        username,
+        email,
+        password,
+      });
+  
+      // Save the user to the database
+      await user.save();
+  
+      // Return success response without token
+      res.status(201).json({
+        success: true,
+        data: {
+          id: user.id,
+          username: user.username,
+          email: user.email,
+        },
+      });
+    } catch (error) {
+      res.status(500).json({ success: false, error: error.message });
+    }
+  };
+
+
+
+  exports.login = async (req, res) => {
+    const { username, password } = req.body;
+  
+    try {
+      // Check if the user exists by username
+      const user = await User.findOne({ username:username });
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      // Compare passwords directly (no hashing)
+      if (password !== user.password) {
+        return res.status(401).json({ message: "Invalid username or password" });
+      }
+  
+      // Generate JWT token
+      const token = jwt.sign(
+        { id: user._id, username: user.username },
+        process.env.JWT_SECRET
+      );
+  
+      // Send response with token
+      res.status(200).json({
+        success: true,
+        token,
+        user: {
+          id: user._id,
+          username: user.username,
+          email: user.email,
+        },
+      });
+    } catch (error) {
+      res.status(500).json({ success: false, error: error.message });
+    }
+  };
+

@@ -9,6 +9,7 @@ const order = new mongoose.Schema({
   area: String,
   landmark: String,
   addressType: String,
+  pincode: String,
   cartItems: [
     {
       product_name: String,

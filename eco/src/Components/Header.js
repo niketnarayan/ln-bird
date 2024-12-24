@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Navbar.css";
@@ -9,6 +10,7 @@ import { useCart } from './cartcontext'
 import logo from '../Components/Assets/Logo (2).png'
 import axios from 'axios';
 import api from '../Components/api';
+import Swal from 'sweetalert2';
 function Header() {
 
   const {cart,setcart}=useCart()
@@ -24,6 +26,7 @@ function Header() {
     pincode: "",
     setDefault: false,
     cartItems: [],
+    totalPrice:0,
   });
   
 
@@ -83,6 +86,15 @@ const calculateTotalPrice = () => {
   );
 };
 
+useEffect(() => {
+  const total = calculateTotalPrice();
+  setFormData(prevData => ({
+    ...prevData,
+    totalPrice: total, // Set the calculated totalPrice
+  }));
+}, [formData.cartItems]);
+
+
 const [show1, setShow1] = useState(false);
 
 const handleClose1 = () => setShow1(false);
@@ -99,7 +111,6 @@ const handleShow4 = () => {
   setShow4(true);
   handleClose1()
 }
-
 
 
 
@@ -124,28 +135,49 @@ const handleSubmit = (e) => {
 };
 
 
+
+
 const handleSubmit1 = async (e) => {
   e.preventDefault();
   try {
     const response = await api.post('createOrder', formData);
     console.log('Response:', formData);
-    alert('Order created successfully!');
-    setFormData({
-      firstName: '',
-      lastName: '',
-      mobileNumber: '',
-      apartmentNumber: '',
-      apartmentName: '',
-      area: '',
-      landmark: '',
-      addressType: 'Home',
-      setDefault: false,
-      cartItems: [],
-      totalPrice: 0,
+
+    // Success Alert with "OK" button
+    Swal.fire({
+      title: 'Success!',
+      text: 'Order created successfully!',
+      icon: 'success',
+      confirmButtonText: 'OK',
+    }).then(() => {
+      // Clear form fields and reload the window
+      setFormData({
+        firstName: '',
+        lastName: '',
+        mobileNumber: '',
+        apartmentNumber: '',
+        apartmentName: '',
+        area: '',
+        landmark: '',
+        addressType: 'Home',
+        setDefault: false,
+        cartItems: [],
+        totalPrice: 0,
+      });
+
+      // Reload the window (optional)
+      window.location.reload();
     });
   } catch (error) {
     console.error('Error creating order:', error);
-    alert('Failed to create order');
+
+    // Error Alert
+    Swal.fire({
+      title: 'Error!',
+      text: 'Failed to create order. Please try again.',
+      icon: 'error',
+      confirmButtonText: 'Retry',
+    });
   }
 };
 
@@ -583,7 +615,6 @@ const handleSubmit1 = async (e) => {
                 className="form-control"
                 id="area"
                 name="area"
-                value={formData.Area}
                 onChange={handleChange}
                 placeholder="e.g. 12/228"
                 required
@@ -601,9 +632,9 @@ const handleSubmit1 = async (e) => {
               <input
                 type="text"
                 className="form-control"
-                id="Street Details"
-                name="StreetDetails"
-                value={formData.StreetDetails}
+                id="landmark"
+                name="landmark"
+               
                 onChange={handleChange}
                 placeholder="e.g. Park Avenue"
                 style={{
@@ -621,9 +652,9 @@ const handleSubmit1 = async (e) => {
             <input
               type="text"
               className="form-control"
-              id="landmark"
-              name="landmark"
-              value={formData.landmark}
+              id="pincode"
+              name="pincode"
+              
               onChange={handleChange}
               style={{
                 borderRadius: "5px",
@@ -816,7 +847,7 @@ const handleSubmit1 = async (e) => {
             </div>
           </div>
         ))}
-        <div style={{ fontWeight: "600", fontSize: "18px", marginTop: "20px" }}>
+        <div  style={{ fontWeight: "600", fontSize: "18px", marginTop: "20px" }}>
           Total Price: ₹{calculateTotalPrice().toFixed(2)}
         </div>
       </div>

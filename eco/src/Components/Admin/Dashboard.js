@@ -1,13 +1,84 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import Sidebar from "./Sidebar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import Paper from '@mui/material/Paper';
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 
 function Dashboard() {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const authToken = localStorage.getItem('token');
+    if (!authToken) {
+      navigate('/login', { replace: true }); // Redirect to login
+    }
+  }, [navigate]);
+
     const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
     const [chartTimeRange, setChartTimeRange] = useState("Day");
+
+    const [orders, setOrders] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+      const fetchOrders = async () => {
+        try {
+          const response = await axios.get('http://localhost:5000/getAllOrders'); // Adjust the URL
+          const formattedOrders = response.data.map((order, index) => ({
+            id: index + 1, // Add an ID for the DataGrid
+            firstName: order.firstName,
+            lastName: order.lastName,
+            mobileNumber: order.mobileNumber,
+            apartmentNumber: order.apartmentNumber,
+            apartmentName: order.apartmentName,
+            area: order.area,
+            landmark: order.landmark,
+            addressType: order.addressType,
+            pincode: order.pincode,
+            productName: order.cartItems.map((item) => item.product_name).join(', '),
+            productPrice: order.cartItems.reduce((sum, item) => sum + item.product_price, 0),
+            productQuantity: order.cartItems.reduce((sum, item) => sum + item.product_quantity, 0),
+            totalPrice: order.totalPrice,
+            paymentMode: order.setDefault ? 'Default' : 'Custom', // Example logic
+          }));
+          setOrders(formattedOrders);
+        } catch (error) {
+          console.error('Failed to fetch orders:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchOrders();
+    }, []);
+  
+    const columns = [
+      { field: 'id', headerName: 'ID', width: 70 },
+      { field: 'firstName', headerName: 'First Name', width: 130 },
+      { field: 'lastName', headerName: 'Last Name', width: 130 },
+      { field: 'mobileNumber', headerName: 'Mobile No.', width: 120 },
+      { field: 'apartmentNumber', headerName: 'Apartment Number', width: 160 },
+      { field: 'apartmentName', headerName: 'Apartment Name', width: 120 },
+      { field: 'area', headerName: 'Area', width: 120 },
+      { field: 'landmark', headerName: 'Landmark', width: 120 },
+      { field: 'addressType', headerName: 'Address Type', width: 120 },
+      { field: 'pincode', headerName: 'Pincode', width: 90 },
+      { field: 'productName', headerName: 'Product Name', width: 150 },
+      { field: 'productPrice', headerName: 'Product Price', width: 120 },
+      { field: 'productQuantity', headerName: 'Product Quantity', width: 150 },
+      { field: 'totalPrice', headerName: 'Total Price', width: 120 },
+      { field: 'paymentMode', headerName: 'Payment Mode', width: 120 },
+    ];
+
+
+    
   
     const toggleSidebar = () => {
       setIsSidebarCollapsed(!isSidebarCollapsed);
@@ -71,6 +142,23 @@ function Dashboard() {
     const handleTimeRangeClick = (range) => {
       setChartTimeRange(range);
     };
+
+    
+    const rows = [
+      { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
+      { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
+      { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
+      { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
+      { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
+      { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
+      { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
+      { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
+      { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+    ];
+    
+    const paginationModel = { page: 0, pageSize: 5 };
+
+
 
   return (
     <div>
@@ -329,6 +417,30 @@ function Dashboard() {
         </div>
           </div>
         </div>
+
+
+       {/* table------------------------------------------------------------------------------------------- */}
+
+
+       <Paper sx={{ height: 400, width: '100%' }}>
+      <DataGrid
+        rows={orders}
+        columns={columns}
+        loading={loading}
+        pageSizeOptions={[5, 10]}
+        checkboxSelection
+        sx={{ border: 0 }}
+      />
+    </Paper>
+
+
+
+
+
+       {/* table end ----------------------------------------------------------------------------------------- */}
+
+
+
       </div>
     </div>
   );

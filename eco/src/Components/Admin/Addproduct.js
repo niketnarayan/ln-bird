@@ -9,6 +9,8 @@ import api from '../api'
 
 function Addproduct() {
 
+ 
+
 
     const [product, setproduct] = useState({
         product_code: "",
@@ -63,32 +65,51 @@ function Addproduct() {
     
    
     
-    const handleSubmit = async () => {
-      
-      
+      const handleSubmit = async () => {
         try {
-          const resp = await api.post("addproduct", product,{
-            headers: {
-                "Content-Type": "multipart/form-data"
-
-              }
+          // Retrieve token from localStorage (or sessionStorage)
+          const token = localStorage.getItem('token');
+          console.log(token);
+          
+      
+          // Check if the token exists
+          if (!token) {
+            Swal.fire({
+              title: 'Error!',
+              text: 'You must be logged in to add a product.',
+              icon: 'error',
+              confirmButtonText: 'OK',
+            });
+            return;
           }
-            );
+      
+          // Send the POST request with token in Authorization header
+          const resp = await api.post("addproduct", product, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              "Authorization": `Bearer ${token}`, // Include the token in the Authorization header
+            },
+          });
       
           if (resp.status === 200) {
-           
             Swal.fire({
               title: 'Success!',
               text: 'Product saved successfully!',
               icon: 'success',
               confirmButtonText: 'OK',
             });
-
           }
         } catch (error) {
           console.error("Error while saving product:", error.response || error.message);
+          Swal.fire({
+            title: 'Error!',
+            text: 'Failed to save product. Please try again.',
+            icon: 'error',
+            confirmButtonText: 'OK',
+          });
         }
       };
+      
       
 console.log(product.product_image);
 

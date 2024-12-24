@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   FaList,
   FaHome,
@@ -16,8 +16,13 @@ import {
   FaInvoiceHunt,
   FaRegEdit, 
 } from "react-icons/fa";
+import { useAuth } from '../authguard';
 
 function Sidebar() {
+
+  const { logout } = useAuth();
+
+
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false); // Sidebar state
   const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
   const [isInvoiceMenuOpen, setIsInvoiceMenuOpen] = useState(false);
@@ -38,6 +43,14 @@ function Sidebar() {
   const toggleUserMenu = () => {
     setIsUserMenuOpen(!isUserMenuOpen);
   };
+
+  const  navigate = useNavigate()
+
+const Logout = () =>{
+  logout();
+  window.location.href = '/login';
+  
+}
 
 
 
@@ -121,14 +134,13 @@ function Sidebar() {
             </a>
           </li>
           <li>
-            <a
+            <button onClick={Logout}
               className="dropdown-item"
-              href="#"
               style={{ display: "flex", alignItems: "center", gap: 8 }}
             >
               <i className="fa fa-sign-out-alt" />
               Logout
-            </a>
+            </button>
           </li>
         </ul>
       </li>
@@ -150,7 +162,7 @@ whiteSpace: "nowrap",
 >
         {/* Sidebar Header */}
         <div className="d-flex justify-content-between align-items-center mb-4">
-          <h4 style={{ display: isSidebarCollapsed ? "none" : "block" }}>Modern</h4>
+          <h4 style={{ display: isSidebarCollapsed ? "none" : "block" }}>KIONA</h4>
           <FaList
             style={{ cursor: "pointer", fontSize: "1.5rem" }}
             onClick={toggleSidebar}
