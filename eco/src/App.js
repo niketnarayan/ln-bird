@@ -31,9 +31,6 @@ import Forgatpassword from './Components/Admin/Forgatpassword';
 import PrivateRoute from './Components/protectedroute';
 import OAuthGuard from '../src/Components/protectedroute';
 import { AuthProvider } from '../src/Components/authguard';
-import Navbar from './Components/Navbar';
-
-
 
 
 
@@ -47,17 +44,17 @@ function App() {
  <div>
     
      <Routes>
-     <Route path='/' element={<Home1/>}/>
-     <Route path='/contact' element={<Contact/>}/> 
-      <Route path='/vitamincfacewash' element={<VitamincFacewash/>}/>
+    <Route path='/' element={<Home1/>}/>
+     <Route path='/contact' element={<Contact/>}/>
+     <Route path='/vitamincfacewash' element={<VitamincFacewash/>}/>
      <Route path='/antiacnefacewash' element={<Antiacnefacewash/>}/>
      <Route path='/goldscrubfacewash' element={<Goldscrubfacewash/>}/>
      <Route path='/antihairfallshampoo' element={<Antihairfallshampoo/>}/>
      <Route path='/rosemaryhairoil' element={<Rosemaryhairoil/>}/>
      <Route path='/hairserum' element={<Hairserum/>}/>
      <Route path='/glutasoap' element={<Glutasoap/>}/>
-     {/* <Route path='/addproduct' element={<PrivateRoute><Addproduct/></PrivateRoute>}/>
-     <Route path='/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}/> */}
+     <Route path='/addproduct' element={<PrivateRoute><Addproduct/></PrivateRoute>}/>
+     <Route path='/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
      <Route path='/term&condition' element={<Termcondition/>}/>
      <Route path='/privacypolicy' element={<Privacypolicy/>}/>
      <Route path='/ewaste' element={<Ewaste/>}/>
@@ -65,28 +62,14 @@ function App() {
      <Route path='/deliverycancel' element={<Deliverycancel/>}/>
      <Route path='/aboutus' element={<Aboutus/>}/>
      <Route path='/faq' element={<Faq/>}/>
-     {/* <Route path='/allproductlist' element={<PrivateRoute><Allproductlist/></PrivateRoute>}/>
-     <Route path='/banner' element={<PrivateRoute><Banner/></PrivateRoute>}/>
-     <Route path='/accountsetting' element={<PrivateRoute><Accountsetting/></PrivateRoute>}/> */}
-     <Route path='/login' element={<Login/>}/>
-    <Route path='/singup' element={<Sinup/>}/>
-    <Route path='/forgot' element={<Forgatpassword/>}/>
-    <Route path='/blog'  element={<Navbar/>}/> 
-     
-     </Routes>
-
-     <Routes>
-     <Route path='/addproduct' element={<PrivateRoute><Addproduct/></PrivateRoute>}/>
-     <Route path='/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
-     <Route path='/login' element={<Login/>}/>
      <Route path='/allproductlist' element={<PrivateRoute><Allproductlist/></PrivateRoute>}/>
      <Route path='/banner' element={<PrivateRoute><Banner/></PrivateRoute>}/>
      <Route path='/accountsetting' element={<PrivateRoute><Accountsetting/></PrivateRoute>}/>
-     <Route path='/singup' element={<Sinup/>}/>
-    <Route path='/forgot' element={<Forgatpassword/>}/>
-    <Route path='/blog'  element={<Navbar/>}/> 
+     <Route path='/login' element={<Login/>}/>
+    <Route path='/singup' element={<Sinup/>}/>
+     <Route path='/forgot' element={<Forgatpassword/>}/>
      </Routes>
-    {/* <Navbar/>    */}
+
      </div>
      </BrowserRouter>
      
