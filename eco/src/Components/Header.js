@@ -8,6 +8,7 @@ import { useCart } from './cartcontext'
 import logo from '../Components/Assets/Logo (2).png'
 import api from '../Components/api';
 import Swal from 'sweetalert2';
+import { jsPDF } from "jspdf";
 function Header() {
 
   const {cart,setcart}=useCart()
@@ -24,6 +25,7 @@ function Header() {
     setDefault: false,
     cartItems: [],
     totalPrice:0,
+    payment_status:""
   });
   
 
@@ -135,7 +137,7 @@ const handleSubmit = (e) => {
 
 
 const handleSubmit1 = async (e) => {
-  e.preventDefault();
+
   try {
     const response = await api.post('createOrder', formData);
     console.log('Response:', formData);
@@ -160,6 +162,7 @@ const handleSubmit1 = async (e) => {
         setDefault: false,
         cartItems: [],
         totalPrice: 0,
+        payment_status:""
       });
 
       // Reload the window (optional)
@@ -179,6 +182,94 @@ const handleSubmit1 = async (e) => {
 };
 
 
+const handlePayment = async () => {
+  try {
+    // Step 1: Create Order on Backend
+    const { data: order } = await api.post('payment', {
+      amount: formData.totalPrice, // Amount in INR
+    });
+
+    console.log('Order Created:', order);  // Debugging: Check if the order was created
+
+    // Step 2: Razorpay Checkout Options
+    const options = {
+      key: 'rzp_test_kh59VKLP3zCcop', // Replace with your Key ID
+      amount: order.amount,
+      currency: order.currency,
+      name: 'Your Company Name',
+      description: 'Test Transaction',
+      order_id: order.id,
+      handler: function (response) {
+        console.log('Payment Success Response:', response);  // Debugging: Check Razorpay response
+
+        // Check if response contains the expected payment info
+        if (response && response.razorpay_payment_id) {
+          alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
+          
+          // Step 3: Generate PDF Invoice after Successful Payment
+          generateInvoice(response);
+
+          // Directly update the payment status in frontend
+          setFormData({ ...formData, payment_status: 'success' });
+
+          // Call your submit function to save data
+          handleSubmit1();
+        } else {
+          alert('Payment Response Invalid');
+        }
+      },
+      prefill: {
+        name: formData.firstName,
+        email: 'narayanniket2@gmail.com',
+        contact: formData.mobileNumber,
+      },
+      theme: {
+        color: '#3399cc',
+      },
+    };
+
+    // Step 4: Initialize Razorpay Checkout
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+    
+  } catch (error) {
+    console.error('Error during payment:', error);
+
+    // Handle any error (e.g., network issues)
+    alert('Payment Failed');
+    
+    // Set status to failed if payment fails
+    setFormData({ ...formData, payment_status: 'failed' });
+    handleSubmit1();
+  }
+};
+
+const generateInvoice = (paymentResponse) => {
+  // Step 1: Create a PDF document
+  const doc = new jsPDF();
+
+  // Step 2: Add Content to the Invoice
+  doc.setFontSize(16);
+  doc.text('Invoice', 20, 20);
+
+  doc.setFontSize(12);
+  doc.text(`Invoice Number: ${paymentResponse.razorpay_payment_id}`, 20, 30);
+  doc.text(`Order ID: ${paymentResponse.razorpay_order_id}`, 20, 40);
+  doc.text(`Amount: ₹${formData.totalPrice}`, 20, 50);
+  doc.text(`Name: ${formData.firstName}`, 20, 60);
+  doc.text(`Email: ${formData.email}`, 20, 70);
+  doc.text(`Phone: ${formData.mobileNumber}`, 20, 80);
+  
+  // Step 3: Add Transaction Details
+  doc.text(`Transaction Date: ${new Date().toLocaleDateString()}`, 20, 90);
+
+  // Step 4: Add Signature or Footer
+  doc.text('Thank you for your purchase!', 20, 100);
+  
+  // Step 5: Save the PDF
+  doc.save('invoice.pdf');
+};
+
 
 
 
@@ -186,7 +277,7 @@ const handleSubmit1 = async (e) => {
   return (
     <div style={{position:"fixed",left:"0",right:"0",zIndex:"1000",top:"0"}}>
 
-<nav className="navbar navbar-expand-lg" style={{background:"linear-gradient(to right, #fc2779, #ff79b0)"}} >
+<nav className="navbar navbar-expand-lg" style={{background:"linear-gradient(to right, #ffffff, #e3f2fd, #bbdefb"}} >
   <div className="container">
     {/* Brand Logo */}
     <a style={{cursor:"pointer"}} className="navbar-brand text-white d-flex align-items-center" onClick={()=>navigate('/')}>
@@ -856,7 +947,7 @@ const handleSubmit1 = async (e) => {
           <Button variant="secondary" onClick={handleClose4}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleSubmit1}>
+          <Button variant="primary" onClick={handlePayment}>
            Go to Payment
           </Button>
         </Modal.Footer>
