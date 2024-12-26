@@ -19,6 +19,7 @@ const order = new mongoose.Schema({
   ],
   totalPrice: Number,
   setDefault: Boolean,
+  payment_status:String,
   createdAt: { type: Date, default: Date.now },
 });
 

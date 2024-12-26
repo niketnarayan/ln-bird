@@ -6,7 +6,7 @@ const uploadFields = require('../Middleware/bannerfile');
 const { createOrder, getAllOrders } = require('../Controllers/order');
 const { signup, login } = require('../Controllers/user');
 const protectRoute=require('../Middleware/routemiddle');
-const { getSalesData } = require('../Controllers/graph');
+const payment = require('../Controllers/payment');
 const router=express.Router()
 
 
@@ -20,6 +20,7 @@ router.get('/getproduct',viewproduct)
 router.get('/getproductbyid/:_id',viewproductbyid)
 router.delete("/deleteproduct/:_id",delete_product);
 router.put('/edit_product/:_id',edit_product);
+router.post('/payment',payment)
 
 
 router.post(
@@ -49,6 +50,6 @@ router.post(
   router.post('/signup', signup);
   router.post('/login', login)
 
-  router.get('/data',getSalesData);
+ 
 
 module.exports=router
