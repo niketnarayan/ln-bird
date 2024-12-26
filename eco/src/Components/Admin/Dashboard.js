@@ -8,6 +8,7 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import api from '../api'
 
 
 function Dashboard() {
@@ -30,7 +31,7 @@ function Dashboard() {
     useEffect(() => {
       const fetchOrders = async () => {
         try {
-          const response = await axios.get('http://localhost:5000/getAllOrders'); // Adjust the URL
+          const response = await api.get('getAllOrders'); // Adjust the URL
           const formattedOrders = response.data.map((order, index) => ({
             id: index + 1, // Add an ID for the DataGrid
             firstName: order.firstName,

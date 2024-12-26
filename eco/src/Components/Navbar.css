@@ -37,7 +37,7 @@
   
   /* Navbar Links */
   .nav-link {
-    color: #e0e0e0 !important;
+    color: black !important;
     font-size: 1rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -48,14 +48,14 @@
   
   .nav-link:hover {
     background-color: #9b0c5d;
-    color: white !important;
+    color: black !important;
     transform: scale(1.1); /* Scale effect on hover */
   }
   
   /* Toggler Styling */
   .navbar-toggler {
     border: none;
-    color: #fff;
+    color: black;
   }
   
   .navbar-toggler-icon {

@@ -277,7 +277,7 @@ const generateInvoice = (paymentResponse) => {
   return (
     <div style={{position:"fixed",left:"0",right:"0",zIndex:"1000",top:"0"}}>
 
-<nav className="navbar navbar-expand-lg" style={{background:"linear-gradient(to right, #ffffff, #e3f2fd, #bbdefb"}} >
+<nav className="navbar navbar-expand-lg" style={{background:"linear-gradient(to right,#ffffff, #f2f2f2, #dcdcdc"}} >
   <div className="container">
     {/* Brand Logo */}
     <a style={{cursor:"pointer"}} className="navbar-brand text-white d-flex align-items-center" onClick={()=>navigate('/')}>

@@ -12,6 +12,7 @@ import ReactQuill from "react-quill";
 
 
 
+
 function Allproductlist() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [rows, setRows] = useState([]);
@@ -26,7 +27,7 @@ function Allproductlist() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/getproduct");
+        const response = await api.get("getproduct" );
        const Allproduct=response.data.product
         
         setproductdata(Allproduct)
