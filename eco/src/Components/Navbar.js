@@ -8,176 +8,178 @@ import { useCart } from './cartcontext'
 import logo from '../Components/Assets/Logo (2).png'
 import api from '../Components/api';
 import Swal from 'sweetalert2';
-function Header() {
 
-  const {cart,setcart}=useCart()
-  const [formData, setFormData] = useState({
-    apartmentNumber: "",
-    apartmentName: "",
-    area: "",
-    landmark: "",
-    firstName: "",
-    lastName: "",
-    mobileNumber: "",
-    addressType: "Home",
-    pincode: "",
-    setDefault: false,
-    cartItems: [],
-    totalPrice:0,
-  });
+function Navbar() {
+
+    const {cart,setcart}=useCart()
+    const [formData, setFormData] = useState({
+      apartmentNumber: "",
+      apartmentName: "",
+      area: "",
+      landmark: "",
+      firstName: "",
+      lastName: "",
+      mobileNumber: "",
+      addressType: "Home",
+      pincode: "",
+      setDefault: false,
+      cartItems: [],
+      totalPrice:0,
+    });
+    
   
-
+    
+    const[length,setlength]=useState(0)
+    useEffect(()=>
+    {
+      const clength=cart.length
+      setlength(clength)
+      setFormData({...formData,cartItems:cart})
+    })
   
-  const[length,setlength]=useState(0)
-  useEffect(()=>
-  {
-    const clength=cart.length
-    setlength(clength)
-    setFormData({...formData,cartItems:cart})
-  })
-
+    
+    
+    const [show, setShow] = useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
+  const navigate=useNavigate()
   
   
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-const navigate=useNavigate()
-
-
-// const [quantity, setQuantity] = useState(1);    
-
-
-
-
-const incrementQuantity = (index) => {
-  setcart((prevCart) =>
-    prevCart.map((item, i) =>
-      i === index
-        ? { ...item, product_quantity1: parseFloat(item.product_quantity1) + 1 }
-        : item
-    )
-  );
-};
-
-
-// Decrement quantity and remove if quantity <= 1
-const decrementQuantity = (index) => {
-  setcart((prevCart) =>
-    prevCart
-      .map((item, i) =>
-        i === index && item.product_quantity1 > 1
-          ? { ...item, product_quantity1: item.product_quantity1 - 1 }
+  // const [quantity, setQuantity] = useState(1);    
+  
+  
+  
+  
+  const incrementQuantity = (index) => {
+    setcart((prevCart) =>
+      prevCart.map((item, i) =>
+        i === index
+          ? { ...item, product_quantity1: parseFloat(item.product_quantity1) + 1 }
           : item
       )
-      .filter((item, i) => !(i === index && item.product_quantity1 <= 1))
-  );
-};
-
-// Calculate total price
-const calculateTotalPrice = () => {
-  return cart.reduce(
-    (total, item) => total + parseFloat(item.product_price) * item.product_quantity1,
-    0
-  );
-};
-
-useEffect(() => {
-  const total = calculateTotalPrice();
-  setFormData(prevData => ({
-    ...prevData,
-    totalPrice: total, 
-  }));
-}, [formData.cartItems]);
-
-
-const [show1, setShow1] = useState(false);
-
-const handleClose1 = () => setShow1(false);
-const handleShow1 = () => {
-  setShow1(true);
-};
-
-
-
-const [show4, setShow4] = useState(false);
-
-const handleClose4 = () => setShow4(false);
-const handleShow4 = () => {
-  setShow4(true);
-  handleClose1()
-}
-
-
-
-
-
-
-const handleChange = (e) => {
-  const { name, value, type, checked } = e.target;
-  setFormData({
-    ...formData,
-    [name]: type === "checkbox" ? checked : value,
-  });
-};
-
-const handleAddressType = (type) => {
-  setFormData({ ...formData, addressType: type });
-};
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-  console.log("Form Data Submitted:", formData);
-};
-
-
-
-
-const handleSubmit1 = async (e) => {
-  e.preventDefault();
-  try {
-    const response = await api.post('createOrder', formData);
-    console.log('Response:', formData);
-
-    // Success Alert with "OK" button
-    Swal.fire({
-      title: 'Success!',
-      text: 'Order created successfully!',
-      icon: 'success',
-      confirmButtonText: 'OK',
-    }).then(() => {
-      // Clear form fields and reload the window
-      setFormData({
-        firstName: '',
-        lastName: '',
-        mobileNumber: '',
-        apartmentNumber: '',
-        apartmentName: '',
-        area: '',
-        landmark: '',
-        addressType: 'Home',
-        setDefault: false,
-        cartItems: [],
-        totalPrice: 0,
-      });
-
-      // Reload the window (optional)
-      window.location.reload();
-    });
-  } catch (error) {
-    console.error('Error creating order:', error);
-
-    // Error Alert
-    Swal.fire({
-      title: 'Error!',
-      text: 'Failed to create order. Please try again.',
-      icon: 'error',
-      confirmButtonText: 'Retry',
-    });
+    );
+  };
+  
+  
+  // Decrement quantity and remove if quantity <= 1
+  const decrementQuantity = (index) => {
+    setcart((prevCart) =>
+      prevCart
+        .map((item, i) =>
+          i === index && item.product_quantity1 > 1
+            ? { ...item, product_quantity1: item.product_quantity1 - 1 }
+            : item
+        )
+        .filter((item, i) => !(i === index && item.product_quantity1 <= 1))
+    );
+  };
+  
+  // Calculate total price
+  const calculateTotalPrice = () => {
+    return cart.reduce(
+      (total, item) => total + parseFloat(item.product_price) * item.product_quantity1,
+      0
+    );
+  };
+  
+  useEffect(() => {
+    const total = calculateTotalPrice();
+    setFormData(prevData => ({
+      ...prevData,
+      totalPrice: total, 
+    }));
+  }, [formData.cartItems]);
+  
+  
+  const [show1, setShow1] = useState(false);
+  
+  const handleClose1 = () => setShow1(false);
+  const handleShow1 = () => {
+    setShow1(true);
+  };
+  
+  
+  
+  const [show4, setShow4] = useState(false);
+  
+  const handleClose4 = () => setShow4(false);
+  const handleShow4 = () => {
+    setShow4(true);
+    handleClose1()
   }
-};
-
+  
+  
+  
+  
+  
+  
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+  
+  const handleAddressType = (type) => {
+    setFormData({ ...formData, addressType: type });
+  };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Data Submitted:", formData);
+  };
+  
+  
+  
+  
+  const handleSubmit1 = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await api.post('createOrder', formData);
+      console.log('Response:', formData);
+  
+      // Success Alert with "OK" button
+      Swal.fire({
+        title: 'Success!',
+        text: 'Order created successfully!',
+        icon: 'success',
+        confirmButtonText: 'OK',
+      }).then(() => {
+        // Clear form fields and reload the window
+        setFormData({
+          firstName: '',
+          lastName: '',
+          mobileNumber: '',
+          apartmentNumber: '',
+          apartmentName: '',
+          area: '',
+          landmark: '',
+          addressType: 'Home',
+          setDefault: false,
+          cartItems: [],
+          totalPrice: 0,
+        });
+  
+        // Reload the window (optional)
+        window.location.reload();
+      });
+    } catch (error) {
+      console.error('Error creating order:', error);
+  
+      // Error Alert
+      Swal.fire({
+        title: 'Error!',
+        text: 'Failed to create order. Please try again.',
+        icon: 'error',
+        confirmButtonText: 'Retry',
+      });
+    }
+  };
+  
+  
 
 
 
@@ -234,14 +236,14 @@ const handleSubmit1 = async (e) => {
   
 </li>
       </ul>
-      <div className="button-header">
+      {/* <div className="button-header">
       <button className="buttons-header" onClick={handleShow1 }>
       <i className="fa-solid fa-cart-shopping"></i> Cart{length}
       </button>
       <button className="buttons-header" onClick={handleShow }>
       <i className="fa-solid fa-arrow-right-to-bracket"></i>Login
       </button>
-      </div>
+      </div> */}
     </div>
   </div>
   </nav>
@@ -874,4 +876,4 @@ const handleSubmit1 = async (e) => {
   )
 }
 
-export default Header
+export default Navbar
