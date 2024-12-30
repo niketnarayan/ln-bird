@@ -51,7 +51,9 @@ const[product1,setproduct1]=useState([])
   const fetchSliderImages = async () => {
     try {
       const response = await api.get("getAllBanners"); // Replace with your API endpoint
-      setfetchbanner(response.data)
+      console.log(response);
+      
+      setfetchbanner(response.data.banner)
       // Filter only sliderBannerImage data
       const sliderData = response.data.filter((banner) => banner.sliderBannerImage);
       setSliderImages(sliderData);

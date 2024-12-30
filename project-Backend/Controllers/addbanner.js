@@ -16,6 +16,7 @@ const uploadBanner = async (req, res) => {
   try {
     const { bannerTitle, bannerLink } = req.body;
 
+console.log(req.files);
 
 
     const images = [];
@@ -80,8 +81,8 @@ const uploadBanner = async (req, res) => {
 // Get All Banners
 const getAllBanners = async (req, res) => {
   try {
-    const banners = await banner.find();
-    res.status(200).json(banners);
+    const resp = await banner.find();
+    res.status(200).send({message:"banner fetch",banner:resp});
   } catch (error) {
     console.error('Error fetching banners:', error);
     res.status(500).json({ message: 'Error fetching banners' });
