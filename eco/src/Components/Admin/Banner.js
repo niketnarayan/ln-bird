@@ -203,17 +203,24 @@ if (Array.isArray(newBanner.productBannerImage) && newBanner.productBannerImage.
   ];
 
   // Utility function to check if an object is a File or Blob
-  const isFileOrBlob = (obj) => obj instanceof File || obj instanceof Blob;
+
 
   // Utility function to handle image preview
-  const getImagePreview = (image) => {
-    if (isFileOrBlob(image)) {
-      return URL.createObjectURL(image); // Create object URL for File/Blob
-    } else if (typeof image === "string") {
-      return image; // Return URL as is
+  const getImagePreview = (images) => {
+    if (Array.isArray(images)) {
+      // Map over the array and return previews for each item
+      return images.map((image, index) => {
+        if (image instanceof File || image instanceof Blob) {
+          return URL.createObjectURL(image); // For File/Blob, create object URL
+        } else if (typeof image === "string" && image.startsWith("http")) {
+          return image; // For URL strings, return them as is
+        }
+        return null; // Return null if neither condition is met
+      });
     }
-    return null;
+    return null; // Return null if the images array is not valid
   };
+  
 
   return (
     <div>
