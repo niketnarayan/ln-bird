@@ -55,10 +55,10 @@ const[product1,setproduct1]=useState([])
       
       setfetchbanner(response.data.banner)
       // Filter only sliderBannerImage data
-      const sliderData = response.data.filter((banner) => banner.sliderBannerImage);
+      const sliderData = response.data.banner.filter((banner) => banner.sliderBannerImage);
       setSliderImages(sliderData);
 
-      const productData = response.data.filter((banner) => banner.productBannerImage);
+      const productData = response.data.banner.filter((banner) => banner.productBannerImage);
       setbanners(productData.flatMap((item) => item.productBannerImage)); // Derive banners directly
       
       
