@@ -34,7 +34,9 @@ function Banner() {
   const fetchBanners = async () => {
     try {
       const response = await api.get("getAllBanners");
-      setBanners(response.data); // Set the banners state with fetched data
+      console.log(response);
+      
+      setBanners(response.data.banner); // Set the banners state with fetched data
     } catch (error) {
       console.error("Error fetching banners:", error);
     }

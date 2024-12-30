@@ -69,8 +69,8 @@ const uploadBanner = async (req, res) => {
       productBannerImage: images1
     });
 
-    await newBanner.save();
-    res.status(201).json({ message: 'Banner uploaded successfully', banner: newBanner });
+    const resp=await newBanner.save();
+    res.status(200).send({ message: 'Banner uploaded successfully', banner: resp });
   } catch (error) {
     console.error('Error uploading banner:', error);
     res.status(500).json({ message: 'Error uploading banner' });
