@@ -605,7 +605,7 @@ const generateInvoice = (paymentResponse) => {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose1}>
-              Closeh
+              Close
             </Button>
             <Button  variant="primary" onClick={handleShow4}>
               CheckOut
@@ -937,7 +937,7 @@ const generateInvoice = (paymentResponse) => {
           </div>
         ))}
         <div  style={{ fontWeight: "600", fontSize: "18px", marginTop: "20px" }}>
-          Total Price: ₹{calculateTotalPrice().toFixed(2)}
+        Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
         </div>
       </div>
     </div>
