@@ -14,8 +14,13 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    setIsAuthenticated(!!token); // Update authentication status
+    if (token) {
+      setIsAuthenticated(true);
+    }
   }, []); // Run once on mount
+
+
+
 
   const login = (token) => {
     localStorage.setItem('token', token);
