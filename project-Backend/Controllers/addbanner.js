@@ -16,13 +16,13 @@ const uploadBanner = async (req, res) => {
   try {
     const { bannerTitle, bannerLink } = req.body;
 
-console.log(req.files);
+
 
 
     const images = [];
   
       // Filter files by fieldname 'sliderBannerImage'
-      const sliderBannerImages = req.files.filter(file => file.fieldname === 'sliderBannerImage');
+      const sliderBannerImages = req.files.filter(file => file.fieldname.includes('sliderBannerImage'));
       for (let file of sliderBannerImages) {
         try {
           const result = await cloudinary.uploader.upload(file.path);
@@ -44,7 +44,8 @@ console.log(req.files);
       const images1 = [];
   
       // Filter files by fieldname 'sliderBannerImage'
-      const productBannerImage = req.files.filter(file => file.fieldname === 'productBannerImage');
+
+      const productBannerImage = req.files.filter(file => file.fieldname.includes('productBannerImage'));
       for (let file of productBannerImage) {
         try {
           const result = await cloudinary.uploader.upload(file.path);

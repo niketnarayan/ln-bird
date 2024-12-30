@@ -52,12 +52,13 @@ function Banner() {
   };
 
   const handleImageChange = (e, type) => {
-    const file = e.target.files[0];
+    const files = Array.from(e.target.files);
     setNewBanner((prev) => ({
       ...prev,
-      [type]: file,
+      [type]: files,
     }));
   };
+  
 
   // Reset form and dialog state
   const resetForm = () => {
@@ -78,18 +79,28 @@ function Banner() {
     formData.append("bannerLink", newBanner.bannerLink);
 
     // Handle slider banner image
-    if (newBanner.sliderBannerImage) {
-      formData.append("sliderBannerImage", newBanner.sliderBannerImage);
-    } else if (editData?.sliderBannerImage && !newBanner.sliderBannerImage) {
-      formData.append("sliderBannerImage", editData.sliderBannerImage); // Use existing image URL
-    }
+// Handle slider banner images
+if (Array.isArray(newBanner.sliderBannerImage) && newBanner.sliderBannerImage.length > 0) {
+  newBanner.sliderBannerImage.forEach((image, index) => {
+    formData.append(`sliderBannerImage[${index}]`, image);
+  });
+} else if (editData?.sliderBannerImage && !newBanner.sliderBannerImage) {
+  editData.sliderBannerImage.forEach((image, index) => {
+    formData.append(`sliderBannerImage[${index}]`, image); // Use existing images
+  });
+}
 
-    // Handle product banner image
-    if (newBanner.productBannerImage) {
-      formData.append("productBannerImage", newBanner.productBannerImage);
-    } else if (editData?.productBannerImage && !newBanner.productBannerImage) {
-      formData.append("productBannerImage", editData.productBannerImage); // Use existing image URL
-    }
+// Handle product banner images
+if (Array.isArray(newBanner.productBannerImage) && newBanner.productBannerImage.length > 0) {
+  newBanner.productBannerImage.forEach((image, index) => {
+    formData.append(`productBannerImage[${index}]`, image);
+  });
+} else if (editData?.productBannerImage && !newBanner.productBannerImage) {
+  editData.productBannerImage.forEach((image, index) => {
+    formData.append(`productBannerImage[${index}]`, image); // Use existing images
+  });
+}
+
 
     try {
       if (editData) {
@@ -271,6 +282,7 @@ function Banner() {
             <input
               type="file"
               accept="image/*"
+              name="sliderBannerImage"
               onChange={(e) => handleImageChange(e, "sliderBannerImage")}
               style={{ marginTop: "10px" }}
             />
@@ -295,6 +307,7 @@ function Banner() {
             <input
               type="file"
               accept="image/*"
+              name="productBannerImage"
               onChange={(e) => handleImageChange(e, "productBannerImage")}
               style={{ marginTop: "10px" }}
             />

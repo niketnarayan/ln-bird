@@ -20,11 +20,11 @@ const fileFilter = (req, file, cb) => {
   };
 
   // Check for image files
-  if (file.fieldname === 'sliderBannerImage' && fileTypes.image.includes(file.mimetype)) {
+  if (file.fieldname.includes('sliderBannerImage') && fileTypes.image.includes(file.mimetype)) {
     return cb(null, true); // Accept image files
   } 
 
-  if (file.fieldname === 'productBannerImage' && fileTypes.image.includes(file.mimetype)) {
+  if (file.fieldname.includes('productBannerImage') && fileTypes.image.includes(file.mimetype)) {
     return cb(null, true); // Accept image files
   }
 
@@ -42,7 +42,7 @@ const fileFilter = (req, file, cb) => {
 // Multer upload setup
 const upload = multer({
   storage: storage,
-  limits: { fileSize: 50 * 1024 * 1024 }, // Max file size 50MB
+  // limits: { fileSize: 50 * 1024 * 1024 }, // Max file size 50MB
   fileFilter: fileFilter
 });
 
