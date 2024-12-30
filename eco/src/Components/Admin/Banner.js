@@ -19,8 +19,8 @@ function Banner() {
   const [editData, setEditData] = useState(null);
   const [newBanner, setNewBanner] = useState({
     bannerTitle: "",
-    sliderBannerImage: null, // Slider banner image file
-    productBannerImage: null, // Product banner image file
+    sliderBannerImage: [], // Slider banner image file
+    productBannerImage: [], // Product banner image file
     bannerLink: "",
   });
 
@@ -63,8 +63,8 @@ function Banner() {
   const resetForm = () => {
     setNewBanner({
       bannerTitle: "",
-      sliderBannerImage: null,
-      productBannerImage: null,
+      sliderBannerImage: [],
+      productBannerImage: [],
       bannerLink: "",
     });
     setEditData(null);
@@ -106,6 +106,9 @@ function Banner() {
       Swal.fire("Error!", "There was an issue submitting the banner.", "error");
     }
   };
+
+
+
 
   // Handle Edit Banner
   const handleEdit = (row) => {
