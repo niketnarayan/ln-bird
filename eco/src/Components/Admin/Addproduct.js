@@ -111,7 +111,7 @@ function Addproduct() {
       };
       
       
-console.log(product.product_image);
+
 
 
 
