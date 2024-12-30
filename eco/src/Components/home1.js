@@ -50,7 +50,7 @@ const[product1,setproduct1]=useState([])
 
   const fetchSliderImages = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/getAllBanners"); // Replace with your API endpoint
+      const response = await api.get("getAllBanners"); // Replace with your API endpoint
       setfetchbanner(response.data)
       // Filter only sliderBannerImage data
       const sliderData = response.data.filter((banner) => banner.sliderBannerImage);
