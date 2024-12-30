@@ -597,9 +597,9 @@ const generateInvoice = (paymentResponse) => {
               
             ))}
                    <div className="cart-total">
-  <h3>
-    Total Price: <span>₹{calculateTotalPrice().toFixed(2)}</span>
-  </h3>
+                   <h3>
+  Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
+</h3>
 </div>
 
           </Modal.Body>
