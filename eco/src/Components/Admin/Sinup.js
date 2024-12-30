@@ -3,6 +3,8 @@ import logo from '../Assets/Logo (2).png';
 import { Form, Button, Container, InputGroup } from "react-bootstrap";
 import Swal from 'sweetalert2'; // Import SweetAlert2
 import { Link } from 'react-router-dom';
+import { applyInitialState } from '@mui/x-data-grid/internals';
+import api from '../api'
 
 function Sinup() {
   const [username, setUsername] = useState('');
@@ -16,21 +18,15 @@ function Sinup() {
 
     try {
       // Send POST request to the backend API
-      const response = await fetch("signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
+      const response = await api.post("signup",userData)
+console.log(response);
 
-      const result = await response.json();
 
-      if (response.ok) {
+      if (response.status===200) {
         // Success: Show SweetAlert
         Swal.fire({
           title: 'Success!',
-          text: `User ${result.data.username} successfully registered!`,
+          text: `User ${response.data.user.username} successfully registered!`,
           icon: 'success',
           confirmButtonText: 'OK'
         });
@@ -43,7 +39,7 @@ function Sinup() {
         // Error: Show SweetAlert
         Swal.fire({
           title: 'Error!',
-          text: result.message || "An error occurred.",
+          text: response.message || "An error occurred.",
           icon: 'error',
           confirmButtonText: 'OK'
         });

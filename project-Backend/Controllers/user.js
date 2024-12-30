@@ -6,7 +6,11 @@ require('dotenv').config();
 
 // Signup Controller
 exports.signup = async (req, res) => {
+
+  console.log(req.body);
     const { username, email, password } = req.body;
+  
+    
   
     try {
       // Check if user already exists
@@ -23,17 +27,10 @@ exports.signup = async (req, res) => {
       });
   
       // Save the user to the database
-      await user.save();
+      const resp=await user.save();
   
       // Return success response without token
-      res.status(201).json({
-        success: true,
-        data: {
-          id: user.id,
-          username: user.username,
-          email: user.email,
-        },
-      });
+     res.status(200).send({message:"registration success",user:resp})
     } catch (error) {
       res.status(500).json({ success: false, error: error.message });
     }
@@ -43,6 +40,8 @@ exports.signup = async (req, res) => {
 
   exports.login = async (req, res) => {
     const { username, password } = req.body;
+    console.log(req.body);
+    
   
     try {
       // Check if the user exists by username
@@ -63,7 +62,7 @@ exports.signup = async (req, res) => {
       );
   
       // Send response with token
-      res.status(200).json({
+      res.status(200).send({
         success: true,
         token,
         user: {
@@ -73,7 +72,7 @@ exports.signup = async (req, res) => {
         },
       });
     } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
+      res.status(500).send({ success: false, error: error.message });
     }
   };
 

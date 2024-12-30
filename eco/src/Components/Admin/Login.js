@@ -4,6 +4,7 @@ import { Form, Button, Container, InputGroup } from "react-bootstrap";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../authguard';
+import api from '../api'
 
 function Login() {
 
@@ -28,38 +29,37 @@ function Login() {
   // Handle form submit
   const handleLogin = async (e) => {
     e.preventDefault();
-
+  
     // Prepare the data to send in the request body
     const data = {
       username,
       password,
     };
-
+  
     try {
-      // Send POST request to the backend API for login
-      const response = await fetch('login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-
-
-      if (response.ok) {
+      // Log the request body to debug
+      console.log('Sending login request with data:', data);
+  
+      // Send POST request to the backend API for login using the api instance
+      const response = await api.post('login', data);
+  
+      console.log('Login response:', response);  // Log the full response
+  
+      if (response.status === 200) {
         // If login is successful, store the token or user info
-        login(result.token); // Set the token and update state
+        const token=response.data.token
+        login(token); // Assuming `login` is a function to handle the token
         navigate('/dashboard', { replace: true });
       } else {
         // If login failed, show error message
-        setError(result.message || 'Login failed. Please try again.');
+        setError(response.message || 'Login failed. Please try again.');
       }
     } catch (err) {
+      console.error('Error during login:', err); // Log the error
       setError('Something went wrong. Please try again.');
     }
   };
+  
 
   return (
     <div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { TextField, Button, Avatar, Box, Typography, Divider, Paper } from "@mui/material";
 import axios from "axios";
 import Sidebar from './Sidebar'
+import api from '../api'
 
 function Accountsetting() {
       const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -31,7 +32,7 @@ function Accountsetting() {
         // Fetch user data
         const fetchUserData = async () => {
           try {
-            const response = await axios.get("http://localhost:5000/api/user");
+            const response = await api.get("user");
             setUserDetails(response.data);
             setPreviewImage(response.data.profilePicture);
           } catch (err) {
@@ -85,7 +86,7 @@ function Accountsetting() {
         }
     
         try {
-          await axios.put("http://localhost:5000/api/user/update", formData, {
+          await api.put("update", formData, {
             headers: { "Content-Type": "multipart/form-data" },
           });
           setSuccess("General settings updated successfully!");
@@ -107,7 +108,7 @@ function Accountsetting() {
         }
     
         try {
-          await axios.post("http://localhost:5000/api/user/change-password", {
+          await api.post("change-password", {
             oldPassword,
             newPassword,
           });

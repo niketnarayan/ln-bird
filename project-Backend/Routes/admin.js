@@ -15,7 +15,7 @@ const router=express.Router()
 
 
 router.post('/addproduct',upload.any(),protectRoute,add_product)
-router.post('/addproducts',protectRoute,add_product)
+// router.post('/addproducts',protectRoute,add_product)
 router.get('/getproduct',viewproduct)
 router.get('/getproductbyid/:_id',viewproductbyid)
 router.delete("/deleteproduct/:_id",delete_product);
