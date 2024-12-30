@@ -10,6 +10,7 @@ import TextField from "@mui/material/TextField";
 import axios from "axios";
 import Sidebar from "../Admin/Sidebar";
 import Swal from "sweetalert2"; // Import Swal
+import api from '../api'
 
 function Banner() {
   const [banners, setBanners] = useState([]);
@@ -32,7 +33,7 @@ function Banner() {
   // Fetch banners from backend
   const fetchBanners = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/getAllBanners");
+      const response = await api.get("getAllBanners");
       setBanners(response.data); // Set the banners state with fetched data
     } catch (error) {
       console.error("Error fetching banners:", error);
@@ -90,10 +91,10 @@ function Banner() {
 
     try {
       if (editData) {
-        await axios.put(`http://localhost:5000/editBanner/${editData._id}`, formData);
+        await api.put(`editBanner/${editData._id}`, formData);
         Swal.fire("Updated!", "Banner updated successfully.", "success");
       } else {
-        await axios.post("http://localhost:5000/uploadBanner", formData);
+        await api.post("uploadBanner", formData);
         Swal.fire("Added!", "Banner added successfully.", "success");
       }
       resetForm();
@@ -119,7 +120,7 @@ function Banner() {
   // Handle Delete Banner
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/deleteBanner/${id}`);
+      await api.delete(`deleteBanner/${id}`);
       fetchBanners(); // Reload the banners list after delete
       Swal.fire("Deleted!", "Banner deleted successfully.", "success");
     } catch (error) {
