@@ -64,6 +64,7 @@ const incrementQuantity = (index) => {
 };
 
 
+
 // Decrement quantity and remove if quantity <= 1
 const decrementQuantity = (index) => {
   setcart((prevCart) =>
