@@ -245,7 +245,7 @@ formData.append("productimage", file);
 
 try {
 const response = await api.put(
-`http://localhost:5000/edit_product/${product._id}`,product, {
+`edit_product/${product._id}`,product, {
 headers: { "Content-Type": "multipart/form-data" },
 } );
 
