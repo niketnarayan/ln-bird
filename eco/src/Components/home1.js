@@ -353,6 +353,7 @@ const[product1,setproduct1]=useState([])
             className="d-block w-100"
             src={banner.sliderBannerImage} // Assuming `sliderBannerImage` is the URL
             alt={`Slide ${index + 1}`}
+            onClick={() => window.location.href = banner.bannerLink}
           />
         </Carousel.Item>
       ))}
