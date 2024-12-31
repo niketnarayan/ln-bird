@@ -46,13 +46,16 @@ function App() {
      <Routes>
     <Route path='/' element={<Home1/>}/>
      <Route path='/contact' element={<Contact/>}/>
-     <Route path='/vitamincfacewash' element={<VitamincFacewash/>}/>
-     <Route path='/antiacnefacewash' element={<Antiacnefacewash/>}/>
-     <Route path='/goldscrubfacewash' element={<Goldscrubfacewash/>}/>
+
+     <Route path='/product/676a5e72d8fdeee8f0916d84' element={<VitamincFacewash/>}/>
+     <Route path='/product/676a8c93d532d94d2ae75a53' element={<Antiacnefacewash/>}/>
+     <Route path='/product/676d3602cf4b23cfcf414815' element={<Goldscrubfacewash/>}/>
      <Route path='/antihairfallshampoo' element={<Antihairfallshampoo/>}/>
      <Route path='/rosemaryhairoil' element={<Rosemaryhairoil/>}/>
      <Route path='/hairserum' element={<Hairserum/>}/>
      <Route path='/glutasoap' element={<Glutasoap/>}/>
+
+
      <Route path='/addproduct' element={<PrivateRoute><Addproduct/></PrivateRoute>}/>
      <Route path='/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
      <Route path='/term&condition' element={<Termcondition/>}/>

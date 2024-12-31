@@ -3,7 +3,7 @@ import { useCart } from './cartcontext'
 import Header from './Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./Home.css";
 import Footer from "./footer";
 import { useEffect } from "react";
@@ -195,7 +195,11 @@ const[product1,setproduct1]=useState([])
       return stars;
     };
 
+    const navigate=useNavigate()
 
+    const handleProductClick = (id) => {
+      navigate(`/product/${id}`); // Navigate to specific product details page
+    };
    
     
 
@@ -400,7 +404,7 @@ const[product1,setproduct1]=useState([])
 
 
 {/* content start------------------------------------------------------------------- */}
-<div style={{ padding: "40px", backgroundColor: "#f9f9f9",marginBottom:"3rem",marginTop:"3rem" }}>
+<div style={{ padding: "40px", backgroundColor: "#f9f9f9",marginBottom:"3rem",marginTop:"0.5rem" }}>
       <h1
         style={{
           fontSize: "36px",
@@ -476,6 +480,7 @@ const[product1,setproduct1]=useState([])
                 maxHeight: "200px",
                 // objectFit: "contain",
               }}
+              onClick={() => handleProductClick(product._id)}
             />
             <span className="grocery-card-name">{product.product_name}</span>
             <p className="grocery-card-price">MRP: ₹{product.product_price}</p>

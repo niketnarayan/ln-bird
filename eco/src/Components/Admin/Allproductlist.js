@@ -203,10 +203,11 @@ const handleImageChange = (event) =>
   setproduct({...product,product_image:files})
 
 }
-  const handleDescriptionChange = (value) => {
-    setproduct({ ...product, product_description: value });
-  };
+const [description, setDescription] = useState("");
 
+const handleDescriptionChange = (value) => {
+  setDescription(value); // Update the state with the editor's content
+};
 
 
 
@@ -304,6 +305,7 @@ const result=resp.data.product[0]
   setShow(true); // Open the modal
   
 }
+
 
 
 
