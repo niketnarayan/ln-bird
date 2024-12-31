@@ -76,8 +76,8 @@ const viewproduct= async(req,res)=>
 const viewproductbyid= async(req,res)=>
   {
       try {
-        const id=req.param._id
-          const resp=await addproduct.findOne(id)
+        const id=req.params._id
+          const resp=await addproduct.find({_id:id})
           res.status(200).send({message:"product data fetch",product:resp})
       } catch (error) {
           console.log(error);
@@ -108,10 +108,11 @@ const delete_product = async (req, res) => {
 
 
   const edit_product = async (req, res) => {
+    
     try {
         const id = req.params._id; // Get product ID from URL parameter
         const updatedData = req.body; // Get updated data from the request body
-        console.log(req.body);
+    
         
 
         // If there are new files, upload them to Cloudinary

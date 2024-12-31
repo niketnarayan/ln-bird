@@ -19,7 +19,7 @@ router.post('/addproduct',upload.any(),protectRoute,add_product)
 router.get('/getproduct',viewproduct)
 router.get('/getproductbyid/:_id',viewproductbyid)
 router.delete("/deleteproduct/:_id",delete_product);
-router.put('/edit_product/:_id',edit_product);
+router.put('/edit_product/:_id',upload.any(),edit_product);
 router.post('/payment',payment)
 
 

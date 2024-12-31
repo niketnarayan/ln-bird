@@ -216,41 +216,55 @@ const handleImageChange = (event) =>
 
 
   const handleUpdate = async () => {
-    const formData = new FormData();
-  
-    // Debugging: Check product fields
-    console.log("Product data:", product);
-  
-    // Append product fields
-    formData.append("productcode", product.product_code || "");
-    formData.append("productname", product.product_name || "");
-    formData.append("productprice", product.product_price || "");
-    formData.append("productquantity", product.product_quantity || "");
-  
-    // Append benefits
-    if (product.product_benefits && product.product_benefits.length > 0) {
-      product.product_benefits.forEach((benefit, index) => {
-        console.log(`Appending benefit [${index}]:`, benefit);
-        formData.append("productbenefits", benefit);
+    if (!product?._id) {
+      Swal.fire({
+        title: "Error!",
+        text: "Invalid product ID.",
+        icon: "error",
+        confirmButtonText: "OK",
       });
-    }
-  
-    // Append images
-    if (product.product_image && product.product_image.length > 0) {
-      product.product_image.forEach((file, index) => {
-        console.log(`Appending file [${index}]:`, file);
-        formData.append("productimage", file);
-      });
+      return;
     }
   
     try {
-      const response = await api.put(
-        `edit_product/${product._id}`,product, {
-          headers: { "Content-Type": "multipart/form-data" },
-        } );
+      // Create FormData object
+      const formData = new FormData();
   
-      console.log("Response:", response);
+      // Append product fields
+      formData.append("product_code", product.product_code);
+      formData.append("product_name", product.product_name || "");
+      formData.append("product_price", product.product_price || "");
+      formData.append("product_quantity", product.product_quantity || "");
   
+      // Append benefits
+      if (product.product_benefits?.length > 0) {
+        product.product_benefits.forEach((benefit) => {
+          formData.append("productbenefits", benefit);
+        });
+      }
+  
+      // Append images
+      if (product.product_image?.length > 0) {
+        product.product_image.forEach((file) => {
+          formData.append("productimage", file);
+        });
+      }
+  
+      // Debugging: Log FormData
+      console.log("FormData Contents:");
+      for (const [key, value] of formData.entries()) {
+        console.log(`${key}:`, value);
+      }
+  
+  
+      // API request
+      const response = await api.put(`edit_product/${product._id}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+  
+      // Success Handling
       if (response.status === 200) {
         Swal.fire({
           title: "Success!",
@@ -263,10 +277,11 @@ const handleImageChange = (event) =>
         });
       }
     } catch (error) {
-      console.error("Error during update:", error);
+      // Error Handling
+      console.error("Error During Update:", error.response?.data || error.message);
       Swal.fire({
         title: "Error!",
-        text: "Failed to update product. Please try again.",
+        text: error.response?.data?.message || "Failed to update product.",
         icon: "error",
         confirmButtonText: "OK",
       });
@@ -277,9 +292,16 @@ const handleImageChange = (event) =>
 const handleEditModalShow = async (row) => {
 
                     
-  setShow(true); // Open the modal
+
   const resp=await api.get(`getproductbyid/${row._id}`)
-  setproduct(resp.data.product)
+  console.log(resp);
+  
+  
+const result=resp.data.product[0]
+  
+  setproduct(result)
+
+  setShow(true); // Open the modal
   
 }
 
@@ -350,7 +372,7 @@ const handleEditModalShow = async (row) => {
                         <label className="form-label">Product Code</label>
                         <input
                           type="number"
-                          name="productcode"
+                          name="product_code"
                           className="form-control"
                           placeholder={product.product_code}
                           
@@ -364,7 +386,7 @@ const handleEditModalShow = async (row) => {
                         <label className="form-label">Product Name</label>
                         <input
                           type="text"
-                          name="productname"
+                          name="product_name"
                           className="form-control"
                           value={product.product_name}
                           onChange={(e)=>setproduct({...product,product_name:e.target.value})}
@@ -378,7 +400,7 @@ const handleEditModalShow = async (row) => {
                         <label className="form-label">Price</label>
                         <input
                           type="number"
-                          name="productprice"
+                          name="product_price"
                           className="form-control"
                           value={product.product_price}
                           onChange={(e)=>setproduct({...product,product_price:e.target.value})}
@@ -392,7 +414,7 @@ const handleEditModalShow = async (row) => {
                         <label className="form-label">Quantity</label>
                         <input
                           type="number"
-                          name="productquantity"
+                          name="product_quantity"
                           className="form-control"
                           value={product.product_quantity}
                           onChange={(e)=>setproduct({...product,product_quantity:e.target.value})}
@@ -407,7 +429,7 @@ const handleEditModalShow = async (row) => {
                         <input
                           multiple
                           type="file"
-                          name="productimage"
+                          name="product_image"
                           className="form-control"
                           
                           onChange={(event)=>handleImageChange(event)}
@@ -433,7 +455,7 @@ const handleEditModalShow = async (row) => {
                   <div className="d-flex">
                     <input
                       type="text"
-                      name="productbenifits"
+                      name="product_benefits"
                       className="form-control me-2"
                       placeholder="Enter benefit"
                      value={product.product_benefits}
@@ -449,7 +471,7 @@ const handleEditModalShow = async (row) => {
                   </div>
                   {/* Show Product Benefits */}
                   <ul className="mt-3 list-group">
-                    {product.product_benefits.map((benefit, index) => (
+                    {product.product_benefits ? product.product_benefits.map((benefit, index) => (
                       <li
                         key={index}
                         className="list-group-item d-flex justify-content-between align-items-center"
@@ -463,7 +485,7 @@ const handleEditModalShow = async (row) => {
                           Delete
                         </button>
                       </li>
-                    ))}
+                    )):[]}
                   </ul>
                 </div>
         
