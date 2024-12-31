@@ -503,3 +503,13 @@ button i {
 }
 
 
+
+    @media (max-width: 768px) {
+.carousel-indicators{
+  position: fixed;
+}
+    }
+
+
+
+

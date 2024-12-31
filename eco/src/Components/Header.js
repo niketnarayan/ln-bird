@@ -360,7 +360,7 @@ const generateInvoice = (paymentResponse) => {
     
 
       {/* Search Bar */}
-      <div
+      {/* <div
   className="input-group"
   style={{
     maxWidth: "400px",
@@ -380,7 +380,7 @@ const generateInvoice = (paymentResponse) => {
         <button className="btn" style={{width:"3rem"}}>
           <i className="fa-solid fa-magnifying-glass"  ></i>
         </button>
-      </div>
+      </div> */}
 
 
 

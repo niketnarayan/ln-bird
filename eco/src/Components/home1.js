@@ -346,18 +346,26 @@ const[product1,setproduct1]=useState([])
 
 {/* banner start----------------------------------------------------------------------------------------------- */}
 
-<Carousel data-bs-theme="dark" style={{ marginTop: "9rem" }}>
-      {sliderImages.map((banner, index) => (
-        <Carousel.Item key={index}>
-          <img
-            className="d-block w-100"
-            src={banner.sliderBannerImage} // Assuming `sliderBannerImage` is the URL
-            alt={`Slide ${index + 1}`}
-            onClick={() => window.location.href = banner.bannerLink}
-          />
-        </Carousel.Item>
-      ))}
-    </Carousel>
+<div className="container-fluid p-0">
+  <Carousel data-bs-theme="dark" style={{ marginTop: "6.9rem" }}>
+    {sliderImages.map((banner, index) => (
+      <Carousel.Item key={index}>
+        <img
+          className="d-block w-100 img-fluid"
+          src={banner.sliderBannerImage}
+          alt={`Slide ${index + 1}`}
+          style={{
+            objectFit: "cover",
+            height: "100%", // Adjust as per requirements
+            maxHeight: "500px", // Maximum height for larger screens
+          }}
+          onClick={() => window.location.href = banner.bannerLink}
+        />
+      </Carousel.Item>
+    ))}
+  </Carousel>
+</div>
+
 
 
 
@@ -433,65 +441,75 @@ const[product1,setproduct1]=useState([])
 {/* product cart section------------------------------------------------------------------------------------- */}
 
 
-<div className="grocery-container">
-<h2 className="grocery-heading">Our Products</h2>
-<div className="grocery-row">
-{product1.map((product, index) => {
-// console.log(`Rendering product at index: ${index}`); // Debug log
+<div className="container grocery-container">
+  <h2 className="grocery-heading text-center">Our Products</h2>
+  <div className="row justify-content-center">
+    {product1.map((product, index) => (
+      <React.Fragment key={product.id}>
+        {/* Product Card */}
+        <div
+          className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"
+        >
+          <div
+            className="grocery-card"
+            style={{
+              width: "100%",
+              maxWidth: "390px",
+              height: "400px",
+              backgroundColor: "#fff",
+              padding: "20px",
+              border: "1px solid #ddd",
+              borderRadius: "10px",
+              boxShadow: "0 6px 10px rgba(0, 0, 0, 0.1)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              alignItems: "center", // Center content
+              textAlign: "center",
+            }}
+          >
+            <img
+              src={product.product_image}
+              alt={product.product_name}
+              className="grocery-card-image img-fluid"
+              style={{
+                maxHeight: "200px",
+                // objectFit: "contain",
+              }}
+            />
+            <span className="grocery-card-name">{product.product_name}</span>
+            <p className="grocery-card-price">MRP: ₹{product.product_price}</p>
+            <button
+              onClick={() => handleprouctadd(product)}
+              className="grocery-card-button btn btn-primary"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
 
-return (
-<React.Fragment key={product.id}>
-{/* Render product card */}
-<div
-className="col-md-2"
-style={{
-width: "250px", // Fixed width
-height: "400px", // Fixed height
-backgroundColor: "#fff",
-padding: "20px",
-border: "1px solid #ddd",
-borderRadius: "10px",
-boxShadow: "0 6px 10px rgba(0, 0, 0, 0.1)",
-display: "flex",
-flexDirection: "column",
-justifyContent: "space-between",
-flex: "0 0 auto",
-}}
->
-<img
-src={product.product_image}
-alt={product.product_name}
-className="grocery-card-image"
-/>
-<span className="grocery-card-name">{product.product_name}</span>
-<p className="grocery-card-price">MRP: ₹{product.product_price}</p>
-<button
-onClick={() => handleprouctadd(product)}
-className="grocery-card-button"
-style={{ cursor: "pointer" }}
->
-Add to Cart
-</button>
-</div>
-
-
-{/* Add banner after every 4th product */}
-{(index + 1) % 4 === 0 && banners.length > 0 && (
-  <div className="banner" style={{ width: "100%", marginTop: "20px" }}>
-    <img
-      className="img-fluid"
-      src={banners[(Math.floor((index + 1) / 4) - 1) % banners.length]} // Ensure valid index even for single image
-      alt={`banner-${(Math.floor((index + 1) / 4) - 1) % banners.length}`}
-      style={{ marginTop: "3rem", marginBottom: "3rem" }}
-    />
+        {/* Banner After Every 4th Product */}
+        {(index + 1) % 4 === 0 && banners.length > 0 && (
+          <div className="col-12">
+            <div className="banner text-center">
+              <img
+                className="img-fluid"
+                src={banners[(Math.floor((index + 1) / 4) - 1) % banners.length]}
+                alt={`banner-${(Math.floor((index + 1) / 4) - 1) % banners.length}`}
+                style={{
+                  marginTop: "3rem",
+                  marginBottom: "3rem",
+                  borderRadius: "10px",
+                }}
+              />
+            </div>
+          </div>
+        )}
+      </React.Fragment>
+    ))}
   </div>
-)}
+</div>
 
-</React.Fragment>
-);
-})}
-</div>
-</div>
 
 
 
