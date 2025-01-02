@@ -37,10 +37,7 @@ router.post(
 
   router.put(
     "/editBanner/:_id",
-    upload.fields([
-      { name: "sliderBannerImage", maxCount: 1 },
-      { name: "productBannerImage", maxCount: 1 },
-    ]),
+    uploadFields,
     editBanner
   );
   

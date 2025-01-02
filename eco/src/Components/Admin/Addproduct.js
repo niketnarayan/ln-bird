@@ -219,14 +219,21 @@ function Addproduct() {
 
               {/* Product Description */}
               <div className="mb-3">
-                <label className="form-label">Product Description</label>
-                <ReactQuill
-                 
-                 onChange={handleDescriptionChange}
-                  placeholder="Enter product description"
-                  theme="snow"
-                />
-              </div>
+               <label className="form-label">Product Description</label>
+               <ReactQuill
+                 value={product.product_description || ""} // Bind to product.product_description
+                 onChange={(value) =>
+                   setproduct((prevProduct) => ({
+                     ...prevProduct,
+                     product_description: value, // Update product_description in state
+                   }))
+                 }
+                 placeholder="Enter product description"
+                 theme="snow"
+               />
+             </div>
+             
+           
 
                {/* Product Benefits */}
         <div className="mb-3">

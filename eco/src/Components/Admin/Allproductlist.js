@@ -311,6 +311,9 @@ const result=resp.data.product[0]
 
 
 
+
+
+
   return (
     <div>
       {/* Sidebar */}
@@ -442,14 +445,35 @@ const result=resp.data.product[0]
         
                       {/* Product Description */}
                       <div className="mb-3">
-                        <label className="form-label">Product Description</label>
-                        <ReactQuill
-                         
-                         onChange={handleDescriptionChange}
-                          placeholder="Enter product description"
-                          theme="snow"
-                        />
-                      </div>
+  <label className="form-label">Product Description</label>
+  <ReactQuill
+    value={product.product_description || ""} // Bind to product.product_description
+    onChange={(value) =>
+      setproduct((prevProduct) => ({
+        ...prevProduct,
+        product_description: value, // Update product_description in state
+      }))
+    }
+    placeholder="Enter product description"
+    theme="snow"
+  />
+</div>
+
+{/* Preview Section */}
+<div className="mt-3">
+  <h3>Description Preview:</h3>
+  <div
+    style={{ padding: "10px", background: "#f9f9f9", borderRadius: "5px" }}
+    dangerouslySetInnerHTML={{
+      __html: product.product_description || "<p>No description provided.</p>",
+    }}
+  />
+</div>
+
+
+
+
+      
         
                        {/* Product Benefits */}
                 <div className="mb-3">

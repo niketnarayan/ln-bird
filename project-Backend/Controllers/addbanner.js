@@ -116,35 +116,66 @@ const editBanner = async (req, res) => {
     }
 
     // Handle file uploads
-    let sliderBannerImage = existingBanner.sliderBannerImage; // Default to existing image
-    let productBannerImage = existingBanner.productBannerImage; // Default to existing image
+    let sliderBannerImage1 = existingBanner.sliderBannerImage; // Default to existing image
+    let productBannerImage1 = existingBanner.productBannerImage; // Default to existing image
 
-    if (req.files) {
-      if (req.files.sliderBannerImage) {
-        // Upload new slider banner image to Cloudinary
-        const sliderUploadResult = await cloudinary.uploader.upload(
-          req.files.sliderBannerImage[0].path // Assuming Multer saves the file path
-        );
-        sliderBannerImage = sliderUploadResult.secure_url; // Get the secure URL from Cloudinary
-      }
 
-      if (req.files.productBannerImage) {
-        // Upload new product banner image to Cloudinary
-        const productUploadResult = await cloudinary.uploader.upload(
-          req.files.productBannerImage[0].path
-        );
-        productBannerImage = productUploadResult.secure_url;
+    const images = [];
+
+
+    
+  
+    // Filter files by fieldname 'sliderBannerImage'
+    const sliderBannerImages = req.files.filter(file => file.fieldname.includes('sliderBannerImage'));
+    for (let file of sliderBannerImages) {
+      try {
+        const result = await cloudinary.uploader.upload(file.path);
+        images.push(result.secure_url);
+
+        fs.unlink(file.path, (err) => {
+          if (err) {
+            console.error('Error deleting file:', err);
+          } else {
+            console.log('File deleted:', file.path);
+          }
+        });
+      } catch (error) {
+        console.error('Error uploading sliderBannerImage:', error);
       }
     }
+  
+
+    const images1 = [];
+
+    // Filter files by fieldname 'sliderBannerImage'
+
+    const productBannerImage = req.files.filter(file => file.fieldname.includes('productBannerImage'));
+    for (let file of productBannerImage) {
+      try {
+        const result = await cloudinary.uploader.upload(file.path);
+        images1.push(result.secure_url);
+
+        fs.unlink(file.path, (err) => {
+          if (err) {
+            console.error('Error deleting file:', err);
+          } else {
+            console.log('File deleted:', file.path);
+          }
+        });
+      } catch (error) {
+        console.error('Error uploading sliderBannerImage:', error);
+      }
+    }
+    
 
     // Update the banner in the database
     const updatedBanner = await banner.findByIdAndUpdate(
       id,
       {
         bannerTitle,
-        bannerLink,
-        sliderBannerImage,
-        productBannerImage,
+      bannerLink,
+      sliderBannerImage: images,
+      productBannerImage: images1
       },
       { new: true } // Return the updated banner
     );
