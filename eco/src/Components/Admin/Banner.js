@@ -104,7 +104,7 @@ if (Array.isArray(newBanner.productBannerImage) && newBanner.productBannerImage.
 
     try {
       if (editData) {
-        await api.put(`editBanner/${editData._id}`, formData);
+        await axios.put(`https://ln-bird.onrender.com/editBanner/${editData._id}`, formData);
         Swal.fire("Updated!", "Banner updated successfully.", "success");
       } else {
         await api.post("uploadBanner", formData);
