@@ -361,7 +361,7 @@ const[product1,setproduct1]=useState([])
               alt={product.product_name}
               className="grocery-card-image img-fluid"
               style={{
-                maxHeight: "200px",
+                // maxHeight: "600px",
                 // objectFit: "contain",
               }}
               onClick={() => navigate('/vitamincfaceash',{state:product._id})}
