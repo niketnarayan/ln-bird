@@ -329,7 +329,7 @@ const[product1,setproduct1]=useState([])
 {/* product cart section------------------------------------------------------------------------------------- */}
 
 
-<div className="container grocery-container">
+<div className="grocery">
   <h2 className="grocery-heading text-center">Our Products</h2>
   <div className="row justify-content-center">
     {product1.map((product, index) => (
@@ -342,8 +342,8 @@ const[product1,setproduct1]=useState([])
             className="grocery-card"
             style={{
               width: "100%",
-              maxWidth: "390px",
-              height: "400px",
+              maxWidth: "280px",
+              height: "500px",
               backgroundColor: "#fff",
               padding: "20px",
               border: "1px solid #ddd",
