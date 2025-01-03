@@ -469,7 +469,7 @@ const[product1,setproduct1]=useState([])
 
 <div
   style={{
-    background: "linear-gradient(90deg, #e8f8d5, #fdeef5)",
+    background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
     padding: "50px 0", marginTop:"1rem",
   }}
 >
@@ -538,66 +538,7 @@ const[product1,setproduct1]=useState([])
 
 {/* combo end-------------------------------------------------------------------------------------- */}
 
-{/* blog start-------------------------------------------------------------------------------- */}
 
-<div
-  style={{
-    background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
-    fontFamily: "Arial, sans-serif",
-    padding: "40px 0", marginTop:"1rem",
-  }}
->
-  <div style={{ textAlign: "center", marginBottom: "40px" }}>
-    <h1>Kiona Tales</h1>
-  </div>
-  <div className="row g-4">
-    {blogPosts.map((post, index) => (
-      <div className="col-md-4" key={index}>
-        <div
-          className="card h-100 shadow-sm"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            height: "100%",
-          }}
-        >
-          <img
-            src={post.image}
-            className="card-img-top"
-            alt={`Blog ${index + 1} Image`}
-          />
-          <div className="card-body">
-            <h5
-              className="card-title"
-              style={{ fontSize: "1.25rem", fontWeight: "bold" }}
-            >
-              {post.title}
-            </h5>
-            <p className="card-text text-muted">{post.date}</p>
-            <p className="card-text">{post.description}</p>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-  <div style={{ textAlign: "center", marginTop: "20px" }}>
-    <button
-      style={{
-        backgroundColor: "#000",
-        color: "#fff",
-        border: "none",
-        padding: "10px 20px",
-        cursor: "pointer",
-      }}
-      onMouseOver={(e) => (e.target.style.backgroundColor = "#444")}
-      onMouseOut={(e) => (e.target.style.backgroundColor = "#000")}
-    >
-      View all
-    </button>
-  </div>
-</div>
-
-{/* blog end---------------------------------------------------------------------------------- */}
 
 
 
@@ -676,9 +617,70 @@ const[product1,setproduct1]=useState([])
 
 {/* content */}
 
+{/* blog start-------------------------------------------------------------------------------- */}
+
 <div
   style={{
-    background: "linear-gradient(180deg, #FFD54F 0%, #FFF176 50%, #FFFFFF 100%)",
+    background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
+    fontFamily: "Arial, sans-serif",
+    padding: "40px 0", marginTop:"1rem",
+  }}
+>
+  <div style={{ textAlign: "center", marginBottom: "40px" }}>
+    <h1>Kiona Tales</h1>
+  </div>
+  <div className="row g-4">
+    {blogPosts.map((post, index) => (
+      <div className="col-md-4" key={index}>
+        <div
+          className="card h-100 shadow-sm"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+          }}
+        >
+          <img
+            src={post.image}
+            className="card-img-top"
+            alt={`Blog ${index + 1} Image`}
+          />
+          <div className="card-body">
+            <h5
+              className="card-title"
+              style={{ fontSize: "1.25rem", fontWeight: "bold" }}
+            >
+              {post.title}
+            </h5>
+            <p className="card-text text-muted">{post.date}</p>
+            <p className="card-text">{post.description}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+  <div style={{ textAlign: "center", marginTop: "20px" }}>
+    <button
+      style={{
+        backgroundColor: "#000",
+        color: "#fff",
+        border: "none",
+        padding: "10px 20px",
+        cursor: "pointer",
+      }}
+      onMouseOver={(e) => (e.target.style.backgroundColor = "#444")}
+      onMouseOut={(e) => (e.target.style.backgroundColor = "#000")}
+    >
+      View all
+    </button>
+  </div>
+</div>
+
+{/* blog end---------------------------------------------------------------------------------- */}
+
+<div
+  style={{
+    // background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
     minHeight: "20rem",
   }}
 >
