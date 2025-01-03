@@ -73,7 +73,24 @@ const[product1,setproduct1]=useState([])
   }, [banners]);
   
 
-
+  const Combo = [
+    {
+      name: "Hair Care",
+      imgSrc: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
+      description: "Unleash the power of Earth's essential bounty for naturally beautiful hair.",
+    },
+    {
+      name: "Face Care",
+      imgSrc: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
+      description: "Embrace radiance naturally with the science of Earth's bounty.",
+    },
+    {
+      name: "Body Care",
+      imgSrc: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
+      description: "Elevate your daily bath with Earth's nourishing touch for a rejuvenated you.",
+    },
+  ];
+  
 
 
 
@@ -207,146 +224,7 @@ const[product1,setproduct1]=useState([])
   return (
     <div>
         <Header/>
-        {/* <div className="container d-flex" style={{ marginTop: "10rem" }}>
-     
-        <div
-  style={{
-    width: "250px",
-    backgroundColor: "#f4f4f4",
-    padding: "20px",
-    borderRight: "1px solid #ddd",
-    height: "60vh", 
-    display: "flex",
-    flexDirection: "column", 
-  }}
->
-  <h5 style={{ fontWeight: "bold", color: "#006400",textAlign:"center" }}>PRODUCTS</h5>
-  <ul style={{listStyleType:"none",lineHeight:"40px",cursor:"pointer",textDecoration:"none"}}>
-    <li ><Link to={'/vitamincfacewash'} style={{textDecoration:"none",color:"black"}}>Vitamin C Face Wash</Link></li>
-    <li> <Link to={'/antiacnefacewash'} style={{textDecoration:"none",color:"black"}}>Anti-Acne Face Wash </Link></li>
-    <li> <Link to={'/goldscrubfacewash'}style={{textDecoration:"none",color:"black"}}>Gold Scrub Face Wash </Link></li>
-    <li> <Link to={'/antihairfallshampoo'} style={{textDecoration:"none",color:"black"}} >Anti Hair fall Shampoo</Link></li>
-    <li><Link to={'/Rosemaryhairoil'} style={{textDecoration:"none",color:"black"}}>Rosemary hair oil </Link></li>
-    <li><Link to={'/hairserum'} style={{textDecoration:"none",color:"black"}}>Hair Serum  </Link></li>
-    <li><Link to={'/glutasoap'} style={{textDecoration:"none",color:"black"}}>Gluta Soap </Link></li>
-    
-  </ul>
-     
       
-      
-   
-</div>
-
-
-
-        
-        <div style={{ flex: 1, padding: "20px" }}>
-          
-          <div
-            id="carouselExampleIndicators"
-            className="carousel slide"
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="0"
-                className="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="1"
-                aria-label="Slide 2"
-              ></button>
-            </div>
-            <div className="carousel-inner">
-             
-              <div className="carousel-item active">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-around",
-                    padding: "20px",
-                    backgroundColor: "#f9f9f9",
-                    borderRadius: "10px",
-                    boxShadow: "0 6px 12px rgba(0, 0, 0, 0.1)",
-                  }}
-                >
-                  <img
-                    src="https://img.freepik.com/free-psd/aloe-vera-natural-cosmetics-banner-template-design_23-2148951958.jpg?t=st=1732791814~exp=1732795414~hmac=8ae9d831e9a2e4f306b59f7d22839838137cf57efb5d27c6567d64bdd798a707&w=826"
-                    alt="Product 1"
-                    style={{
-                      Height: "100px",
-                      maxWidth: "100%",
-                     
-                      borderRadius: "10px",
-                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                    }}
-                  />
-                
-                </div>
-              </div>
-              
-              <div className="carousel-item">
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-around",
-                    padding: "20px",
-                    backgroundColor: "#f9f9f9",
-                    borderRadius: "10px",
-                    boxShadow: "0 6px 12px rgba(0, 0, 0, 0.1)",
-                  }}
-                >
-                  <img
-                    src="https://img.freepik.com/free-psd/aloe-vera-natural-cosmetics-banner-template-design_23-2148951958.jpg?t=st=1732791814~exp=1732795414~hmac=8ae9d831e9a2e4f306b59f7d22839838137cf57efb5d27c6567d64bdd798a707&w=826"
-                    alt="Product 2"
-                    style={{
-                      Height: "100px",
-                      maxWidth: "100%",
-                      
-                      borderRadius: "10px",
-                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                    }}
-                  />
-            
-                </div>
-              </div>
-            </div>
-            <button
-              className="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="prev"
-              
-            >
-              <span
-                className="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span className="visually-hidden"style={{color:"black"}} >Previous</span>
-            </button>
-            <button
-              className="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="next"
-            >
-              <span
-                className="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span className="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
-      </div> */}
 
 {/* banner start----------------------------------------------------------------------------------------------- */}
 
@@ -375,29 +253,7 @@ const[product1,setproduct1]=useState([])
 
 
 
-{/* <Carousel data-bs-theme="dark" style={{marginTop:"9rem"}}>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://www.simpleskincare.in/cdn/shop/files/Desktop_Homepage_1360x512_e57f7152-84d4-456c-9c12-cb89ff4ffb91.jpg?v=1711025111"
-          alt="First slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://www.simpleskincare.in/cdn/shop/files/Desktop_Homepage_1360x512_3.jpg?v=1712916114"
-          alt="Second slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://www.simpleskincare.in/cdn/shop/files/Desktop_Homepage_1360x512_d685c4ec-0490-4f3c-aab0-85708fc74936.jpg?v=1713161048"
-          alt="Third slide"
-        />
-      </Carousel.Item>
-    </Carousel> */}
+
 
 
 {/* banner main end--------------------------------------------------------------------------------------------- */}
@@ -579,17 +435,89 @@ const[product1,setproduct1]=useState([])
         </div>
       </div>
 
-
-
-
-
-
-
-
-
-
-
 {/*our stander end-----------------------------------------------------------------------------------  */}
+
+{/* combo start----------------------------------------------------------------------------------- */}
+
+<div
+  style={{
+    background: "linear-gradient(90deg, #e8f8d5, #fdeef5)",
+    padding: "50px 0",
+  }}
+>
+  <div className="container">
+    <div className="row g-4">
+      {Combo.map((product, index) => (
+        <div
+          className="col-12 d-flex align-items-center"
+          key={index}
+          style={{
+            flexDirection: index % 2 === 0 ? "row" : "row-reverse",
+            display: "flex",
+            alignItems: "center",
+            gap: "20px",
+            padding: "20px",
+            // background: "white",
+            borderRadius: "10px",
+            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          {/* Product Image */}
+          <div style={{ flex: "1" }}>
+            <img
+              src={product.imgSrc}
+              alt={product.name}
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "10px",
+              }}
+            />
+          </div>
+          {/* Product Details */}
+          <div style={{ flex: "1" }}>
+            <h4 style={{ fontWeight: "bold" }}>{product.name}</h4>
+            <p>{product.description}</p>
+            <a
+              href="#"
+              style={{
+                backgroundColor: "#82d888",
+                border: "none",
+                color: "white",
+                fontWeight: "bold",
+                padding: "10px 20px",
+                textDecoration: "none",
+                display: "inline-block",
+                textAlign: "center",
+                borderRadius: "5px",
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = "#6bc172")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "#82d888")
+              }
+            >
+              Shop Now
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{/* combo end-------------------------------------------------------------------------------------- */}
+
+
+
+
+
+
 
 {/* revie */}
 
