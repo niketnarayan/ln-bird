@@ -9,6 +9,7 @@ import logo from '../Components/Assets/Logo (2).png'
 import api from '../Components/api';
 import Swal from 'sweetalert2';
 import { jsPDF } from "jspdf";
+import 'jspdf-autotable';
 function Header() {
 
   const {cart,setcart}=useCart()
@@ -245,29 +246,81 @@ const handlePayment = async () => {
   }
 };
 
-const generateInvoice = (paymentResponse) => {
-  // Step 1: Create a PDF document
+const companyDetails = [
+  {
+    name: 'My Company',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Horned_logo.jpeg', // Relative URL to the public folder
+    address: '456 Business Rd, City, State, 789101',
+    contact: 'support@mycompany.com',
+  },
+];
+  
+
+
+
+const generateInvoice = (paymentResponse, orderData, companyDetails) => {
   const doc = new jsPDF();
 
-  // Step 2: Add Content to the Invoice
+  // --- Add Company Logo ---
+  if (companyDetails.logo) {
+    const imgWidth = 50; // Adjust width as needed
+    const imgHeight = 20; // Adjust height as needed
+    doc.addImage(companyDetails.logo, 'JPEG', 20, 10, imgWidth, imgHeight);
+  }
+
+  // --- Add Company Details ---
+  doc.setFontSize(12);
+  doc.text(`${companyDetails.name}`, 20, 40);
+  doc.text(`${companyDetails.address}`, 20, 50);
+  doc.text(`Contact: ${companyDetails.contact}`, 20, 60);
+
+  // --- Invoice Header ---
   doc.setFontSize(16);
-  doc.text('Invoice', 20, 20);
+  doc.text('Invoice', 150, 20);
 
   doc.setFontSize(12);
-  doc.text(`Invoice Number: ${paymentResponse.razorpay_payment_id}`, 20, 30);
-  doc.text(`Order ID: ${paymentResponse.razorpay_order_id}`, 20, 40);
-  doc.text(`Amount: ₹${formData.totalPrice}`, 20, 50);
-  doc.text(`Name: ${formData.firstName}`, 20, 60);
-  doc.text(`Email: ${formData.email}`, 20, 70);
-  doc.text(`Phone: ${formData.mobileNumber}`, 20, 80);
-  
-  // Step 3: Add Transaction Details
+  doc.text(`Invoice Number: ${paymentResponse.razorpay_payment_id}`, 20, 70);
+  doc.text(`Order ID: ${paymentResponse.razorpay_order_id}`, 20, 80);
   doc.text(`Transaction Date: ${new Date().toLocaleDateString()}`, 20, 90);
 
-  // Step 4: Add Signature or Footer
-  doc.text('Thank you for your purchase!', 20, 100);
-  
-  // Step 5: Save the PDF
+  // --- Customer Details ---
+  doc.text(`Customer Name: ${orderData.customer.name}`, 20, 100);
+  doc.text(`Email: ${orderData.customer.email}`, 20, 110);
+  doc.text(`Phone: ${orderData.customer.phone}`, 20, 120);
+  doc.text(`Address: ${orderData.customer.address}`, 20, 130);
+
+  // --- Product Table ---
+  const startY = 140;
+  doc.text('Product Details:', 20, startY);
+
+  const tableStartY = startY + 10;
+  const tableData = orderData.products.map((product, index) => [
+    index + 1,
+    product.name,
+    product.quantity,
+    `₹${product.unitPrice}`,
+    `₹${product.totalPrice}`,
+  ]);
+
+  doc.autoTable({
+    head: [['S.No', 'Product Name', 'Quantity', 'Unit Price', 'Total']],
+    body: tableData,
+    startY: tableStartY,
+  });
+
+  // --- Summary Section ---
+  const summaryStartY = doc.lastAutoTable.finalY + 10;
+  doc.text(`Subtotal: ₹${orderData.subtotal}`, 150, summaryStartY);
+  doc.text(`GST (${orderData.gstPercentage}%): ₹${orderData.gstAmount}`, 150, summaryStartY + 10);
+  doc.text(`Discount: ₹${orderData.discount}`, 150, summaryStartY + 20);
+  doc.text(`Grand Total: ₹${orderData.totalPrice}`, 150, summaryStartY + 30);
+
+  // --- Footer ---
+  const footerStartY = summaryStartY + 50;
+  doc.text('Thank you for your purchase!', 20, footerStartY);
+  doc.text(`For queries, contact us at: ${companyDetails.contact}`, 20, footerStartY + 10);
+
+  // --- Save the PDF ---
   doc.save('invoice.pdf');
 };
 
