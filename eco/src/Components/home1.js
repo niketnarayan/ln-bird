@@ -90,6 +90,34 @@ const[product1,setproduct1]=useState([])
       description: "Elevate your daily bath with Earth's nourishing touch for a rejuvenated you.",
     },
   ];
+
+
+
+
+  const blogPosts = [
+    {
+      image: "https://assets.myntassets.com/f_auto,q_auto:eco,dpr_1.3,w_412,c_limit,fl_progressive/assets/images/2022/8/20/b10b0f8d-3680-4073-9945-8de5cc9b76731661007268655-1---2022-08-20T202220.120.jpg",
+      title: "Navigating Menopause and Hair Loss: The Healing...",
+      date: "April 12, 2024",
+      description:
+        "Menopause is a natural part of a woman's life, marking the end of her reproductive years...",
+    },
+    {
+      image: "https://theloveco.in/cdn/shop/articles/10-must-have-luxury-body-care-products-the-love-co.jpg?v=1729317123",
+      title: "Unlocking Glow: Reiki-Infused Cleansing with Te...",
+      date: "March 15, 2024",
+      description:
+        "In a world where stress and pollution are constant companions, finding ways to tend to...",
+    },
+    {
+      image: "https://theloveco.in/cdn/shop/articles/10-must-have-luxury-body-care-products-the-love-co.jpg?v=1729317123",
+      title: "Ayurvedic Wisdom for Healthy Hair: Choosing the...",
+      date: "February 27, 2024",
+      description:
+        "Are you looking for a healthy and natural approach to enhance the condition of your hair...",
+    },
+  ];
+  
   
 
 
@@ -336,7 +364,7 @@ const[product1,setproduct1]=useState([])
                 maxHeight: "200px",
                 // objectFit: "contain",
               }}
-              onClick={() => handleProductClick(product._id)}
+              onClick={() => navigate('/vitamincfaceash',{state:product._id})}
             />
             <span className="grocery-card-name">{product.product_name}</span>
             <p className="grocery-card-price">MRP: ₹{product.product_price}</p>
@@ -442,7 +470,7 @@ const[product1,setproduct1]=useState([])
 <div
   style={{
     background: "linear-gradient(90deg, #e8f8d5, #fdeef5)",
-    padding: "50px 0",
+    padding: "50px 0", marginTop:"1rem",
   }}
 >
   <div className="container">
@@ -508,10 +536,68 @@ const[product1,setproduct1]=useState([])
 </div>
 
 
-
-
-
 {/* combo end-------------------------------------------------------------------------------------- */}
+
+{/* blog start-------------------------------------------------------------------------------- */}
+
+<div
+  style={{
+    background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
+    fontFamily: "Arial, sans-serif",
+    padding: "40px 0", marginTop:"1rem",
+  }}
+>
+  <div style={{ textAlign: "center", marginBottom: "40px" }}>
+    <h1>Kiona Tales</h1>
+  </div>
+  <div className="row g-4">
+    {blogPosts.map((post, index) => (
+      <div className="col-md-4" key={index}>
+        <div
+          className="card h-100 shadow-sm"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+          }}
+        >
+          <img
+            src={post.image}
+            className="card-img-top"
+            alt={`Blog ${index + 1} Image`}
+          />
+          <div className="card-body">
+            <h5
+              className="card-title"
+              style={{ fontSize: "1.25rem", fontWeight: "bold" }}
+            >
+              {post.title}
+            </h5>
+            <p className="card-text text-muted">{post.date}</p>
+            <p className="card-text">{post.description}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+  <div style={{ textAlign: "center", marginTop: "20px" }}>
+    <button
+      style={{
+        backgroundColor: "#000",
+        color: "#fff",
+        border: "none",
+        padding: "10px 20px",
+        cursor: "pointer",
+      }}
+      onMouseOver={(e) => (e.target.style.backgroundColor = "#444")}
+      onMouseOut={(e) => (e.target.style.backgroundColor = "#000")}
+    >
+      View all
+    </button>
+  </div>
+</div>
+
+{/* blog end---------------------------------------------------------------------------------- */}
 
 
 
@@ -644,153 +730,6 @@ const[product1,setproduct1]=useState([])
 {/* content end */}
 
 
-
-{/* <div className="grocery-container">
-      <h2 className="grocery-heading">Our Products</h2>
-      <div className="grocery-row">
-        {products.map((product) => (
-          <div key={product.id} className="grocery-card">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="grocery-card-image"
-            />
-            <span className="grocery-card-name">{product.name}</span>
-            <p className="grocery-card-price" >MRP:₹{product.price}</p>
-            <button onClick={()=>handleprouctadd(product)} className="grocery-card-button" style={{cursor:"pointer"}}>Add to Cart</button>
-          </div>
-        ))}
-      </div>
-    </div> */}
-
-
-
-
-
-{/* product cart section end---------------------------------------------------------------------------------- */}
-
-{/* banner image------------------------------------------------------------------------------------------------ */}
-
-{/* <div className="container">
-  <div className="row">
-    <div className="col">
-      <img src="https://www.reneecosmetics.in/cdn/shop/files/1000693230.jpg?v=1732552425&width=1500" alt="banner-image" className="img-fluid" style={{marginTop:"3rem",marginBottom:"3rem"}}></img>
-
-    </div>
-  </div>
-</div> */}
-{/* banner image end---------------------------------------------------------------------------------------------- */}
-
-{/* 2product cart------------------------------------------------------------------------------------------------ */}
-
-{/* <div className="grocery-container">
-  <div className="grocery-row">
-    {products1.map((product, index) => (
-      <React.Fragment key={product.id}>
-        
-        <div className="grocery-card">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="grocery-card-image"
-          />
-          <span className="grocery-card-name">{product.name}</span>
-          <p className="grocery-card-price">MRP: ₹{product.price}</p>
-          <button
-            onClick={() => handleprouctadd(product)}
-            className="grocery-card-button"
-            style={{ cursor: 'pointer' }}
-          >
-            Add to Cart
-          </button>
-        </div>
-
-       
-        {index % 4 === 3 && (
-          <div className="banner" style={{ width: "100%" }}>
-        
-            <img
-              src="https://i.ytimg.com/vi/eHikFbUGGLo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLA29x2AFD34qcuNP3dNw2wqfqV_YQ"
-              alt="banner"
-              style={{ width: '100%', height: 'auto' }}
-            />
-          </div>
-        )}
-      </React.Fragment>
-    ))}
-  </div>
-</div> */}
-
-
-
-{/* 2 product cart end-------------------------------------------------------------------------------------------- */}
-
-{/* product banner2 start----------------------------------------------------------------------------------------- */}
-
-{/* <div className="container">
-  <div className="row">
-    <div className="col">
-      <img src="https://images-static.nykaa.com/uploads/fb6935ac-7488-42d2-9d82-ce95f5332dec.jpg?tr=cm-pad_resize,w-1200" alt="banner-image" className="img-fluid" style={{marginTop:"3rem",marginBottom:"3rem"}}></img>
-
-    </div>
-  </div>
-</div> */}
-
-{/* product banner2 end------------------------------------------------------------------------------------------ */}
-
-{/* product 3 cart----------------------------------------------------------------------------------------------- */}
-
-{/* <div className="grocery-container">
-      <h2 className="grocery-heading">Combo Products</h2>
-      <div className="grocery-row">
-        {products2.map((product) => (
-          <div key={product.id} className="grocery-card">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="grocery-card-image"
-            />
-            <span className="grocery-card-name">{product.name}</span>
-            <p className="grocery-card-price" >MRP:₹{product.price}</p>
-            <button onClick={()=>handleprouctadd(product)} className="grocery-card-button" style={{cursor:"pointer"}}>Add to Cart</button>
-          </div>
-        ))}
-      </div>
-    </div> */}
-{/* product 3 cart end--------------------------------------------------------------------------------------------- */}
-
-{/* product banner 3-------------------------------------------------------------------------------------------- */}
-{/* <div className="container">
-  <div className="row">
-    <div className="col">
-      <img src="https://images-static.nykaa.com/uploads/1d08680f-7dc3-4c4b-a3a6-c129cd89a952.jpg?tr=cm-pad_resize,w-1200" alt="banner-image" className="img-fluid" style={{marginTop:"3rem",marginBottom:"3rem"}}></img>
-
-    </div>
-  </div>
-</div> */}
-
-{/* product banner 3 end---------------------------------------------------------------------------------------- */}
-
-{/* product cart 4 start---------------------------------------------------------------------------------------- */}
-
-{/* <div className="grocery-container">
-      <div className="grocery-row">
-        {products3.map((product) => (
-          <div key={product.id} className="grocery-card">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="grocery-card-image"
-            />
-            <span className="grocery-card-name">{product.name}</span>
-            <p className="grocery-card-price" >MRP:₹{product.price}</p>
-            <button onClick={()=>handleprouctadd(product)} className="grocery-card-button" style={{cursor:"pointer"}}>Add to Cart</button>
-          </div>
-        ))}
-      </div>
-    </div> */}
-
-{/* product cart 4 end------------------------------------------------------------------------------------------- */}
 
 
 <Footer/>
