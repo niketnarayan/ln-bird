@@ -329,7 +329,131 @@ const generateInvoice = (paymentResponse, orderData, companyDetails) => {
 
 
   return (
+
+    <>
+  
+
+
+
+
     <div style={{position:"fixed",left:"0",right:"0",zIndex:"1000",top:"0"}}>
+
+    <div
+  className="d-flex justify-content-between align-items-center"
+  style={{
+    backgroundColor: "black",
+    height: "3rem",
+    width: "100%",
+    padding: "0 10px", // Add some padding for spacing
+  }}
+>
+  {/* Centered Text */}
+  <div
+    style={{
+      flex: 1, // Allows the text to take up space in the center
+      textAlign: "center", // Centers the text horizontally
+    }}
+  >
+    <span
+      style={{
+        color: "white",
+        fontSize: "25px",
+      }}
+    >
+      Let's Join Us Kiona
+    </span>
+  </div>
+
+  {/* Social Media Icons */}
+  <div
+    style={{
+      display: "flex",
+      gap: "10px",
+    }}
+  >
+    <a
+      href="#"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "30px",
+        height: "30px",
+        borderRadius: "50%",
+        backgroundColor: "#3b5998", // Facebook color
+        textDecoration: "none",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        transition: "all 0.3s ease",
+      }}
+    >
+      <i
+        className="fa-brands fa-facebook-f"
+        style={{ color: "white", fontSize: "20px" }}
+      ></i>
+    </a>
+    <a
+      href="#"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "30px",
+        height: "30px",
+        borderRadius: "50%",
+        backgroundColor: "#1da1f2", // Twitter color
+        textDecoration: "none",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        transition: "all 0.3s ease",
+      }}
+    >
+      <i
+        className="fa-brands fa-twitter"
+        style={{ color: "white", fontSize: "20px" }}
+      ></i>
+    </a>
+    <a
+      href="#"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "30px",
+        height: "30px",
+        borderRadius: "50%",
+        background: "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)", // Instagram gradient
+        textDecoration: "none",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        transition: "all 0.3s ease",
+      }}
+    >
+      <i
+        className="fa-brands fa-instagram"
+        style={{ color: "white", fontSize: "20px" }}
+      ></i>
+    </a>
+    <a
+      href="#"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "30px",
+        height: "30px",
+        borderRadius: "50%",
+        backgroundColor: "#0077b5", // LinkedIn color
+        textDecoration: "none",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        transition: "all 0.3s ease",
+      }}
+    >
+      <i
+        className="fa-brands fa-linkedin-in"
+        style={{ color: "white", fontSize: "20px" }}
+      ></i>
+    </a>
+  </div>
+</div>
+
 
 <nav className="navbar navbar-expand-lg" style={{background:"linear-gradient(to right,#ffffff, #f2f2f2, #dcdcdc"}} >
   <div className="container">
@@ -357,11 +481,46 @@ const generateInvoice = (paymentResponse, orderData, companyDetails) => {
     Home
   </Link>
 </li>
-<li className="nav-item">
-          <Link className="nav-link text-white" to="/products">
-            Product
-          </Link>
-        </li>
+<li className="nav-item dropdown">
+  <a
+    className="nav-link dropdown-toggle text-white"
+    href="#"
+    id="navbarDropdown"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Product
+  </a>
+  <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+    <li>
+      <Link className="dropdown-item" to="/products/shampoo">
+        Shampoo
+      </Link>
+    </li>
+    <li>
+      <Link className="dropdown-item" to="/products/massage-oil">
+        Massage Oil
+      </Link>
+    </li>
+    <li>
+      <Link className="dropdown-item" to="/products/face-wash">
+        Face Wash
+      </Link>
+    </li>
+    <li>
+      <Link className="dropdown-item" to="/products/hair-serum">
+        Hair Serum
+      </Link>
+    </li>
+    <li>
+      <Link className="dropdown-item" to="/products/hair-oil">
+        Hair Oil
+      </Link>
+    </li>
+  </ul>
+</li>
+
         <li className="nav-item">
           <Link className="nav-link text-white" to="/combo">
             Combo
@@ -390,7 +549,7 @@ const generateInvoice = (paymentResponse, orderData, companyDetails) => {
     </div>
   </div>
   </nav>
-  <div className="category">
+  {/* <div className="category">
   <div
     className="bg-light p-2"
     style={{
@@ -409,39 +568,10 @@ const generateInvoice = (paymentResponse, orderData, companyDetails) => {
         justifyContent: "space-between",
       }}
     >
-   
-    
-
-      {/* Search Bar */}
-      {/* <div
-  className="input-group"
-  style={{
-    maxWidth: "400px",
-    flexGrow: 1,
-    display: "flex", // Enables flexbox for child alignment
-    justifyContent: "center", // Centers children horizontally
-    alignItems: "center", // Centers children vertically
-    margin: "auto", // Centers the div itself within the parent
-  }}
->
-        <input
-          className="form-control"
-          type="search"
-          placeholder="Search your products here"
-          aria-label="Search"
-        />
-        <button className="btn" style={{width:"3rem"}}>
-          <i className="fa-solid fa-magnifying-glass"  ></i>
-        </button>
-      </div> */}
-
-
-
-
 
     </div>
   </div>
-</div>
+</div> */}
 
 
 {/* modal code for login----------- */}
@@ -1016,6 +1146,7 @@ const generateInvoice = (paymentResponse, orderData, companyDetails) => {
 
 
     </div>
+    </>
   )
 }
 

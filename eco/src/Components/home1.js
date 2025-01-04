@@ -329,21 +329,21 @@ const[product1,setproduct1]=useState([])
 {/* product cart section------------------------------------------------------------------------------------- */}
 
 
-<div className="grocery">
+ <div className="grocery">
   <h2 className="grocery-heading text-center">Our Products</h2>
   <div className="row justify-content-center">
     {product1.map((product, index) => (
       <React.Fragment key={product.id}>
-        {/* Product Card */}
+       
         <div
           className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"
         >
           <div
             className="grocery-card"
             style={{
-              width: "100%",
+              width: "98%",
               maxWidth: "280px",
-              height: "500px",
+              height: "430px",
               backgroundColor: "#fff",
               padding: "20px",
               border: "1px solid #ddd",
@@ -352,7 +352,7 @@ const[product1,setproduct1]=useState([])
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              alignItems: "center", // Center content
+              alignItems: "center", 
               textAlign: "center",
             }}
           >
@@ -361,8 +361,6 @@ const[product1,setproduct1]=useState([])
               alt={product.product_name}
               className="grocery-card-image img-fluid"
               style={{
-                // maxHeight: "600px",
-                // objectFit: "contain",
               }}
               onClick={() => navigate('/vitamincfaceash',{state:product._id})}
             />
@@ -376,8 +374,7 @@ const[product1,setproduct1]=useState([])
             </button>
           </div>
         </div>
-
-        {/* Banner After Every 4th Product */}
+      
         {(index + 1) % 4 === 0 && banners.length > 0 && (
           <div className="col-12">
             <div className="banner text-center">
@@ -397,7 +394,7 @@ const[product1,setproduct1]=useState([])
       </React.Fragment>
     ))}
   </div>
-</div>
+</div> 
 
 
 
@@ -469,8 +466,8 @@ const[product1,setproduct1]=useState([])
 
 <div
   style={{
-    background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
-    padding: "50px 0", marginTop:"1rem",
+    padding: "50px 0",
+    marginTop: "1rem",
   }}
 >
   <div className="container">
@@ -485,12 +482,9 @@ const[product1,setproduct1]=useState([])
             alignItems: "center",
             gap: "20px",
             padding: "20px",
-            // background: "white",
-            borderRadius: "10px",
-            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
           }}
         >
-          {/* Product Image */}
+        
           <div style={{ flex: "1" }}>
             <img
               src={product.imgSrc}
@@ -498,14 +492,30 @@ const[product1,setproduct1]=useState([])
               style={{
                 width: "100%",
                 height: "100%",
-                borderRadius: "10px",
+                borderRadius: index % 2 === 0 
+                  ? "10px 0 0 10px" 
+                  : "0 10px 10px 0", 
               }}
             />
           </div>
-          {/* Product Details */}
-          <div style={{ flex: "1" }}>
-            <h4 style={{ fontWeight: "bold" }}>{product.name}</h4>
-            <p>{product.description}</p>
+         
+          <div
+            style={{
+              flex: "1",
+              background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
+              height: "12rem",
+              width: "100%", 
+              padding: "20px", 
+              borderRadius: index % 2 === 0 
+                ? "0 10px 10px 0" 
+                : "10px 0 0 10px", 
+              boxSizing: "border-box", 
+            }}
+          >
+            <h4 style={{ fontWeight: "bold", marginBottom: "10px" }}>
+              {product.name}
+            </h4>
+            <p style={{ marginBottom: "20px" }}>{product.description}</p>
             <a
               href="#"
               style={{
@@ -536,6 +546,8 @@ const[product1,setproduct1]=useState([])
 </div>
 
 
+
+
 {/* combo end-------------------------------------------------------------------------------------- */}
 
 
@@ -549,70 +561,60 @@ const[product1,setproduct1]=useState([])
 {/* revie */}
 
 <Container fluid style={{ padding: "40px", backgroundColor: "#f9f9f9" }}>
-      <h2
-        style={{
-          textAlign: "center",
-          marginBottom: "20px",
-          fontSize: "32px",
-          color: "#333",
-          fontWeight: "bold",
-        }}
-      >
-        Customer Reviews
-      </h2>
+  <h2
+    style={{
+      textAlign: "center",
+      marginBottom: "20px",
+      fontSize: "32px",
+      color: "#333",
+      fontWeight: "bold",
+    }}
+  >
+    Customer Reviews
+  </h2>
 
-      <Carousel interval={3000} indicators={true} controls={true}>
-        {/* Render 2 reviews per slide */}
-        {reviews.reduce((result, _, index) => {
-          if (index % 2 === 0) {
-            result.push(reviews.slice(index, index + 2));
-          }
-          return result;
-        }, []).map((slide, idx) => (
-          <Carousel.Item key={idx}>
-            <Row
-              className="d-flex justify-content-center"
-              style={{ padding: "20px" }}
-            >
-              {slide.map((review, i) => (
-                <Col
-                  key={i}
-                  md={5}
-                  style={{
-                    backgroundColor: "#fff",
-                    borderRadius: "8px",
-                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                    padding: "20px",
-                    margin: "10px",
-                    textAlign: "center",
-                  }}
-                >
-                  <img
-                    src={review.image}
-                    alt={review.name}
-                    style={{
-                      borderRadius: "50%",
-                      width: "80px",
-                      height: "80px",
-                      marginBottom: "10px",
-                    }}
-                  />
-                  <h4 style={{ color: "#222", fontWeight: "bold" }}>
-                    {review.name}
-                  </h4>
-                  <div style={{ marginBottom: "10px"}}>
-                    {renderStars(review.rating)}
-                  </div>
-                  <p style={{ fontStyle: "italic", color: "#555" }}>
-                    "{review.review}"
-                  </p>
-                </Col>
-              ))}
-            </Row>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-    </Container>
+  <Carousel interval={3000} indicators={true} controls={true}>
+    {reviews.map((review, idx) => (
+      <Carousel.Item key={idx}>
+        <Row
+          className="d-flex justify-content-center"
+          style={{ padding: "20px" }}
+        >
+          <Col
+            md={6}
+            style={{
+              backgroundColor: "#fff",
+              padding: "20px",
+              margin: "10px",
+              textAlign: "center",
+            }}
+          >
+            <img
+              src={review.image}
+              alt={review.name}
+              style={{
+                borderRadius: "50%",
+                width: "80px",
+                height: "80px",
+                marginBottom: "10px",
+              }}
+            />
+            <h4 style={{ color: "#222", fontWeight: "bold" }}>
+              {review.name}
+            </h4>
+            <div style={{ marginBottom: "10px" }}>
+              {renderStars(review.rating)}
+            </div>
+            <p style={{ fontStyle: "italic", color: "#555" }}>
+              "{review.review}"
+            </p>
+          </Col>
+        </Row>
+      </Carousel.Item>
+    ))}
+  </Carousel>
+</Container>
+
 
 
 {/* content */}
@@ -623,7 +625,7 @@ const[product1,setproduct1]=useState([])
   style={{
     background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
     fontFamily: "Arial, sans-serif",
-    padding: "40px 0", marginTop:"1rem",
+    padding: "40px", marginTop:"1rem",
   }}
 >
   <div style={{ textAlign: "center", marginBottom: "40px" }}>
