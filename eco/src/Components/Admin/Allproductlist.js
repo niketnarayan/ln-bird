@@ -39,6 +39,8 @@ function Allproductlist() {
           _id:item._id,
           id: index + 1,
           Productcode: item.product_code,
+          Productcategory:item.product_category,
+          Producttype:item.product_type,
           ProductName: item.product_name,
           ProductPrice: item.product_price,
           ProductQuantity: item.product_quantity,
@@ -62,7 +64,9 @@ function Allproductlist() {
   // Columns definition
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
-    { field: "Productcode", headerName: "Product Code", width: 100 },
+    { field: "Productcode", headerName: "Product Code", width: 130 },
+    { field: "Productcategory", headerName: "Product Category", width: 150 },
+    { field: "Producttype", headerName: "Product Type", width: 130 },
     { field: "ProductName", headerName: "Product Name", width: 150 },
     { field: "ProductPrice", headerName: "Product Price", width: 120 },
     {

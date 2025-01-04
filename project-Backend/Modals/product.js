@@ -2,6 +2,8 @@ const mongoose=require('mongoose')
 
 const add_product=new mongoose.Schema({
     product_code:{type:String},
+    product_category:{type:String},
+    product_type:{type:String},
     product_name:{type:String},
     product_price:{type:String},
     product_quantity:{type:String},

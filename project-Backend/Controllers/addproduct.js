@@ -12,6 +12,8 @@ const add_product = async (req, res) => {
     try {
         const { 
             product_code,
+            product_category,
+            product_type,
             product_name,
             product_price,
             product_quantity,
@@ -42,6 +44,8 @@ const add_product = async (req, res) => {
         const newAddproduct = new addproduct({
            
             product_code,
+            product_category,
+            product_type,
             product_name,
             product_price,
             product_quantity,

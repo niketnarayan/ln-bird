@@ -14,6 +14,8 @@ function Addproduct() {
 
     const [product, setproduct] = useState({
         product_code: "",
+        product_category:"",
+        product_type:"",
         product_name: "",
         product_price: "",
         product_quantity: "",
@@ -24,6 +26,7 @@ function Addproduct() {
 
       });
       
+      console.log(product.product_category);
       
       const [benefitInput, setBenefitInput] = useState("");
 
@@ -36,6 +39,18 @@ function Addproduct() {
           setBenefitInput(""); // Clear input field
         }
       };
+
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setproduct((prevProduct) => ({
+          ...prevProduct,
+          [name]: value,
+        }));
+      };
+
+
+
+
 
        // Delete a benefit by index
   const handleDeleteBenefit = (indexToDelete) => {
@@ -113,7 +128,8 @@ function Addproduct() {
       
 
 
-
+    console.log(product);
+    
 
 
     const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -161,6 +177,43 @@ function Addproduct() {
                   required
                 />
               </div>
+
+              <div className="mb-3">
+  {/* Category Dropdown */}
+  <label className="form-label">Category</label>
+  <select
+    name="productCategory"
+    className="form-select"
+    onChange={(e)=>setproduct({...product,product_category:e.target.value})}
+    required
+  >
+    <option value="" disabled selected>
+      Select Category
+    </option>
+    <option value="shampoo">Shampoo</option>
+    <option value="massage oil">Massage Oil</option>
+    <option value="face wash">Face Wash</option>
+    <option value="hair serum">Hair Serum</option>
+    <option value="hair oil">Hair Oil</option>
+  </select>
+</div>
+
+<div className="mb-3">
+  {/* Type Dropdown */}
+  <label className="form-label"> Product Type</label>
+  <select
+    name="productType"
+    className="form-select"
+    onChange={(e)=>setproduct({...product,product_type:e.target.value})}
+    required
+  >
+    <option value="" disabled selected>
+      Select Type
+    </option>
+    <option value="single"> Product Single</option>
+    <option value="combo"> Product Combo</option>
+  </select>
+</div>
               {/* Product Name */}
               <div className="mb-3">
                 <label className="form-label">Product Name</label>
