@@ -538,7 +538,7 @@
 
 @media (max-width: 480px) {
   .header-content {
-    flex-direction: column; /* Ensure content stacks vertically */
+    flex-direction: row; /* Ensure content stacks vertically */
   }
 
   .header-text span {
@@ -551,8 +551,18 @@
   }
 
   .social-icons {
+    display: flex;
+    flex-direction: row;
     justify-content: center; /* Ensure icons stay visible */
     flex-wrap: wrap; /* Wrap icons to prevent overflow */
     gap: 6px; /* Smaller gap for tight spaces */
+  }
+
+  .container{
+    display: flex;
+    flex-direction: row;
+  }
+  .content-container{
+    width: 200px !important;
   }
 }

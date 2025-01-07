@@ -372,23 +372,13 @@ const generateInvoice = (paymentResponse, orderData, companyDetails) => {
 
 
 <nav className="navbar navbar-expand-lg" style={{background:"linear-gradient(to right,#ffffff, #f2f2f2, #dcdcdc"}} >
-  <div className="container">
+  <div className="container" >
+    <div className="content-container" style={{display:"flex", width:"100%", justifyContent:"space-between"}}>
     {/* Brand Logo */}
     <a style={{cursor:"pointer"}} className="navbar-brand text-white d-flex align-items-center" onClick={()=>navigate('/')}>
       <span className="logo-icon me-1">Ⓚ</span><img className="image-fluid" src={logo} style={{width:"175px",height:"50px"}}></img>
     </a>
-    {/* Toggler for mobile view */}
-    <button
-      className="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span className="navbar-toggler-icon" />
-    </button>
+
     {/* Navbar links */}
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav ms-auto">
@@ -463,6 +453,21 @@ const generateInvoice = (paymentResponse, orderData, companyDetails) => {
       </button>
       </div>
     </div>
+    </div>
+
+    {/* Toggler for mobile view */}
+    <button
+        style={{width:"fit-content", color:"#000"}}
+      className="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </div>
   </nav>
   {/* <div className="category">

@@ -55,25 +55,43 @@ function VitamincFacewash() {
 return (
 <div>
 
+  <style>
+    {
+      `
+      body{
+      background-color:rgba(223, 255, 191, 0.18);
+      }
+      .image-div{
+      // border: 2px solid #000;
+      width: 50%;
+      }
+      .content-div{
+      // border: 2px solid #000;
+      width: 50%;
+      }
+      `
+    }
+  </style>
+
     <div>
         <Header/>
     </div>
  
-    <div className="container custom mt-5" style={{  marginTop: "10rem !important"  }}>
+    <div className="container custom mt-5" style={{  marginTop: "10rem !important" }}>
   {Products.map((product) => (
     <div key={product.id} className="row mb-5 ">
       {/* Image Section */}
-      <div className="col-lg-4 ">
+      <div className="col-lg-4 image-div">
         <img
           src={product?.product_image}
-          style={{ height: "500px", width: "300px" }}
+          style={{ height: "100%", width:"100%", boxShadow:"10px 10px 20px rgba(0,0,0,0.2)" }}
           alt={product?.product_name || "Product Image"}
           className="img-fluid"
         />
       </div>
 
       {/* Text Content Section */}
-      <div className="col-lg-8">
+      <div className="col-lg-8 content-div">
         <h3 className="fw-bold">{product.product_name}</h3>
         {/* Extracted Details */}
         <p className="text-muted">

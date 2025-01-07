@@ -356,7 +356,7 @@ const[product1,setproduct1]=useState([])
       <React.Fragment key={product.id}>
        
         <div
-          className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"
+          className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center align-items-center"
         >
           <div
             className="grocery-card"
@@ -491,21 +491,22 @@ const[product1,setproduct1]=useState([])
   }}
 >
   <div className="container">
-    <div className="row g-4">
+    <div className="row g-4 main-product-div">
       {Combo.map((product, index) => (
         <div
-          className="col-12 d-flex align-items-center"
+          className="col-12 d-flex align-items-center product-item-div"
           key={index}
           style={{
             flexDirection: index % 2 === 0 ? "row" : "row-reverse",
             display: "flex",
             alignItems: "center",
-            gap: "20px",
-            padding: "20px",
+            marginTop:"0px",
+            // gap: "20px",
+            // padding: "20px",
           }}
         >
         
-          <div style={{ flex: "1" }}>
+          <div className="product-image-div" style={{ flex: "1" }}>
             <img
               src={product.imgSrc}
               alt={product.name}
@@ -519,23 +520,25 @@ const[product1,setproduct1]=useState([])
             />
           </div>
          
+         <div className="product-content-div" style={{ padding:"0 20px"}}>
           <div
+            className="product-content-item-div"
             style={{
               flex: "1",
               background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
               height: "12rem",
               width: "100%", 
-              padding: "20px", 
+              // padding: "20px",
               borderRadius: index % 2 === 0 
                 ? "0 10px 10px 0" 
                 : "10px 0 0 10px", 
               boxSizing: "border-box", 
             }}
           >
-            <h4 style={{ fontWeight: "bold", marginBottom: "10px" }}>
+            <h4 style={{ fontWeight: "bold", margin: "20px 0 10px 20px" }}>
               {product.name}
             </h4>
-            <p style={{ marginBottom: "20px" }}>{product.description}</p>
+            <p style={{ margin: "0 0 10px 20px" }}>{product.description}</p>
             <a
               href="#"
               style={{
@@ -548,6 +551,7 @@ const[product1,setproduct1]=useState([])
                 display: "inline-block",
                 textAlign: "center",
                 borderRadius: "5px",
+                marginLeft: "20px"
               }}
               onMouseEnter={(e) =>
                 (e.currentTarget.style.backgroundColor = "#6bc172")
@@ -559,6 +563,8 @@ const[product1,setproduct1]=useState([])
               Shop Now
             </a>
           </div>
+          </div>
+
         </div>
       ))}
     </div>

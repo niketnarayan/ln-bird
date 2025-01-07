@@ -86,8 +86,36 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+.product-image-div{
+  width: 50%;
+}
+
+.product-content-div{
+  width: 50%;
+}
+
 
 /* product cart css end--------------------------------------------------------------------------------------------- */
 
-
+@media (max-width: 480px) {
+  .main-product-div{
+    /* border: 2px solid #000; */
+  }
+  .product-item-div{
+    /* border: 2px solid #000; */
+    display: flex;
+    flex-direction: column !important;
+  }
+  .product-image-div img{
+    /* border: 2px solid #000; */
+    width: 200px !important;
+  }
+  .product-content-div{
+    /* border: #000 solid 2px; */
+    width: 100%;
+  }
+  .product-content-item-div{
+    padding-top: 10px;
+  }                                                                                                     
+}
 
