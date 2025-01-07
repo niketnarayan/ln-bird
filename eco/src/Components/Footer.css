@@ -93,7 +93,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%; /* Circular shape */
-  background-color: #f1f1f1; /* Light background */
+  /* background-color: #f1f1f1;  */
   color: #333; /* Default icon color */
   text-decoration: none;
   font-size: 1.5rem;

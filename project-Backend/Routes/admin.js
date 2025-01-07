@@ -7,6 +7,7 @@ const { createOrder, getAllOrders } = require('../Controllers/order');
 const { signup, login } = require('../Controllers/user');
 const protectRoute=require('../Middleware/routemiddle');
 const payment = require('../Controllers/payment');
+const { createBlog, getBlogs, deleteBlog, editBlog } = require('../Controllers/blog');
 const router=express.Router()
 
 
@@ -45,7 +46,12 @@ router.post(
   router.get('/getAllOrders', getAllOrders);
 
   router.post('/signup', signup);
-  router.post('/login', login)
+  router.post('/login', login);
+
+  router.post('/addblog', upload.single('image'), createBlog);
+  router.get('/getblog', getBlogs);
+  router.delete('/deleteblog/:id' , deleteBlog);
+  router.put("/editblog/:id" , upload.single("image"), editBlog)
 
  
 

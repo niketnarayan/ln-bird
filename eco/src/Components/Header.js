@@ -338,121 +338,37 @@ const generateInvoice = (paymentResponse, orderData, companyDetails) => {
 
     <div style={{position:"fixed",left:"0",right:"0",zIndex:"1000",top:"0"}}>
 
-    <div
-  className="d-flex justify-content-between align-items-center"
-  style={{
-    backgroundColor: "black",
-    height: "3rem",
-    width: "100%",
-    padding: "0 10px", // Add some padding for spacing
-  }}
->
-  {/* Centered Text */}
-  <div
-    style={{
-      flex: 1, // Allows the text to take up space in the center
-      textAlign: "center", // Centers the text horizontally
-    }}
-  >
-    <span
-      style={{
-        color: "white",
-        fontSize: "25px",
-      }}
-    >
-      Let's Join Us Kiona
-    </span>
-  </div>
+    <header className="main-header">
+      <div className="header-content">
+        {/* Centered Text */}
+        <div className="header-text">
+          <span>Let's Join Us Kiona</span>
+        </div>
 
-  {/* Social Media Icons */}
-  <div
-    style={{
-      display: "flex",
-      gap: "10px",
-    }}
-  >
-    <a
-      href="#"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "30px",
-        height: "30px",
-        borderRadius: "50%",
-        backgroundColor: "#3b5998", // Facebook color
-        textDecoration: "none",
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-        transition: "all 0.3s ease",
-      }}
-    >
-      <i
-        className="fa-brands fa-facebook-f"
-        style={{ color: "white", fontSize: "20px" }}
-      ></i>
-    </a>
-    <a
-      href="#"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "30px",
-        height: "30px",
-        borderRadius: "50%",
-        backgroundColor: "#1da1f2", // Twitter color
-        textDecoration: "none",
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-        transition: "all 0.3s ease",
-      }}
-    >
-      <i
-        className="fa-brands fa-twitter"
-        style={{ color: "white", fontSize: "20px" }}
-      ></i>
-    </a>
-    <a
-      href="#"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "30px",
-        height: "30px",
-        borderRadius: "50%",
-        background: "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)", // Instagram gradient
-        textDecoration: "none",
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-        transition: "all 0.3s ease",
-      }}
-    >
-      <i
-        className="fa-brands fa-instagram"
-        style={{ color: "white", fontSize: "20px" }}
-      ></i>
-    </a>
-    <a
-      href="#"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "30px",
-        height: "30px",
-        borderRadius: "50%",
-        backgroundColor: "#0077b5", // LinkedIn color
-        textDecoration: "none",
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-        transition: "all 0.3s ease",
-      }}
-    >
-      <i
-        className="fa-brands fa-linkedin-in"
-        style={{ color: "white", fontSize: "20px" }}
-      ></i>
-    </a>
-  </div>
-</div>
+        {/* Social Media Icons */}
+        <div className="social-icons">
+          {/* Facebook */}
+          <a href="#" className="icon facebook">
+            <i className="fa-brands fa-facebook-f"></i>
+          </a>
+
+          {/* Twitter */}
+          <a href="#" className="icon twitter">
+            <i className="fa-brands fa-twitter"></i>
+          </a>
+
+          {/* Instagram */}
+          <a href="#" className="icon instagram">
+            <i className="fa-brands fa-instagram"></i>
+          </a>
+
+          {/* LinkedIn */}
+          <a href="#" className="icon linkedin">
+            <i className="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+    </header>
 
 
 <nav className="navbar navbar-expand-lg" style={{background:"linear-gradient(to right,#ffffff, #f2f2f2, #dcdcdc"}} >
@@ -527,7 +443,7 @@ const generateInvoice = (paymentResponse, orderData, companyDetails) => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link text-white" to="/blog">
+          <Link className="nav-link text-white" to="/blog1">
             Blog
           </Link>
         </li>

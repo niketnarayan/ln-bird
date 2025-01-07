@@ -433,3 +433,126 @@
 
 
 
+
+
+
+ /* Main Header Styles */
+.main-header {
+  background-color: black;
+  width: 100%;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Content */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto; /* Center content */
+  padding: 0 20px; /* Add padding for spacing */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+/* Centered Text */
+.header-text {
+  flex: 1;
+  text-align: center;
+  margin-bottom: 10px; /* Space for smaller screens */
+}
+
+.header-text span {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Social Icons Container */
+.social-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: center; /* Center icons on smaller screens */
+  flex-wrap: wrap; /* Allow wrapping for icons */
+}
+
+/* Icon Base Styles */
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.icon i {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Specific Icon Styles */
+.icon.facebook {
+  background-color: #3b5998; /* Facebook color */
+}
+
+.icon.twitter {
+  background-color: #1da1f2; /* Twitter color */
+}
+
+.icon.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram gradient */
+}
+
+.icon.linkedin {
+  background-color: #0077b5; /* LinkedIn color */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column; /* Stack items vertically */
+    text-align: center;
+  }
+
+  .header-text {
+    margin-bottom: 10px;
+  }
+
+  .header-text span {
+    font-size: 1.2rem; /* Adjust font size */
+  }
+
+  .social-icons {
+    gap: 8px; /* Reduce gap between icons */
+  }
+
+  .icon {
+    width: 2.2rem; /* Adjust icon size */
+    height: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    flex-direction: column; /* Ensure content stacks vertically */
+  }
+
+  .header-text span {
+    font-size: 1rem; /* Smaller font size for very small screens */
+  }
+
+  .icon {
+    width: 2rem; /* Smaller icons */
+    height: 2rem;
+  }
+
+  .social-icons {
+    justify-content: center; /* Ensure icons stay visible */
+    flex-wrap: wrap; /* Wrap icons to prevent overflow */
+    gap: 6px; /* Smaller gap for tight spaces */
+  }
+}

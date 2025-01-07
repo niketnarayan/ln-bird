@@ -237,6 +237,18 @@ whiteSpace: "nowrap",
           </span>
         </Link>
       </li>
+
+      <li className="mb-3">
+        <Link
+          to="/blog"
+          className="text-white text-decoration-none d-flex align-items-center"
+        >
+          <FaImages className="me-2" />
+          <span style={{ display: isSidebarCollapsed ? 'none' : 'inline' }}>
+            Blog
+          </span>
+        </Link>
+      </li>
           {/* Invoice Menu with Dropdown Arrow */}
           <li className="mb-3">
             <div
