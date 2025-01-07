@@ -1,4 +1,4 @@
-const Blog = require('../Modals/Blog');
+const Blog = require('../Modals/blog');
 const cloudinary = require('cloudinary').v2;
 require('dotenv').config();
 
