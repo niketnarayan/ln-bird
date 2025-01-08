@@ -1,5 +1,5 @@
 const express=require('express');
-const {add_product,viewproduct, delete_product,edit_product, viewproductbyid} = require('../Controllers/addproduct');
+const {add_product,viewproduct, delete_product,edit_product, viewproductbyid, viewproductbycategory} = require('../Controllers/addproduct');
 const upload=require('../Middleware/file');
 const { uploadBanner, getAllBanners, deleteBanner, editBanner } = require('../Controllers/addbanner');
 const uploadFields = require('../Middleware/bannerfile');
@@ -19,6 +19,7 @@ router.post('/addproduct',upload.any(),protectRoute,add_product)
 // router.post('/addproducts',protectRoute,add_product)
 router.get('/getproduct',viewproduct)
 router.get('/getproductbyid/:_id',viewproductbyid)
+router.get('/getproductbycategory/:product_category',viewproductbycategory)
 router.delete("/deleteproduct/:_id",delete_product);
 router.put('/edit_product/:_id',upload.any(),edit_product);
 router.post('/payment',payment)

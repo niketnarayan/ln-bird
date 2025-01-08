@@ -12,6 +12,8 @@ import { jsPDF } from "jspdf";
 import 'jspdf-autotable';
 function Header() {
 
+ 
+
   const {cart,setcart}=useCart()
   const [formData, setFormData] = useState({
     apartmentNumber: "",
@@ -399,31 +401,32 @@ const generateInvoice = (paymentResponse, orderData, companyDetails) => {
     Product
   </a>
   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-    <li>
-      <Link className="dropdown-item" to="/products/shampoo">
+    <li className="dropdown-item"  onClick={() => navigate('/categoryproduct',{state:"shampoo"})}>
+      
         Shampoo
-      </Link>
+     
     </li>
-    <li>
-      <Link className="dropdown-item" to="/products/massage-oil">
+    <li className="dropdown-item" onClick={() => navigate('/categoryproduct',{state:"massage oil"})}>
+    
         Massage Oil
-      </Link>
+     
     </li>
-    <li>
-      <Link className="dropdown-item" to="/products/face-wash">
-        Face Wash
-      </Link>
-    </li>
-    <li>
-      <Link className="dropdown-item" to="/products/hair-serum">
-        Hair Serum
-      </Link>
-    </li>
-    <li>
-      <Link className="dropdown-item" to="/products/hair-oil">
-        Hair Oil
-      </Link>
-    </li>
+    <li className="dropdown-item" onClick={() => navigate('/categoryproduct',{state:"face wash"})}>
+    
+    Face Wash
+ 
+</li>
+
+<li className="dropdown-item" onClick={() => navigate('/categoryproduct',{state:"hair serum"})}>
+    
+Hair Serum
+ 
+</li>
+<li className="dropdown-item" onClick={() => navigate('/categoryproduct',{state:"hair oil"})}>
+    
+Hair Oil
+ 
+</li>
   </ul>
 </li>
 

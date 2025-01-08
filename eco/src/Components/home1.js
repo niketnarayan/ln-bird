@@ -92,46 +92,6 @@ const[product1,setproduct1]=useState([])
   ];
 
 
-
-
-  // const blogPosts = [
-  //   {
-  //     image: "https://assets.myntassets.com/f_auto,q_auto:eco,dpr_1.3,w_412,c_limit,fl_progressive/assets/images/2022/8/20/b10b0f8d-3680-4073-9945-8de5cc9b76731661007268655-1---2022-08-20T202220.120.jpg",
-  //     title: "Navigating Menopause and Hair Loss: The Healing...",
-  //     date: "April 12, 2024",
-  //     description:
-  //       "Menopause is a natural part of a woman's life, marking the end of her reproductive years...",
-  //   },
-  //   {
-  //     image: "https://theloveco.in/cdn/shop/articles/10-must-have-luxury-body-care-products-the-love-co.jpg?v=1729317123",
-  //     title: "Unlocking Glow: Reiki-Infused Cleansing with Te...",
-  //     date: "March 15, 2024",
-  //     description:
-  //       "In a world where stress and pollution are constant companions, finding ways to tend to...",
-  //   },
-  //   {
-  //     image: "https://theloveco.in/cdn/shop/articles/10-must-have-luxury-body-care-products-the-love-co.jpg?v=1729317123",
-  //     title: "Ayurvedic Wisdom for Healthy Hair: Choosing the...",
-  //     date: "February 27, 2024",
-  //     description:
-  //       "Are you looking for a healthy and natural approach to enhance the condition of your hair...",
-  //   },
-  // ];
-  
-  
-
-
-
-
-
-
-
-  
-  
-
-
-
-
     const products = [
         { id: 1, name: "Vitamin C Face Wash (Brightens & Evens Skin Tone),100gm", price: "599/-", image: "https://www.richfeelnaturals.com/cdn/shop/files/vitamin-c-face-wash1_a2da8366-3d65-4193-b1f9-94a5b965206a.jpg?v=1718106105",  quantity: 1, },
         { id: 2, name: "Anti-Acne Face Wash – Clear, Blemish-Free Skin 100ml ", price: "299/-", image: "https://rukminim2.flixcart.com/image/850/1000/xif0q/toner/1/j/0/100-vitamin-c-face-toner-brightening-even-toned-glowing-skin-20-original-imagykjh7vhazh5y.jpeg?q=90&crop=false",  quantity: 1, },

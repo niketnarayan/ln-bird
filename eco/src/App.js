@@ -33,6 +33,8 @@ import OAuthGuard from '../src/Components/protectedroute';
 import { AuthProvider } from '../src/Components/authguard';
 import Blog from './Components/Admin/Blog';
 import Blog1 from './Components/Blog1';
+import Category from './Components/category';
+import Combo from './Components/Combo';
 
 
 
@@ -75,6 +77,8 @@ function App() {
      <Route path='/forgot' element={<Forgatpassword/>}/>
      <Route path='/blog' element={<Blog/>}/>
      <Route path='/blog1' element={<Blog1/>}/>
+     <Route path='/categoryproduct' element={<Category/>}/>
+     <Route path='/combo' element={<Combo/>}/>
      </Routes>
 
      </div>

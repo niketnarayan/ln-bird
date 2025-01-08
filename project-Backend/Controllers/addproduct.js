@@ -89,6 +89,18 @@ const viewproductbyid= async(req,res)=>
       }
   }
 
+  const viewproductbycategory= async(req,res)=>
+    {
+        try {
+          const category=req.params.product_category
+            const resp=await addproduct.find({product_category:category})
+            res.status(200).send({message:"product data fetch",product:resp})
+        } catch (error) {
+            console.log(error);
+            
+        }
+    }
+
 const delete_product = async (req, res) => {
     try {
       const id  = req.params._id; // Get product ID from URL parameter
@@ -152,4 +164,4 @@ const delete_product = async (req, res) => {
 
 
   
-module.exports={add_product,viewproduct,delete_product,edit_product,viewproductbyid};
+module.exports={add_product,viewproduct,delete_product,edit_product,viewproductbyid,viewproductbycategory};
