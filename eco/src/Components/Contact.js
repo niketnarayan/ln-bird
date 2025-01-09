@@ -11,7 +11,7 @@ function Contact() {
             <Header/>
         </div>
  {/*star contaus page------------------------------------------------------------------------------  */}
- <div className='container' style={{textAlign:"center", marginTop:"8rem"}}>
+ <div className='container' style={{textAlign:"center", marginTop:"10rem"}}>
     <div className='row'>
         <div className='col'>
           <span style={{fontSize:"40px", fontWeight:"bold"}}>Get In Touch</span>

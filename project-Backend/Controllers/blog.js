@@ -44,6 +44,18 @@ const getBlogs = async (req, res) => {
   }
 };
 
+const viewblogbyid= async(req,res)=>
+  {
+      try {
+        const id=req.params._id
+          const resp=await Blog.find({_id:id})
+          res.status(200).send({message:"blog data fetch",blog:resp})
+      } catch (error) {
+          console.log(error);
+          
+      }
+  }
+
 // Controller to delete a blog
 const deleteBlog = async (req, res) => {
   try {
@@ -93,4 +105,4 @@ const editBlog = async (req, res) => {
   }
 };
 
-module.exports = { createBlog, getBlogs, deleteBlog, editBlog };
+module.exports = { createBlog, getBlogs, deleteBlog, editBlog, viewblogbyid };

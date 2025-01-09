@@ -608,63 +608,82 @@ const[product1,setproduct1]=useState([])
 {/* blog start-------------------------------------------------------------------------------- */}
 
 <div
-      style={{
-        background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
-        fontFamily: "Arial, sans-serif",
-        padding: "40px",
-        marginTop: "1rem",
-      }}
-    >
-      <div style={{ textAlign: "center", marginBottom: "40px" }}>
-        <h1>Kiona Tales</h1>
-      </div>
-      <div className="row g-4">
-        {visibleBlogs.map((post, index) => (
-          <div className="col-md-4" key={index}>
-            <div
-              className="card h-100 shadow-sm"
+  style={{
+    background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
+    fontFamily: "Arial, sans-serif",
+    padding: "40px",
+    marginTop: "1rem",
+  }}
+>
+  <div style={{ textAlign: "center", marginBottom: "40px" }}>
+    <h1>Kiona Tales</h1>
+  </div>
+  <div className="row g-4">
+    {visibleBlogs.map((post, index) => (
+      <div className="col-md-4" key={index}>
+        <div
+          className="card h-100 shadow-sm"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+          }}
+        >
+          <img
+            src={post.image}
+            className="card-img-top"
+            alt={`Blog ${index + 1} Image`}
+          />
+          <div className="card-body">
+            <h5
+              className="card-title"
+              style={{ fontSize: "1.25rem", fontWeight: "bold" }}
+            >
+              {post.title}
+            </h5>
+            <p className="card-text text-muted">{post.date}</p>
+            <p
+              className="card-text"
               style={{
-                display: "flex",
-                flexDirection: "column",
-                height: "100%",
+                display: "-webkit-box",
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: 3,
+                overflow: "hidden",
               }}
             >
-              <img
-                src={post.image}
-                className="card-img-top"
-                alt={`Blog ${index + 1} Image`}
-              />
-              <div className="card-body">
-                <h5
-                  className="card-title"
-                  style={{ fontSize: "1.25rem", fontWeight: "bold" }}
-                >
-                  {post.title}
-                </h5>
-                <p className="card-text text-muted">{post.date}</p>
-                <p className="card-text">{post.description}</p>
-              </div>
-            </div>
+              {post.description}
+            </p>
+            <a
+              // href={`/blog/${post.id}`}
+              className="btn btn-link p-0"
+              style={{ color: "#007bff", textDecoration: "none" }}
+              onClick={() => navigate('/blog2',{state:post._id})}
+            >
+              Read more...
+            </a>
           </div>
-        ))}
+        </div>
       </div>
-      <div style={{ textAlign: "center", marginTop: "20px" }}>
-        <button
-          style={{
-            backgroundColor: "#000",
-            color: "#fff",
-            border: "none",
-            padding: "10px 20px",
-            cursor: "pointer",
-          }}
-          onMouseOver={(e) => (e.target.style.backgroundColor = "#444")}
-          onMouseOut={(e) => (e.target.style.backgroundColor = "#000")}
-          onClick={() => navigate('/blog1')} // Toggle showAll state
-        >
-         View All
-        </button>
-      </div>
-    </div>
+    ))}
+  </div>
+  <div style={{ textAlign: "center", marginTop: "20px" }}>
+    <button
+      style={{
+        backgroundColor: "#000",
+        color: "#fff",
+        border: "none",
+        padding: "10px 20px",
+        cursor: "pointer",
+      }}
+      onMouseOver={(e) => (e.target.style.backgroundColor = "#444")}
+      onMouseOut={(e) => (e.target.style.backgroundColor = "#000")}
+      onClick={() => navigate('/blog1')} // Redirect to all blogs
+    >
+      View All
+    </button>
+  </div>
+</div>
+
 
 {/* blog end---------------------------------------------------------------------------------- */}
 

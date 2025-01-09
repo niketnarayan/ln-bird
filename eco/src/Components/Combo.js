@@ -53,7 +53,7 @@ function Combo() {
   return (
     <div>
       <Header/>
-       <div className="grocery" style={{marginTop:"10rem"}}>
+       <div className="grocery1" style={{marginTop:"10rem",backgroundColor:"rgba(223, 255, 191, 0.18)",}}>
                 <div className="row">
                   {comboproduct.map((product, index) => (
                     <React.Fragment key={product.id}>
