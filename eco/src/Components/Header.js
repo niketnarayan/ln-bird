@@ -341,10 +341,14 @@ const generateInvoice = (paymentResponse, orderData, companyDetails) => {
     <div style={{position:"fixed",left:"0",right:"0",zIndex:"1000",top:"0"}}>
 
     <header className="main-header">
-      <div className="header-content">
         {/* Centered Text */}
         <div className="header-text">
-          <span>Let's Join Us Kiona</span>
+          <h5
+          style={{
+            marginBottom:"0px",
+            color:"#fff",
+            fontWeight:"700",
+          }}>Let's Join Us Kiona</h5>
         </div>
 
         {/* Social Media Icons */}
@@ -368,7 +372,6 @@ const generateInvoice = (paymentResponse, orderData, companyDetails) => {
           <a href="#" className="icon linkedin">
             <i className="fa-brands fa-linkedin-in"></i>
           </a>
-        </div>
       </div>
     </header>
 

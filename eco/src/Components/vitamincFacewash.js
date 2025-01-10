@@ -77,7 +77,7 @@ return (
         <Header/>
     </div>
  
-    <div className="container custom mt-5" style={{  marginTop: "10rem !important" }}>
+    <div className="container custom mt-5" style={{ marginTop: "10rem !important" }}>
   {Products.map((product) => (
     <div key={product.id} className="row mb-5 ">
       {/* Image Section */}

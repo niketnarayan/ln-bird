@@ -2,7 +2,7 @@
 .footer {
     color: black;
     padding: 40px 20px; /* Added padding for smaller screens */
-    background: linear-gradient(to bottom right, #dfffbf, #ffeaba);
+    background: linear-gradient(135deg, #37AFE1, #4CC9FE);
     height: fit-content;
   }
   

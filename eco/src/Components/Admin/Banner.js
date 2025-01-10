@@ -109,7 +109,7 @@ if (Array.isArray(newBanner.productBannerImage) && newBanner.productBannerImage.
       } else {
         await api.post("uploadBanner", formData);
         Swal.fire("Added!", "Banner added successfully.", "success");
-      }
+      }         
       resetForm();
       fetchBanners(); // Reload the banners list
     } catch (error) {

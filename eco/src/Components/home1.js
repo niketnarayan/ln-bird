@@ -268,11 +268,11 @@ const[product1,setproduct1]=useState([])
 
 
 {/* content start------------------------------------------------------------------- */}
-<div style={{ padding: "40px", backgroundColor: "#f9f9f9",marginBottom:"3rem",marginTop:"0.5rem" }}>
+<div style={{ padding: "40px",marginBottom:"3rem",marginTop:"3rem" }}>
       <h1
         style={{
-          fontSize: "36px",
-          fontFamily: "'Times New Roman', serif",
+          fontSize: "3.5rem",
+          fontFamily: "'ITC Modern No 216', serif",
           fontWeight: "bold",
           color: "#222",
           textAlign: "center",
@@ -283,7 +283,7 @@ const[product1,setproduct1]=useState([])
       </h1>
       <p
         style={{
-          fontSize: "17px",
+          fontSize: "20px",
           fontFamily: "Georgia, serif",
           color: "#444",
           lineHeight: "1.8",
@@ -310,7 +310,8 @@ const[product1,setproduct1]=useState([])
 
 
  <div className="grocery">
-  <h2 className="grocery-heading text-center">Our Products</h2>
+  <h2 className="grocery-heading text-center" style={{marginBottom: "0px"}}>Our Products</h2>
+  <div className="empty-div"></div>
   <div className="row justify-content-center">
     {product1.map((product, index) => (
       <React.Fragment key={product.id}>
@@ -323,7 +324,7 @@ const[product1,setproduct1]=useState([])
             style={{
               width: "98%",
               maxWidth: "280px",
-              height: "430px",
+              height: "400px",
               backgroundColor: "#fff",
               padding: "20px",
               border: "1px solid #ddd",
@@ -331,7 +332,7 @@ const[product1,setproduct1]=useState([])
               boxShadow: "0 6px 10px rgba(0, 0, 0, 0.1)",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-between",
+              justifyContent: "space-evenly",
               alignItems: "center", 
               textAlign: "center",
             }}
@@ -447,10 +448,11 @@ const[product1,setproduct1]=useState([])
 <div
   style={{
     padding: "50px 0",
-    marginTop: "1rem",
+    marginTop: "4rem",
+    background: "linear-gradient(135deg,rgba(19, 183, 216, 0.55),rgba(23, 232, 255, 0.58))",
   }}
 >
-  <div className="container">
+  <div className="container" style={{}}>
     <div className="row g-4 main-product-div">
       {Combo.map((product, index) => (
         <div
@@ -461,12 +463,13 @@ const[product1,setproduct1]=useState([])
             display: "flex",
             alignItems: "center",
             marginTop:"0px",
+            
             // gap: "20px",
             // padding: "20px",
           }}
         >
         
-          <div className="product-image-div" style={{ flex: "1" }}>
+          <div className="product-image-div" style={{ flex: "1", width:"50%" }}>
             <img
               src={product.imgSrc}
               alt={product.name}
@@ -480,12 +483,20 @@ const[product1,setproduct1]=useState([])
             />
           </div>
          
-         <div className="product-content-div" style={{ padding:"0 20px"}}>
+         <div className="product-content-div" 
+          style={{
+            padding:"0 20px", 
+            width: "50%", 
+            height:"100%",
+            display:"flex",
+            justifyContent:"space-between",
+            alignItems:"center",
+          }}
+         >
           <div
             className="product-content-item-div"
             style={{
               flex: "1",
-              background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
               height: "12rem",
               width: "100%", 
               // padding: "20px",
@@ -495,15 +506,15 @@ const[product1,setproduct1]=useState([])
               boxSizing: "border-box", 
             }}
           >
-            <h4 style={{ fontWeight: "bold", margin: "20px 0 10px 20px" }}>
+            <h4 style={{ fontWeight: "bold", margin: "20px 0 10px 20px" }} className="product-name-title">
               {product.name}
             </h4>
             <p style={{ margin: "0 0 10px 20px" }}>{product.description}</p>
             <a
               href="#"
               style={{
-                backgroundColor: "#82d888",
-                border: "none",
+                backgroundColor: "#37AFE1",
+                border: "1px solid rgba(0,0,0,0.4)",
                 color: "white",
                 fontWeight: "bold",
                 padding: "10px 20px",
@@ -511,13 +522,14 @@ const[product1,setproduct1]=useState([])
                 display: "inline-block",
                 textAlign: "center",
                 borderRadius: "5px",
-                marginLeft: "20px"
+                marginLeft: "20px",
+                transition:"ease 0.3s all",
               }}
               onMouseEnter={(e) =>
-                (e.currentTarget.style.backgroundColor = "#6bc172")
+                (e.currentTarget.style.backgroundColor = "#4CC9FE")
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.backgroundColor = "#82d888")
+                (e.currentTarget.style.backgroundColor = "#37AFE1")
               }
             >
               Shop Now
@@ -609,14 +621,16 @@ const[product1,setproduct1]=useState([])
 
 <div
   style={{
-    background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
+    background: "linear-gradient(135deg,rgba(19, 183, 216, 0.55),rgba(23, 232, 255, 0.58))",
     fontFamily: "Arial, sans-serif",
     padding: "40px",
     marginTop: "1rem",
   }}
 >
   <div style={{ textAlign: "center", marginBottom: "40px" }}>
-    <h1>Kiona Tales</h1>
+    <h1 className="kiona-tales">Kiona Tales</h1>
+
+    <div className="empty-div"></div>
   </div>
   <div className="row g-4">
     {visibleBlogs.map((post, index) => (

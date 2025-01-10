@@ -143,15 +143,33 @@ button.btn-danger:hover {
 }
 
 /* Responsive Design */
+/* Tablet View - Devices with a max-width of 768px */
 @media (max-width: 768px) {
   .col-lg-4 img {
     width: 100%;
-    height: auto;
+    height: auto; /* Maintain aspect ratio */
   }
   .features-container {
-    gap: 1rem;
+    gap: 1rem; /* Adjust spacing for better alignment */
   }
   .feature-item {
-    flex: 1 1 100%;
+    flex: 1 1 100%; /* Ensure items stack vertically */
   }
 }
+
+/* Mobile View - Devices with a max-width of 576px */
+@media (max-width: 576px) {
+  .col-lg-4 img {
+    width: 340px;
+    height: auto; /* Ensure images are fully responsive */
+  }
+  .features-container {
+    gap: 0.5rem; /* Reduce gap for smaller screens */
+    padding: 0 1rem; /* Add padding for better spacing */
+  }
+  .feature-item {
+    flex: 1 1 100%; /* Ensure single-column layout */
+    text-align: center; /* Center-align content for a better mobile experience */
+  }
+}
+
