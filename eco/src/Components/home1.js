@@ -488,7 +488,7 @@ const[product1,setproduct1]=useState([])
               width: "100%",
               maxWidth: "300px",
               backgroundColor: "transparent",
-              padding: "15px",
+              padding: "10px",
               border: "none",
               borderRadius: "10px",
               display: "flex",
@@ -871,8 +871,8 @@ Incredible Products
     style={{
       display: "grid",
       gridTemplateColumns: "repeat(4, 1fr)", // 4 products per row
-      gap: "16px",
-      padding: "16px",
+      gap: "5px",
+      padding: "15px",
     }}
   >
     {product1.slice(0, 8).map((product, index) => (
@@ -891,7 +891,7 @@ Incredible Products
               width: "100%",
               maxWidth: "300px",
               backgroundColor: "transparent",
-              padding: "15px",
+              padding: "10px",
               border: "none",
               borderRadius: "10px",
               display: "flex",
@@ -1376,7 +1376,7 @@ Incredible Products
     padding: "40px",
     marginTop: "1rem",
     backgroundImage: "url('https://wdtlilacdemo.wpengine.com/wp-content/uploads/2022/09/lef-image-1-298x300.webp')",
-    backgroundPosition: "right center",
+    backgroundPosition: "right 50%",
     backgroundRepeat: "no-repeat",
     backgroundSize: "150px auto",
   }}
