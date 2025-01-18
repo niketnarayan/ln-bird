@@ -583,7 +583,7 @@ const[product1,setproduct1]=useState([])
   className="add-to-cart-btn"
   style={{
     display: "none",
-    backgroundColor: "#f5a623",
+    backgroundColor: "#c8b89a",
     color: "#fff",
     border: "none",
     padding: "10px 30px", // Increased padding for better width
@@ -979,7 +979,7 @@ Incredible Products
               className="add-to-cart-btn"
               style={{
                 display: "none",
-                backgroundColor: "#f5a623",
+                backgroundColor: "#c8b89a",
                 color: "#fff",
                 border: "none",
                 padding: "10px 30px",
@@ -1372,15 +1372,17 @@ Incredible Products
 
 <div
   style={{
-    // background: "linear-gradient(135deg,rgba(19, 183, 216, 0.55),rgba(23, 232, 255, 0.58))",
     fontFamily: "Arial, sans-serif",
     padding: "40px",
     marginTop: "1rem",
+    backgroundImage: "url('https://wdtlilacdemo.wpengine.com/wp-content/uploads/2022/09/lef-image-1-298x300.webp')",
+    backgroundPosition: "right center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "150px auto",
   }}
 >
   <div style={{ textAlign: "center", marginBottom: "40px" }}>
     <h1 className="kiona-tales">Kiona Tales</h1>
-
     <div className="empty-div"></div>
   </div>
   <div className="row g-4">
@@ -1419,10 +1421,9 @@ Incredible Products
               {post.description}
             </p>
             <a
-              // href={`/blog/${post.id}`}
               className="btn btn-link p-0"
               style={{ color: "#007bff", textDecoration: "none" }}
-              onClick={() => navigate('/blog2',{state:post._id})}
+              onClick={() => navigate("/blog2", { state: post._id })}
             >
               Read more...
             </a>
@@ -1442,12 +1443,13 @@ Incredible Products
       }}
       onMouseOver={(e) => (e.target.style.backgroundColor = "#444")}
       onMouseOut={(e) => (e.target.style.backgroundColor = "#000")}
-      onClick={() => navigate('/blog1')} // Redirect to all blogs
+      onClick={() => navigate("/blog1")} // Redirect to all blogs
     >
       View All
     </button>
   </div>
 </div>
+
 
 
 {/* blog end---------------------------------------------------------------------------------- */}
