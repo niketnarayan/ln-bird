@@ -1,0 +1,175 @@
+.accordion-button {
+  background-color: #f8f9fa;
+  color: #000;
+  font-weight: bold;
+}
+.accordion-button:focus {
+  box-shadow: none;
+}
+.accordion-button.collapsed {
+  background-color: #ffffff;
+}
+.accordion-item {
+  border: 1px solid #ddd;
+}
+
+
+
+
+
+
+/* General Container Styling */
+.container.custom {
+  margin-top: 10rem !important;
+  padding: 2rem;
+}
+
+/* Image Styling */
+.col-lg-4 img {
+  width: 100%; /* Set to full width of the container */
+  max-width: 400px; /* Increased max width for larger display */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.col-lg-4 img:hover {
+  transform: scale(1.05);
+}
+
+/* Product Name and Details */
+h3.fw-bold {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+.text-muted {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Price and Discount Styling */
+.text-danger {
+  font-size: 1.5rem;
+}
+.badge.bg-success {
+  font-size: 0.9rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+}
+
+/* Offer Section */
+ul.list-unstyled {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  color: #444;
+}
+ul.list-unstyled li {
+  margin-bottom: 0.5rem;
+}
+
+/* Buttons Styling */
+button.btn-warning {
+  background-color: #fcbf49;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+button.btn-warning:hover {
+  background-color: #ffa500;
+  transform: scale(1.05);
+}
+button.btn-danger {
+  background-color: #ff6f61;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+button.btn-danger:hover {
+  background-color: #e63946;
+  transform: scale(1.05);
+}
+
+/* Accordion Styling */
+.custom-accordion {
+  width: 100%;
+  max-width: 800px; /* Wider for better visibility */
+  margin: 2rem auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.accordion-item {
+  border: none;
+}
+.accordion-button {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+.accordion-button:hover {
+  background-color: #e9ecef;
+}
+.accordion-body {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Features Section */
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+.feature-item {
+  text-align: center;
+  flex: 1 1 45%;
+}
+.feature-item i {
+  font-size: 2rem;
+  color: #fcbf49;
+}
+.feature-item span {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Responsive Design */
+/* Tablet View - Devices with a max-width of 768px */
+@media (max-width: 768px) {
+  .col-lg-4 img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+  }
+  .features-container {
+    gap: 1rem; /* Adjust spacing for better alignment */
+  }
+  .feature-item {
+    flex: 1 1 100%; /* Ensure items stack vertically */
+  }
+}
+
+/* Mobile View - Devices with a max-width of 576px */
+@media (max-width: 576px) {
+  .col-lg-4 img {
+    width: 340px;
+    height: auto; /* Ensure images are fully responsive */
+  }
+  .features-container {
+    gap: 0.5rem; /* Reduce gap for smaller screens */
+    padding: 0 1rem; /* Add padding for better spacing */
+  }
+  .feature-item {
+    flex: 1 1 100%; /* Ensure single-column layout */
+    text-align: center; /* Center-align content for a better mobile experience */
+  }
+}
+

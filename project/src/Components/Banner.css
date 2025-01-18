@@ -1,0 +1,318 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.product-card {
+  width: 10.2rem;
+  height: 19rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  height: 100px;
+  object-fit: cover;
+  border-bottom: 1px solid #e0e0e0;
+  width: 100%;
+}
+
+.card-title {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.card-body p {
+  color: #777;
+}
+
+.price {
+  font-size: 1rem;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* .btn-outline-secondary {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #007bff;
+  color: #fff;
+} */
+
+.container h2 {
+  font-weight: 600;
+  color: #333;
+}
+
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* cart css start------------------------------------------------------------------------------------- */
+.cart-container {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  width: 300px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.cart-item-info {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.cart-item-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.cart-item-price {
+  font-size: 13px;
+  color: #555;
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-item-actions button {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cart-item-actions button:hover {
+  background-color: #45a049;
+}
+
+.cart-item-actions .quantity {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
+
+.cart-total {
+  background-color: #f8f9fa; /* Light grey background */
+  border: 1px solid #dee2e6; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Spacing inside the box */
+  margin: 20px 0; /* Space above and below */
+  text-align: center; /* Center-align text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
+}
+
+.cart-total h3 {
+  font-size: 1.5rem; /* Slightly larger text */
+  color: #333; /* Darker text color for contrast */
+  font-weight: bold; /* Bold font for emphasis */
+  margin: 0; /* Remove default margin */
+}
+
+.cart-total span {
+  color: #28a745; /* Green color for the price */
+  font-weight: 600; /* Slightly bold */
+}
+
+
+
+
+.modal-title {
+  display: flex;
+  align-items: center; /* Align image and text vertically */
+  gap: 20px; /* Space between image and text */
+}
+
+.modal-title img {
+  height: 3rem;
+  width: 7rem;
+  object-fit: contain; /* Ensures the image scales properly */
+  border-radius: 5px; /* Adds slight rounding to the image */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.modal-title span {
+  font-size: 1.5rem; /* Increase font size for better visibility */
+  font-weight: bold; /* Make text bold */
+  color: #333; /* Dark text color */
+}
+
+
+
+
+
+
+
+/* cart css end---------------------------------------------------------------------------------------------- */
+
+/* payment modal css */
+
+.payment-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.payment-card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  text-align: center;
+}
+
+.payment-card-img {
+  height: 100px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.payment-card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.payment-card-description {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.payment-btn {
+  width: 100%;
+  background-color: #28a745;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}
+
+.payment-btn:hover {
+  background-color: #218838;
+}
+
+
+/* payment modal end */
+/* card responsive------------------------------------------------------------------------------------------ */
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .card-title {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 992px) {
+  .col-6 {
+    width: 50%;
+  }
+
+  .col-sm-4 {
+    width: 33.33%;
+  }
+
+  .col-md-3 {
+    width: 25%;
+  }
+
+  .card-img-top {
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .col-6 {
+    width: 100%;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+
+  .card-img-top {
+    height: 120px;
+  }
+
+  .card-title {
+    font-size: 12px;
+  }
+
+  .arrow-button {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-title {
+    font-size: 11px;
+  }
+
+  .card-body .btn {
+    font-size: 12px;
+  }
+
+  .arrow-button {
+    height: 18px;
+    width: 18px;
+  }
+
+  .card-img-top {
+    height: 100px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+}
