@@ -36,6 +36,9 @@ import Blog1 from './Components/Blog1';
 import Category from './Components/category';
 import Combo from './Components/Combo';
 import Blog2 from './Components/Blog2';
+import Sidebarcu from './Components/Customerdashboard/Sidebarcu';
+import Personalinfo from './Components/Customerdashboard/Personalinfo';
+import Manageadds from './Components/Customerdashboard/Manageadds';
 
 
 
@@ -81,7 +84,12 @@ function App() {
      <Route path='/blog2' element={<Blog2/>}/>
      <Route path='/categoryproduct' element={<Category/>}/>
      <Route path='/combo' element={<Combo/>}/>
+     <Route path='/personalinfo' element={<Personalinfo/>}/>
+     <Route path='/manageadds' element={<Manageadds/>}/>
      </Routes>
+
+     {/* <Sidebarcu/>
+     <Personalinfo/> */}
 
      </div>
      </BrowserRouter>

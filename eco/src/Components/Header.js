@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Navbar.css";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import { Modal, Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from './cartcontext'
 import logo from '../Components/Assets/Logo (2).png'
@@ -327,6 +326,23 @@ const generateInvoice = (paymentResponse, orderData, companyDetails) => {
 };
 
 
+const [show6, setShow6] = useState(false);
+
+  const handleClose6 = () => setShow6(false);
+  const handleShow6 = () =>{setShow6(true);
+    handleClose()
+  } 
+
+
+  
+
+ 
+
+
+ 
+  
+
+
 
 
 
@@ -504,7 +520,7 @@ Hair Oil
 {/* modal code for login----------- */}
 
 <Modal
-  show={show}
+  show={show} 
   onHide={handleClose}
   centered
   dialogClassName="custom-modal"
@@ -522,7 +538,7 @@ Hair Oil
     borderRadius: '8px', // Round the corners
   }}
 >
-  Welcome to LNBird
+  Welcome to Kiona
 </Modal.Title>
   </Modal.Header>
   <Modal.Body>
@@ -606,7 +622,7 @@ Hair Oil
             }}
           />
           <p style={{ fontSize: '12px', marginBottom: '20px', color: '#777' }}>
-            By continuing, you agree to LNBird's{' '}
+            By continuing, you agree to Kiona{' '}
             <a href="#" style={{ color: '#0078D7', textDecoration: 'none' }}>
               Terms of Use
             </a>{' '}
@@ -636,6 +652,7 @@ Hair Oil
             CONTINUE
           </button>
           <button
+          onClick={handleShow6}
             style={{
               width: '100%',
               backgroundColor: 'white',
@@ -651,7 +668,7 @@ Hair Oil
             onMouseEnter={(e) => (e.target.style.border = '1px solid #0078D7')}
             onMouseLeave={(e) => (e.target.style.border = '1px solid #ddd')}
           >
-            Existing User? Log in
+            New User? Sinup
           </button>
         </div>
       </div>
@@ -1067,6 +1084,77 @@ Hair Oil
 
 
 {/* billing form modal end------------------------------------------------------------------------- */}
+
+{/* sinup for user--------------------------------------------------------------------- */}
+
+<Modal show={show6} onHide={handleClose6}>
+        <Modal.Header closeButton>
+        <Modal.Title>Customer Signup</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formName" className="mb-3">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your name"
+                name="name"
+                // value={formData.name}
+                // onChange={handleInputChange}
+                // required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formEmail" className="mb-3">
+              <Form.Label>Email ID</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter your email"
+                name="email"
+                // value={formData.email}
+                // onChange={handleInputChange}
+                // required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formPhone" className="mb-3">
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control
+                type="tel"
+                placeholder="Enter your phone number"
+                name="phone"
+                // value={formData.phone}
+                // onChange={handleInputChange}
+                // required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formPassword" className="mb-3">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Enter your password"
+                name="password"
+                // value={formData.password}
+                // onChange={handleInputChange}
+                // required
+              />
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+              Signup
+            </Button>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose6}>
+            Close
+          </Button>
+          {/* <Button variant="primary" onClick={handleClose6}>
+            Save Changes
+          </Button> */}
+        </Modal.Footer>
+      </Modal>
 
 
 
