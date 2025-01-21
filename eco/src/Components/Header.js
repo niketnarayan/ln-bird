@@ -335,7 +335,10 @@ const [show6, setShow6] = useState(false);
 
 
   
-
+const navigatecategory=(data)=>
+{
+  navigate('/categoryproduct',{state:data})
+}
  
 
 
@@ -420,31 +423,31 @@ const [show6, setShow6] = useState(false);
     Product
   </a>
   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-    <li className="dropdown-item"  onClick={() => navigate('/categoryproduct',{state:"shampoo"})}>
+    <li className="dropdown-item"  onClick={()=>navigatecategory('shampoo')} style={{cursor:"pointer"}}>
       
         Shampoo
      
     </li>
-    <li className="dropdown-item" onClick={() => navigate('/categoryproduct',{state:"massage oil"})}>
+    <li className="dropdown-item" onClick={()=>navigatecategory('massage oil')} style={{cursor:"pointer"}}>
     
-        Massage Oil
+        Massage Oil 
      
     </li>
-    <li className="dropdown-item" onClick={() => navigate('/categoryproduct',{state:"face wash"})}>
+    <li className="dropdown-item" onClick={()=>navigatecategory('face wash')} style={{cursor:"pointer"}}>
     
     Face Wash
- 
+    
 </li>
 
-<li className="dropdown-item" onClick={() => navigate('/categoryproduct',{state:"hair serum"})}>
+<li className="dropdown-item" onClick={()=>navigatecategory('hair serum')} style={{cursor:"pointer"}}>
     
 Hair Serum
- 
+
 </li>
-<li className="dropdown-item" onClick={() => navigate('/categoryproduct',{state:"hair oil"})}>
+<li className="dropdown-item" onClick={()=>navigatecategory('hair oil')} style={{cursor:"pointer"}}>
     
 Hair Oil
- 
+
 </li>
   </ul>
 </li>

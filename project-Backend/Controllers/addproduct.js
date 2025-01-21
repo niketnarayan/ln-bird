@@ -92,7 +92,7 @@ const viewproductbyid= async(req,res)=>
   const viewproductbycategory= async(req,res)=>
     {
         try {
-          const category=req.params._id
+          const category=req.params.product_category
             const resp=await addproduct.find({product_category:category})
             res.status(200).send({message:"product data fetch",product:resp})
         } catch (error) {

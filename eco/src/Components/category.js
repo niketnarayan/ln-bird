@@ -13,6 +13,8 @@ function Category() {
     
     const location=useLocation()
     const category=location.state
+   
+    
 
     const[categorydata,setcategorydata]=useState([])
     const getcategorydata=async()=>
@@ -29,7 +31,7 @@ function Category() {
     useEffect(()=>
     {
     getcategorydata()
-    },[])
+    },[category])
 
     console.log(categorydata);
 

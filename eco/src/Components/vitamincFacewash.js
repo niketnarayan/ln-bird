@@ -12,15 +12,16 @@ function VitamincFacewash() {
   const location = useLocation()
   const id = location.state || {}
   
-  console.log(id);
+
   
   const[Products,setProducts]=useState([])
+  const[category,setcategory]=useState('')
   const getproduct=async()=>
   {
     try {
       const resp=await api.get(`getproductbyid/${id}`)
       console.log(resp);
-      
+      setcategory(resp.data.product[0].product_category)
       setProducts(resp.data.product)
 
     } catch (error) {
@@ -28,11 +29,33 @@ function VitamincFacewash() {
       
     }
   }
+
+  const[relatedproducts,setrelatedproducts]=useState([])
+  const getproductbycategory=async()=>
+    {
+      try {
+        const resp=await api.get(`getproductbycategory/${category}`)
+        setrelatedproducts(resp.data.product.filter(item => item._id !== Products[0]._id));
+
+  
+      } catch (error) {
+        console.log(error);
+        
+      }
+    }
+
   useEffect(()=>
   {
   getproduct()
   },[id])
-  console.log(Products);
+  useEffect(()=>
+    {
+    getproductbycategory()
+    },[category])
+
+
+  console.log(relatedproducts);
+
   
    
 
@@ -227,6 +250,25 @@ return (
     </div>
   ))}
 </div>
+
+<div className="container custom mt-5" style={{ marginTop: "10rem !important" }}>
+  <h2>Related Products:</h2>
+  {relatedproducts.map((product) => (
+    <div key={product.id} className="row mb-5 ">
+      {/* Image Section */}
+      <div className="col-lg-4 image-div">
+        <img
+          src={product?.product_image}
+          style={{ height: "100%", width:"100%", boxShadow:"10px 10px 20px rgba(0,0,0,0.2)" }}
+          alt={product?.product_name || "Product Image"}
+          className="img-fluid"
+        />
+        <h2>{product.product_name}</h2>
+      </div>
+      </div>
+  ))}
+      </div>
+
 
 
 
