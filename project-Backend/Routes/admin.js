@@ -49,7 +49,7 @@ router.post(
   router.post('/signup', signup);
   router.post('/login', login);
 
-  router.post('/addblog', upload.single('image'), createBlog);
+  router.post('/addblog',upload.any(), createBlog);
   router.get('/getblog', getBlogs);
   router.delete('/deleteblog/:id' , deleteBlog);
   router.put("/editblog/:id" , upload.single("image"), editBlog)

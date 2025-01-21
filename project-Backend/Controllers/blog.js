@@ -12,19 +12,26 @@ cloudinary.config({
 const createBlog = async (req, res) => {
   try {
     const { title, date, description } = req.body;
-
-    // Ensure the file is uploaded and accessible
-    const result = await cloudinary.uploader.upload(req.file.path); // Use req.file.path
-
-    // Save the image URL in the blog data
-    const image = [result.secure_url];
-
+   
+     
+    const newDocumentPic = [];
+    if (req.files) {
+      // Upload files to Cloudinary and get the URLs
+      for (let file of req.files) {
+        const result = await cloudinary.uploader.upload(file.path);
+        newDocumentPic.push(result.secure_url);  // Store the URL of the uploaded image
+        // Optionally, you could delete the file from the server after uploading (uncomment below if needed)
+        // fs.unlinkSync(file.path);
+      }
+    }
+  
+   
     // Create a new blog entry
     const newBlog = new Blog({
       title,
       date,
       description,
-      image, // Save Cloudinary image URL in the database
+      image:newDocumentPic, // Save Cloudinary image URL in the database
     });
 
     await newBlog.save();

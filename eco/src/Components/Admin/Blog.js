@@ -11,7 +11,7 @@ function Blog() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const [formData, setFormData] = useState({
+  const [Blog, setBlog] = useState({
     title: "",
     date: "",
     description: "",
@@ -23,12 +23,12 @@ function Blog() {
   // Handle Input Change
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setBlog({ ...Blog, [name]: value });
   };
 
   // Handle File Change
   const handleFileChange = (e) => {
-    setFormData({ ...formData, image: e.target.files[0] });
+    setBlog({ ...Blog, image: e.target.files[0] });
   };
 
   // Add Blog Post
@@ -42,7 +42,7 @@ function Blog() {
     //   formData.append("image", formData.image); // Replace `formData.image` with your state variable for the image file
   
       // Make API request
-      const resp = await api.post("addblog", formData, {
+      const resp = await api.post("addblog", Blog, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -58,7 +58,7 @@ function Blog() {
         });
   
         // Reset form data or state
-        setFormData({ title: "", date: "", description: "", image: null });
+        setBlog({ title: "", date: "", description: "", image: null });
   
         // Optionally refresh the blog list
         // fetchBlogs();
@@ -212,7 +212,6 @@ function Blog() {
             <Form.Control
               type="text"
               name="title"
-              value={formData.title}
               onChange={handleChange}
               placeholder="Enter blog title"
               style={{ padding: "10px", fontSize: "16px" }}
@@ -225,7 +224,6 @@ function Blog() {
             <Form.Control
               type="date"
               name="date"
-              value={formData.date}
               onChange={handleChange}
               style={{ padding: "10px", fontSize: "16px" }}
             />
@@ -238,7 +236,6 @@ function Blog() {
               as="textarea"
               rows={3}
               name="description"
-              value={formData.description}
               onChange={handleChange}
               placeholder="Enter blog description"
               style={{ padding: "10px", fontSize: "16px" }}
