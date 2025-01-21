@@ -164,6 +164,8 @@ function Allproductlist() {
   const [product, setproduct] = useState({
     product_code: "",
     product_name: "",
+    product_category:"",
+    product_type:"",
     product_price: "",
     product_quantity: "",
     product_image: [],
@@ -238,6 +240,8 @@ const handleDescriptionChange = (value) => {
       // Append product fields
       formData.append("product_code", product.product_code);
       formData.append("product_name", product.product_name || "");
+      formData.append("product_category", product.product_category || "");
+      formData.append("product_type", product.product_type || "");
       formData.append("product_price", product.product_price || "");
       formData.append("product_quantity", product.product_quantity || "");
   
@@ -403,6 +407,41 @@ const result=resp.data.product[0]
                           required
                         />
                       </div>
+                      <div className="mb-3">
+  {/* Category Dropdown */}
+  <label className="form-label">Category</label>
+  <select
+    name="productCategory"
+    className="form-select"
+    onChange={(e)=>setproduct({...product,product_category:e.target.value})}
+    required
+  >
+    <option value="" disabled selected>
+      Select Category
+    </option>
+    <option value="shampoo">Shampoo</option>
+    <option value="massage oil">Massage Oil</option>
+    <option value="face wash">Face Wash</option>
+    <option value="hair serum">Hair Serum</option>
+    <option value="hair oil">Hair Oil</option>
+  </select>
+</div>
+<div className="mb-3">
+  {/* Type Dropdown */}
+  <label className="form-label"> Product Type</label>
+  <select
+    name="productType"
+    className="form-select"
+    onChange={(e)=>setproduct({...product,product_type:e.target.value})}
+    required
+  >
+    <option value="" disabled selected>
+      Select Type
+    </option>
+    <option value="single"> Product Single</option>
+    <option value="combo"> Product Combo</option>
+  </select>
+</div>
         
                       {/* Price */}
                       <div className="mb-3">
