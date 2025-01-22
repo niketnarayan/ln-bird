@@ -8,6 +8,7 @@ const { signup, login } = require('../Controllers/user');
 const protectRoute=require('../Middleware/routemiddle');
 const payment = require('../Controllers/payment');
 const { createBlog, getBlogs, deleteBlog, editBlog, viewblogbyid } = require('../Controllers/blog');
+const { registerUser, loginUser } = require('../Controllers/registation');
 const router=express.Router()
 
 
@@ -54,6 +55,10 @@ router.post(
   router.delete('/deleteblog/:id' , deleteBlog);
   router.put("/editblog/:id" , upload.single("image"), editBlog)
   router.get('/getblogbyid/:_id', viewblogbyid)
+
+
+  router.post('/register',registerUser);
+  router.post('/logins',loginUser);
 
  
 

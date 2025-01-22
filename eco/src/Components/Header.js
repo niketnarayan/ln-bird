@@ -9,6 +9,7 @@ import api from '../Components/api';
 import Swal from 'sweetalert2';
 import { jsPDF } from "jspdf";
 import 'jspdf-autotable';
+import axios from "axios";
 function Header() {
 
  
@@ -334,12 +335,123 @@ const [show6, setShow6] = useState(false);
   } 
 
 
+
+  const [show7, setShow7] = useState(false);
+
+  const handleClose7 = () => setShow7(false);
+  const handleShow7 = () =>{setShow7(true);
+    handleClose()
+  } 
+
+
   
 const navigatecategory=(data)=>
 {
   navigate('/categoryproduct',{state:data})
 }
- 
+
+
+
+
+const [user, setuser] = useState({
+  name: "",
+  email: "",
+  phone: "",
+  password: "",
+});
+
+const [error, setError] = useState(null);
+const [successMessage, setSuccessMessage] = useState(null);
+
+// Handle input changes
+const handleInputChange = (e) => {
+  const { name, value } = e.target;
+  setuser({
+    ...user,
+    [name]: value,
+  });
+};
+
+// Handle form submission
+const handleSubmit6 = async (e) => {
+  e.preventDefault();
+
+  try {
+    // Send POST request to backend for user registration
+    const response = await api.post("register", user);
+
+    // Handle successful response
+    setSuccessMessage(response.data.message);
+    setError(null); // Clear any previous errors
+
+    // Optionally, reset the form fields
+    setuser({
+      name: "",
+      email: "",
+      phone: "",
+      password: "",
+    });
+  } catch (err) {
+    // Handle error response
+    setError(err.response?.data?.message || "Server error");
+    setSuccessMessage(null); // Clear any previous success messages
+  }
+};
+
+
+
+const [loginDetails, setLoginDetails] = useState({
+  email: "",
+  password: "",
+});
+
+// Handle input changes
+const handleInputChange1 = (e) => {
+  const { name, value } = e.target;
+  setLoginDetails({
+    ...loginDetails,
+    [name]: value,
+  });
+};
+
+// Handle form submission
+const handleSubmit2 = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await api.post("logins", loginDetails);
+
+    if (response.status === 200) {
+      Swal.fire({
+        title: "Login Successful!",
+        text: `Welcome back, ${response.data.user.name}!`,
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+      navigate('/personalinfo')
+
+      // Clear the form and close the modal
+      setLoginDetails({ email: "", password: "" });
+      handleClose();
+    } else {
+      Swal.fire({
+        title: "Login Failed",
+        text: response.data.message || "Invalid email or password.",
+        icon: "error",
+        confirmButtonText: "Try Again",
+      });
+    }
+  } catch (error) {
+    Swal.fire({
+      title: "Error",
+      text: error.response?.data?.message || "Server error. Please try again later.",
+      icon: "error",
+      confirmButtonText: "OK",
+    });
+  }
+};
+
+
 
 
  
@@ -523,166 +635,220 @@ Hair Oil
 {/* modal code for login----------- */}
 
 <Modal
-  show={show} 
-  onHide={handleClose}
-  centered
-  dialogClassName="custom-modal"
->
-  <Modal.Header style={{backgroundColor:"linear-gradient(to right, #fc2779, #ff79b0)"}} closeButton >
-  <Modal.Title
-  style={{
-    fontSize: '24px',
-    fontWeight: '600',
-    color: '#fff', // Ensure text is visible on the gradient
-    background: 'linear-gradient(to right, #fc2779, #ff79b0)',
-    WebkitBackgroundClip: 'text', // Optional: Makes the text itself take the gradient color
-    WebkitTextFillColor: 'transparent', // Optional: Fills the text with the gradient
-    padding: '10px', // Add padding for better appearance
-    borderRadius: '8px', // Round the corners
-  }}
->
-  Welcome to Kiona
-</Modal.Title>
-  </Modal.Header>
-  <Modal.Body>
-    <div
-      style={{
-        display: 'flex',
-        fontFamily: 'Arial, sans-serif',
-        gap: '20px',
-        flexWrap: 'wrap', // Makes it responsive
-      }}
+      show={show}
+      onHide={handleClose}
+      centered
+      dialogClassName="custom-modal"
     >
-      {/* Left Section */}
-      <div
+      <Modal.Header
         style={{
-          flex: 1,
-          background: 'linear-gradient(135deg, #0078D7, #56CCF2)',
-          color: 'white',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: '30px',
-          borderRadius: '10px',
-          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+          backgroundColor: "linear-gradient(to right, #fc2779, #ff79b0)",
         }}
+        closeButton
       >
-        <h2 style={{ marginBottom: '10px', fontWeight: 'bold' }}>Welcome!</h2>
-        <p style={{ fontSize: '16px', marginBottom: '20px', textAlign: 'center' }}>
-          Sign up with your mobile number to explore our features.
-        </p>
-        <img
-          src="https://c8.alamy.com/comp/2BHAEDT/login-icon-isolated-on-special-blue-round-button-abstract-illustration-2BHAEDT.jpg"
-          alt="Sign Up Illustration"
+        <Modal.Title
           style={{
-            width: '150px',
-            height: 'auto',
-            borderRadius: '10px',
-            boxShadow: '0 4px 8px rgba(255, 255, 255, 0.3)',
+            fontSize: "24px",
+            fontWeight: "600",
+            color: "#fff",
+            background: "linear-gradient(to right, #fc2779, #ff79b0)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            padding: "10px",
+            borderRadius: "8px",
           }}
-        />
-      </div>
+        >
+          Welcome to Kiona
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <div
+          style={{
+            display: "flex",
+            fontFamily: "Arial, sans-serif",
+            gap: "20px",
+            flexWrap: "wrap",
+          }}
+        >
+          {/* Left Section */}
+          <div
+            style={{
+              flex: 1,
+              background: "linear-gradient(135deg, #0078D7, #56CCF2)",
+              color: "white",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "30px",
+              borderRadius: "10px",
+              boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
+            }}
+          >
+            <h2 style={{ marginBottom: "10px", fontWeight: "bold" }}>
+              Welcome!
+            </h2>
+            <p
+              style={{
+                fontSize: "16px",
+                marginBottom: "20px",
+                textAlign: "center",
+              }}
+            >
+              Sign in with your email and password to explore our features.
+            </p>
+            <img
+              src="https://c8.alamy.com/comp/2BHAEDT/login-icon-isolated-on-special-blue-round-button-abstract-illustration-2BHAEDT.jpg"
+              alt="Sign In Illustration"
+              style={{
+                width: "150px",
+                height: "auto",
+                borderRadius: "10px",
+                boxShadow: "0 4px 8px rgba(255, 255, 255, 0.3)",
+              }}
+            />
+          </div>
 
-      {/* Right Section */}
-      <div
-        style={{
-          flex: 1,
-          backgroundColor: '#F9F9F9',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: '30px',
-          borderRadius: '10px',
-          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-        }}
-      >
-        <div style={{ maxWidth: '300px', width: '100%' }}>
-          <label
-            htmlFor="mobileNumber"
+          {/* Right Section */}
+          <div
             style={{
-              fontSize: '14px',
-              marginBottom: '8px',
-              display: 'block',
-              color: '#555',
+              flex: 1,
+              backgroundColor: "#F9F9F9",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "30px",
+              borderRadius: "10px",
+              boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
             }}
           >
-            Enter Mobile Number
-          </label>
-          <input
-            type="text"
-            id="mobileNumber"
-            placeholder="Enter Your Mobile No."
-            style={{
-              width: '100%',
-              padding: '12px',
-              border: '1px solid #ddd',
-              borderRadius: '4px',
-              marginBottom: '15px',
-              fontSize: '14px',
-              outline: 'none',
-            }}
-          />
-          <p style={{ fontSize: '12px', marginBottom: '20px', color: '#777' }}>
-            By continuing, you agree to Kiona{' '}
-            <a href="#" style={{ color: '#0078D7', textDecoration: 'none' }}>
-              Terms of Use
-            </a>{' '}
-            and{' '}
-            <a href="#" style={{ color: '#0078D7', textDecoration: 'none' }}>
-              Privacy Policy
-            </a>.
-          </p>
-          <button
-            style={{
-              width: '100%',
-              backgroundColor: '#FF5722',
-              color: 'white',
-              padding: '12px',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-              fontSize: '14px',
-              marginBottom: '10px',
-              boxShadow: '0 4px 8px rgba(255, 87, 34, 0.2)',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={(e) => (e.target.style.boxShadow = '0 6px 12px rgba(255, 87, 34, 0.4)')}
-            onMouseLeave={(e) => (e.target.style.boxShadow = '0 4px 8px rgba(255, 87, 34, 0.2)')}
-          >
-            CONTINUE
-          </button>
-          <button
-          onClick={handleShow6}
-            style={{
-              width: '100%',
-              backgroundColor: 'white',
-              color: '#0078D7',
-              padding: '12px',
-              border: '1px solid #ddd',
-              borderRadius: '4px',
-              fontWeight: 'bold',
-              fontSize: '14px',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={(e) => (e.target.style.border = '1px solid #0078D7')}
-            onMouseLeave={(e) => (e.target.style.border = '1px solid #ddd')}
-          >
-            New User? Sinup
-          </button>
+            <form onSubmit={handleSubmit2} style={{ maxWidth: "300px", width: "100%" }}>
+              <label
+                htmlFor="email"
+                style={{
+                  fontSize: "14px",
+                  marginBottom: "8px",
+                  display: "block",
+                  color: "#555",
+                }}
+              >
+                Enter Email ID
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter Your Email ID"
+                // value={loginDetails.email}
+                onChange={handleInputChange1}
+                
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  border: "1px solid #ddd",
+                  borderRadius: "4px",
+                  marginBottom: "15px",
+                  fontSize: "14px",
+                  outline: "none",
+                }}
+                required
+              />
+              <label
+                htmlFor="password"
+                style={{
+                  fontSize: "14px",
+                  marginBottom: "8px",
+                  display: "block",
+                  color: "#555",
+                }}
+              >
+                Enter Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter Your Password"
+                // value={loginDetails.password}
+                onChange={handleInputChange1}
+
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  border: "1px solid #ddd",
+                  borderRadius: "4px",
+                  marginBottom: "15px",
+                  fontSize: "14px",
+                  outline: "none",
+                }}
+                required
+              />
+              <p style={{ fontSize: "12px", color: "#777", marginBottom: "15px" }}>
+                <button
+                  style={{
+                    backgroundColor: "transparent",
+                    color: "#0078D7",
+                    border: "none",
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                    fontSize: "12px",
+                    padding: "0",
+                    margin: "0",
+                  }}
+                  onClick={handleShow7}
+                >
+                  Forgot Password?
+                </button>
+              </p>
+              <button
+                type="submit"
+                style={{
+                  width: "100%",
+                  backgroundColor: "#FF5722",
+                  color: "white",
+                  padding: "12px",
+                  border: "none",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                  marginBottom: "10px",
+                  boxShadow: "0 4px 8px rgba(255, 87, 34, 0.2)",
+                  transition: "all 0.3s ease",
+                }}
+              >
+                CONTINUE
+              </button>
+              <button
+                type="button"
+                onClick={handleShow6}
+                style={{
+                  width: "100%",
+                  backgroundColor: "white",
+                  color: "#0078D7",
+                  padding: "12px",
+                  border: "1px solid #ddd",
+                  borderRadius: "4px",
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease",
+                }}
+              >
+                New User? Signup
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
-    </div>
-  </Modal.Body>
-  <Modal.Footer>
-    <Button variant="secondary" onClick={handleClose}>
-      Close
-    </Button>
-  </Modal.Footer>
-</Modal>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
+
 
 
 
@@ -1091,73 +1257,182 @@ Hair Oil
 {/* sinup for user--------------------------------------------------------------------- */}
 
 <Modal show={show6} onHide={handleClose6}>
-        <Modal.Header closeButton>
+      <Modal.Header closeButton>
         <Modal.Title>Customer Signup</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formName" className="mb-3">
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter your name"
-                name="name"
-                // value={formData.name}
-                // onChange={handleInputChange}
-                // required
-              />
-            </Form.Group>
+      </Modal.Header>
+      <Modal.Body>
+        <Form onSubmit={handleSubmit6}>
+          <Form.Group controlId="formName" className="mb-3">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your name"
+              name="name"
+              // value={setFormData1.name}
+              onChange={handleInputChange}
+             
+            />
+          </Form.Group>
 
-            <Form.Group controlId="formEmail" className="mb-3">
-              <Form.Label>Email ID</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter your email"
-                name="email"
-                // value={formData.email}
-                // onChange={handleInputChange}
-                // required
-              />
-            </Form.Group>
+          <Form.Group controlId="formEmail" className="mb-3">
+            <Form.Label>Email ID</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter your email"
+              name="email"
+              // value={setFormData1.email}
+              onChange={handleInputChange}
+            
+            />
+          </Form.Group>
 
-            <Form.Group controlId="formPhone" className="mb-3">
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control
-                type="tel"
-                placeholder="Enter your phone number"
-                name="phone"
-                // value={formData.phone}
-                // onChange={handleInputChange}
-                // required
-              />
-            </Form.Group>
+          <Form.Group controlId="formPhone" className="mb-3">
+            <Form.Label>Phone Number</Form.Label>
+            <Form.Control
+              type="tel"
+              placeholder="Enter your phone number"
+              name="phone"
+              // value={setFormData1.phone}
+              onChange={handleInputChange}
+            
+            />
+          </Form.Group>
 
-            <Form.Group controlId="formPassword" className="mb-3">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Enter your password"
-                name="password"
-                // value={formData.password}
-                // onChange={handleInputChange}
-                // required
-              />
-            </Form.Group>
+          <Form.Group controlId="formPassword" className="mb-3">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Enter your password"
+              name="password"
+              // value={setFormData1.password}
+              onChange={handleInputChange}
+             
+            />
+          </Form.Group>
 
-            <Button variant="primary" type="submit">
-              Signup
-            </Button>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose6}>
-            Close
+          {error && <div className="alert alert-danger">{error}</div>}
+          {successMessage && <div className="alert alert-success">{successMessage}</div>}
+
+          <Button variant="primary" type="submit">
+            Signup
           </Button>
-          {/* <Button variant="primary" onClick={handleClose6}>
-            Save Changes
-          </Button> */}
-        </Modal.Footer>
-      </Modal>
+        </Form>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose6}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
+
+
+      {/* forgot password user code----------------------------------------------------------------- */}
+
+      <Modal show={show7} onHide={handleClose7} centered>
+  <Modal.Header
+    closeButton
+    style={{
+      backgroundColor: "#f8f9fa",
+      borderBottom: "1px solid #dee2e6",
+    }}
+  >
+    <Modal.Title
+      style={{
+        fontSize: "20px",
+        fontWeight: "600",
+        color: "#333",
+      }}
+    >
+      Forgot Password
+    </Modal.Title>
+  </Modal.Header>
+  <Modal.Body
+    style={{
+      padding: "20px",
+      fontFamily: "'Arial', sans-serif",
+    }}
+  >
+    <p
+      style={{
+        fontSize: "14px",
+        color: "#555",
+        marginBottom: "15px",
+        textAlign: "center",
+      }}
+    >
+      Enter your email address below to receive password reset instructions.
+    </p>
+    <input
+      type="email"
+      placeholder="Enter your email address"
+      style={{
+        width: "100%",
+        padding: "12px",
+        fontSize: "14px",
+        border: "1px solid #ddd",
+        borderRadius: "4px",
+        marginBottom: "20px",
+        outline: "none",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+      }}
+    />
+    <p
+      style={{
+        fontSize: "14px",
+        color: "#555",
+        marginTop: "10px",
+        textAlign: "center",
+      }}
+    >
+      After submitting, check your email for a reset link. Follow the instructions to create a new password.
+    </p>
+  </Modal.Body>
+  <Modal.Footer
+    style={{
+      borderTop: "1px solid #dee2e6",
+      display: "flex",
+      justifyContent: "space-between",
+    }}
+  >
+    <Button
+      variant="secondary"
+      onClick={handleClose7}
+      style={{
+        padding: "10px 20px",
+        backgroundColor: "#6c757d",
+        borderColor: "#6c757d",
+        color: "#fff",
+        fontWeight: "500",
+        borderRadius: "4px",
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+      }}
+      onMouseEnter={(e) => (e.target.style.backgroundColor = "#5a6268")}
+      onMouseLeave={(e) => (e.target.style.backgroundColor = "#6c757d")}
+    >
+      Close
+    </Button>
+    <Button
+      variant="primary"
+      style={{
+        padding: "10px 20px",
+        backgroundColor: "#007bff",
+        borderColor: "#007bff",
+        color: "#fff",
+        fontWeight: "500",
+        borderRadius: "4px",
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+      }}
+      onMouseEnter={(e) => (e.target.style.backgroundColor = "#0056b3")}
+      onMouseLeave={(e) => (e.target.style.backgroundColor = "#007bff")}
+    >
+      Send Reset Link
+    </Button>
+  </Modal.Footer>
+</Modal>
+
+
 
 
 

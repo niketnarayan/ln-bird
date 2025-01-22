@@ -229,6 +229,12 @@ const[product1,setproduct1]=useState([])
     
   const visibleBlogs = showAll ? blogPosts : blogPosts.slice(0, 3);
 
+  const [visibleProducts, setVisibleProducts] = useState(4);
+
+  const handleViewMore = () => {
+    setVisibleProducts((prevCount) => prevCount + 4); // Show 4 more products each time
+  };
+
   return (
     <div>
         <Header/>
@@ -604,23 +610,25 @@ const[product1,setproduct1]=useState([])
     ))}
   </div>
   <div className="text-center mt-4">
-    <button
-      className="view-all-btn"
-      style={{
-        backgroundColor: "#333",
-        color: "#fff",
-        border: "none",
-        padding: "10px 20px",
-        borderRadius: "5px",
-        fontSize: "1rem",
-        cursor: "pointer",
-        transition: "all 0.3s ease",
-      }}
-      onClick={() => navigate("/all-products")}
-    >
-      View All
-    </button>
-  </div>
+        {visibleProducts < product1.length && ( // Show button only if there are more products
+          <button
+            className="view-more-btn"
+            style={{
+              backgroundColor: "#333",
+              color: "#fff",
+              border: "none",
+              padding: "10px 20px",
+              borderRadius: "5px",
+              fontSize: "1rem",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+            }}
+            onClick={handleViewMore}
+          >
+            View More
+          </button>
+        )}
+      </div>
 </div>
 
 
@@ -633,7 +641,7 @@ const[product1,setproduct1]=useState([])
     gridTemplateColumns: "repeat(12, 1fr)",
     gap: "16px",
     padding: "16px",
-    backgroundColor:"#fcf7ee"
+    backgroundColor: "#fcf7ee",
   }}
 >
   {/* Body Care */}
@@ -643,7 +651,7 @@ const[product1,setproduct1]=useState([])
         position: "relative",
         overflow: "hidden",
         borderRadius: "8px",
-        height: "300px", // Adjust height
+        height: "300px",
       }}
     >
       <img
@@ -652,7 +660,7 @@ const[product1,setproduct1]=useState([])
         style={{
           width: "100%",
           height: "100%",
-          objectFit: "cover", // Ensures image fills the container
+          objectFit: "cover",
         }}
       />
       <div
@@ -687,7 +695,7 @@ const[product1,setproduct1]=useState([])
         position: "relative",
         overflow: "hidden",
         borderRadius: "8px",
-        height: "300px", // Adjust height
+        height: "300px",
       }}
     >
       <img
@@ -731,7 +739,7 @@ const[product1,setproduct1]=useState([])
         position: "relative",
         overflow: "hidden",
         borderRadius: "8px",
-        height: "300px", // Adjust height
+        height: "300px",
       }}
     >
       <img
@@ -775,7 +783,7 @@ const[product1,setproduct1]=useState([])
         position: "relative",
         overflow: "hidden",
         borderRadius: "8px",
-        height: "300px", // Adjust height
+        height: "300px",
       }}
     >
       <img
@@ -819,7 +827,7 @@ const[product1,setproduct1]=useState([])
         position: "relative",
         overflow: "hidden",
         borderRadius: "8px",
-        height: "300px", // Adjust height
+        height: "300px",
       }}
     >
       <img
@@ -855,7 +863,52 @@ const[product1,setproduct1]=useState([])
       </div>
     </div>
   </div>
+
+  <style>
+    {`
+      @media (max-width: 1200px) {
+        div[style*="gridColumn"] {
+          grid-column: span 6 !important; /* Adjust for medium screens */
+        }
+      }
+
+      @media (max-width: 768px) {
+        div[style*="gridColumn"] {
+          grid-column: span 12 !important; /* Stack items for small screens */
+        }
+
+        img {
+          height: auto; /* Ensure images maintain aspect ratio */
+        }
+      }
+
+      @media (max-width: 480px) {
+        div[style*="gridColumn"] {
+          padding: 8px; /* Reduce padding for smaller screens */
+        }
+
+        div[style*="height: 300px"] {
+          height: 200px; /* Adjust height for smaller screens */
+        }
+
+        h5 {
+          font-size: 1.2rem; /* Smaller heading size */
+        }
+
+        h6 {
+          font-size: 0.8rem; /* Adjust subheading */
+        }
+
+        a {
+          font-size: 0.9rem; /* Adjust link size */
+        }
+      }
+    `}
+  </style>
 </div>
+
+
+
 
 {/* single products-------------------------------------------------------------------------- */}
 
@@ -1022,113 +1075,224 @@ Incredible Products
 {/* video secton- start------------------------------------------------------------------- */}
 
 <div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "50px",
+    backgroundColor: "#c9bba6",
+    height: "auto", // Allow height to adjust
+    fontFamily: "'Arial', sans-serif",
+    flexWrap: "wrap", // Wrap items for smaller screens
+  }}
+>
+  {/* Left Section */}
+  <div
+    style={{
+      maxWidth: "60%",
+      flex: "1 1 60%",
+      minWidth: "300px",
+      marginBottom: "20px",
+    }}
+  >
+    <p
       style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "50px",
-        backgroundColor: "#c9bba6", // Matches the light beige background
-        height: "400px", // Adjust as needed
-        fontFamily: "'Arial', sans-serif",
+        textTransform: "uppercase",
+        fontSize: "0.9rem",
+        letterSpacing: "1px",
+        fontWeight: "600",
+        color: "#999",
+        marginBottom: "10px",
       }}
     >
-      {/* Left Section */}
-      <div style={{ maxWidth: "60%" }}>
-        <p
-          style={{
-            textTransform: "uppercase",
-            fontSize: "0.9rem",
-            letterSpacing: "1px",
-            fontWeight: "600",
-            color: "#999",
-            marginBottom: "10px",
-          }}
-        >
-          Award Winning Beauty Products
-        </p>
-        <h1
-          style={{
-            fontSize: "2.5rem",
-            fontWeight: "bold",
-            color: "#000",
-            marginBottom: "20px",
-            lineHeight: "1.2",
-          }}
-        >
-          Highly performing beauty formula
-        </h1>
-        <p
-          style={{
-            fontSize: "1rem",
-            color: "#555",
-            marginBottom: "30px",
-            lineHeight: "1.6",
-          }}
-        >
-          Etiam ullamcorper facilisis porta. Donec tincidunt metus a elit
-          tempor, a condimentum sapien laoreet. Nullam metus orci, malesuada ac
-          tincidunt vitae, tincidunt eu elit. Phasellus.
-        </p>
-        <button
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#f5e6c8",
-            border: "none",
-            borderRadius: "5px",
-            fontSize: "1rem",
-            fontWeight: "bold",
-            color: "#000",
-            cursor: "pointer",
-            transition: "all 0.3s ease",
-          }}
-          onMouseEnter={(e) =>
-            (e.currentTarget.style.backgroundColor = "#e5d4b8")
-          }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.backgroundColor = "#f5e6c8")
-          }
-        >
-          Explore Now
-        </button>
-      </div>
+      Award Winning Beauty Products
+    </p>
+    <h1
+      style={{
+        fontSize: "2.5rem",
+        fontWeight: "bold",
+        color: "#000",
+        marginBottom: "20px",
+        lineHeight: "1.2",
+      }}
+    >
+      Highly performing beauty formula
+    </h1>
+    <p
+      style={{
+        fontSize: "1rem",
+        color: "#555",
+        marginBottom: "30px",
+        lineHeight: "1.6",
+      }}
+    >
+      Etiam ullamcorper facilisis porta. Donec tincidunt metus a elit tempor, a
+      condimentum sapien laoreet. Nullam metus orci, malesuada ac tincidunt
+      vitae, tincidunt eu elit. Phasellus.
+    </p>
+    <button
+      style={{
+        padding: "10px 20px",
+        backgroundColor: "#f5e6c8",
+        border: "none",
+        borderRadius: "5px",
+        fontSize: "1rem",
+        fontWeight: "bold",
+        color: "#000",
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+      }}
+      onMouseEnter={(e) =>
+        (e.currentTarget.style.backgroundColor = "#e5d4b8")
+      }
+      onMouseLeave={(e) =>
+        (e.currentTarget.style.backgroundColor = "#f5e6c8")
+      }
+    >
+      Explore Now
+    </button>
+  </div>
 
-      {/* Right Section */}
-      <div style={{ textAlign: "center" }}>
-        <div
-          style={{
-            width: "80px",
-            height: "80px",
-            borderRadius: "50%",
-            backgroundColor: "#f9f4ec",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-          }}
-        >
-          <div
-            style={{
-              width: "20px",
-              height: "20px",
-              borderLeft: "10px solid transparent",
-              borderRight: "10px solid transparent",
-              borderTop: "15px solid #000",
-            }}
-          ></div>
-        </div>
-        <p
-          style={{
-            marginTop: "10px",
-            fontSize: "0.9rem",
-            fontWeight: "600",
-            color: "#000",
-          }}
-        >
-          Play Video
-        </p>
-      </div>
+  {/* Right Section */}
+  <div
+    style={{
+      textAlign: "center",
+      flex: "1 1 30%",
+      minWidth: "200px",
+    }}
+  >
+    <div
+      style={{
+        width: "80px",
+        height: "80px",
+        borderRadius: "50%",
+        backgroundColor: "#f9f4ec",
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        margin: "0 auto",
+      }}
+    >
+      <div
+        style={{
+          width: "20px",
+          height: "20px",
+          borderLeft: "10px solid transparent",
+          borderRight: "10px solid transparent",
+          borderTop: "15px solid #000",
+        }}
+      ></div>
     </div>
+    <p
+      style={{
+        marginTop: "10px",
+        fontSize: "0.9rem",
+        fontWeight: "600",
+        color: "#000",
+      }}
+    >
+      Play Video
+    </p>
+  </div>
+
+  <style>
+    {`
+      @media (max-width: 1024px) {
+        div[style*="padding: 50px"] {
+          padding: 30px; /* Reduce padding for medium screens */
+        }
+
+        h1 {
+          font-size: 2rem; /* Adjust heading font size */
+        }
+
+        button {
+          font-size: 0.9rem; /* Adjust button font size */
+          padding: 8px 16px;
+        }
+
+        div[style*="width: 80px"] {
+          width: 70px; /* Adjust play button size */
+          height: 70px;
+        }
+
+        div[style*="borderTop: 15px solid"] {
+          borderTop: 12px solid #000; /* Adjust play icon size */
+        }
+      }
+
+      @media (max-width: 768px) {
+        div[style*="flexWrap"] {
+          flex-direction: column; /* Stack sections vertically */
+          align-items: center;
+          text-align: center;
+        }
+
+        div[style*="maxWidth: 60%"] {
+          maxWidth: 100%; /* Expand left section */
+        }
+
+        div[style*="flex: 1 1 30%"] {
+          margin-top: 20px; /* Add space between sections */
+        }
+
+        h1 {
+          font-size: 1.8rem; /* Adjust heading font size */
+        }
+
+        p {
+          font-size: 0.9rem; /* Adjust paragraph font size */
+        }
+
+        button {
+          font-size: 0.8rem; /* Adjust button font size */
+          padding: 8px 12px; /* Adjust button padding */
+        }
+
+        div[style*="width: 80px"] {
+          width: 60px; /* Adjust play button size */
+          height: 60px;
+        }
+
+        div[style*="borderTop: 15px solid"] {
+          borderTop: 10px solid #000; /* Adjust play icon size */
+        }
+      }
+
+      @media (max-width: 480px) {
+        div[style*="flexWrap"] {
+          padding: 20px; /* Further reduce padding */
+        }
+
+        h1 {
+          font-size: 1.5rem; /* Smaller heading */
+        }
+
+        p {
+          font-size: 0.8rem; /* Smaller text */
+        }
+
+        button {
+          font-size: 0.7rem; /* Smaller button text */
+          padding: 6px 10px;
+        }
+
+        div[style*="width: 80px"] {
+          width: 50px; /* Smaller play button */
+          height: 50px;
+        }
+
+        div[style*="borderTop: 15px solid"] {
+          borderTop: 8px solid #000; /* Smaller play icon */
+        }
+      }
+    `}
+  </style>
+</div>
+
+
 
 
 {/* our stander start------------------------------------------------------------------------------- */}
