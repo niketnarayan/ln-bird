@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Sidebarcu from "./Sidebarcu";
+import Cuheader from "./Cuheader";
 
 function Personalinfo() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -39,7 +40,13 @@ function Personalinfo() {
 
   return (
     <div>
-      <Sidebarcu isSidebarCollapsed={isSidebarCollapsed} toggleSidebar={toggleSidebar} />
+      <div> <Sidebarcu/></div>
+   
+      <div style={{marginLeft:"260px",marginTop:"-100px",position:"relative"}} ><Cuheader /></div>
+   
+
+
+      {/* <Sidebarcu isSidebarCollapsed={isSidebarCollapsed} toggleSidebar={toggleSidebar} /> */}
       <div
         style={{
           marginLeft: isSidebarCollapsed ? "80px" : "250px",
@@ -49,6 +56,7 @@ function Personalinfo() {
           minHeight: "100vh",
           fontFamily: "'Roboto', sans-serif",
           color: "#333",
+          marginTop:"100px"
         }}
       >
         <div
@@ -59,6 +67,7 @@ function Personalinfo() {
             padding: "30px",
             borderRadius: "12px",
             boxShadow: "0 8px 15px rgba(0, 0, 0, 0.1)",
+            marginTop:"100px"
           }}
         >
           <h2

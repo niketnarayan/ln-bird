@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Sidebarcu from "./Sidebarcu";
+import Cuheader from "./Cuheader";
 
 function Manageadds() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -58,7 +59,10 @@ function Manageadds() {
 
   return (
     <div>
-      <Sidebarcu isSidebarCollapsed={isSidebarCollapsed} toggleSidebar={toggleSidebar} />
+         <div> <Sidebarcu/></div>
+   
+   <div style={{marginLeft:"260px",marginTop:"-100px",position:"relative"}} ><Cuheader /></div>
+      {/* <Sidebarcu isSidebarCollapsed={isSidebarCollapsed} toggleSidebar={toggleSidebar} /> */}
       <div
         style={{
           marginLeft: isSidebarCollapsed ? "80px" : "250px",
@@ -68,10 +72,17 @@ function Manageadds() {
           backgroundColor: "#f8f9fa",
           minHeight: "100vh",
           fontFamily: "Arial, sans-serif",
+          marginTop:"100px"
         }}
       >
-        <h2 style={{ marginBottom: "20px" }}>Manage Addresses</h2>
-
+              <div
+          style={{ 
+            margin: "auto",
+            marginTop:"100px"
+          }}
+        >
+   
+   <h2 >Manage Addresses</h2>
         {!isFormVisible && (
           <div
             style={{
@@ -245,6 +256,7 @@ function Manageadds() {
             </div>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

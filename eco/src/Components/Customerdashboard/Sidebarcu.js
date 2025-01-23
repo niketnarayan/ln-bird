@@ -10,7 +10,7 @@ function Sidebarcu() {
         style={{
           minHeight: "100vh",
           width: "250px", // Increased sidebar width
-          position: "fixed",
+          position: "absolute",
           top: "0",
           left: "0",
           overflowX: "hidden",

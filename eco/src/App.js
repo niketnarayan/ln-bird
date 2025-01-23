@@ -39,6 +39,8 @@ import Blog2 from './Components/Blog2';
 import Sidebarcu from './Components/Customerdashboard/Sidebarcu';
 import Personalinfo from './Components/Customerdashboard/Personalinfo';
 import Manageadds from './Components/Customerdashboard/Manageadds';
+import Cuheader from './Components/Customerdashboard/Cuheader';
+import Cudashboard from './Components/Customerdashboard/Cudashboard';
 
 
 
@@ -86,10 +88,12 @@ function App() {
      <Route path='/combo' element={<Combo/>}/>
      <Route path='/personalinfo' element={<Personalinfo/>}/>
      <Route path='/manageadds' element={<Manageadds/>}/>
+     <Route path='/cudasboard' element={<Cudashboard/>}/>
      </Routes>
 
      {/* <Sidebarcu/>
      <Personalinfo/> */}
+     {/* <Cuheader/> */}
 
      </div>
      </BrowserRouter>

@@ -475,12 +475,13 @@ const[product1,setproduct1]=useState([])
 
 
 <div className="grocery">
-  <h2
+  <h1
     className="grocery-heading text-center"
-    style={{ marginBottom: "20px", fontSize: "2rem", color: "#333" }}
+    style={{ marginBottom: "20px", color: "#333" }}
   >
     Combo Product
-  </h2>
+  </h1>
+  <div className="empty-div"></div>
   <div className="row justify-content-center">
     {product1.map((product, index) => (
       <React.Fragment key={product.id}>
@@ -913,12 +914,13 @@ const[product1,setproduct1]=useState([])
 {/* single products-------------------------------------------------------------------------- */}
 
 <div className="grocery">
-  <h2
+  <h1
     className="grocery-heading text-center"
-    style={{ marginBottom: "20px", fontSize: "2rem", color: "#333" }}
+    style={{ marginBottom: "20px", color: "#333" }}
   >
 Incredible Products
-  </h2>
+  </h1>
+  <div className="empty-div"></div>
   <div
     className="row justify-content-center"
     style={{
@@ -1474,17 +1476,17 @@ Incredible Products
 {/* revie */}
 
 <Container fluid style={{ padding: "40px"}}>
-  <h2
+  <h1
+  className="revie-div"
     style={{
       textAlign: "center",
       marginBottom: "20px",
-      fontSize: "32px",
       color: "#333",
-      fontWeight: "bold",
     }}
   >
     Customer Reviews
-  </h2>
+  </h1>
+  <div className="empty-div"></div>
 
   <Carousel interval={3000} indicators={true} controls={true}>
     {reviews.map((review, idx) => (

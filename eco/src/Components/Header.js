@@ -428,7 +428,7 @@ const handleSubmit2 = async (e) => {
         icon: "success",
         confirmButtonText: "OK",
       });
-      navigate('/personalinfo')
+      navigate('/cudasboard')
 
       // Clear the form and close the modal
       setLoginDetails({ email: "", password: "" });
