@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const order = new mongoose.Schema({
   firstName: String,
   lastName: String,
+  email: String,
   mobileNumber: String,
   apartmentNumber: String,
   apartmentName: String,
@@ -12,6 +13,7 @@ const order = new mongoose.Schema({
   pincode: String,
   cartItems: [
     {
+      product_image: [],
       product_name: String,
       product_price: Number,
       product_quantity: Number,

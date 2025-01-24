@@ -3,7 +3,7 @@ const {add_product,viewproduct, delete_product,edit_product, viewproductbyid, vi
 const upload=require('../Middleware/file');
 const { uploadBanner, getAllBanners, deleteBanner, editBanner } = require('../Controllers/addbanner');
 const uploadFields = require('../Middleware/bannerfile');
-const { createOrder, getAllOrders } = require('../Controllers/order');
+const { createOrder, getAllOrders, vieworderbyemail } = require('../Controllers/order');
 const { signup, login } = require('../Controllers/user');
 const protectRoute=require('../Middleware/routemiddle');
 const payment = require('../Controllers/payment');
@@ -46,6 +46,7 @@ router.post(
   
   router.post('/createOrder', createOrder);
   router.get('/getAllOrders', getAllOrders);
+  router.get('/viewordersbyemail/:email', vieworderbyemail);
 
   router.post('/signup', signup);
   router.post('/login', login);

@@ -53,51 +53,130 @@ function Combo() {
   return (
     <div>
       <Header/>
-       <div className="grocery1" style={{marginTop:"10rem",backgroundColor:"rgba(223, 255, 191, 0.18)",}}>
+       <div className="grocery1" style={{marginTop:"5rem",backgroundColor:"rgba(223, 255, 191, 0.18)",}}>
                 <div className="row">
                   {comboproduct.map((product, index) => (
-                    <React.Fragment key={product.id}>
-                     
-                      <div
-                        className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center align-items-center"
-                      >
-                        <div
-                          className="grocery-card"
-                          style={{
-                            width: "98%",
-                            maxWidth: "280px",
-                            height: "430px",
-                            backgroundColor: "#fff",
-                            padding: "20px",
-                            border: "1px solid #ddd",
-                            borderRadius: "10px",
-                            boxShadow: "0 6px 10px rgba(0, 0, 0, 0.1)",
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "space-between",
-                            alignItems: "center", 
-                            textAlign: "center",
-                          }}
-                        >
-                          <img
-                            src={product.product_image}
-                            alt={product.product_name}
-                            className="grocery-card-image img-fluid"
-                            style={{
-                            }}
-                            onClick={() => navigate('/vitamincfaceash',{state:product._id})}
-                          />
-                          <span className="grocery-card-name">{product.product_name}</span>
-                          <p className="grocery-card-price">MRP: ₹{product.product_price}</p>
-                          <button
-                            onClick={() => handleprouctadd(product)}
-                            className="grocery-card-button btn btn-primary"
-                          >
-                            Add to Cart
-                          </button>
-                        </div>
-                      </div>
-                    </React.Fragment>
+                     <React.Fragment key={product.id}>
+                     <div
+                       className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex"
+                       style={{ height:"550px",background:"transparent"}}
+                     >
+                       <div
+                         className="grocery-card"
+                         style={{
+                           width: "95%",
+                           maxWidth: "300px",
+                           backgroundColor: "transparent",
+                           padding: "10px",
+                           border: "none",
+                           borderRadius: "10px",
+                           display: "flex",
+                           flexDirection: "column",
+                           justifyContent: "center",
+                           alignItems: "center",
+                           textAlign: "center",
+                           position: "relative",
+                           overflow: "hidden",
+                           // boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                           // transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                         }}
+                         onMouseEnter={(e) => {
+                           // e.currentTarget.style.transform = "scale(1.05)";
+                           // e.currentTarget.style.boxShadow = "0 6px 10px rgba(0, 0, 0, 0.2)";
+                           e.currentTarget.querySelector(".add-to-cart-btn").style.display =
+                             "block";
+                         }}
+                         onMouseLeave={(e) => {
+                           // e.currentTarget.style.transform = "scale(1)";
+                           // e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+                           e.currentTarget.querySelector(".add-to-cart-btn").style.display =
+                             "none";
+                         }}
+                       >
+                         <div style={{ position: "relative", width: "100%" }}>
+                           <img
+                             src={product.product_image}
+                             alt={product.product_name}
+                             className="grocery-card-image img-fluid"
+                             style={{
+                               width: "95%",
+                               height: "350px",
+                               objectFit: "cover",
+                               // borderRadius: "10px",
+                               cursor: "pointer",
+                               transition: "transform 0.3s ease",
+                             }}
+                           />
+                         </div>
+                         <span
+                           className="grocery-card-name"
+                           style={{
+                             fontSize: "1rem",
+                             height:"3rem",
+                             fontWeight: "bold",
+                             color: "#333",
+                             marginTop: "15px",
+                             textOverflow: "ellipsis",
+                             overflow: "hidden",
+                             whiteSpace: "nowrap",
+                             maxWidth: "90%",
+                           }}
+                         >
+                           {product.product_name}
+                         </span>
+                         <div
+                           className="grocery-card-rating"
+                           style={{
+                             fontSize: "1rem",
+                             color: "#ffc107",
+                             margin: "5px 0",
+                             display: "flex",
+                             justifyContent: "center",
+                           }}
+                         >
+                           {"★".repeat(product.rating)}{" "}
+                           <span
+                             style={{
+                               color: "#ccc",
+                               marginLeft: "5px",
+                             }}
+                           >
+                             {"★".repeat(5 - product.rating)}
+                           </span>
+                         </div>
+                         <p
+                           className="grocery-card-price"
+                           style={{
+                             fontSize: "1rem",
+                             color: "#666",
+                             marginTop: "5px",
+                           }}
+                         >
+                           ₹{product.product_price}
+                         </p>
+                         <button
+               onClick={() => handleprouctadd(product)}
+               className="add-to-cart-btn"
+               style={{
+                 display: "none",
+                 backgroundColor: "#c8b89a",
+                 color: "#fff",
+                 border: "none",
+                 padding: "10px 30px", // Increased padding for better width
+                 borderRadius: "5px",
+                 fontSize: "0.9rem",
+                 cursor: "pointer",
+                 transition: "all 0.3s ease",
+                 marginTop: "10px", // Space below the price
+                 width: "80%", // Set specific width for consistency
+               }}
+             >
+               Add to Cart
+             </button>
+             
+                       </div>
+                     </div>
+                   </React.Fragment>
                   ))}
                 </div>
               </div> 

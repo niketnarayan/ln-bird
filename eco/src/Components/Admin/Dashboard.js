@@ -36,6 +36,7 @@ function Dashboard() {
             id: index + 1, // Add an ID for the DataGrid
             firstName: order.firstName,
             lastName: order.lastName,
+            email: order.email,
             mobileNumber: order.mobileNumber,
             apartmentNumber: order.apartmentNumber,
             apartmentName: order.apartmentName,
@@ -64,6 +65,7 @@ function Dashboard() {
       { field: 'id', headerName: 'ID', width: 70 },
       { field: 'firstName', headerName: 'First Name', width: 130 },
       { field: 'lastName', headerName: 'Last Name', width: 130 },
+      { field: 'email', headerName: 'User-Email', width: 130 },
       { field: 'mobileNumber', headerName: 'Mobile No.', width: 120 },
       { field: 'apartmentNumber', headerName: 'Apartment Number', width: 160 },
       { field: 'apartmentName', headerName: 'Apartment Name', width: 120 },

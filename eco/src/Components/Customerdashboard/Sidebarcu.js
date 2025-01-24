@@ -3,6 +3,18 @@ import { Link } from "react-router-dom";
 import { FaHome, FaImages, FaSignOutAlt, FaUserCircle } from "react-icons/fa";
 
 function Sidebarcu() {
+
+  const Logout = () =>{
+    
+    window.location.href = '/';
+    
+  }
+
+
+
+
+
+
   return (
     <div>
       <div
@@ -123,7 +135,7 @@ function Sidebarcu() {
             }}
           >
             <FaSignOutAlt className="me-2" style={{ fontSize: "1.2rem" }} />
-            <span>Logout</span>
+            <span onClick={Logout}>Logout</span>
           </Link>
         </div>
       </div>

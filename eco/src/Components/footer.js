@@ -14,7 +14,7 @@ function Footer() {
 
 
 <footer className="footer">
-    <div className="container-fluid">
+    <div className="container">
       <div className="row footer-row">
         {/* All Categories */}
         <div className="col-md-2 col-sm-6 col-12 footer-column">

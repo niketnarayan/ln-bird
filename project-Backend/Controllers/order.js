@@ -3,6 +3,8 @@ const Order = require('../Modals/order');
 // Create Order
 const createOrder = async (req, res) => {
   try {
+  
+    
     const orderData = req.body;
     const order = new Order(orderData);
     await order.save();
@@ -22,4 +24,16 @@ const getAllOrders = async (req, res) => {
   }
 };
 
-module.exports = { createOrder, getAllOrders };
+const vieworderbyemail= async(req,res)=>
+  {
+      try {
+        const email=req.params.email
+          const resp=await Order.find({email:email})
+          res.status(200).send({message:"order fetch",order:resp})
+      } catch (error) {
+          console.log(error);
+          
+      }
+  }
+
+module.exports = { createOrder, getAllOrders,vieworderbyemail };

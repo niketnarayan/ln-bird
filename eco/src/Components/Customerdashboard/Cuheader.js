@@ -12,11 +12,22 @@ import 'jspdf-autotable';
 
 function Cuheader() {
 
+  const useremail = localStorage.getItem('email')
+
+
+
     const {cart,setcart}=useCart()
-    const [formData, setFormData] = useState({
+    useEffect(()=>
+    {
+      console.log(cart);
+    },[])
+   
+    
+    const [orderdata, setorderdata] = useState({
       apartmentNumber: "",
       apartmentName: "",
       area: "",
+      email: "",
       landmark: "",
       firstName: "",
       lastName: "",
@@ -26,8 +37,12 @@ function Cuheader() {
       setDefault: false,
       cartItems: [],
       totalPrice:0,
-      payment_status:""
+      payment_status:"",
+      product_image:[]
     });
+
+   
+    
     
   
     
@@ -36,7 +51,7 @@ function Cuheader() {
     {
       const clength=cart.length
       setlength(clength)
-      setFormData({...formData,cartItems:cart})
+      setorderdata({...orderdata,cartItems:cart})
     })
   
     
@@ -89,11 +104,11 @@ function Cuheader() {
   
   useEffect(() => {
     const total = calculateTotalPrice();
-    setFormData(prevData => ({
+    setorderdata(prevData => ({
       ...prevData,
       totalPrice: total, 
     }));
-  }, [formData.cartItems]);
+  }, [orderdata.cartItems]);
   
   
   const [show1, setShow1] = useState(false);
@@ -120,29 +135,54 @@ function Cuheader() {
   
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
+    setorderdata({
+      ...orderdata,
       [name]: type === "checkbox" ? checked : value,
     });
   };
   
   const handleAddressType = (type) => {
-    setFormData({ ...formData, addressType: type });
+    setorderdata({ ...orderdata, addressType: type });
   };
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
+    console.log("Form Data Submitted:", orderdata);
   };
   
   
+ useEffect(()=>
+{
+  setorderdata({...orderdata,email:useremail})
+  
+  
+
+},[useremail])
+
+useEffect(()=>
+  {
+    setorderdata({...orderdata,product_image:cart.product_image})
+   
+    
+  
+  },[cart])
+
+useEffect(()=>
+  {
+   
+    console.log(cart.product_image);
+    
+  
+  },[cart])
   
   
   const handleSubmit1 = async (e) => {
   
     try {
-      const response = await api.post('createOrder', formData);
-      console.log('Response:', formData);
+      const response = await api.post('createOrder', orderdata);
+      console.log(response);
+      
+      console.log('Response:', orderdata);
   
       // Success Alert with "OK" button
       Swal.fire({
@@ -152,9 +192,10 @@ function Cuheader() {
         confirmButtonText: 'OK',
       }).then(() => {
         // Clear form fields and reload the window
-        setFormData({
+        setorderdata({
           firstName: '',
           lastName: '',
+          email: '',
           mobileNumber: '',
           apartmentNumber: '',
           apartmentName: '',
@@ -182,13 +223,13 @@ function Cuheader() {
       });
     }
   };
-  
+
   
   const handlePayment = async () => {
     try {
       // Step 1: Create Order on Backend
       const { data: order } = await api.post('payment', {
-        amount: formData.totalPrice, // Amount in INR
+        amount: orderdata.totalPrice, // Amount in INR
       });
   
       console.log('Order Created:', order);  // Debugging: Check if the order was created
@@ -212,7 +253,7 @@ function Cuheader() {
             generateInvoice(response);
   
             // Directly update the payment status in frontend
-            setFormData({ ...formData, payment_status: 'success' });
+            setorderdata({ ...orderdata, payment_status: 'success' });
   
             // Call your submit function to save data
             handleSubmit1();
@@ -221,9 +262,9 @@ function Cuheader() {
           }
         },
         prefill: {
-          name: formData.firstName,
+          name: orderdata.firstName,
           email: 'narayanniket2@gmail.com',
-          contact: formData.mobileNumber,
+          contact: orderdata.mobileNumber,
         },
         theme: {
           color: '#3399cc',
@@ -233,6 +274,7 @@ function Cuheader() {
       // Step 4: Initialize Razorpay Checkout
       const rzp = new window.Razorpay(options);
       rzp.open();
+      handleSubmit1();
       
     } catch (error) {
       console.error('Error during payment:', error);
@@ -241,8 +283,8 @@ function Cuheader() {
       alert('Payment Failed');
       
       // Set status to failed if payment fails
-      setFormData({ ...formData, payment_status: 'failed' });
-      handleSubmit1();
+      setorderdata({ ...orderdata, payment_status: 'failed' });
+    
     }
   };
   
@@ -622,7 +664,7 @@ function Cuheader() {
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
               {/* <li className="dropdown-item">Dashboard</li> */}
               <li className="dropdown-item">
-          <Link to="/my-orders"  style={{textDecoration:"none",color:"black"}}>My Orders</Link>
+          <Link to="/myorders"  style={{textDecoration:"none",color:"black"}}>My Orders</Link>
         </li>
         <li className="dropdown-item">
           <Link to="/personalinfo"  style={{textDecoration:"none",color:"black"}}>Personal Info</Link>
@@ -1018,7 +1060,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
             className="form-control"
             id="apartmentNumber"
             name="apartmentNumber"
-            value={formData.apartmentNumber}
+            value={orderdata.apartmentNumber}
             onChange={handleChange}
             placeholder="e.g. 12/228"
             required
@@ -1038,7 +1080,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
             className="form-control"
             id="apartmentName"
             name="apartmentName"
-            value={formData.apartmentName}
+            value={orderdata.apartmentName}
             onChange={handleChange}
             placeholder="e.g. Park Avenue"
             style={{
@@ -1088,6 +1130,27 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
             }}
           />
         </div>
+
+        <div className="col-md-6">
+          <label htmlFor="StreetDetails" className="form-label">
+          *user email
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="email"
+            name="email"
+           value={useremail}
+           readOnly
+            // onChange={handleChange}
+            // placeholder="e.g. Park Avenue"
+            style={{
+              borderRadius: "5px",
+              padding: "10px",
+              fontSize: "14px",
+            }}
+          />
+        </div>
       </div>
       <div className="col-md-6 mb-3">
         <label htmlFor="landmark" className="form-label">
@@ -1120,7 +1183,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
             className="form-control"
             id="firstName"
             name="firstName"
-            value={formData.firstName}
+            value={orderdata.firstName}
             onChange={handleChange}
             placeholder="e.g. John"
             required
@@ -1140,7 +1203,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
             className="form-control"
             id="lastName"
             name="lastName"
-            value={formData.lastName}
+            value={orderdata.lastName}
             onChange={handleChange}
             placeholder="e.g. Doe"
             style={{
@@ -1160,7 +1223,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
           className="form-control"
           id="mobileNumber"
           name="mobileNumber"
-          value={formData.mobileNumber}
+          value={orderdata.mobileNumber}
           onChange={handleChange}
           placeholder="e.g. 9876543210"
           required
@@ -1178,7 +1241,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
             className="form-check-input"
             id="setDefault"
             name="setDefault"
-            checked={formData.setDefault}
+            checked={orderdata.setDefault}
             onChange={handleChange}
           />
           <label htmlFor="setDefault" className="form-check-label">
@@ -1191,7 +1254,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
         <button
           type="button"
           className={`btn ${
-            formData.addressType === "Home"
+            orderdata.addressType === "Home"
               ? "btn-primary"
               : "btn-outline-primary"
           }`}
@@ -1212,7 +1275,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
         <button
           type="button"
           className={`btn ${
-            formData.addressType === "Office"
+            orderdata.addressType === "Office"
               ? "btn-primary"
               : "btn-outline-primary"
           }`}
@@ -1233,7 +1296,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
         <button
           type="button"
           className={`btn ${
-            formData.addressType === "Other"
+            orderdata.addressType === "Other"
               ? "btn-primary"
               : "btn-outline-primary"
           }`}

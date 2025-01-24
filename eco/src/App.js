@@ -41,6 +41,7 @@ import Personalinfo from './Components/Customerdashboard/Personalinfo';
 import Manageadds from './Components/Customerdashboard/Manageadds';
 import Cuheader from './Components/Customerdashboard/Cuheader';
 import Cudashboard from './Components/Customerdashboard/Cudashboard';
+import Myorders from './Components/Customerdashboard/myorders';
 
 
 
@@ -89,6 +90,7 @@ function App() {
      <Route path='/personalinfo' element={<Personalinfo/>}/>
      <Route path='/manageadds' element={<Manageadds/>}/>
      <Route path='/cudasboard' element={<Cudashboard/>}/>
+     <Route path='/myorders' element={<Myorders/>}/>
      </Routes>
 
      {/* <Sidebarcu/>

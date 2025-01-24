@@ -1547,6 +1547,7 @@ Incredible Products
     backgroundSize: "150px auto",
   }}
 >
+<div className="container">
   <div style={{ textAlign: "center", marginBottom: "40px" }}>
     <h1 className="kiona-tales">Kiona Tales</h1>
     <div className="empty-div"></div>
@@ -1615,6 +1616,7 @@ Incredible Products
     </button>
   </div>
 </div>
+</div>
 
 
 
@@ -1624,6 +1626,7 @@ Incredible Products
   style={{
     // background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
     minHeight: "20rem",
+    padding:"50px"
   }}
 >
   <div className="container-lg py-5">

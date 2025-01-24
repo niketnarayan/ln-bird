@@ -21,6 +21,9 @@ function Cudashboard() {
     {
       getproduct()
     })
+
+    const useremail = localStorage.getItem('email')
+  
   
    
   const[product1,setproduct1]=useState([])

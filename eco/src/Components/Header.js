@@ -429,6 +429,7 @@ const handleSubmit2 = async (e) => {
         confirmButtonText: "OK",
       });
       navigate('/cudasboard')
+      localStorage.setItem('email',loginDetails.email)
 
       // Clear the form and close the modal
       setLoginDetails({ email: "", password: "" });
@@ -971,6 +972,26 @@ Hair Oil
                 }}
               />
             </div>
+            {/* <div className="col-md-6">
+              <label htmlFor="apartmentNumber" className="form-label">
+                *user email
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="apartmentNumber"
+                name="apartmentNumber"
+                value={useremail}
+                // onChange={handleChange}
+                // placeholder="e.g. 12/228"
+                // required
+                style={{
+                  borderRadius: "5px",
+                  padding: "10px",
+                  fontSize: "14px",
+                }}
+              />
+            </div> */}
             <div className="col-md-6">
               <label htmlFor="apartmentName" className="form-label">
                 *Apartment Name
