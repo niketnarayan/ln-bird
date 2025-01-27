@@ -513,7 +513,7 @@ const handleSubmit2 = async (e) => {
     <div className="content-container" style={{display:"flex", width:"100%"}}>
     {/* Brand Logo */}
     <a style={{cursor:"pointer"}} className="navbar-brand text-white d-flex align-items-center" onClick={()=>navigate('/')}>
-      <span className="logo-icon me-1">Ⓚ</span><img className="image-fluid" src={logo} style={{width:"175px",height:"75px"}}></img>
+      <span className="logo-icon me-1">Ⓚ</span><img className="image-fluid" src={logo} style={{width:"175px",height:"80px"}}></img>
     </a>
 
     {/* Navbar links */}

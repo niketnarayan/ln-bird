@@ -243,7 +243,7 @@ const[product1,setproduct1]=useState([])
 {/* banner start----------------------------------------------------------------------------------------------- */}
 
 <div className="container-fluid p-0">
-  <Carousel data-bs-theme="dark" style={{ marginTop: "6.9rem" }}>
+  <Carousel data-bs-theme="dark" style={{marginTop:"110px",position:"relative"}}>
     {sliderImages.map((banner, index) => (
       <Carousel.Item key={index}>
         <img
@@ -313,7 +313,7 @@ const[product1,setproduct1]=useState([])
 <div
   style={{
     backgroundColor: "#fcf7ee", 
-    padding: "5rem", 
+    padding: "2rem", 
     fontFamily: "'Arial', sans-serif", 
   }}
 >
@@ -507,6 +507,7 @@ const[product1,setproduct1]=useState([])
               position: "relative",
               overflow: "hidden",
               margin: "5px", // Consistent spacing between cards
+              height:"540px"
             }}
             onMouseEnter={(e) => {
               e.currentTarget.querySelector(".add-to-cart-btn").style.display =
@@ -545,7 +546,7 @@ const[product1,setproduct1]=useState([])
                 overflow: "hidden",
                 maxWidth: "90%",
                 transform:"inherit",
-                fontFamily: "'Poppins', sans-serif", 
+                fontFamily:"'ITC Modern No 216', serif"  , 
               }}
             >
               {product.product_name}
@@ -1089,7 +1090,7 @@ Incredible Products
         fontSize: "0.9rem",
         letterSpacing: "1px",
         fontWeight: "600",
-        color: "#999",
+        color: "black",
         marginBottom: "10px",
       }}
     >
@@ -1109,7 +1110,7 @@ Incredible Products
     <p
       style={{
         fontSize: "1rem",
-        color: "#555",
+        color: "black",
         marginBottom: "30px",
         lineHeight: "1.6",
       }}
@@ -1351,7 +1352,7 @@ Incredible Products
 <div
   style={{
     padding: "50px 0",
-    marginTop: "4rem",
+    marginTop: "2rem",
     backgroundColor:"#fcf7ee",
   }}
 >
@@ -1367,8 +1368,6 @@ Incredible Products
             alignItems: "center",
             marginTop:"0px",
             
-            // gap: "20px",
-            // padding: "20px",
           }}
         >
         
@@ -1412,7 +1411,7 @@ Incredible Products
             <h4 style={{ fontWeight: "bold", margin: "20px 0 10px 20px" }} className="product-name-title">
               {product.name}
             </h4>
-            <p style={{ margin: "0 0 10px 20px" }}>{product.description}</p>
+            <p style={{ margin: "0 0 10px 20px",fontFamily: "'Harmonia Sans', sans-serif" }}>{product.description}</p>
             <a
               href="#"
               style={{
@@ -1524,9 +1523,9 @@ Incredible Products
 
 <div
   style={{
-    fontFamily: "Arial, sans-serif",
+    fontFamily: "font-family: 'ITC Modern No 216', serif;",
     padding: "40px",
-    marginTop: "1rem",
+    marginTop: "10px",
     backgroundImage: "url('https://wdtlilacdemo.wpengine.com/wp-content/uploads/2022/09/lef-image-1-298x300.webp')",
     backgroundPosition: "right 50%",
     backgroundRepeat: "no-repeat",
@@ -1534,7 +1533,7 @@ Incredible Products
   }}
 >
 <div className="container">
-  <div style={{ textAlign: "center", marginBottom: "40px" }}>
+  <div style={{ textAlign: "center", marginBottom: "20px" }}>
     <h1 className="kiona-tales">Kiona Tales</h1>
     <div className="empty-div"></div>
   </div>
@@ -1557,7 +1556,7 @@ Incredible Products
           <div className="card-body">
             <h5
               className="card-title"
-              style={{ fontSize: "1.25rem", fontWeight: "bold" }}
+              style={{ fontSize: "1.25rem", fontWeight: "bold",fontFamily: "'ITC Modern No 216', serif"  }}
             >
               {post.title}
             </h5>
@@ -1575,7 +1574,7 @@ Incredible Products
             </p>
             <a
               className="btn btn-link p-0"
-              style={{ color: "#007bff", textDecoration: "none" }}
+              style={{fontFamily: "'Harmonia Sans', sans-serif", color: "#007bff", textDecoration: "none" }}
               onClick={() => navigate("/blog2", { state: post._id })}
             >
               Read more...
