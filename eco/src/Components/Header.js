@@ -510,23 +510,23 @@ const handleSubmit2 = async (e) => {
 
 <nav className="navbar navbar-expand-lg" style={{backgroundColor: "rgba(252, 247, 238, 0.95)"}} >
   <div className="container" >
-    <div className="content-container" style={{display:"flex", width:"100%", justifyContent:"space-between"}}>
+    <div className="content-container" style={{display:"flex", width:"100%"}}>
     {/* Brand Logo */}
     <a style={{cursor:"pointer"}} className="navbar-brand text-white d-flex align-items-center" onClick={()=>navigate('/')}>
-      <span className="logo-icon me-1">Ⓚ</span><img className="image-fluid" src={logo} style={{width:"175px",height:"50px"}}></img>
+      <span className="logo-icon me-1">Ⓚ</span><img className="image-fluid" src={logo} style={{width:"175px",height:"75px"}}></img>
     </a>
 
     {/* Navbar links */}
     <div className="collapse navbar-collapse" id="navbarNav">
-      <ul className="navbar-nav ms-auto">
+    <ul className="navbar-nav ms-auto" style={{ gap: "20px", display: "flex" }}>
       <li className="nav-item">
-  <Link className="nav-link text-white" to="/">
+  <Link className="nav-link " to="/">
     Home
   </Link>
 </li>
 <li className="nav-item dropdown">
   <a
-    className="nav-link dropdown-toggle text-white"
+    className="nav-link dropdown-toggle"
     href="#"
     id="navbarDropdown"
     role="button"
@@ -566,17 +566,17 @@ Hair Oil
 </li>
 
         <li className="nav-item">
-          <Link className="nav-link text-white" to="/combo">
+          <Link className="nav-link" to="/combo">
             Combo
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link text-white" to="/blog1">
+          <Link className="nav-link" to="/blog1">
             Blog
           </Link>
         </li>
         <li className="nav-item">
-  <Link className="nav-link text-white" to="/contact">
+  <Link className="nav-link" to="/contact">
     Contact Us
   </Link>
   

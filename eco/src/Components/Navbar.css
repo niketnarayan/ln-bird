@@ -11,7 +11,7 @@
   
   /* Brand Styling */
   .navbar-brand {
-    font-size: 1.8rem;
+    /* font-size: 1.8rem; */
     font-weight: bold;
     color: #ffffff;
     text-transform: uppercase;
@@ -21,7 +21,7 @@
   
   .logo-icon {
     color: #00d4ff; /* Logo icon color */
-    font-size: 2rem;
+    /* font-size: 2rem; */
     animation: spin 4s linear infinite; /* Spinning animation for the logo */
   }
   
@@ -45,12 +45,19 @@
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
   }
-  
-  .nav-link:hover {
-    background-color: white;
-    color: black !important;
-    transform: scale(1.1); /* Scale effect on hover */
+
+  #navbarNav .nav-link:hover {
+    background-color: black !important; /* Black background on hover */
+    color: white !important; /* White text color on hover */
+    transform: scale(1.1); /* Add hover transform effect */
   }
+  
+  #navbarNav .nav-link:focus,
+  #navbarNav .nav-link:active {
+    background-color: black !important; /* Black background when active or focused */
+    color: white !important; /* White text when active or focused */
+  }
+
   
   /* Toggler Styling */
   .navbar-toggler {
