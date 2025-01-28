@@ -25,7 +25,7 @@ function Cuheader() {
     
     const [orderdata, setorderdata] = useState({
       apartmentNumber: "",
-      apartmentName: "",
+      selectstate: "",
       area: "",
       email: "",
       landmark: "",
@@ -200,7 +200,7 @@ useEffect(()=>
           email: '',
           mobileNumber: '',
           apartmentNumber: '',
-          apartmentName: '',
+          selectstate: '',
           area: '',
           landmark: '',
           addressType: 'Home',
@@ -495,7 +495,44 @@ useEffect(()=>
 
 
 
-
+  const indianStates = [
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal",
+    "Andaman and Nicobar Islands",
+    "Chandigarh",
+    "Dadra and Nagar Haveli and Daman and Diu",
+    "Delhi",
+    "Jammu and Kashmir",
+    "Ladakh",
+    "Lakshadweep",
+    "Puducherry",
+  ];
 
 
 
@@ -1055,7 +1092,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
       <div className="mb-3 row">
         <div className="col-md-6">
           <label htmlFor="apartmentNumber" className="form-label">
-            *Apartment / House No.
+            *Apartment Name / House No.
           </label>
           <input
             type="text"
@@ -1074,24 +1111,31 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
           />
         </div>
         <div className="col-md-6">
-          <label htmlFor="apartmentName" className="form-label">
-            *Apartment Name
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="apartmentName"
-            name="apartmentName"
-            value={orderdata.apartmentName}
-            onChange={handleChange}
-            placeholder="e.g. Park Avenue"
-            style={{
-              borderRadius: "5px",
-              padding: "10px",
-              fontSize: "14px",
-            }}
-          />
-        </div>
+  <label htmlFor="state" className="form-label">
+    *Select State
+  </label>
+  <select
+    className="form-control"
+    id="state"
+    name="state"
+    value={orderdata.state}
+    onChange={handleChange}
+    style={{
+      borderRadius: "5px",
+      padding: "10px",
+      fontSize: "14px",
+    }}
+  >
+    <option value="" disabled>
+      Select a state
+    </option>
+    {indianStates.map((state, index) => (
+      <option key={index} value={state}>
+        {state}
+      </option>
+    ))}
+  </select>
+</div>
       </div>
       <div className="mb-3 row">
         <div className="col-md-6">

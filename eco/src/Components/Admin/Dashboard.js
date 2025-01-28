@@ -68,7 +68,7 @@ function Dashboard() {
       { field: 'email', headerName: 'User-Email', width: 130 },
       { field: 'mobileNumber', headerName: 'Mobile No.', width: 120 },
       { field: 'apartmentNumber', headerName: 'Apartment Number', width: 160 },
-      { field: 'apartmentName', headerName: 'Apartment Name', width: 120 },
+      { field: 'selectstate', headerName: 'State', width: 120 },
       { field: 'area', headerName: 'Area', width: 120 },
       { field: 'landmark', headerName: 'Landmark', width: 120 },
       { field: 'addressType', headerName: 'Address Type', width: 120 },

@@ -82,7 +82,7 @@ function App() {
      <Route path='/login' element={<Login/>}/>
     <Route path='/singup' element={<Sinup/>}/>
      <Route path='/forgot' element={<Forgatpassword/>}/>
-     <Route path='/blog' element={<Blog/>}/>
+     <Route path='/blog' element={<PrivateRoute><Blog/></PrivateRoute>}/>
      <Route path='/blog1' element={<Blog1/>}/>
      <Route path='/blog2' element={<Blog2/>}/>
      <Route path='/categoryproduct' element={<Category/>}/>

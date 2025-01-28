@@ -6,7 +6,7 @@ const order = new mongoose.Schema({
   email: String,
   mobileNumber: String,
   apartmentNumber: String,
-  apartmentName: String,
+  selectstate: String,
   area: String,
   landmark: String,
   addressType: String,
