@@ -487,120 +487,124 @@ const[product1,setproduct1]=useState([])
     {product1.map((product, index) => (
       <React.Fragment key={product.id}>
         <div
-          className=" col-md-3"
-          style={{width:"325px"}}
+        key={product.id}
+        className="col-12 col-sm-6 col-md-4 col-lg-3"
+        style={{
+          height: "550px",
+          background: "transparent",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          className="grocery-card"
+          style={{
+            width: "95%",
+            maxWidth: "300px",
+            backgroundColor: "#fff",
+            padding: "15px",
+            border: "1px solid #ddd",
+            borderRadius: "10px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            position: "relative",
+            overflow: "hidden",
+            transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "scale(1.05)";
+            e.currentTarget.style.boxShadow = "0 6px 10px rgba(0, 0, 0, 0.2)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+          }}
         >
-          <div
-            className="grocery-card"
+          <div style={{ position: "relative", width: "100%" }}>
+            <img
+              src={product.product_image}
+              alt={product.product_name}
+              className="grocery-card-image img-fluid"
+              style={{
+                width: "100%",
+                height: "270px",
+                objectFit: "cover",
+                cursor: "pointer",
+                transition: "transform 0.3s ease",
+                borderRadius: "10px",
+              }}
+              onClick={() =>
+                navigate("/vitamincfaceash", { state: product._id })
+                }
+            />
+          </div>
+          <span
+            className="grocery-card-name"
             style={{
-              width: "100%",
-              maxWidth: "280px",
-              backgroundColor: "#fff",
-              padding: "10px",
-              border: "1px solid #ddd",
-              borderRadius: "10px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              textAlign: "center",
-              position: "relative",
+              fontSize: "1rem",
+              height: "3rem",
+              fontWeight: "bold",
+              color: "#333",
+              marginTop: "10px",
+              textOverflow: "ellipsis",
               overflow: "hidden",
-              margin: "5px", // Consistent spacing between cards
-              height:"540px"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.querySelector(".add-to-cart-btn").style.display =
-                "block";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.querySelector(".add-to-cart-btn").style.display =
-                "none";
+              maxWidth: "90%",
+              transform:"inherit",
+              fontFamily:"'ITC Modern No 216', serif"  ,
             }}
           >
-            <div style={{ position: "relative", width: "100%" }}>
-              <img
-                src={product.product_image}
-                alt={product.product_name}
-                className="grocery-card-image img-fluid"
-                style={{
-                  width: "100%",
-                  height: "350px",
-                  objectFit: "cover",
-                  cursor: "pointer",
-                }}
-                onClick={() =>
-                  navigate("/vitamincfaceash", { state: product._id })
-                }
-              />
-            </div>
-            <span
-              className="grocery-card-name"
-              style={{
-                fontSize: "1rem",
-                height: "3rem",
-                fontWeight: "bold",
-                color: "#333",
-                marginTop: "10px",
-                textOverflow: "ellipsis",
-                overflow: "hidden",
-                maxWidth: "90%",
-                transform:"inherit",
-                fontFamily:"'ITC Modern No 216', serif"  , 
-              }}
-            >
-              {product.product_name}
+            {product.product_name}
+          </span>
+          <div
+            className="grocery-card-rating"
+            style={{
+              fontSize: "1rem",
+              color: "#ffc107",
+              margin: "5px 0",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            {"★".repeat(product.rating)}
+            <span style={{ color: "#ccc", marginLeft: "5px" }}>
+              {"★".repeat(5 - product.rating)}
             </span>
-            <div
-              className="grocery-card-rating"
-              style={{
-                fontSize: "1rem",
-                color: "#ffc107",
-                margin: "5px 0",
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              {"★".repeat(product.rating)}{" "}
-              <span
-                style={{
-                  color: "#ccc",
-                  marginLeft: "5px",
-                }}
-              >
-                {"★".repeat(5 - product.rating)}
-              </span>
-            </div>
-            <p
-              className="grocery-card-price"
-              style={{
-                fontSize: "1rem",
-                color: "#666",
-                marginTop: "5px",
-              }}
-            >
-              ₹{product.product_price}
-            </p>
-            <button
-              onClick={() => handleprouctadd(product)}
-              className="add-to-cart-btn"
-              style={{
-                display: "none",
-                backgroundColor: "#c8b89a",
-                color: "#fff",
-                border: "none",
-                padding: "10px 30px",
-                borderRadius: "5px",
-                fontSize: "0.9rem",
-                cursor: "pointer",
-                marginTop: "10px",
-                width: "80%",
-              }}
-            >
-              Add to Cart
-            </button>
           </div>
+          <p
+            className="grocery-card-price"
+            style={{
+              fontSize: "1rem",
+              color: "#666",
+              marginTop: "5px",
+            }}
+          >
+            ₹{product.product_price}
+          </p>
+          <button
+            onClick={() => handleprouctadd(product)}
+            className="add-to-cart-btn"
+            style={{
+              backgroundColor: "#c8b89a",
+              color: "white",
+              border: "none",
+              padding: "12px 30px",
+              borderRadius: "5px",
+              fontSize: "0.9rem",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              marginTop: "10px",
+              width: "80%",
+              fontWeight: "bold",
+            }}
+          >
+            Add to Cart
+          </button>
         </div>
+      </div>
       </React.Fragment>
     ))}
     </div>
@@ -923,119 +927,124 @@ Incredible Products
     {product1.map((product, index) => (
       <React.Fragment key={product.id}>
         <div
-          className=" col-md-3"
-          style={{width:"325px"}}
+        key={product.id}
+        className="col-12 col-sm-6 col-md-4 col-lg-3"
+        style={{
+          height: "550px",
+          background: "transparent",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          className="grocery-card"
+          style={{
+            width: "100%",
+            maxWidth: "300px",
+            backgroundColor: "#fff",
+            padding: "15px",
+            border: "1px solid #ddd",
+            borderRadius: "10px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            position: "relative",
+            overflow: "hidden",
+            transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "scale(1.05)";
+            e.currentTarget.style.boxShadow = "0 6px 10px rgba(0, 0, 0, 0.2)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+          }}
         >
-          <div
-            className="grocery-card"
+          <div style={{ position: "relative", width: "100%" }}>
+            <img
+              src={product.product_image}
+              alt={product.product_name}
+              className="grocery-card-image img-fluid"
+              style={{
+                width: "100%",
+                height: "270px",
+                objectFit: "cover",
+                cursor: "pointer",
+                transition: "transform 0.3s ease",
+                borderRadius: "10px",
+              }}
+              onClick={() =>
+                navigate("/vitamincfaceash", { state: product._id })
+                }
+            />
+          </div>
+          <span
+            className="grocery-card-name"
             style={{
-              width: "100%",
-              maxWidth: "280px",
-              backgroundColor: "#fff",
-              padding: "10px",
-              border: "1px solid #ddd",
-              borderRadius: "10px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              textAlign: "center",
-              position: "relative",
+              fontSize: "1rem",
+              height: "3rem",
+              fontWeight: "bold",
+              color: "#333",
+              marginTop: "10px",
+              textOverflow: "ellipsis",
               overflow: "hidden",
-              margin: "5px", // Consistent spacing between cards
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.querySelector(".add-to-cart-btn").style.display =
-                "block";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.querySelector(".add-to-cart-btn").style.display =
-                "none";
+              maxWidth: "90%",
+              transform:"inherit",
+              fontFamily:"'ITC Modern No 216', serif"  ,
             }}
           >
-            <div style={{ position: "relative", width: "100%" }}>
-              <img
-                src={product.product_image}
-                alt={product.product_name}
-                className="grocery-card-image img-fluid"
-                style={{
-                  width: "100%",
-                  height: "350px",
-                  objectFit: "cover",
-                  cursor: "pointer",
-                }}
-                onClick={() =>
-                  navigate("/vitamincfaceash", { state: product._id })
-                }
-              />
-            </div>
-            <span
-              className="grocery-card-name"
-              style={{
-                fontSize: "1rem",
-                height: "3rem",
-                fontWeight: "bold",
-                color: "#333",
-                marginTop: "10px",
-                textOverflow: "ellipsis",
-                overflow: "hidden",
-                maxWidth: "90%",
-                transform:"inherit",
-                fontFamily: "'Poppins', sans-serif", 
-              }}
-            >
-              {product.product_name}
+            {product.product_name}
+          </span>
+          <div
+            className="grocery-card-rating"
+            style={{
+              fontSize: "1rem",
+              color: "#ffc107",
+              margin: "5px 0",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            {"★".repeat(product.rating)}
+            <span style={{ color: "#ccc", marginLeft: "5px" }}>
+              {"★".repeat(5 - product.rating)}
             </span>
-            <div
-              className="grocery-card-rating"
-              style={{
-                fontSize: "1rem",
-                color: "#ffc107",
-                margin: "5px 0",
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              {"★".repeat(product.rating)}{" "}
-              <span
-                style={{
-                  color: "#ccc",
-                  marginLeft: "5px",
-                }}
-              >
-                {"★".repeat(5 - product.rating)}
-              </span>
-            </div>
-            <p
-              className="grocery-card-price"
-              style={{
-                fontSize: "1rem",
-                color: "#666",
-                marginTop: "5px",
-              }}
-            >
-              ₹{product.product_price}
-            </p>
-            <button
-              onClick={() => handleprouctadd(product)}
-              className="add-to-cart-btn"
-              style={{
-                display: "none",
-                backgroundColor: "#c8b89a",
-                color: "#fff",
-                border: "none",
-                padding: "10px 30px",
-                borderRadius: "5px",
-                fontSize: "0.9rem",
-                cursor: "pointer",
-                marginTop: "10px",
-                width: "80%",
-              }}
-            >
-              Add to Cart
-            </button>
           </div>
+          <p
+            className="grocery-card-price"
+            style={{
+              fontSize: "1rem",
+              color: "#666",
+              marginTop: "5px",
+            }}
+          >
+            ₹{product.product_price}
+          </p>
+          <button
+            onClick={() => handleprouctadd(product)}
+            className="add-to-cart-btn"
+            style={{
+              backgroundColor: "#c8b89a",
+              color: "white",
+              border: "none",
+              padding: "12px 30px",
+              borderRadius: "5px",
+              fontSize: "0.9rem",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              marginTop: "10px",
+              width: "80%",
+              fontWeight: "bold",
+            }}
+          >
+            Add to Cart
+          </button>
         </div>
+      </div>
       </React.Fragment>
     ))}
     </div>
@@ -1483,7 +1492,8 @@ Incredible Products
           <Col
             md={6}
             style={{
-              backgroundColor: "#fff",
+              // backgroundColor: "#fff",
+              background:"transparent",
               padding: "20px",
               margin: "10px",
               textAlign: "center",

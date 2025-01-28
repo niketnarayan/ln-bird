@@ -244,13 +244,13 @@ function Cudashboard() {
 
   return (
     <div>
-  <Cuheader/>
+   <Cuheader/>
   
 
 {/* banner start----------------------------------------------------------------------------------------------- */}
 
 <div className="container-fluid p-0">
-<Carousel data-bs-theme="dark" style={{ marginTop: "6.9rem" }}>
+<Carousel data-bs-theme="dark" style={{marginTop:"110px",position:"relative"}}>
 {sliderImages.map((banner, index) => (
   <Carousel.Item key={index}>
     <img
@@ -320,7 +320,7 @@ function Cudashboard() {
 <div
 style={{
 backgroundColor: "#fcf7ee", 
-padding: "5rem", 
+padding: "2rem", 
 fontFamily: "'Arial', sans-serif", 
 }}
 >
@@ -489,155 +489,156 @@ style={{ marginBottom: "20px", color: "#333" }}
 Combo Product
 </h1>
 <div className="empty-div"></div>
-<div className="row justify-content-center">
+<div className="container">
+<div className="row justify-content-center" > {/* g-3 for consistent gaps */}
 {product1.map((product, index) => (
   <React.Fragment key={product.id}>
     <div
-      className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"
-      style={{ height:"550px",background:"transparent"}}
+    key={product.id}
+    className="col-12 col-sm-6 col-md-4 col-lg-3"
+    style={{
+      height: "550px",
+      background: "transparent",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    <div
+      className="grocery-card"
+      style={{
+        width: "95%",
+        maxWidth: "300px",
+        backgroundColor: "#fff",
+        padding: "15px",
+        border: "1px solid #ddd",
+        borderRadius: "10px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        position: "relative",
+        overflow: "hidden",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "scale(1.05)";
+        e.currentTarget.style.boxShadow = "0 6px 10px rgba(0, 0, 0, 0.2)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "scale(1)";
+        e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+      }}
     >
-      <div
-        className="grocery-card"
+      <div style={{ position: "relative", width: "100%" }}>
+        <img
+          src={product.product_image}
+          alt={product.product_name}
+          className="grocery-card-image img-fluid"
+          style={{
+            width: "100%",
+            height: "270px",
+            objectFit: "cover",
+            cursor: "pointer",
+            transition: "transform 0.3s ease",
+            borderRadius: "10px",
+          }}
+          onClick={() =>
+            navigate("/vitamincfaceash", { state: product._id })
+            }
+        />
+      </div>
+      <span
+        className="grocery-card-name"
         style={{
-          width: "100%",
-          maxWidth: "300px",
-          backgroundColor: "transparent",
-          padding: "10px",
-          border: "none",
-          borderRadius: "10px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          position: "relative",
+          fontSize: "1rem",
+          height: "3rem",
+          fontWeight: "bold",
+          color: "#333",
+          marginTop: "10px",
+          textOverflow: "ellipsis",
           overflow: "hidden",
-          // boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-          // transition: "transform 0.3s ease, box-shadow 0.3s ease",
-        }}
-        onMouseEnter={(e) => {
-          // e.currentTarget.style.transform = "scale(1.05)";
-          // e.currentTarget.style.boxShadow = "0 6px 10px rgba(0, 0, 0, 0.2)";
-          e.currentTarget.querySelector(".add-to-cart-btn").style.display =
-            "block";
-        }}
-        onMouseLeave={(e) => {
-          // e.currentTarget.style.transform = "scale(1)";
-          // e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
-          e.currentTarget.querySelector(".add-to-cart-btn").style.display =
-            "none";
+          maxWidth: "90%",
+          transform:"inherit",
+          fontFamily:"'ITC Modern No 216', serif"  ,
         }}
       >
-        <div style={{ position: "relative", width: "100%" }}>
-          <img
-            src={product.product_image}
-            alt={product.product_name}
-            className="grocery-card-image img-fluid"
-            style={{
-              width: "100%",
-              height: "350px",
-              objectFit: "cover",
-              // borderRadius: "10px",
-              cursor: "pointer",
-              transition: "transform 0.3s ease",
-            }}
-            onClick={() =>
-              navigate("/vitamincfaceash", { state: product._id })
-            }
-          />
-        </div>
-        <span
-          className="grocery-card-name"
-          style={{
-            fontSize: "1rem",
-            height:"3rem",
-            fontWeight: "bold",
-            color: "#333",
-            marginTop: "15px",
-            textOverflow: "ellipsis",
-            overflow: "hidden",
-            whiteSpace: "nowrap",
-            maxWidth: "90%",
-          }}
-        >
-          {product.product_name}
+        {product.product_name}
+      </span>
+      <div
+        className="grocery-card-rating"
+        style={{
+          fontSize: "1rem",
+          color: "#ffc107",
+          margin: "5px 0",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {"★".repeat(product.rating)}
+        <span style={{ color: "#ccc", marginLeft: "5px" }}>
+          {"★".repeat(5 - product.rating)}
         </span>
-        <div
-          className="grocery-card-rating"
-          style={{
-            fontSize: "1rem",
-            color: "#ffc107",
-            margin: "5px 0",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          {"★".repeat(product.rating)}{" "}
-          <span
-            style={{
-              color: "#ccc",
-              marginLeft: "5px",
-            }}
-          >
-            {"★".repeat(5 - product.rating)}
-          </span>
-        </div>
-        <p
-          className="grocery-card-price"
-          style={{
-            fontSize: "1rem",
-            color: "#666",
-            marginTop: "5px",
-          }}
-        >
-          ₹{product.product_price}
-        </p>
-        <button
-onClick={() => handleprouctadd(product)}
-className="add-to-cart-btn"
-style={{
-display: "none",
-backgroundColor: "#c8b89a",
-color: "#fff",
-border: "none",
-padding: "10px 30px", // Increased padding for better width
-borderRadius: "5px",
-fontSize: "0.9rem",
-cursor: "pointer",
-transition: "all 0.3s ease",
-marginTop: "10px", // Space below the price
-width: "80%", // Set specific width for consistency
-}}
->
-Add to Cart
-</button>
-
       </div>
+      <p
+        className="grocery-card-price"
+        style={{
+          fontSize: "1rem",
+          color: "#666",
+          marginTop: "5px",
+        }}
+      >
+        ₹{product.product_price}
+      </p>
+      <button
+        onClick={() => handleprouctadd(product)}
+        className="add-to-cart-btn"
+        style={{
+          backgroundColor: "#c8b89a",
+          color: "white",
+          border: "none",
+          padding: "12px 30px",
+          borderRadius: "5px",
+          fontSize: "0.9rem",
+          cursor: "pointer",
+          transition: "all 0.3s ease",
+          marginTop: "10px",
+          width: "80%",
+          fontWeight: "bold",
+        }}
+      >
+        Add to Cart
+      </button>
     </div>
+  </div>
   </React.Fragment>
 ))}
 </div>
-<div className="text-center mt-4">
-    {visibleProducts < product1.length && ( // Show button only if there are more products
-      <button
-        className="view-more-btn"
-        style={{
-          backgroundColor: "#333",
-          color: "#fff",
-          border: "none",
-          padding: "10px 20px",
-          borderRadius: "5px",
-          fontSize: "1rem",
-          cursor: "pointer",
-          transition: "all 0.3s ease",
-        }}
-        onClick={handleViewMore}
-      >
-        View More
-      </button>
-    )}
-  </div>
 </div>
+<div className="text-center mt-4">
+{visibleProducts < product1.length && (
+  <button
+    className="view-more-btn"
+    style={{
+      backgroundColor: "#333",
+      color: "#fff",
+      border: "none",
+      padding: "10px 20px",
+      borderRadius: "5px",
+      fontSize: "1rem",
+      cursor: "pointer",
+    }}
+    onClick={handleViewMore}
+  >
+    View More
+  </button>
+)}
+</div>
+</div>
+
+
+
 
 
 
@@ -928,137 +929,132 @@ style={{ marginBottom: "20px", color: "#333" }}
 Incredible Products
 </h1>
 <div className="empty-div"></div>
-<div
-className="row justify-content-center"
-style={{
-  display: "grid",
-  gridTemplateColumns: "repeat(4, 1fr)", // 4 products per row
-  gap: "5px",
-  padding: "15px",
-}}
->
-{product1.slice(0, 8).map((product, index) => (
+<div className="container">
+<div className="row justify-content-center" > {/* g-3 for consistent gaps */}
+{product1.map((product, index) => (
   <React.Fragment key={product.id}>
     <div
-      className="grocery-card-container"
+    key={product.id}
+    className="col-12 col-sm-6 col-md-4 col-lg-3"
+    style={{
+      height: "550px",
+      background: "transparent",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    <div
+      className="grocery-card"
       style={{
-        background: "transparent",
+        width: "100%",
+        maxWidth: "300px",
+        backgroundColor: "#fff",
+        padding: "15px",
+        border: "1px solid #ddd",
+        borderRadius: "10px",
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        position: "relative",
+        overflow: "hidden",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "scale(1.05)";
+        e.currentTarget.style.boxShadow = "0 6px 10px rgba(0, 0, 0, 0.2)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "scale(1)";
+        e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
       }}
     >
-      <div
-        className="grocery-card"
+      <div style={{ position: "relative", width: "100%" }}>
+        <img
+          src={product.product_image}
+          alt={product.product_name}
+          className="grocery-card-image img-fluid"
+          style={{
+            width: "100%",
+            height: "270px",
+            objectFit: "cover",
+            cursor: "pointer",
+            transition: "transform 0.3s ease",
+            borderRadius: "10px",
+          }}
+          onClick={() =>
+            navigate("/vitamincfaceash", { state: product._id })
+            }
+        />
+      </div>
+      <span
+        className="grocery-card-name"
         style={{
-          width: "100%",
-          maxWidth: "300px",
-          backgroundColor: "transparent",
-          padding: "10px",
-          border: "none",
-          borderRadius: "10px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          position: "relative",
+          fontSize: "1rem",
+          height: "3rem",
+          fontWeight: "bold",
+          color: "#333",
+          marginTop: "10px",
+          textOverflow: "ellipsis",
           overflow: "hidden",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.querySelector(".add-to-cart-btn").style.display =
-            "block";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.querySelector(".add-to-cart-btn").style.display =
-            "none";
+          maxWidth: "90%",
+          transform:"inherit",
+          fontFamily:"'ITC Modern No 216', serif"  ,
         }}
       >
-        <div style={{ position: "relative", width: "100%" }}>
-          <img
-            src={product.product_image}
-            alt={product.product_name}
-            className="grocery-card-image img-fluid"
-            style={{
-              width: "100%",
-              height: "350px",
-              objectFit: "cover",
-              cursor: "pointer",
-              transition: "transform 0.3s ease",
-            }}
-            onClick={() =>
-              navigate("/vitamincfaceash", { state: product._id })
-            }
-          />
-        </div>
-        <span
-          className="grocery-card-name"
-          style={{
-            fontSize: "1rem",
-            height: "3rem",
-            fontWeight: "bold",
-            color: "#333",
-            marginTop: "15px",
-            textOverflow: "ellipsis",
-            overflow: "hidden",
-            whiteSpace: "nowrap",
-            maxWidth: "90%",
-          }}
-        >
-          {product.product_name}
+        {product.product_name}
+      </span>
+      <div
+        className="grocery-card-rating"
+        style={{
+          fontSize: "1rem",
+          color: "#ffc107",
+          margin: "5px 0",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {"★".repeat(product.rating)}
+        <span style={{ color: "#ccc", marginLeft: "5px" }}>
+          {"★".repeat(5 - product.rating)}
         </span>
-        <div
-          className="grocery-card-rating"
-          style={{
-            fontSize: "1rem",
-            color: "#ffc107",
-            margin: "5px 0",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          {"★".repeat(product.rating)}{" "}
-          <span
-            style={{
-              color: "#ccc",
-              marginLeft: "5px",
-            }}
-          >
-            {"★".repeat(5 - product.rating)}
-          </span>
-        </div>
-        <p
-          className="grocery-card-price"
-          style={{
-            fontSize: "1rem",
-            color: "#666",
-            marginTop: "5px",
-          }}
-        >
-          ₹{product.product_price}
-        </p>
-        <button
-          onClick={() => handleprouctadd(product)}
-          className="add-to-cart-btn"
-          style={{
-            display: "none",
-            backgroundColor: "#c8b89a",
-            color: "#fff",
-            border: "none",
-            padding: "10px 30px",
-            borderRadius: "5px",
-            fontSize: "0.9rem",
-            cursor: "pointer",
-            transition: "all 0.3s ease",
-            marginTop: "10px",
-            width: "80%",
-          }}
-        >
-          Add to Cart
-        </button>
       </div>
+      <p
+        className="grocery-card-price"
+        style={{
+          fontSize: "1rem",
+          color: "#666",
+          marginTop: "5px",
+        }}
+      >
+        ₹{product.product_price}
+      </p>
+      <button
+        onClick={() => handleprouctadd(product)}
+        className="add-to-cart-btn"
+        style={{
+          backgroundColor: "#c8b89a",
+          color: "white",
+          border: "none",
+          padding: "12px 30px",
+          borderRadius: "5px",
+          fontSize: "0.9rem",
+          cursor: "pointer",
+          transition: "all 0.3s ease",
+          marginTop: "10px",
+          width: "80%",
+          fontWeight: "bold",
+        }}
+      >
+        Add to Cart
+      </button>
     </div>
+  </div>
   </React.Fragment>
 ))}
+</div>
 </div>
 <div className="text-center mt-4">
 <button
@@ -1110,7 +1106,7 @@ style={{
     fontSize: "0.9rem",
     letterSpacing: "1px",
     fontWeight: "600",
-    color: "#999",
+    color: "black",
     marginBottom: "10px",
   }}
 >
@@ -1130,7 +1126,7 @@ style={{
 <p
   style={{
     fontSize: "1rem",
-    color: "#555",
+    color: "black",
     marginBottom: "30px",
     lineHeight: "1.6",
   }}
@@ -1372,7 +1368,7 @@ Nothing it doesn’t</h2>
 <div
 style={{
 padding: "50px 0",
-marginTop: "4rem",
+marginTop: "2rem",
 backgroundColor:"#fcf7ee",
 }}
 >
@@ -1388,8 +1384,6 @@ backgroundColor:"#fcf7ee",
         alignItems: "center",
         marginTop:"0px",
         
-        // gap: "20px",
-        // padding: "20px",
       }}
     >
     
@@ -1433,7 +1427,7 @@ backgroundColor:"#fcf7ee",
         <h4 style={{ fontWeight: "bold", margin: "20px 0 10px 20px" }} className="product-name-title">
           {product.name}
         </h4>
-        <p style={{ margin: "0 0 10px 20px" }}>{product.description}</p>
+        <p style={{ margin: "0 0 10px 20px",fontFamily: "'Harmonia Sans', sans-serif" }}>{product.description}</p>
         <a
           href="#"
           style={{
@@ -1505,7 +1499,8 @@ Customer Reviews
       <Col
         md={6}
         style={{
-          backgroundColor: "#fff",
+          // backgroundColor: "#fff",
+          background:"transparent",
           padding: "20px",
           margin: "10px",
           textAlign: "center",
@@ -1545,16 +1540,17 @@ Customer Reviews
 
 <div
 style={{
-fontFamily: "Arial, sans-serif",
+fontFamily: "font-family: 'ITC Modern No 216', serif;",
 padding: "40px",
-marginTop: "1rem",
+marginTop: "10px",
 backgroundImage: "url('https://wdtlilacdemo.wpengine.com/wp-content/uploads/2022/09/lef-image-1-298x300.webp')",
 backgroundPosition: "right 50%",
 backgroundRepeat: "no-repeat",
 backgroundSize: "150px auto",
 }}
 >
-<div style={{ textAlign: "center", marginBottom: "40px" }}>
+<div className="container">
+<div style={{ textAlign: "center", marginBottom: "20px" }}>
 <h1 className="kiona-tales">Kiona Tales</h1>
 <div className="empty-div"></div>
 </div>
@@ -1577,7 +1573,7 @@ backgroundSize: "150px auto",
       <div className="card-body">
         <h5
           className="card-title"
-          style={{ fontSize: "1.25rem", fontWeight: "bold" }}
+          style={{ fontSize: "1.25rem", fontWeight: "bold",fontFamily: "'ITC Modern No 216', serif"  }}
         >
           {post.title}
         </h5>
@@ -1595,7 +1591,7 @@ backgroundSize: "150px auto",
         </p>
         <a
           className="btn btn-link p-0"
-          style={{ color: "#007bff", textDecoration: "none" }}
+          style={{fontFamily: "'Harmonia Sans', sans-serif", color: "#007bff", textDecoration: "none" }}
           onClick={() => navigate("/blog2", { state: post._id })}
         >
           Read more...
@@ -1622,6 +1618,7 @@ backgroundSize: "150px auto",
 </button>
 </div>
 </div>
+</div>
 
 
 
@@ -1631,6 +1628,7 @@ backgroundSize: "150px auto",
 style={{
 // background: "linear-gradient(to bottom right, #dfffbf, #ffeaba)",
 minHeight: "20rem",
+padding:"50px"
 }}
 >
 <div className="container-lg py-5">
@@ -1641,7 +1639,7 @@ minHeight: "20rem",
       <i className="fa-solid fa-credit-card" style={{ fontSize: "4rem", color: "#007bff" }}></i>
       <div>
         <h4 className="fw-bold">Secure Transactions</h4>
-        <p>Your payment information is processed securely.</p>
+        <p>Your payment information is processed securely and with the utmost care.</p>
       </div>
     </div>
   </div>

@@ -66,8 +66,8 @@
   
   /* Footer Bottom Styling */
   .footer-bottom {
-    background: linear-gradient(to right, #dcdcdc, #f2f2f2);
-    color: black;
+    background: black;
+    color: white;
     text-align: center;
     padding: 10px 0;
     font-size: 0.85rem;

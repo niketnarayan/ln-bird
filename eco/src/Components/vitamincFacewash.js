@@ -269,8 +269,8 @@ function VitamincFacewash() {
               alt={product.product_name}
               className="grocery-card-image img-fluid"
               style={{
-                width: "95%",
-                height: "350px",
+                width: "100%",
+                height: "270px",
                 objectFit: "cover",
                 cursor: "pointer",
                 transition: "transform 0.3s ease",
@@ -282,13 +282,15 @@ function VitamincFacewash() {
             className="grocery-card-name"
             style={{
               fontSize: "1rem",
+              height: "3rem",
               fontWeight: "bold",
               color: "#333",
               marginTop: "10px",
               textOverflow: "ellipsis",
               overflow: "hidden",
-              whiteSpace: "nowrap",
               maxWidth: "90%",
+              transform:"inherit",
+              fontFamily:"'ITC Modern No 216', serif"  ,
             }}
           >
             {product.product_name}

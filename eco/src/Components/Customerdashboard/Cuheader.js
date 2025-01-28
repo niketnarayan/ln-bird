@@ -181,6 +181,8 @@ useEffect(()=>
     try {
       const response = await api.post('createOrder', orderdata);
       console.log(response);
+      console.log(orderdata.email);
+      
       
       console.log('Response:', orderdata);
   
@@ -567,7 +569,7 @@ useEffect(()=>
         <img
           className="img-fluid"
           src={logo}
-          style={{ width: "175px", height: "50px" }}
+          style={{ width: "175px", height: "80px" }}
         />
       </a>
 
