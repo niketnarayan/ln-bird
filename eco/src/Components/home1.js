@@ -312,7 +312,7 @@ const[product1,setproduct1]=useState([])
 
 <div
   style={{
-    backgroundColor: "#fcf7ee", 
+    backgroundColor: "rgb(255, 255, 255)", 
     padding: "2rem", 
     fontFamily: "'Arial', sans-serif", 
   }}
@@ -1294,7 +1294,7 @@ Incredible Products
 
 
 {/* our stander start------------------------------------------------------------------------------- */}
-<div style={{backgroundColor:"#fcf7ee"}}>
+<div style={{backgroundColor:"rgb(255, 255, 255)"}}>
 <div className="row" style={{ display: 'flex', justifyContent: 'space-between', gap: '20px', marginTop: "6rem", marginLeft: "3rem", marginRight: "3rem" }}>
   <h2 style={{textAlign:"center"}}>Everything your skin needs,<br/>
   Nothing it doesn’t</h2>
@@ -1362,7 +1362,7 @@ Incredible Products
   style={{
     padding: "50px 0",
     marginTop: "2rem",
-    backgroundColor:"#fcf7ee",
+    backgroundColor:"rgb(255, 255, 255)",
   }}
 >
   <div className="container" style={{}}>

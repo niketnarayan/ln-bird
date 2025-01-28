@@ -508,7 +508,7 @@ const handleSubmit2 = async (e) => {
     </header> */}
 
 
-<nav className="navbar navbar-expand-lg" style={{backgroundColor: "rgba(252, 247, 238, 0.95)"}} >
+<nav className="navbar navbar-expand-lg" style={{backgroundColor: "rgb(255, 255, 255)"}} >
   <div className="container" >
     <div className="content-container" style={{display:"flex", width:"100%"}}>
     {/* Brand Logo */}

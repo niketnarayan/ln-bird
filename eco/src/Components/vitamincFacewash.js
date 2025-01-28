@@ -5,6 +5,7 @@ import "./VitamincFacewash.css";
 import { useCart } from "./cartcontext";
 import { useLocation } from "react-router-dom";
 import api from "../Components/api";
+import { useNavigate  } from "react-router-dom";
 
 function VitamincFacewash() {
   const location = useLocation();
@@ -54,6 +55,13 @@ function VitamincFacewash() {
     }
   };
 
+
+     const navigate=useNavigate()
+  
+      const handleProductClick = (id) => {
+        navigate(`/product/${id}`); // Navigate to specific product details page
+      };
+
   return (
     <div>
       <Header />
@@ -85,7 +93,7 @@ function VitamincFacewash() {
         <h2 style={{ fontSize: "24px", marginBottom: "10px" }}>
           {product.product_name}
         </h2>
-        <p style={{ fontSize: "18px", color: "#555" }}>${product.product_price}</p>
+        <p style={{ fontSize: "18px", color: "#555" }}>₹{product.product_price}</p>
         <div style={{ display: "flex", margin: "10px 0" }}>
           <span style={{ color: "#f4c150", marginRight: "10px" }}>★★★★☆</span>
           <span>(4.5)</span>
@@ -276,6 +284,9 @@ function VitamincFacewash() {
                 transition: "transform 0.3s ease",
                 borderRadius: "10px",
               }}
+              onClick={() =>
+                navigate("/vitamincfaceash", { state: product._id })
+                }
             />
           </div>
           <span

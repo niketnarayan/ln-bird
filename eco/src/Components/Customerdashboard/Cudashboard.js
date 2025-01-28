@@ -650,7 +650,7 @@ display: "grid",
 gridTemplateColumns: "repeat(12, 1fr)",
 gap: "16px",
 padding: "16px",
-backgroundColor: "#fcf7ee",
+backgroundColor: "rgb(255, 255, 255)",
 }}
 >
 {/* Body Care */}
@@ -1301,7 +1301,7 @@ style={{
 
 
 {/* our stander start------------------------------------------------------------------------------- */}
-<div style={{backgroundColor:"#fcf7ee"}}>
+<div style={{backgroundColor:"rgb(255, 255, 255)"}}>
 <div className="row" style={{ display: 'flex', justifyContent: 'space-between', gap: '20px', marginTop: "6rem", marginLeft: "3rem", marginRight: "3rem" }}>
 <h2 style={{textAlign:"center"}}>Everything your skin needs,<br/>
 Nothing it doesn’t</h2>
@@ -1369,7 +1369,7 @@ Nothing it doesn’t</h2>
 style={{
 padding: "50px 0",
 marginTop: "2rem",
-backgroundColor:"#fcf7ee",
+backgroundColor:"rgb(255, 255, 255)",
 }}
 >
 <div className="container" style={{}}>

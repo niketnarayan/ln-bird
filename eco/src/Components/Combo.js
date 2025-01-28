@@ -48,6 +48,8 @@ function Combo() {
                     }
                   };
 
+                    
+
 
     
   return (
@@ -125,6 +127,10 @@ function Combo() {
                   transition: "transform 0.3s ease",
                   borderRadius: "10px",
                 }}
+
+                onClick={() =>
+                  navigate("/vitamincfaceash", { state: product._id })
+                  }
               />
             </div>
             <span

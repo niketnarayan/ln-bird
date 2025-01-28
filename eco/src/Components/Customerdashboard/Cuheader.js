@@ -157,7 +157,7 @@ function Cuheader() {
   
   
 
-},[useremail])
+},[])
 
 useEffect(()=>
   {
@@ -547,7 +547,7 @@ useEffect(()=>
 
 <nav
   className="navbar navbar-expand-lg"
-  style={{ backgroundColor: "rgba(252, 247, 238, 0.95)" }}
+  style={{ backgroundColor: "rgb(255, 255, 255)" }}
 >
   <div className="container">
     <div

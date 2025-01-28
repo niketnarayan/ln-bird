@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from './cartcontext'
 import Swal from 'sweetalert2';
 import Footer from './footer';
+// import { useNavigate  } from "react-router-dom";
 
 function Category() {
 
@@ -131,6 +132,9 @@ function Category() {
                 transition: "transform 0.3s ease",
                 borderRadius: "10px",
               }}
+              onClick={() =>
+                navigate("/vitamincfaceash", { state: product._id })
+                }
             />
           </div>
           <span
