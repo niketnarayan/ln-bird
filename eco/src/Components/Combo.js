@@ -48,7 +48,13 @@ function Combo() {
                     }
                   };
 
-                    
+                  const truncateText = (text, maxLength) => {
+                    if (text.length > maxLength) {
+                      return text.substring(0, maxLength) + " ...";
+                    }
+                    return text;
+                  };
+                        
 
 
     
@@ -134,22 +140,24 @@ function Combo() {
               />
             </div>
             <span
-              className="grocery-card-name"
-              style={{
-                fontSize: "1rem",
-                height: "3rem",
-                fontWeight: "bold",
-                color: "#333",
-                marginTop: "10px",
-                textOverflow: "ellipsis",
-                overflow: "hidden",
-                maxWidth: "90%",
-                transform:"inherit",
-                fontFamily:"'ITC Modern No 216', serif"  ,
-              }}
-            >
-              {product.product_name}
-            </span>
+  className="grocery-card-name"
+  style={{
+    fontSize: "1rem",
+    height: "3rem",
+    fontWeight: "bold",
+    color: "#333",
+    marginTop: "10px",
+    display: "-webkit-box",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: 2,
+    overflow: "hidden",
+    maxWidth: "90%",
+    fontFamily: "'ITC Modern No 216', serif",
+  }}
+>
+  {truncateText(product.product_name, 30)} {/* Adjust maxLength as needed */}
+</span>
+
             <div
               className="grocery-card-rating"
               style={{

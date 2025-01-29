@@ -39,7 +39,7 @@ function Dashboard() {
             email: order.email,
             mobileNumber: order.mobileNumber,
             apartmentNumber: order.apartmentNumber,
-            apartmentName: order.apartmentName,
+            selectstate: order.selectstate,
             area: order.area,
             landmark: order.landmark,
             addressType: order.addressType,

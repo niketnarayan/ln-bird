@@ -1,4 +1,6 @@
 const User = require("../Modals/regitration");
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 // User registration controller
 const registerUser = async (req, res) => {
@@ -32,6 +34,14 @@ const loginUser = async (req, res) => {
       if (user.password !== password) {
         return res.status(400).json({ message: "Invalid credentials" });
       }
+
+         // Generate JWT token
+            const token = jwt.sign(
+              { id: user._id, username: user.username }, // Payload
+              process.env.JWT_SECRET,                   // Secret Key
+              { expiresIn: '1h' }                       // Options (e.g., expiration time)
+            );
+
   
       // Login successful
       res.status(200).json({ message: "Login successful", user });

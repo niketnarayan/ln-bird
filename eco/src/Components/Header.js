@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 import { jsPDF } from "jspdf";
 import 'jspdf-autotable';
 import axios from "axios";
+import { useAuth } from './authguard';
 function Header() {
 
  
@@ -400,6 +401,9 @@ const handleSubmit6 = async (e) => {
 
 
 
+const { login } = useAuth();
+
+
 const [loginDetails, setLoginDetails] = useState({
   email: "",
   password: "",
@@ -428,6 +432,9 @@ const handleSubmit2 = async (e) => {
         icon: "success",
         confirmButtonText: "OK",
       });
+
+      const token=response.data.token
+      login(token);
       navigate('/cudasboard')
       localStorage.setItem('email',loginDetails.email)
 
@@ -455,8 +462,8 @@ const handleSubmit2 = async (e) => {
 
 
 
- 
-  
+
+
 
 
 

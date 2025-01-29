@@ -235,6 +235,17 @@ const[product1,setproduct1]=useState([])
     setVisibleProducts((prevCount) => prevCount + 4); // Show 4 more products each time
   };
 
+  const truncateText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + " ...";
+    }
+    return text;
+  };
+
+
+
+
+
   return (
     <div>
         <Header/>
@@ -243,7 +254,7 @@ const[product1,setproduct1]=useState([])
 {/* banner start----------------------------------------------------------------------------------------------- */}
 
 <div className="container-fluid p-0">
-  <Carousel data-bs-theme="dark" style={{marginTop:"110px",position:"relative"}}>
+  <Carousel data-bs-theme="dark" style={{marginTop:"100px",position:"relative"}}>
     {sliderImages.map((banner, index) => (
       <Carousel.Item key={index}>
         <img
@@ -543,22 +554,25 @@ const[product1,setproduct1]=useState([])
             />
           </div>
           <span
-            className="grocery-card-name"
-            style={{
-              fontSize: "1rem",
-              height: "3rem",
-              fontWeight: "bold",
-              color: "#333",
-              marginTop: "10px",
-              textOverflow: "ellipsis",
-              overflow: "hidden",
-              maxWidth: "90%",
-              transform:"inherit",
-              fontFamily:"'ITC Modern No 216', serif"  ,
-            }}
-          >
-            {product.product_name}
-          </span>
+  className="grocery-card-name"
+  style={{
+    fontSize: "1rem",
+    height: "3rem",
+    fontWeight: "bold",
+    color: "#333",
+    marginTop: "10px",
+    display: "-webkit-box",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: 2,
+    overflow: "hidden",
+    maxWidth: "90%",
+    fontFamily: "'ITC Modern No 216', serif",
+  }}
+>
+  {truncateText(product.product_name, 30)} {/* Adjust maxLength as needed */}
+</span>
+
+
           <div
             className="grocery-card-rating"
             style={{
@@ -983,22 +997,23 @@ Incredible Products
             />
           </div>
           <span
-            className="grocery-card-name"
-            style={{
-              fontSize: "1rem",
-              height: "3rem",
-              fontWeight: "bold",
-              color: "#333",
-              marginTop: "10px",
-              textOverflow: "ellipsis",
-              overflow: "hidden",
-              maxWidth: "90%",
-              transform:"inherit",
-              fontFamily:"'ITC Modern No 216', serif"  ,
-            }}
-          >
-            {product.product_name}
-          </span>
+  className="grocery-card-name"
+  style={{
+    fontSize: "1rem",
+    height: "3rem",
+    fontWeight: "bold",
+    color: "#333",
+    marginTop: "10px",
+    display: "-webkit-box",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: 2,
+    overflow: "hidden",
+    maxWidth: "90%",
+    fontFamily: "'ITC Modern No 216', serif",
+  }}
+>
+  {truncateText(product.product_name, 30)} {/* Adjust maxLength as needed */}
+</span>
           <div
             className="grocery-card-rating"
             style={{

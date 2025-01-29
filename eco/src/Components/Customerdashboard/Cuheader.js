@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 import { jsPDF } from "jspdf";
 import 'jspdf-autotable';
 
+
 function Cuheader() {
 
   const useremail = localStorage.getItem('email')
@@ -134,7 +135,7 @@ function Cuheader() {
   
   
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type, checked, select } = e.target;
     setorderdata({
       ...orderdata,
       [name]: type === "checkbox" ? checked : value,
@@ -157,7 +158,7 @@ function Cuheader() {
   
   
 
-},[])
+},[useremail])
 
 useEffect(()=>
   {
@@ -455,6 +456,10 @@ useEffect(()=>
       [name]: value,
     });
   };
+
+
+
+ 
   
   // Handle form submission
   const handleSubmit2 = async (e) => {
@@ -710,6 +715,9 @@ useEffect(()=>
         </li>
         <li className="dropdown-item">
           <Link to="/manageadds"  style={{textDecoration:"none",color:"black"}}>Manage Address</Link>
+        </li>
+        <li className="dropdown-item">
+          <Link to="/"  style={{textDecoration:"none",color:"black"}}>Logout</Link>
         </li>
             </ul>
           </li>
@@ -1117,8 +1125,8 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
   <select
     className="form-control"
     id="state"
-    name="state"
-    value={orderdata.state}
+    name="selectstate"
+    value={orderdata.selectstate}
     onChange={handleChange}
     style={{
       borderRadius: "5px",
