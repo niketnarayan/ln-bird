@@ -89,7 +89,7 @@ function App() {
      <Route path='/combo' element={<Combo/>}/>
      <Route path='/personalinfo' element={<Personalinfo/>}/>
      <Route path='/manageadds' element={<Manageadds/>}/>
-     <Route path='/cudasboard' element={<Cudashboard/>}/>
+     <Route path='/cudasboard' element={<PrivateRoute><Cudashboard/></PrivateRoute>}/>
      <Route path='/myorders' element={<Myorders/>}/>
      </Routes>
 

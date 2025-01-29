@@ -1,23 +1,60 @@
 /* Navbar Styling */
-.navbar {
+/* .navbar {
       margin-top: -20px;
-  }
+  } */
   
   /* Brand Styling */
-  .navbar-brand {
-    /* font-size: 1.8rem; */
+  /* .navbar-brand {
     font-weight: bold;
     color: #ffffff;
     text-transform: uppercase;
     display: flex;
     align-items: center;
-  }
+  } */
   
-  .logo-icon {
-    color: #00d4ff; /* Logo icon color */
-    /* font-size: 2rem; */
-    animation: spin 4s linear infinite; /* Spinning animation for the logo */
-  }
+
+  /* Remove zoom effect */
+.nav-item:hover {
+  transform: none !important;
+  background-color: transparent !important;
+}
+
+/* Force all letters to be lowercase */
+.nav-link {
+  text-transform: lowercase;
+}
+
+/* Remove hover background */
+.no-hover:hover {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+
+
+
+.navbar-nav .nav-item:hover,
+.navbar-nav .nav-link:hover {
+  transform: none !important;
+  background-color: transparent !important; /* Ensure no background hover effect */
+}
+
+/* If there are any bootstrap utility classes like scale or zoom, remove them */
+.navbar-nav .nav-item,
+.navbar-nav .nav-link {
+  transition: none !important; /* Disable any transition effects */
+}
+
+
+.navbar-nav .nav-item .nav-link {
+  text-transform: lowercase; /* Ensure all letters are lowercase */
+}
+
+.navbar-nav .nav-item .nav-link::first-letter {
+  text-transform: uppercase; /* Capitalize the first letter */
+}
+
+  
   
   /* Spinning Animation */
   @keyframes spin {
@@ -30,7 +67,7 @@
   }
   
   /* Navbar Links */
-  .nav-link {
+  /* .nav-link {
     color: black !important;
     font-size: 1rem;
     font-weight: 500;
@@ -38,26 +75,26 @@
     padding: 0.5rem 1rem;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  }
+  } */
 
-  #navbarNav .nav-link:hover {
-    background-color: black !important; /* Black background on hover */
-    color: white !important; /* White text color on hover */
-    transform: scale(1.1); /* Add hover transform effect */
-  }
+  /* #navbarNav .nav-link:hover {
+    background-color: black !important; 
+    color: white !important; 
+    transform: scale(1.1); 
+  } */
   
-  #navbarNav .nav-link:focus,
+  /* #navbarNav .nav-link:focus,
   #navbarNav .nav-link:active {
-    background-color: black !important; /* Black background when active or focused */
-    color: white !important; /* White text when active or focused */
-  }
+    background-color: black !important; 
+    color: white !important; 
+  } */
 
   
   /* Toggler Styling */
-  .navbar-toggler {
+  /* .navbar-toggler {
     border: none;
     color: black;
-  }
+  } */
   
   .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
@@ -80,17 +117,17 @@
 
 
   /* General Flex Container Styling */
-.button-header {
+/* .button-header {
     display: flex;
     gap: 5px;
     align-items: center;
     justify-content: center;
     margin: 20px;
-  }
+  } */
   
   /* Button Styling */
- .buttons-header{
-    background-color: black; /* Primary blue color */
+ /* .buttons-header{
+    background-color: black; 
     color: white;
     border: none;
     padding: 5px 5px;
@@ -100,14 +137,14 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     transition: transform 0.2s, box-shadow 0.2s;
     width: 6rem;
    
-  }
+  } */
   
   button:hover {
-    background-color:rgb(43, 41, 41); /* Darker blue for hover */
+    background-color:rgb(43, 41, 41); 
     transform: translateY(-2px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
@@ -438,7 +475,7 @@
 
 
  /* Main Header Styles */
-.main-header {
+/* .main-header {
   background-color: #00d4ff;
   width: 100%;
   padding: 10px 0;
@@ -447,76 +484,32 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem; 
-}
+} */
 
 /* Header Content */
-.header-content {
+/* .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 0 auto; /* Center content */
-  padding: 0 20px; /* Add padding for spacing */
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
-}
+  margin: 0 auto; 
+  padding: 0 20px; 
+  flex-wrap: wrap; 
+} */
 
 /* Centered Text */
-.header-text {
+/* .header-text {
   flex: 1;
-  /* margin-bottom: 10px; Space for smaller screens */
-}
+ 
+} */
 
-.header-text span {
+/* .header-text span {
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
   height: 2rem;
-}
+} */
 
-/* Social Icons Container */
-.social-icons {
-  display: flex;
-  gap: 10px;
-  justify-content: center; /* Center icons on smaller screens */
-  flex-wrap: wrap; /* Allow wrapping for icons */
-  height: 2.5rem;
-  align-items: center;
-}
-
-/* Icon Base Styles */
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.icon i {
-  color: white;
-  font-size: 1rem;
-}
-
-/* Specific Icon Styles */
-.icon.facebook {
-  background-color: #3b5998; /* Facebook color */
-}
-
-.icon.twitter {
-  background-color: #1da1f2; /* Twitter color */
-}
-
-.icon.instagram {
-  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram gradient */
-}
-
-.icon.linkedin {
-  background-color: #0077b5; /* LinkedIn color */
-}
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -550,19 +543,6 @@
 
   .header-text span {
     font-size: 1rem; /* Smaller font size for very small screens */
-  }
-
-  .icon {
-    width: 2rem; /* Smaller icons */
-    height: 2rem;
-  }
-
-  .social-icons {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; /* Ensure icons stay visible */
-    flex-wrap: wrap; /* Wrap icons to prevent overflow */
-    gap: 6px; /* Smaller gap for tight spaces */
   }
 
   .container{

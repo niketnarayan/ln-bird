@@ -285,43 +285,66 @@ const[product1,setproduct1]=useState([])
 
 
 {/* content start------------------------------------------------------------------- */}
-{/* <div style={{ padding: "40px",marginBottom:"3rem",marginTop:"3rem" }}>
-      <h1
-        style={{
-          fontSize: "3.5rem",
-          fontFamily: "'ITC Modern No 216', serif",
-          fontWeight: "bold",
-          color: "#222",
-          textAlign: "center",
-          marginBottom: "20px",
-        }}
-      >
-        Kiona Skin Care: Embrace Your Natural Glow
-      </h1>
-      <p
-        style={{
-          fontSize: "20px",
-          fontFamily: "Georgia, serif",
-          color: "#444",
-          lineHeight: "1.8",
-          textAlign: "center",
-          margin: "0 auto",
-          maxWidth: "800px",
-        }}
-      >
-      Founded in 2020 by a team of skincare professionals and holistic health
-        experts, <strong>Kiona Skin Care</strong> was born out of a passion to bring
-        back the purity of nature to your skincare routine. In a world where
-        harsh chemicals dominate, we believe in the power of organic and
-        plant-based ingredients that nurture and protect your skin.<strong>Our products,
-        including face washes, shampoos, and serums, are crafted with love and
-        care, using only the finest natural ingredients.</strong> 
-      </p>
-    </div> */}
+<div style={{ padding: "40px", marginBottom: "3rem", marginTop: "3rem", textAlign: "center" }}>
+  <h1
+    style={{
+      fontSize: "3.5rem",
+      fontFamily: "'ITC Modern No 216', serif",
+      fontWeight: "bold",
+      color: "#222",
+      marginBottom: "20px",
+    }}
+  >
+    Kiona Skin Care: Embrace Your Natural Glow
+  </h1>
+  <p
+    style={{
+      fontSize: "20px",
+      fontFamily: "Georgia, serif",
+      color: "#444",
+      lineHeight: "1.8",
+      margin: "0 auto",
+      maxWidth: "800px",
+    }}
+  >
+    Founded in 2020 by a team of skincare professionals and holistic health
+    experts, <strong>Kiona Skin Care</strong> was born out of a passion to bring
+    back the purity of nature to your skincare routine. In a world where
+    harsh chemicals dominate, we believe in the power of organic and
+    plant-based ingredients that nurture and protect your skin.<strong>Our products,
+    including face washes, shampoos, and serums, are crafted with love and
+    care, using only the finest natural ingredients.</strong> 
+  </p>
+
+  {/* Centered Button */}
+  <button
+    style={{
+      marginTop: "20px",
+      padding: "12px 24px",
+      fontSize: "18px",
+      fontWeight: "bold",
+      color: "#fff",
+      backgroundColor: "#007bff",
+      border: "none",
+      borderRadius: "8px",
+      cursor: "pointer",
+      transition: "background 0.3s ease",
+    }}
+    onMouseOver={(e) => (e.target.style.backgroundColor = "#0056b3")}
+    onMouseOut={(e) => (e.target.style.backgroundColor = "#007bff")}
+
+    onClick={() =>
+      navigate("/aboutus")
+      }
+  >
+    More About
+  </button>
+</div>
 
 
 
-<div
+
+{/* <div
   style={{
     backgroundColor: "rgb(255, 255, 255)", 
     padding: "2rem", 
@@ -402,7 +425,7 @@ const[product1,setproduct1]=useState([])
       </p>
     </div>
   </div>
-</div>
+</div> */}
 
 
 
@@ -485,7 +508,7 @@ const[product1,setproduct1]=useState([])
 </div>  */}
 
 
-<div className="grocery">
+<div className="grocery" style={{ background: 'linear-gradient(to right, #FFF9B1, #FFB6C1, #FFF9B1)' }}>
   <h1
     className="grocery-heading text-center"
     style={{ marginBottom: "20px", color: "#333" }}
@@ -928,7 +951,7 @@ const[product1,setproduct1]=useState([])
 
 {/* single products-------------------------------------------------------------------------- */}
 
-<div className="grocery">
+<div className="grocery" style={{ background: 'linear-gradient(to right, #FFF9B1, #FFB6C1, #FFF9B1)' }}>
   <h1
     className="grocery-heading text-center"
     style={{ marginBottom: "20px", color: "#333" }}
@@ -1377,7 +1400,7 @@ Incredible Products
   style={{
     padding: "50px 0",
     marginTop: "2rem",
-    backgroundColor:"rgb(255, 255, 255)",
+    background: 'linear-gradient(to right, #FFF9B1, #FFB6C1, #FFF9B1)',
   }}
 >
   <div className="container" style={{}}>
