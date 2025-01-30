@@ -478,132 +478,254 @@ const handleSubmit2 = async (e) => {
 
 
     <div style={{position:"fixed",left:"0",right:"0",zIndex:"1000",top:"0"}}>
-
-    {/* <header className="main-header">
-      
-        <div className="header-text">
-          <h5
+<nav
+      className="navbar navbar-expand-lg"
+      style={{
+        backgroundColor: "#f8f9f3",
+        height: "120px",
+        position: "relative",
+      }}
+    >
+      <div className="container-fluid">
+        {/* Brand Name Centered */}
+        <div
           style={{
-            marginBottom:"0px",
-            color:"#fff",
-            fontWeight:"700",
-          }}>Let's Join Us Kiona</h5>
+            position: "absolute",
+            top: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            fontSize: "40px",
+            fontWeight: "400",
+            fontFamily: "serif",
+          }}
+        >
+          Kiona
         </div>
 
-       
-        <div className="social-icons">
-     
-          <a href="#" className="icon facebook">
-            <i className="fa-brands fa-facebook-f"></i>
-          </a>
+        {/* Mobile Toggle Button */}
+        <button
+          style={{ width: "fit-content", color: "#000" }}
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i className="fa-solid fa-bars"></i>
+        </button>
 
-        
-          <a href="#" className="icon twitter">
-            <i className="fa-brands fa-twitter"></i>
-          </a>
-
-      
-          <a href="#" className="icon instagram">
-            <i className="fa-brands fa-instagram"></i>
-          </a>
-
-       
-          <a href="#" className="icon linkedin">
-            <i className="fa-brands fa-linkedin-in"></i>
-          </a>
-      </div>
-    </header> */}
-
-
-<nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#f8f9f3", height: "120px", position: "relative" }}>
-  <div className="container-fluid">
-    <div style={{ position: "absolute", top: "20px", left: "50%", transform: "translateX(-50%)", fontSize: "40px", fontWeight: "400", fontFamily: "serif" }}>
-      Kiona
-    </div>
-
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <i className="fa-solid fa-bars"></i>
-    </button>
-
-    <div className="collapse navbar-collapse justify-content-center" id="navbarNav" style={{ marginTop: "70px" }}>
-      <ul className="navbar-nav" style={{ gap: "20px", display: "flex", alignItems: "center", fontSize: "12px", fontWeight: "600" }}>
-        <li className="nav-item">
-          <Link className="nav-link no-hover" to="/">Home</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link no-hover" to="/aboutus">About Us</Link>
-        </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle no-hover" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Product Range
-          </a>
-          <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li className="dropdown-item" onClick={() => navigatecategory('shampoo')}>Shampoo</li>
-            <li className="dropdown-item" onClick={() => navigatecategory('massage oil')}>Massage Oil</li>
-            <li className="dropdown-item" onClick={() => navigatecategory('face wash')}>Face Wash</li>
-            <li className="dropdown-item" onClick={() => navigatecategory('hair serum')}>Hair Serum</li>
-            <li className="dropdown-item" onClick={() => navigatecategory('hair oil')}>Hair Oil</li>
+        {/* Navigation Links */}
+        <div
+          className="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+          style={{ marginTop: "80px" }}
+        >
+          <ul
+            className="navbar-nav"
+            style={{
+              gap: "20px",
+              display: "flex",
+              alignItems: "center",
+              fontSize: "12px",
+              fontWeight: "600",
+            }}
+          >
+            <li className="nav-item">
+              <Link className="nav-link no-hover" to="/">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link no-hover" to="/aboutus">
+                About Us
+              </Link>
+            </li>
+            {/* Product Range Dropdown */}
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle no-hover"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Product 
+              </a>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li className="dropdown-item" onClick={() => navigatecategory("shampoo")}>
+                  Shampoo
+                </li>
+                <li className="dropdown-item" onClick={() => navigatecategory("soap")}>
+                  Soap
+                </li>
+                <li className="dropdown-item" onClick={() => navigatecategory("face wash")}>
+                  Face Wash
+                </li>
+                <li className="dropdown-item" onClick={() => navigatecategory("hair serum")}>
+                  Hair Serum
+                </li>
+                <li className="dropdown-item" onClick={() => navigatecategory("hair oil")}>
+                  Hair Oil
+                </li>
+              </ul>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link no-hover" to="/blog1">
+                Blogs
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link no-hover" to="/track-order">
+                Track Your Order
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link no-hover" to="/contact">
+                Contact Us
+              </Link>
+            </li>
+            {/* Terms & Conditions Dropdown */}
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle no-hover"
+                href="#"
+                id="termsDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Terms & Conditions
+              </a>
+              <ul className="dropdown-menu" aria-labelledby="termsDropdown">
+                <li>
+                  <Link className="dropdown-item" to="/privacypolicy">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/ewaste">
+                    E-Waste Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/cancelpolicy">
+                    Cancellation & Return Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/deliverycancel">
+                    Shipping & Delivery Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/faq">
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/term&condition">
+                    Terms & Conditions
+                  </Link>
+                </li>
+              </ul>
+            </li>
           </ul>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link no-hover" to="/blog1">Blogs</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link no-hover" to="/track-order">Track Your Order</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link no-hover" to="/contact">Contact Us</Link>
-        </li>
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle no-hover" href="#" id="termsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Terms & Conditions
-          </a>
-          <ul className="dropdown-menu" aria-labelledby="termsDropdown" style={{ listStyle: "none", paddingLeft: "0" }}>
-  <li className="dropdown-item" style={{ listStyleType: "none"}}><Link to="/privacypolicy">Privacy Policy</Link></li>
-  <li className="dropdown-item" style={{ listStyle: "none" }}><Link to="/ewaste">E-Waste Policy</Link></li>
-  <li className="dropdown-item" style={{ listStyle: "none" }}><Link to="/cancelpolicy">Cancellation & Return Policy</Link></li>
-  <li className="dropdown-item" style={{ listStyle: "none" }}><Link to="/deliverycancel">Shipping & Delivery Policy</Link></li>
-  <li className="dropdown-item" style={{ listStyle: "none" }}><Link to="/faq">FAQ</Link></li>
-  <li className="dropdown-item" style={{ listStyle: "none" }}><Link to="/term&condition">Terms & Conditions</Link></li>
-</ul>
+        </div>
 
-        </li>
-      </ul>
-    </div>
-
-    <div className="d-flex justify-content-end" style={{ position: "absolute", top: "40px", right: "20px", gap: "10px" }}>
-      <button className="buttons-header" onClick={handleShow1}>
-        <i className="fa-solid fa-cart-shopping"></i> Cart{length}
-      </button>
-      <button className="buttons-header" onClick={handleShow}>
-        <i className="fa-solid fa-arrow-right-to-bracket"></i>Login
-      </button>
-    </div>
+        {/* Cart & Login Buttons */}
+        <div
+  className="d-flex justify-content-end align-items-center"
+  style={{
+    position: "absolute",
+    top: "40px",
+    right: "228px",
+    gap: "20px",
+  }}
+>
+  {/* Cart Icon with Badge */}
+  <div style={{ position: "relative", cursor: "pointer" }} onClick={handleShow1}>
+    <i className="fas fa-cart-shopping" style={{ fontSize: "25px", color: "#333" }}></i>
+    {length > 0 && (
+      <span
+        style={{
+          position: "absolute",
+          top: "-5px",
+          right: "-10px",
+          background: "red",
+          color: "white",
+          fontSize: "12px",
+          fontWeight: "bold",
+          padding: "3px 6px",
+          borderRadius: "50%",
+          minWidth: "20px",
+          textAlign: "center",
+          boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
+        }}
+      >
+        {length}
+      </span>
+    )}
   </div>
 
-  {/* Mobile View Media Query */}
-  <style jsx>{`
-    @media (max-width: 768px) {
-      .navbar-nav {
-        flex-direction: column;
-        align-items: center;
-      }
+  {/* User Icon */}
+  <i
+    onClick={handleShow}
+    className="fa-regular fa-user"
+    style={{
+      fontSize: "25px",
+      color: "#333",
+      cursor: "pointer",
+    }}
+  ></i>
+</div>
 
-      .d-flex.justify-content-end {
-        position: relative;
-        top: 10px;
-        right: 0;
-        margin-top: 10px;
-        gap: 5px;
-      }
+      </div>
 
-      .navbar-toggler {
-        margin-top: 10px;
-      }
-    }
-  `}</style>
-</nav>
+      {/* Styles */}
+      <style jsx>{`
+        .navbar-nav .nav-link,
+        .dropdown-item {
+          position: relative;
+          transition: all 0.3s ease-in-out;
+        }
 
+        .navbar-nav .nav-link:hover,
+        .dropdown-item:hover {
+          border-bottom: 2px solid #000;
+        }
+
+        .dropdown-menu {
+          list-style: none;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+          .navbar-nav {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .d-flex.justify-content-end {
+            position: relative;
+            top: 10px;
+            right: 0;
+            margin-top: 10px;
+            gap: 5px;
+          }
+
+          .navbar-toggler {
+            margin-top: 10px;
+          }
+
+          .dropdown-menu {
+            width: 100%;
+          }
+        }
+      `}</style>
+    </nav>
 
 
 

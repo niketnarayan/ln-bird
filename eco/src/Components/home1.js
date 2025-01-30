@@ -508,7 +508,7 @@ const[product1,setproduct1]=useState([])
 </div>  */}
 
 
-<div className="grocery" style={{ background: 'linear-gradient(to right, #FFF9B1, #FFB6C1, #FFF9B1)' }}>
+<div className="grocery" style={{ background: 'linear-gradient(to right, #FFF9B1, #FFB6C1, #FFF9B1)', width:"100%" }}>
   <h1
     className="grocery-heading text-center"
     style={{ marginBottom: "20px", color: "#333" }}
@@ -951,7 +951,7 @@ const[product1,setproduct1]=useState([])
 
 {/* single products-------------------------------------------------------------------------- */}
 
-<div className="grocery" style={{ background: 'linear-gradient(to right, #FFF9B1, #FFB6C1, #FFF9B1)' }}>
+<div className="grocery" style={{ background: 'linear-gradient(to right, #FFF9B1, #FFB6C1, #FFF9B1)', width:"100%" }}>
   <h1
     className="grocery-heading text-center"
     style={{ marginBottom: "20px", color: "#333" }}

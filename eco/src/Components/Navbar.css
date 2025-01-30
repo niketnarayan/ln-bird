@@ -91,22 +91,22 @@
 
   
   /* Toggler Styling */
-  /* .navbar-toggler {
+   .navbar-toggler {
     border: none;
     color: black;
-  } */
+  } 
   
   .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
   }
   
   /* Responsive Navbar Alignment */
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     .nav-link {
       text-align: center;
       margin: 0.5rem 0;
     }
-  }
+  } */
   
   /* Smooth Scroll for Links */
   html {
@@ -160,7 +160,7 @@
   }
   
   /* Responsive Design */
-  @media (max-width: 600px) {
+  /* @media (max-width: 600px) {
     div {
       flex-direction: column;
       gap: 15px;
@@ -170,7 +170,7 @@
       width: 100%;
       justify-content: center;
     }
-  }
+  } */
   
 
 
@@ -226,23 +226,6 @@
 
 /* Navbar Styling */
 
-
-
-
-
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .container-lg {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  #dropdown-basic-button {
-    width: 100%;
-    text-align: left;
-  }
-}
 
 /* cart css start------------------------------------------------------------------------------------------------ */
 .cart-container {
@@ -364,75 +347,14 @@
 
 /* search box in header code------------------------------------------------------------------------ */
 /* Default Styles */
-.search-bar-container {
-  max-width: 100%;
-  display: flex; /* Flexbox for alignment */
-  justify-content: center; /* Center children horizontally */
-  align-items: center; /* Center children vertically */
-  margin: auto;
-  padding: 0.5rem;
-}
 
-.search-bar-input {
-  flex-grow: 1; /* Make input grow to fill available space */
-  min-width: 50%; /* Minimum width for input */
-  max-width: 70%; /* Maximum width for larger screens */
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
 
-.search-bar-button {
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #007bff; /* Button background color */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
 
-.search-bar-button i {
-  font-size: 1.2rem;
-}
 
-/* Tablet (768px and below) */
-@media (max-width: 768px) {
-  .search-bar-container {
-    flex-direction: column; /* Stack input and button vertically */
-    padding: 0.5rem;
-  }
 
-  .search-bar-input {
-    max-width: 100%;
-    margin-bottom: 0.5rem; /* Add spacing below input */
-  }
 
-  .search-bar-button {
-    width: 100%; /* Full-width button */
-  }
-}
 
-/* Mobile (576px and below) */
-@media (max-width: 576px) {
-  .search-bar-container {
-    padding: 0.3rem;
-  }
 
-  .search-bar-input {
-    font-size: 0.9rem;
-    padding: 0.4rem;
-  }
-
-  .search-bar-button {
-    font-size: 0.9rem;
-    padding: 0.4rem;
-  }
-}
 
 /* search box in header code end------------------------------------------------------------------------ */
 
@@ -512,44 +434,4 @@
 
 
 /* Responsive Styles */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column; /* Stack items vertically */
-    text-align: center;
-  }
 
-  .header-text {
-    margin-bottom: 10px;
-  }
-
-  .header-text span {
-    font-size: 1.2rem; /* Adjust font size */
-  }
-
-  .social-icons {
-    gap: 8px; /* Reduce gap between icons */
-  }
-
-  .icon {
-    width: 2.2rem; /* Adjust icon size */
-    height: 2.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-content {
-    flex-direction: row; /* Ensure content stacks vertically */
-  }
-
-  .header-text span {
-    font-size: 1rem; /* Smaller font size for very small screens */
-  }
-
-  .container{
-    display: flex;
-    flex-direction: row;
-  }
-  .content-container{
-    width: 200px !important;
-  }
-}

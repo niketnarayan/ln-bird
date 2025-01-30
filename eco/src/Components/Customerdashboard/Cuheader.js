@@ -551,207 +551,272 @@ useEffect(()=>
     <div>
  <div style={{position:"absolute",left:"0",right:"0",zIndex:"1000",top:"0"}}>
 
-{/* <header className="main-header">
-  
-    <div className="header-text">
-      <h5
-      style={{
-        marginBottom:"0px",
-        color:"#fff",
-        fontWeight:"700",
-      }}>Let's Join Us Kiona</h5>
-    </div>
-
-   
-    <div className="social-icons">
- 
-      <a href="#" className="icon facebook">
-        <i className="fa-brands fa-facebook-f"></i>
-      </a>
-
-    
-      <a href="#" className="icon twitter">
-        <i className="fa-brands fa-twitter"></i>
-      </a>
-
-  
-      <a href="#" className="icon instagram">
-        <i className="fa-brands fa-instagram"></i>
-      </a>
-
-   
-      <a href="#" className="icon linkedin">
-        <i className="fa-brands fa-linkedin-in"></i>
-      </a>
-  </div>
-</header> */}
-
-
 <nav
-  className="navbar navbar-expand-lg"
-  style={{ backgroundColor: "rgb(255, 255, 255)" }}
->
-  <div className="container">
-    <div
-      className="content-container"
+      className="navbar navbar-expand-lg"
       style={{
-        display: "flex",
-        width: "100%",
-        justifyContent: "space-between",
-        alignItems: "center",
+        backgroundColor: "#f8f9f3",
+        height: "120px",
+        position: "relative",
       }}
     >
-      {/* Brand Logo */}
-      <a
-        style={{ cursor: "pointer" }}
-        className="navbar-brand text-white d-flex align-items-center"
-        onClick={() => navigate("/")}
-      >
-        <span className="logo-icon me-1">Ⓚ</span>
-        <img
-          className="img-fluid"
-          src={logo}
-          style={{ width: "175px", height: "80px" }}
-        />
-      </a>
-
-      {/* Navbar links */}
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul
-          className="navbar-nav ms-auto d-flex align-items-center"
+      <div className="container-fluid">
+        {/* Brand Name Centered */}
+        <div
           style={{
-            gap: "10px", // Reduced gap between nav items
-            margin: "0",
-            padding: "0",
+            position: "absolute",
+            top: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            fontSize: "40px",
+            fontWeight: "400",
+            fontFamily: "serif",
           }}
         >
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/">
-              Home
-            </Link>
-          </li>
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle text-white"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Product
-            </a>
-            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li
-                className="dropdown-item"
-                onClick={() => navigatecategory("shampoo")}
-                style={{ cursor: "pointer" }}
-              >
-                Shampoo
-              </li>
-              <li
-                className="dropdown-item"
-                onClick={() => navigatecategory("massage oil")}
-                style={{ cursor: "pointer" }}
-              >
-                Massage Oil
-              </li>
-              <li
-                className="dropdown-item"
-                onClick={() => navigatecategory("face wash")}
-                style={{ cursor: "pointer" }}
-              >
-                Face Wash
-              </li>
-              <li
-                className="dropdown-item"
-                onClick={() => navigatecategory("hair serum")}
-                style={{ cursor: "pointer" }}
-              >
-                Hair Serum
-              </li>
-              <li
-                className="dropdown-item"
-                onClick={() => navigatecategory("hair oil")}
-                style={{ cursor: "pointer" }}
-              >
-                Hair Oil
-              </li>
-            </ul>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/combo">
-              Combo
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/blog1">
-              Blog
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-white" to="/contact">
-              Contact Us
-            </Link>
-          </li>
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle text-white"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              My Account
-            </a>
-            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-              {/* <li className="dropdown-item">Dashboard</li> */}
-              <li className="dropdown-item">
-          <Link to="/myorders"  style={{textDecoration:"none",color:"black"}}>My Orders</Link>
-        </li>
-        <li className="dropdown-item">
-          <Link to="/personalinfo"  style={{textDecoration:"none",color:"black"}}>Personal Info</Link>
-        </li>
-        <li className="dropdown-item">
-          <Link to="/manageadds"  style={{textDecoration:"none",color:"black"}}>Manage Address</Link>
-        </li>
-        <li className="dropdown-item">
-          <Link to="/"  style={{textDecoration:"none",color:"black"}}>Logout</Link>
-        </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+          Kiona
+        </div>
 
-      {/* Cart Button */}
-      <div
-        className="button-header"
+        {/* Mobile Toggle Button */}
+        <button
+          style={{ width: "fit-content", color: "#000" }}
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i className="fa-solid fa-bars"></i>
+        </button>
+
+        {/* Navigation Links */}
+        <div
+          className="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+          style={{ marginTop: "80px" }}
+        >
+          <ul
+            className="navbar-nav"
+            style={{
+              gap: "20px",
+              display: "flex",
+              alignItems: "center",
+              fontSize: "12px",
+              fontWeight: "600",
+            }}
+          >
+            <li className="nav-item">
+              <Link className="nav-link no-hover" to="/cudasboard">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link no-hover" to="/aboutus">
+                About Us
+              </Link>
+            </li>
+            {/* Product Range Dropdown */}
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle no-hover"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Product 
+              </a>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown" style={{cursor:"pointer"}}>
+                <li className="dropdown-item" onClick={() => navigatecategory("shampoo")} style={{cursor:"pointer"}}>
+                  Shampoo
+                </li>
+                <li className="dropdown-item" onClick={() => navigatecategory("soap")} style={{cursor:"pointer"}}>
+                  Soap
+                </li>
+                <li className="dropdown-item" onClick={() => navigatecategory("face wash")} style={{cursor:"pointer"}}>
+                  Face Wash
+                </li>
+                <li className="dropdown-item" onClick={() => navigatecategory("hair serum")} style={{cursor:"pointer"}}>
+                  Hair Serum
+                </li>
+                <li className="dropdown-item" onClick={() => navigatecategory("hair oil")} style={{cursor:"pointer"}}>
+                  Hair Oil
+                </li>
+              </ul>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link no-hover" to="/blog1">
+                Blogs
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link no-hover" to="/track-order">
+                Track Your Order
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link no-hover" to="/contact">
+                Contact Us
+              </Link>
+            </li>
+            {/* Terms & Conditions Dropdown */}
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle no-hover"
+                href="#"
+                id="termsDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Terms & Conditions
+              </a>
+              <ul className="dropdown-menu" aria-labelledby="termsDropdown">
+                <li>
+                  <Link className="dropdown-item" to="/privacypolicy">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/ewaste">
+                    E-Waste Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/cancelpolicy">
+                    Cancellation & Return Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/deliverycancel">
+                    Shipping & Delivery Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/faq">
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item" to="/term&condition">
+                    Terms & Conditions
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            {/* customer page  */}
+            <li className="nav-item dropdown">
+<a
+className="nav-link dropdown-toggle text-white"
+href="#"
+id="navbarDropdown"
+role="button"
+data-bs-toggle="dropdown"
+aria-expanded="false"
+>
+My Account
+</a>
+<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+{/* <li className="dropdown-item">Dashboard</li> */}
+<li className="dropdown-item">
+<Link to="/myorders" style={{textDecoration:"none",color:"black"}}>My Orders</Link>
+</li>
+<li className="dropdown-item">
+<Link to="/personalinfo" style={{textDecoration:"none",color:"black"}}>Personal Info</Link>
+</li>
+<li className="dropdown-item">
+<Link to="/manageadds" style={{textDecoration:"none",color:"black"}}>Manage Address</Link>
+</li>
+<li className="dropdown-item">
+<Link to="/" style={{textDecoration:"none",color:"black"}}>Logout</Link>
+</li>
+</ul>
+</li>
+          </ul>
+        </div>
+
+        {/* Cart & Login Buttons */}
+        <div
+  className="d-flex justify-content-end align-items-center"
+  style={{
+    position: "absolute",
+    top: "40px",
+    right: "228px",
+    gap: "20px",
+  }}
+>
+  {/* Cart Icon with Badge */}
+  <div style={{ position: "relative", cursor: "pointer" }} onClick={handleShow1}>
+    <i className="fas fa-cart-shopping" style={{ fontSize: "25px", color: "#333" }}></i>
+    {length > 0 && (
+      <span
         style={{
-          marginLeft: "10px", // Reduced gap between navbar items and cart button
+          position: "absolute",
+          top: "-5px",
+          right: "-10px",
+          background: "red",
+          color: "white",
+          fontSize: "12px",
+          fontWeight: "bold",
+          padding: "3px 6px",
+          borderRadius: "50%",
+          minWidth: "20px",
+          textAlign: "center",
+          boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
         }}
       >
-        <button className="buttons-header" onClick={handleShow1}>
-          <i className="fa-solid fa-cart-shopping"></i> Cart {length}
-        </button>
+        {length}
+      </span>
+    )}
+  </div>
+
+  {/* User Icon */}
+</div>
       </div>
 
-      {/* Toggler for mobile view */}
-      <button
-        style={{ width: "fit-content", color: "#000" }}
-        className="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <i className="fa-solid fa-bars"></i>
-      </button>
-    </div>
-  </div>
-</nav>
+      {/* Styles */}
+      <style jsx>{`
+        .navbar-nav .nav-link,
+        .dropdown-item {
+          position: relative;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .dropdown-item:hover {
+          border-bottom: 2px solid #000;
+        }
+
+        .dropdown-menu {
+          list-style: none;
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+          .navbar-nav {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .d-flex.justify-content-end {
+            position: relative;
+            top: 10px;
+            right: 0;
+            margin-top: 10px;
+            gap: 5px;
+          }
+
+          .navbar-toggler {
+            margin-top: 10px;
+          }
+
+          .dropdown-menu {
+            width: 100%;
+          }
+        }
+      `}</style>
+    </nav>
 
 
 {/* <div className="category">

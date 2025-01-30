@@ -5,6 +5,7 @@ const add_product=new mongoose.Schema({
     product_category:{type:String},
     product_type:{type:String},
     product_name:{type:String},
+    product_sku:{type:String},
     product_price:{type:String},
     product_quantity:{type:String},
     product_image:{type:Array},

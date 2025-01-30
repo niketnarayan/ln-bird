@@ -42,6 +42,7 @@ function Allproductlist() {
           Productcategory:item.product_category,
           Producttype:item.product_type,
           ProductName: item.product_name,
+          productsku:item.product_sku,
           ProductPrice: item.product_price,
           ProductQuantity: item.product_quantity,
           ProductDescription: item.product_description,
@@ -68,6 +69,7 @@ function Allproductlist() {
     { field: "Productcategory", headerName: "Product Category", width: 150 },
     { field: "Producttype", headerName: "Product Type", width: 130 },
     { field: "ProductName", headerName: "Product Name", width: 150 },
+    { field: "productsku", headerName: "Product SKU", width: 150 },
     { field: "ProductPrice", headerName: "Product Price", width: 120 },
     {
       field: "ProductQuantity",
@@ -164,6 +166,7 @@ function Allproductlist() {
   const [product, setproduct] = useState({
     product_code: "",
     product_name: "",
+    product_sku:"",
     product_category:"",
     product_type:"",
     product_price: "",
@@ -240,6 +243,7 @@ const handleDescriptionChange = (value) => {
       // Append product fields
       formData.append("product_code", product.product_code);
       formData.append("product_name", product.product_name || "");
+      formData.append("product_sku", product.product_sku || "");
       formData.append("product_category", product.product_category || "");
       formData.append("product_type", product.product_type || "");
       formData.append("product_price", product.product_price || "");
@@ -407,6 +411,25 @@ const result=resp.data.product[0]
                           required
                         />
                       </div>
+                     {/* Product sku */}
+                     <div className="mb-3">
+                        <label className="form-label">Product SKU</label>
+                        <input
+                          type="text"
+                          name="product_sku"
+                          className="form-control"
+                          value={product.product_sku}
+                          onChange={(e)=>setproduct({...product,product_sku:e.target.value})}
+                          placeholder="Enter product sku"
+                          required
+                        />
+                      </div>
+
+
+
+
+
+
                       <div className="mb-3">
   {/* Category Dropdown */}
   <label className="form-label">Category</label>

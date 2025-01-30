@@ -6,6 +6,8 @@ import { useCart } from "./cartcontext";
 import { useLocation } from "react-router-dom";
 import api from "../Components/api";
 import { useNavigate  } from "react-router-dom";
+import Swal from 'sweetalert2';
+
 
 function VitamincFacewash() {
   const location = useLocation();
@@ -69,13 +71,38 @@ function VitamincFacewash() {
         }
         return text;
       };
-      
+
+
+      const [review, setreview] = useState({comment:"",name:"",email:""})
+      const addreview = async () => {
+        try {
+          const resp = await api.post('review', review);
+          if (resp.status === 200) {
+                      Swal.fire({
+                        title: 'Success!',
+                        text: 'review saved successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                      });
+                    }
+        } catch (error) {
+          console.log(error);
+          
+          
+        }
+        
+      }
+
+
+
+
+  
 
   return (
     <div>
       <Header />
 
-      <div style={{ display: "flex", gap: "10px", padding: "20px",marginTop:"100px",padding:"90px" }}>
+      <div style={{ display: "flex", gap: "10px", padding: "20px",marginTop:"100px",padding:"90px", backgroundColor:"rgb(252, 248, 238)" }}>
   {Products.map((product) => (
     <div
       key={product.id}
@@ -139,7 +166,7 @@ function VitamincFacewash() {
           </button>
         </div>
         <div style={{ marginTop: "20px", fontSize: "14px", color: "#555" }}>
-          <p>SKU: {product.sku}</p>
+          <p>SKU: {product.product_sku}</p>
           <p>Categories: {product.categories}</p>
           <p>Tag: {product.tag}</p>
           <p>
@@ -189,36 +216,71 @@ function VitamincFacewash() {
 
   {/* ⭐ Tab Content */}
   <div style={{ background:"transparent", padding: "30px", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)", textAlign: "center" }}>
-    {activeTab === "description" && <p style={{ fontSize: "18px", lineHeight: "1.6", color: "#444" }}>{Products[0]?.description || "No description available."}</p>}
-    {activeTab === "info" && <p style={{ fontSize: "18px", lineHeight: "1.6", color: "#444" }}>{Products[0]?.additional_info || "No additional information available."}</p>}
-    {activeTab === "reviews" && (
-      <div>
-        <h3 style={{ fontSize: "22px", marginBottom: "15px", color: "#333" }}>Customer Reviews</h3>
-        {Products[0]?.reviews?.length > 0 ? (
-          Products[0].reviews.map((review, index) => (
-            <div key={index} style={{ marginBottom: "15px", padding: "15px", border: "1px solid #ddd", borderRadius: "8px", textAlign: "left" }}>
-              <strong style={{ fontSize: "16px", color: "#333" }}>{review.user}:</strong>
-              <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>{review.comment}</p>
-              <span style={{ color: "#f4c150", fontSize: "16px" }}>★ {review.rating}</span>
-            </div>
-          ))
-        ) : (
-          <p style={{ fontSize: "16px", color: "#777" }}>No reviews yet.</p>
-        )}
+  {activeTab === "description" && <p style={{ fontSize: "18px", lineHeight: "1.6", color: "#444" }}>{Products[0]?.description || "No description available."}</p>}
+  {activeTab === "info" && <p style={{ fontSize: "18px", lineHeight: "1.6", color: "#444" }}>{Products[0]?.additional_info || "No additional information available."}</p>}
+  {activeTab === "reviews" && (
+    <div>
+      <h3 style={{ fontSize: "22px", marginBottom: "15px", color: "#333" }}>Customer Reviews</h3>
+      {Products[0]?.reviews?.length > 0 ? (
+        Products[0].reviews.map((review, index) => (
+          <div key={index} style={{ marginBottom: "15px", padding: "15px", border: "1px solid #ddd", borderRadius: "8px", textAlign: "left" }}>
+            <strong style={{ fontSize: "16px", color: "#333" }}>{review.user}:</strong>
+            <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>{review.comment}</p>
+            <span style={{ color: "#f4c150", fontSize: "16px" }}>★ {review.rating}</span>
+          </div>
+        ))
+      ) : (
+        <p style={{ fontSize: "16px", color: "#777" }}>No reviews yet.</p>
+      )}
 
-        {/* ⭐ Add Review Section */}
-        <h3 style={{ fontSize: "22px", marginTop: "20px", color: "#333" }}>Add a Review</h3>
-        <textarea placeholder="Your review" style={{ width: "100%", height: "80px", padding: "10px", fontSize: "16px", border: "1px solid #ddd", borderRadius: "8px", marginBottom: "10px" }} />
-        <br />
-        <input type="text" placeholder="Name" style={{ padding: "12px", marginRight: "10px", width: "48%", border: "1px solid #ddd", borderRadius: "8px", fontSize: "16px" }} />
-        <input type="email" placeholder="Email" style={{ padding: "12px", width: "48%", border: "1px solid #ddd", borderRadius: "8px", fontSize: "16px" }} />
-        <br />
-        <button style={{ marginTop: "15px", padding: "12px 20px", backgroundColor: "#f4c150", border: "none", cursor: "pointer", fontSize: "16px", fontWeight: "bold", borderRadius: "8px", transition: "0.3s ease" }}>
-          Submit Review
-        </button>
-      </div>
-    )}
-  </div>
+      {/* ⭐ Add Review Section */}
+      <h3 style={{ fontSize: "22px", marginTop: "20px", color: "#333" }}>Add a Review</h3>
+      
+      {/* ⭐ Rating Dropdown */}
+      <select 
+        style={{ width: "100%", padding: "10px", fontSize: "16px", border: "1px solid #ddd", borderRadius: "8px", marginBottom: "10px" }} 
+        onChange={(e) => setreview({...review, rating: e.target.value})}
+      >
+        <option value="">Select Rating</option>
+        <option value="5">★★★★★ (5 Stars)</option>
+        <option value="4">★★★★☆ (4 Stars)</option>
+        <option value="3">★★★☆☆ (3 Stars)</option>
+        <option value="2">★★☆☆☆ (2 Stars)</option>
+        <option value="1">★☆☆☆☆ (1 Star)</option>
+      </select>
+      
+      <textarea 
+        placeholder="Your review" 
+        style={{ width: "100%", height: "80px", padding: "10px", fontSize: "16px", border: "1px solid #ddd", borderRadius: "8px", marginBottom: "10px" }} 
+        onChange={(e) => setreview({...review, comment: e.target.value})}
+      />
+      
+      <br />
+      <input 
+        type="text" 
+        placeholder="Name" 
+        style={{ padding: "12px", marginRight: "10px", width: "48%", border: "1px solid #ddd", borderRadius: "8px", fontSize: "16px" }} 
+        onChange={(e) => setreview({...review, name: e.target.value})}
+      />
+      
+      <input 
+        type="email" 
+        placeholder="Email" 
+        style={{ padding: "12px", width: "48%", border: "1px solid #ddd", borderRadius: "8px", fontSize: "16px" }} 
+        onChange={(e) => setreview({...review, email: e.target.value})}
+      />
+      
+      <br />
+      <button 
+        style={{ marginTop: "15px", padding: "12px 20px", backgroundColor: "#f4c150", border: "none", cursor: "pointer", fontSize: "16px", fontWeight: "bold", borderRadius: "8px", transition: "0.3s ease" }} 
+        onClick={addreview}
+      >
+        Submit Review
+      </button>
+    </div>
+  )}
+</div>
+
 </div>
 
 

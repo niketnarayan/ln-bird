@@ -17,6 +17,7 @@ function Addproduct() {
         product_category:"",
         product_type:"",
         product_name: "",
+        product_sku:"",
         product_price: "",
         product_quantity: "",
         product_image: [],
@@ -191,7 +192,7 @@ function Addproduct() {
       Select Category
     </option>
     <option value="shampoo">Shampoo</option>
-    <option value="massage oil">Massage Oil</option>
+    <option value="soap">Soap</option>
     <option value="face wash">Face Wash</option>
     <option value="hair serum">Hair Serum</option>
     <option value="hair oil">Hair Oil</option>
@@ -227,6 +228,21 @@ function Addproduct() {
                   required
                 />
               </div>
+
+              <div className="mb-3">
+                <label className="form-label">Product SKU</label>
+                <input
+                  type="text"
+                  name="productsku"
+                  className="form-control"
+                 
+                  onChange={(e)=>setproduct({...product,product_sku:e.target.value})}
+                  placeholder="Enter product sku"
+                  required
+                />
+              </div>
+
+
 
               {/* Price */}
               <div className="mb-3">

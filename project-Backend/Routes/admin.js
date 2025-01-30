@@ -9,6 +9,7 @@ const protectRoute=require('../Middleware/routemiddle');
 const payment = require('../Controllers/payment');
 const { createBlog, getBlogs, deleteBlog, editBlog, viewblogbyid } = require('../Controllers/blog');
 const { registerUser, loginUser } = require('../Controllers/registation');
+const { addReview, getReviews } = require('../Controllers/review');
 const router=express.Router()
 
 
@@ -61,6 +62,10 @@ router.post(
   router.post('/register',registerUser);
   router.post('/logins',loginUser);
 
+
+
+router.post('/review', addReview);
+router.get('/getreview/:_id', getReviews);
  
 
 module.exports=router
