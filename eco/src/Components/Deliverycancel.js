@@ -111,8 +111,8 @@ function Deliverycancel() {
           If you have any questions about our shipping or delivery process, please feel free to contact our customer support team:
         </p>
         <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Email: <strong>support@kiona.com</strong></p>
-        <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Phone: <strong>+123 456 7890</strong></p>
-        <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Our team is available Monday to Friday, from 9:00 AM to 6:00 PM.</p>
+        {/* <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Phone: <strong>+123 456 7890</strong></p>
+        <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Our team is available Monday to Friday, from 9:00 AM to 6:00 PM.</p> */}
       </section>
     </div>
      <Footer/>

@@ -17,6 +17,7 @@ import Swal from 'sweetalert2';
 
 
 function Home1() {
+  const [cartMessage, setCartMessage] = useState("");
 
 const {cart,setcart}=useCart()
 
@@ -129,10 +130,24 @@ const[product1,setproduct1]=useState([])
       const handleprouctadd = (product) => {
         // Check if the product already exists in the cart
         const isProductInCart = cart.some((item) => item._id === product._id);
-      
         if (!isProductInCart) {
           // Add the product to the cart if it's not already present
           setcart([...cart, product]);
+          setCartMessage((prev) => ({
+            ...prev,
+            [product._id]: "Your product has been added to the cart!",
+          }));
+      
+          // Hide the message after 2 seconds
+          setTimeout(() => {
+            setCartMessage((prev) => ({
+              ...prev,
+              [product._id]: "",
+            }));
+          }, 2000);
+
+
+
         } else {
           Swal.fire({
                         title: 'Error!',
@@ -1571,7 +1586,7 @@ Incredible Products
 
 <div
   style={{
-    fontFamily: "font-family: 'ITC Modern No 216', serif;",
+    fontFamily: "'ITC Modern No 216', serif",
     padding: "40px",
     marginTop: "10px",
     backgroundImage: "url('https://wdtlilacdemo.wpengine.com/wp-content/uploads/2022/09/lef-image-1-298x300.webp')",
@@ -1580,76 +1595,75 @@ Incredible Products
     backgroundSize: "150px auto",
   }}
 >
-<div className="container">
-  <div style={{ textAlign: "center", marginBottom: "20px" }}>
-    <h1 className="kiona-tales">Kiona Tales</h1>
-    <div className="empty-div"></div>
-  </div>
-  <div className="row g-4">
-    {visibleBlogs.map((post, index) => (
-      <div className="col-md-4" key={index}>
-        <div
-          className="card h-100 shadow-sm"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            height: "100%",
-          }}
-        >
-          <img
-            src={post.image}
-            className="card-img-top"
-            alt={`Blog ${index + 1} Image`}
-          />
-          <div className="card-body">
-            <h5
-              className="card-title"
-              style={{ fontSize: "1.25rem", fontWeight: "bold",fontFamily: "'ITC Modern No 216', serif"  }}
-            >
-              {post.title}
-            </h5>
-            <p className="card-text text-muted">{post.date}</p>
-            <p
-              className="card-text"
+  <div className="container">
+    <div style={{ textAlign: "center", marginBottom: "20px" }}>
+      <h1 className="kiona-tales">Kiona Tales</h1>
+      <div className="empty-div"></div>
+    </div>
+
+    {/* Responsive Grid */}
+    <div className="row g-4">
+      {visibleBlogs.map((post, index) => (
+        <div className="col-sm-12 col-md-6 col-lg-4" key={index}>
+          <div className="card h-100 shadow-sm">
+            <img
+              src={post.image}
+              className="card-img-top"
+              alt={`Blog ${index + 1} Image`}
               style={{
+                width: "100%",
+                height: "auto",
+                borderRadius: "8px",
+              }}
+            />
+            <div className="card-body">
+              <h5 className="card-title" style={{ fontSize: "1.25rem", fontWeight: "bold", fontFamily: "'ITC Modern No 216', serif" }}>
+                {post.title}
+              </h5>
+              <p className="card-text text-muted">{post.date}</p>
+              <p className="card-text" style={{
                 display: "-webkit-box",
                 WebkitBoxOrient: "vertical",
                 WebkitLineClamp: 3,
                 overflow: "hidden",
-              }}
-            >
-              {post.description}
-            </p>
-            <a
-              className="btn btn-link p-0"
-              style={{fontFamily: "'Harmonia Sans', sans-serif", color: "#007bff", textDecoration: "none" }}
-              onClick={() => navigate("/blog2", { state: post._id })}
-            >
-              Read more...
-            </a>
+              }}>
+                {post.description}
+              </p>
+              <a
+                className="btn btn-link p-0"
+                style={{
+                  fontFamily: "'Harmonia Sans', sans-serif",
+                  color: "#007bff",
+                  textDecoration: "none",
+                }}
+                onClick={() => navigate("/blog2", { state: post._id })}
+              >
+                Read more...
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    ))}
-  </div>
-  <div style={{ textAlign: "center", marginTop: "20px" }}>
-    <button
-      style={{
-        backgroundColor: "#000",
-        color: "#fff",
-        border: "none",
-        padding: "10px 20px",
-        cursor: "pointer",
-      }}
-      onMouseOver={(e) => (e.target.style.backgroundColor = "#444")}
-      onMouseOut={(e) => (e.target.style.backgroundColor = "#000")}
-      onClick={() => navigate("/blog1")} // Redirect to all blogs
-    >
-      View All
-    </button>
+      ))}
+    </div>
+
+    {/* Responsive Button */}
+    <div style={{ textAlign: "center", marginTop: "20px" }}>
+      <button
+        className="btn btn-dark"
+        style={{
+          padding: "10px 20px",
+          fontSize: "16px",
+          width: "100%",  // Full-width on mobile
+          maxWidth: "200px", // Restrict width on larger screens
+        }}
+        onClick={() => navigate("/blog1")}
+      >
+        View All
+      </button>
+    </div>
   </div>
 </div>
-</div>
+
 
 
 

@@ -97,7 +97,7 @@ function Privacypolicy() {
           If you have any questions or concerns regarding this Privacy Policy or how we handle your personal information, please contact us at:
         </p>
         <p style={{fontFamily:"'Harmonia Sans', sans-serif" }}>Email: privacy@kiona.com</p>
-        <p style={{fontFamily:"'Harmonia Sans', sans-serif" }}>Phone: +123 456 7890</p>
+        {/* <p style={{fontFamily:"'Harmonia Sans', sans-serif" }}>Phone: +123 456 7890</p> */}
       </section>
     </div>
     <Footer />

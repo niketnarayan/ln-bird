@@ -13,19 +13,28 @@ function VitamincFacewash() {
   const location = useLocation();
   const id = location.state || {};
 
+  const [review, setReview] = useState({ productId:"",comment: "", name: "", email: "", rating: 0 });
+
   const [Products, setProducts] = useState([]);
   const [category, setcategory] = useState("");
   const [activeTab, setActiveTab] = useState("description"); // 🟢 State for Tab Switching
 
+  const [pid,setpid]=useState("")
   const getproduct = async () => {
     try {
       const resp = await api.get(`getproductbyid/${id}`);
+      console.log(resp);
+      
       setcategory(resp.data.product[0].product_category);
       setProducts(resp.data.product);
+      setReview({...review,productId:resp.data.product[0].product_code})
+      setpid(resp.data.product[0].product_code)
     } catch (error) {
       console.log(error);
     }
   };
+ 
+  
 
   const [relatedproducts, setrelatedproducts] = useState([]);
   const getproductbycategory = async () => {
@@ -72,8 +81,14 @@ function VitamincFacewash() {
         return text;
       };
 
+      
+      
 
-      const [review, setreview] = useState({comment:"",name:"",email:""})
+      
+
+      const handleRating = (value) => {
+        setReview(prev => ({ ...prev, rating: value }));
+      };
       const addreview = async () => {
         try {
           const resp = await api.post('review', review);
@@ -92,6 +107,34 @@ function VitamincFacewash() {
         }
         
       }
+
+
+
+
+      const [newReviews, newSetReviews] = useState([]); // Changed state names
+      const [loading, setLoading] = useState(true);
+    
+      useEffect(() => {
+        const fetchReviews = async () => {
+          try {
+            const response = await api.get(`getreview/${pid}`);
+            console.log(response);
+            
+            newSetReviews(response.data); // Updated state setter
+          } catch (error) {
+            console.error("Error fetching reviews:", error);
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        fetchReviews();
+      }, [pid]);
+
+
+
+   
+
 
 
 
@@ -220,39 +263,62 @@ function VitamincFacewash() {
   {activeTab === "info" && <p style={{ fontSize: "18px", lineHeight: "1.6", color: "#444" }}>{Products[0]?.additional_info || "No additional information available."}</p>}
   {activeTab === "reviews" && (
     <div>
-      <h3 style={{ fontSize: "22px", marginBottom: "15px", color: "#333" }}>Customer Reviews</h3>
-      {Products[0]?.reviews?.length > 0 ? (
-        Products[0].reviews.map((review, index) => (
-          <div key={index} style={{ marginBottom: "15px", padding: "15px", border: "1px solid #ddd", borderRadius: "8px", textAlign: "left" }}>
-            <strong style={{ fontSize: "16px", color: "#333" }}>{review.user}:</strong>
-            <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>{review.comment}</p>
-            <span style={{ color: "#f4c150", fontSize: "16px" }}>★ {review.rating}</span>
-          </div>
-        ))
-      ) : (
-        <p style={{ fontSize: "16px", color: "#777" }}>No reviews yet.</p>
-      )}
+     <h3 style={{ fontSize: "22px", marginBottom: "15px", color: "#333" }}>Customer Reviews</h3>
+
+{loading ? (
+  <p>Loading reviews...</p>
+) : newReviews.length > 0 ? ( // Updated state reference
+  newReviews.map((review, index) => ( // Updated state reference
+    <div
+      key={index}
+      style={{
+        marginBottom: "15px",
+        padding: "15px",
+        border: "1px solid #ddd",
+        borderRadius: "8px",
+        textAlign: "left",
+      }}
+    >
+      <strong style={{ fontSize: "16px", color: "#333" }}>{review.name}:</strong>
+      <p style={{ margin: "5px 0", fontSize: "16px", color: "#555" }}>{review.comment}</p>
+      <span style={{ color: "#f4c150", fontSize: "16px" }}>
+        {"★".repeat(review.rating)} {"☆".repeat(5 - review.rating)}
+      </span>
+    </div>
+  ))
+) : (
+  <p style={{ fontSize: "16px", color: "#777" }}>No reviews yet.</p>
+)}
 
       {/* ⭐ Add Review Section */}
+      <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
       <h3 style={{ fontSize: "22px", marginTop: "20px", color: "#333" }}>Add a Review</h3>
-      
-      {/* ⭐ Rating Dropdown */}
-      <select 
-        style={{ width: "100%", padding: "10px", fontSize: "16px", border: "1px solid #ddd", borderRadius: "8px", marginBottom: "10px" }} 
-        onChange={(e) => setreview({...review, rating: e.target.value})}
-      >
-        <option value="">Select Rating</option>
-        <option value="5">★★★★★ (5 Stars)</option>
-        <option value="4">★★★★☆ (4 Stars)</option>
-        <option value="3">★★★☆☆ (3 Stars)</option>
-        <option value="2">★★☆☆☆ (2 Stars)</option>
-        <option value="1">★☆☆☆☆ (1 Star)</option>
-      </select>
-      
+
+      {/* ⭐ Star Rating Selection */}
+      <div style={{ fontSize: "24px", marginBottom: "10px", cursor: "pointer" }}>
+        {[1, 2, 3, 4, 5].map((star) => (
+          <span
+            key={star}
+            onClick={() => handleRating(star)}
+            style={{
+              color: star <= review.rating ? "#f4c150" : "#ddd",
+              marginRight: "5px",
+              cursor: "pointer",
+              transition: "0.3s",
+            }}
+          >
+            ★
+          </span>
+        ))}
+      </div>
+
+      {/* Display selected rating */}
+      <p style={{ fontSize: "16px", color: "#333" }}>Selected Rating: {review.rating} Stars</p>
+
       <textarea 
         placeholder="Your review" 
         style={{ width: "100%", height: "80px", padding: "10px", fontSize: "16px", border: "1px solid #ddd", borderRadius: "8px", marginBottom: "10px" }} 
-        onChange={(e) => setreview({...review, comment: e.target.value})}
+        onChange={(e) => setReview({...review, comment: e.target.value})}
       />
       
       <br />
@@ -260,14 +326,14 @@ function VitamincFacewash() {
         type="text" 
         placeholder="Name" 
         style={{ padding: "12px", marginRight: "10px", width: "48%", border: "1px solid #ddd", borderRadius: "8px", fontSize: "16px" }} 
-        onChange={(e) => setreview({...review, name: e.target.value})}
+        onChange={(e) => setReview({...review, name: e.target.value})}
       />
       
       <input 
         type="email" 
         placeholder="Email" 
         style={{ padding: "12px", width: "48%", border: "1px solid #ddd", borderRadius: "8px", fontSize: "16px" }} 
-        onChange={(e) => setreview({...review, email: e.target.value})}
+        onChange={(e) => setReview({...review, email: e.target.value})}
       />
       
       <br />
@@ -277,6 +343,7 @@ function VitamincFacewash() {
       >
         Submit Review
       </button>
+    </div>
     </div>
   )}
 </div>

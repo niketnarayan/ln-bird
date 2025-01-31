@@ -37,7 +37,7 @@ function Cancilationpolicy() {
           <li style={{fontFamily:"'Harmonia Sans', sans-serif"}}>To cancel an order, please contact our customer service team within 24 hours of placing the order.</li>
         </ul>
         <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>
-          To cancel an order, please reach out to us at <strong>support@kiona.com</strong> or call us at <strong>+123 456 7890</strong>.
+          To cancel an order, please reach out to us at <strong>support@kiona.com</strong> 
         </p>
       </section>
 
@@ -53,7 +53,7 @@ function Cancilationpolicy() {
           <li style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Returns are subject to inspection by our quality control team before the refund or exchange is processed.</li>
         </ul>
         <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>
-          To initiate a return, please contact our customer support team at <strong>support@kiona.com</strong> or call us at <strong>+123 456 7890</strong>.
+          To initiate a return, please contact our customer support team at <strong>support@kiona.com</strong>
         </p>
       </section>
 
@@ -94,8 +94,8 @@ function Cancilationpolicy() {
           If you have any questions or concerns regarding the cancellation or return of your order, please contact our customer support team:
         </p>
         <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Email: <strong>support@kiona.com</strong></p>
-        <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Phone: <strong>+123 456 7890</strong></p>
-        <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>We are available Monday to Friday, from 9:00 AM to 6:00 PM.</p>
+        {/* <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Phone: <strong>+123 456 7890</strong></p>
+        <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>We are available Monday to Friday, from 9:00 AM to 6:00 PM.</p> */}
       </section>
     </div>
     <Footer/>

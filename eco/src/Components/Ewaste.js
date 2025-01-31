@@ -98,7 +98,7 @@ function Ewaste() {
           If you have any questions or concerns about our E-Waste Policy or wish to inquire about proper disposal methods, please contact us using the following:
         </p>
         <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Email: support@kiona.com</p>
-        <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Phone: +123 456 7890</p>
+        {/* <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Phone: +123 456 7890</p> */}
       </section>
     </div>
 

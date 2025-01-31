@@ -65,7 +65,7 @@ router.post(
 
 
 router.post('/review', addReview);
-router.get('/getreview/:_id', getReviews);
+router.get('/getreview/:productId', getReviews);
  
 
 module.exports=router

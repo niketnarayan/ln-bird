@@ -121,7 +121,7 @@ function Termcondition() {
       <section>
         <h4 style={{ color: "#333", fontFamily:"'ITC Modern No 216', serif" }}>14. GOVERNING LAW AND JURISDICTION</h4>
         <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>
-          These Terms are governed by the laws of India, and any disputes will be subject to the jurisdiction of the courts in Mumbai, Maharashtra.
+          These Terms are governed by the laws of India, and any disputes will be subject to the jurisdiction of the courts in Noida, UttarPradesh.
         </p>
       </section>
 
@@ -130,8 +130,8 @@ function Termcondition() {
         <p style={{fontFamily:"'Harmonia Sans', sans-serif"}}>If you have any questions or concerns about these Terms, please contact us at:</p>
         <ul>
           <li style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Email: support@kiona.com</li>
-          <li style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Phone: +91-1234567890</li>
-          <li style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Address: Kiona Skin Care, 123 Green Avenue, Mumbai, India</li>
+          {/* <li style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Phone: +91-1234567890</li>
+          <li style={{fontFamily:"'Harmonia Sans', sans-serif"}}>Address: Kiona Skin Care, 123 Green Avenue, Mumbai, India</li> */}
         </ul>
       </section>
 

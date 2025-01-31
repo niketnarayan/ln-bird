@@ -540,13 +540,6 @@ useEffect(()=>
   ];
 
 
-
-
-
-
-
-
-
   return (
     <div>
  <div style={{position:"absolute",left:"0",right:"0",zIndex:"1000",top:"0"}}>
@@ -1159,8 +1152,78 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
     }}
   >
     <form onSubmit={handleSubmit1}>
+
+    <h5 style={{ marginTop: "20px", fontWeight: "600" }}>
+        Personal Details
+      </h5>
+      <div className="mb-3 row">
+        <div className="col-md-6">
+          <label htmlFor="firstName" className="form-label">
+            First Name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="firstName"
+            name="firstName"
+            value={orderdata.firstName}
+            onChange={handleChange}
+            placeholder="e.g. John"
+            required
+            style={{
+              borderRadius: "5px",
+              padding: "10px",
+              fontSize: "14px",
+            }}
+          />
+        </div>
+        <div className="col-md-6">
+          <label htmlFor="lastName" className="form-label">
+            Last Name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="lastName"
+            name="lastName"
+            value={orderdata.lastName}
+            onChange={handleChange}
+            placeholder="e.g. Doe"
+            style={{
+              borderRadius: "5px",
+              padding: "10px",
+              fontSize: "14px",
+            }}
+          />
+        </div>
+      </div>
+      <div className="col-md-6 mb-3">
+        <label htmlFor="mobileNumber" className="form-label">
+          Mobile Number
+        </label>
+        <input
+          type="tel"
+          className="form-control"
+          id="mobileNumber"
+          name="mobileNumber"
+          value={orderdata.mobileNumber}
+          onChange={handleChange}
+          placeholder="e.g. 9876543210"
+          required
+          style={{
+            borderRadius: "5px",
+            padding: "10px",
+            fontSize: "14px",
+          }}
+        />
+      </div>
+
+
+
+
+
       <h5 style={{ marginBottom: "20px", fontWeight: "600" }}>
-        *Area Details
+        *Address Details
       </h5>
       <div className="mb-3 row">
         <div className="col-md-6">
@@ -1289,70 +1352,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
           }}
         />
       </div>
-      <h5 style={{ marginTop: "20px", fontWeight: "600" }}>
-        Personal Details
-      </h5>
-      <div className="mb-3 row">
-        <div className="col-md-6">
-          <label htmlFor="firstName" className="form-label">
-            First Name
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="firstName"
-            name="firstName"
-            value={orderdata.firstName}
-            onChange={handleChange}
-            placeholder="e.g. John"
-            required
-            style={{
-              borderRadius: "5px",
-              padding: "10px",
-              fontSize: "14px",
-            }}
-          />
-        </div>
-        <div className="col-md-6">
-          <label htmlFor="lastName" className="form-label">
-            Last Name
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="lastName"
-            name="lastName"
-            value={orderdata.lastName}
-            onChange={handleChange}
-            placeholder="e.g. Doe"
-            style={{
-              borderRadius: "5px",
-              padding: "10px",
-              fontSize: "14px",
-            }}
-          />
-        </div>
-      </div>
-      <div className="col-md-6 mb-3">
-        <label htmlFor="mobileNumber" className="form-label">
-          Mobile Number
-        </label>
-        <input
-          type="tel"
-          className="form-control"
-          id="mobileNumber"
-          name="mobileNumber"
-          value={orderdata.mobileNumber}
-          onChange={handleChange}
-          placeholder="e.g. 9876543210"
-          required
-          style={{
-            borderRadius: "5px",
-            padding: "10px",
-            fontSize: "14px",
-          }}
-        />
-      </div>
+      
       <div className="mb-3">
         <div className="form-check">
           <input
