@@ -11,6 +11,7 @@ import { jsPDF } from "jspdf";
 import 'jspdf-autotable';
 
 
+
 function Cuheader() {
 
   const useremail = localStorage.getItem('email')
@@ -475,7 +476,8 @@ useEffect(()=>
           icon: "success",
           confirmButtonText: "OK",
         });
-        navigate('/personalinfo')
+        localStorage.setItem('email',loginDetails.email)
+        // navigate('/cudasboard',{ state: loginDetails })
   
         // Clear the form and close the modal
         setLoginDetails({ email: "", password: "" });

@@ -99,19 +99,19 @@ body{
 
 @media (max-width: 480px) {
   .main-product-div{
-    /* border: 2px solid #000; */
+    
   }
   .product-item-div{
-    /* border: 2px solid #000; */
+   
     display: flex;
     flex-direction: column !important;
   }
   .product-image-div img{
-    /* border: 2px solid #000; */
+  
     width: 200px !important;
   }
   .product-content-div{
-    /* border: #000 solid 2px; */
+
     width: 100%;
   }
   .product-content-item-div{

@@ -8,8 +8,8 @@ const { signup, login } = require('../Controllers/user');
 const protectRoute=require('../Middleware/routemiddle');
 const payment = require('../Controllers/payment');
 const { createBlog, getBlogs, deleteBlog, editBlog, viewblogbyid } = require('../Controllers/blog');
-const { registerUser, loginUser } = require('../Controllers/registation');
-const { addReview, getReviews } = require('../Controllers/review');
+const { registerUser, loginUser, getAllUsers, getUserByEmail, getmail } = require('../Controllers/registation');
+const { addReview, getReviews, getallReviews } = require('../Controllers/review');
 const router=express.Router()
 
 
@@ -66,6 +66,9 @@ router.post(
 
 router.post('/review', addReview);
 router.get('/getreview/:productId', getReviews);
+router.get('/allreview', getallReviews);
+router.get('/alluser/:email', getUserByEmail)
+router.put('/getmail/:email',getmail)
  
 
 module.exports=router

@@ -11,6 +11,7 @@ import { jsPDF } from "jspdf";
 import 'jspdf-autotable';
 import axios from "axios";
 import { useAuth } from './authguard';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function Header() {
 
  
@@ -486,6 +487,7 @@ const handleSubmit2 = async (e) => {
         position: "relative",
       }}
     >
+      
       <div className="container-fluid">
         {/* Brand Name Centered */}
         <div
@@ -502,6 +504,58 @@ const handleSubmit2 = async (e) => {
           Kiona
         </div>
 
+       
+
+        <div
+  className="d-flex justify-content-end align-items-center"
+  style={{
+    position: "absolute",
+    top: "40px",
+    right: "228px",
+    gap: "20px",
+  }}
+>
+  {/* Cart Icon with Badge */}
+  <div style={{ position: "relative", cursor: "pointer" }} onClick={handleShow1}>
+    <i className="fas fa-cart-shopping" style={{ fontSize: "25px", color: "#333" }}></i>
+    {length > 0 && (
+      <span
+        style={{
+          position: "absolute",
+          top: "-5px",
+          right: "-10px",
+          background: "red",
+          color: "white",
+          fontSize: "12px",
+          fontWeight: "bold",
+          padding: "3px 6px",
+          borderRadius: "50%",
+          minWidth: "20px",
+          textAlign: "center",
+          boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
+        }}
+      >
+        {length}
+      </span>
+    )}
+  </div>
+
+  {/* User Icon */}
+  <i
+    onClick={handleShow}
+    className="fa-regular fa-user"
+    style={{
+      fontSize: "25px",
+      color: "#333",
+      cursor: "pointer",
+    }}
+  ></i>
+</div>
+
+
+
+
+
         {/* Mobile Toggle Button */}
         <button
           style={{ width: "fit-content", color: "#000" }}
@@ -515,6 +569,8 @@ const handleSubmit2 = async (e) => {
         >
           <i className="fa-solid fa-bars"></i>
         </button>
+
+
 
         {/* Navigation Links */}
         <div
@@ -636,95 +692,150 @@ const handleSubmit2 = async (e) => {
         </div>
 
         {/* Cart & Login Buttons */}
-        <div
-  className="d-flex justify-content-end align-items-center"
-  style={{
-    position: "absolute",
-    top: "40px",
-    right: "228px",
-    gap: "20px",
-  }}
->
-  {/* Cart Icon with Badge */}
-  <div style={{ position: "relative", cursor: "pointer" }} onClick={handleShow1}>
-    <i className="fas fa-cart-shopping" style={{ fontSize: "25px", color: "#333" }}></i>
-    {length > 0 && (
-      <span
-        style={{
-          position: "absolute",
-          top: "-5px",
-          right: "-10px",
-          background: "red",
-          color: "white",
-          fontSize: "12px",
-          fontWeight: "bold",
-          padding: "3px 6px",
-          borderRadius: "50%",
-          minWidth: "20px",
-          textAlign: "center",
-          boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
-        }}
-      >
-        {length}
-      </span>
-    )}
-  </div>
-
-  {/* User Icon */}
-  <i
-    onClick={handleShow}
-    className="fa-regular fa-user"
-    style={{
-      fontSize: "25px",
-      color: "#333",
-      cursor: "pointer",
-    }}
-  ></i>
-</div>
+ 
 
       </div>
 
       {/* Styles */}
       <style jsx>{`
-        .navbar-nav .nav-link,
-        .dropdown-item {
-          position: relative;
-          transition: all 0.3s ease-in-out;
-        }
+  .navbar-nav .nav-link,
+  .dropdown-item {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
 
-        .navbar-nav .nav-link:hover,
-        .dropdown-item:hover {
-          border-bottom: 2px solid #000;
-        }
+  .navbar-nav .nav-link:hover,
+  .dropdown-item:hover {
+    border-bottom: 2px solid #000;
+  }
 
-        .dropdown-menu {
-          list-style: none;
-        }
+  .dropdown-menu {
+    list-style: none;
+  }
 
-        /* Mobile View */
-        @media (max-width: 768px) {
-          .navbar-nav {
-            flex-direction: column;
-            align-items: center;
-          }
+  /* General Mobile View Adjustments */
+  @media (max-width: 768px) {
+    body {
+      overflow-x: hidden; /* Remove horizontal scroll */
+    }
 
-          .d-flex.justify-content-end {
-            position: relative;
-            top: 10px;
-            right: 0;
-            margin-top: 10px;
-            gap: 5px;
-          }
+    /* Centering the Brand Name */
+    .container-fluid > div:first-child {
+      top: 10px;
+      font-size: 30px;
+      font-weight: 400;
+    }
 
-          .navbar-toggler {
-            margin-top: 10px;
-          }
+    /* Navbar Toggler Adjustment */
+    .navbar-toggler {
+      margin-top: 10px;
+      color: #000;
+    }
 
-          .dropdown-menu {
-            width: 100%;
-          }
-        }
-      `}</style>
+    .navbar-nav {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 500;
+      padding-top: 20px;
+    }
+
+    .navbar-nav .nav-link {
+      padding: 10px 0;
+    }
+
+    .d-flex.justify-content-end {
+      display: flex;
+      flex-direction: row;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      gap: 15px;
+    }
+
+    /* Adjust cart and user icons */
+    .d-flex.justify-content-end i {
+      font-size: 30px;
+    }
+
+    /* Mobile View adjustments for specific screen sizes */
+    @media (max-width: 375px) {
+      .container-fluid > div:first-child {
+        font-size: 24px;
+      }
+
+      .navbar-nav .nav-link {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 414px) {
+      .container-fluid > div:first-child {
+        font-size: 28px;
+      }
+
+      .navbar-nav .nav-link {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .container-fluid > div:first-child {
+        font-size: 26px;
+      }
+
+      .navbar-nav .nav-link {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .container-fluid > div:first-child {
+        font-size: 28px;
+      }
+
+      .navbar-nav .nav-link {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 412px) {
+      .container-fluid > div:first-child {
+        font-size: 28px;
+      }
+
+      .navbar-nav .nav-link {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .container-fluid > div:first-child {
+        font-size: 22px;
+      }
+
+      .navbar-nav .nav-link {
+        font-size: 13px;
+      }
+
+      .d-flex.justify-content-end {
+        top: 10px;
+        right: 15px;
+      }
+    }
+
+    /* Adjusting navbar and dropdown for smaller devices */
+    .navbar-collapse {
+      padding-top: 20px;
+    }
+
+    .dropdown-menu {
+      width: 100%;
+    }
+  }
+`}</style>
+
     </nav>
 
 

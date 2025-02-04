@@ -20,7 +20,8 @@ function Sidebarcu() {
       <div
         className="bg-dark text-white"
         style={{
-          minHeight: "100vh",
+          // minHeight: "100vh",
+          height:"100%",
           width: "250px", // Increased sidebar width
           position: "absolute",
           top: "0",

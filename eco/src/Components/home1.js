@@ -169,51 +169,78 @@ const[product1,setproduct1]=useState([])
     // console.log(cart.length);
 
 
-    const reviews = [
-      {
-        name: "John Doe",
-        review: "This product has changed my life! Highly recommended.",
-        image: "https://via.placeholder.com/100",
-        rating: 5,
-      },
-      {
-        name: "Jane Smith",
-        review: "Amazing quality and great results. Will buy again!",
-        image: "https://via.placeholder.com/100",
-        rating: 4,
-      },
-      {
-        name: "Mike Johnson",
-        review: "Excellent customer service and fast delivery.",
-        image: "https://via.placeholder.com/100",
-        rating: 4,
-      },
-      {
-        name: "Sarah Lee",
-        review: "The best investment I’ve made for my skin care routine.",
-        image: "https://via.placeholder.com/100",
-        rating: 5,
-      },
-    ];
+   
   
+
+   // get all review of customer
+
+   const [loading, setLoading] = useState(true);
+   const [reviews, setReviews] = useState([]); // Initialize as an array
+ 
+   // Function to fetch reviews
+   const fetchBlogs = async () => {
+     setLoading(true);
+     try {
+       const response = await api.get("allreview"); // Replace with actual endpoint
+       if (response.status === 200) {
+         setReviews(response.data); // Update the state correctly
+       }
+     } catch (error) {
+       console.error("Error fetching reviews:", error.response || error.message);
+       Swal.fire({
+         title: "Error!",
+         text: "Failed to fetch reviews. Please try again.",
+         icon: "error",
+         confirmButtonText: "OK",
+       });
+     } finally {
+       setLoading(false);
+     }
+   };
+ 
+   // Fetch reviews when component mounts
+   useEffect(() => {
+     fetchBlogs();
+   }, []);
+ 
+   // Function to render stars
+   const renderStars = (rating) => {
+     return "⭐".repeat(rating);
+   };
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Function to render stars based on rating
-    const renderStars = (rating) => {
-      const totalStars = 5;
-      const stars = [];
-      for (let i = 1; i <= totalStars; i++) {
-        stars.push(
-          <i
-            key={i}
-            className={`bi bi-star${i <= rating ? "-fill" : ""}`}
-            style={{
-              color: i <= rating ? "#ffc107" : "#ddd",
-              marginRight: "3px",
-            }}
-          ></i>
-        );
-      }
-      return stars;
-    };
+    // const renderStars = (rating) => {
+    //   const totalStars = 5;
+    //   const stars = [];
+    //   for (let i = 1; i <= totalStars; i++) {
+    //     stars.push(
+    //       <i
+    //         key={i}
+    //         className={`bi bi-star${i <= rating ? "-fill" : ""}`}
+    //         style={{
+    //           color: i <= rating ? "#ffc107" : "#ddd",
+    //           marginRight: "3px",
+    //         }}
+    //       ></i>
+    //     );
+    //   }
+    //   return stars;
+    // };
 
     const navigate=useNavigate()
 
@@ -1355,7 +1382,7 @@ Incredible Products
           <div className="icon-circle">
             <i className="fa-solid fa-seedling" style={{ fontSize: '40px', color: '#fff' }}></i>
           </div>
-          <h4 style={{ marginTop: '10px', color: '#333' }}>Spiritually Infused</h4>
+          <h4 style={{ marginTop: '10px', color: '#333' }}>Pure & Clean</h4>
         </div>
         <div className="col-md-3" style={{ flex: 1, textAlign: 'center', padding: '20px', backgroundColor: '#e3f2fd', borderRadius: '10px', border: '1px solid #ddd', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', height: '15rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <div className="icon-circle">
@@ -1381,9 +1408,9 @@ Incredible Products
       <div className="row" style={{ display: 'flex', justifyContent: 'space-between', gap: '20px', marginTop: "3rem", marginLeft: "3rem", marginRight: "3rem" }}>
         <div className="col-md-3" style={{ flex: 1, textAlign: 'center', padding: '20px', backgroundColor: '#f0f0f0', borderRadius: '10px', border: '1px solid #ddd', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', height: '15rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <div className="icon-circle">
-            <i className="fa-brands fa-canadian-maple-leaf" style={{ fontSize: '40px', color: '#fff' }}></i>
+            <i className="fa-solid fa-map" style={{ fontSize: '40px', color: '#fff' }}></i>
           </div>
-          <h4 style={{ marginTop: '10px', color: '#333' }}>100% Plant Based</h4>
+          <h4 style={{ marginTop: '10px', color: '#333' }}>Made in India</h4>
         </div>
         <div className="col-md-3" style={{ flex: 1, textAlign: 'center', padding: '20px', backgroundColor: '#e3f2fd', borderRadius: '10px', border: '1px solid #ddd', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', height: '15rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
           <div className="icon-circle">
@@ -1522,61 +1549,67 @@ Incredible Products
 
 {/* revie */}
 
-<Container fluid style={{ padding: "40px"}}>
-  <h1
-  className="revie-div"
-    style={{
-      textAlign: "center",
-      marginBottom: "20px",
-      color: "#333",
-    }}
-  >
-    Customer Reviews
-  </h1>
-  <div className="empty-div"></div>
+<Container fluid style={{ padding: "40px" }}>
+      <h1
+        className="revie-div"
+        style={{
+          textAlign: "center",
+          marginBottom: "20px",
+          color: "#333",
+        }}
+      >
+        Customer Reviews
+      </h1>
+      <div className="empty-div"></div>
 
-  <Carousel interval={3000} indicators={true} controls={true}>
-    {reviews.map((review, idx) => (
-      <Carousel.Item key={idx}>
-        <Row
-          className="d-flex justify-content-center"
-          style={{ padding: "20px" }}
-        >
-          <Col
-            md={6}
-            style={{
-              // backgroundColor: "#fff",
-              background:"transparent",
-              padding: "20px",
-              margin: "10px",
-              textAlign: "center",
-            }}
-          >
-            <img
-              src={review.image}
-              alt={review.name}
-              style={{
-                borderRadius: "50%",
-                width: "80px",
-                height: "80px",
-                marginBottom: "10px",
-              }}
-            />
-            <h4 style={{ color: "#222", fontWeight: "bold" }}>
-              {review.name}
-            </h4>
-            <div style={{ marginBottom: "10px" }}>
-              {renderStars(review.rating)}
-            </div>
-            <p style={{ fontStyle: "italic", color: "#555" }}>
-              "{review.review}"
-            </p>
-          </Col>
-        </Row>
-      </Carousel.Item>
-    ))}
-  </Carousel>
-</Container>
+      {loading ? (
+        <p style={{ textAlign: "center" }}>Loading reviews...</p>
+      ) : reviews.length > 0 ? (
+        <Carousel interval={3000} indicators={true} controls={true}>
+          {reviews.map((review, idx) => (
+            <Carousel.Item key={idx}>
+              <Row
+                className="d-flex justify-content-center"
+                style={{ padding: "20px" }}
+              >
+                <Col
+                  md={6}
+                  style={{
+                    background: "transparent",
+                    padding: "20px",
+                    margin: "10px",
+                    textAlign: "center",
+                  }}
+                >
+                  <img
+                    src={review.image}
+                    alt={review.name}
+                    style={{
+                      borderRadius: "50%",
+                      width: "80px",
+                      height: "80px",
+                      marginBottom: "10px",
+                    }}
+                  />
+                  <h4 style={{ color: "#222", fontWeight: "bold" }}>
+                    {review.name}
+                  </h4>
+                  <div style={{ marginBottom: "10px" }}>
+                    {renderStars(review.rating)}
+                  </div>
+                  <p style={{ fontStyle: "italic", color: "#555" }}>
+                    "{review.comment}"
+                  </p>
+                </Col>
+              </Row>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      ) : (
+        <p style={{ textAlign: "center" }}>No reviews available.</p>
+      )}
+    </Container>
+
 
 
 

@@ -24,6 +24,27 @@ const getReviews = async (req, res) => {
       }
 };
 
+// get all review
+// const getBlogs = async (req, res) => {
+//   try {
+//     const blogs = await Blog.find();
+//     res.status(200).json(blogs);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
+
+const getallReviews = async (req, res) => {
+  try {
+    const review = await Review.find();
+    res.status(200).json(review)
+  } catch (error) {
+    res.status(500).json({message: error.message});
+    
+  }
+  
+};
+
 // ✅ Delete a Review
 const deleteReview = async (req, res) => {
   try {
@@ -35,5 +56,5 @@ const deleteReview = async (req, res) => {
 };
 
 module.exports = {
-    addReview , getReviews
+    addReview , getReviews , getallReviews
 }
