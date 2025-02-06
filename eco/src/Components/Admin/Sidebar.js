@@ -318,7 +318,7 @@ whiteSpace: "nowrap",
               <ul className="list-unstyled ms-4">
                 <li className="mb-2">
             <Link
-              to="/user-list"
+              to="/alluser"
               className="text-white text-decoration-none d-flex align-items-center"
             >
               <FaThList className="me-2" />
@@ -345,6 +345,17 @@ whiteSpace: "nowrap",
               <FaShoppingCart className="me-2" />
               <span style={{ display: isSidebarCollapsed ? "none" : "inline" }}>
                 Checkout
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/usermessage"
+              className="text-white text-decoration-none d-flex align-items-center"
+            >
+              <FaUserCog className="me-2" />
+              <span style={{ display: isSidebarCollapsed ? "none" : "inline" }}>
+                User message
               </span>
             </Link>
           </li>

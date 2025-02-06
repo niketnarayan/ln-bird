@@ -9,7 +9,6 @@ import api from '../Components/api';
 import Swal from 'sweetalert2';
 import { jsPDF } from "jspdf";
 import 'jspdf-autotable';
-import axios from "axios";
 import { useAuth } from './authguard';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function Header() {
@@ -466,7 +465,7 @@ const handleSubmit2 = async (e) => {
 
 
 
-
+const [isOpen, setIsOpen] = useState(false);
 
 
 
@@ -695,147 +694,6 @@ const handleSubmit2 = async (e) => {
  
 
       </div>
-
-      {/* Styles */}
-      <style jsx>{`
-  .navbar-nav .nav-link,
-  .dropdown-item {
-    position: relative;
-    transition: all 0.3s ease-in-out;
-  }
-
-  .navbar-nav .nav-link:hover,
-  .dropdown-item:hover {
-    border-bottom: 2px solid #000;
-  }
-
-  .dropdown-menu {
-    list-style: none;
-  }
-
-  /* General Mobile View Adjustments */
-  @media (max-width: 768px) {
-    body {
-      overflow-x: hidden; /* Remove horizontal scroll */
-    }
-
-    /* Centering the Brand Name */
-    .container-fluid > div:first-child {
-      top: 10px;
-      font-size: 30px;
-      font-weight: 400;
-    }
-
-    /* Navbar Toggler Adjustment */
-    .navbar-toggler {
-      margin-top: 10px;
-      color: #000;
-    }
-
-    .navbar-nav {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      font-size: 16px;
-      font-weight: 500;
-      padding-top: 20px;
-    }
-
-    .navbar-nav .nav-link {
-      padding: 10px 0;
-    }
-
-    .d-flex.justify-content-end {
-      display: flex;
-      flex-direction: row;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      gap: 15px;
-    }
-
-    /* Adjust cart and user icons */
-    .d-flex.justify-content-end i {
-      font-size: 30px;
-    }
-
-    /* Mobile View adjustments for specific screen sizes */
-    @media (max-width: 375px) {
-      .container-fluid > div:first-child {
-        font-size: 24px;
-      }
-
-      .navbar-nav .nav-link {
-        font-size: 14px;
-      }
-    }
-
-    @media (max-width: 414px) {
-      .container-fluid > div:first-child {
-        font-size: 28px;
-      }
-
-      .navbar-nav .nav-link {
-        font-size: 15px;
-      }
-    }
-
-    @media (max-width: 390px) {
-      .container-fluid > div:first-child {
-        font-size: 26px;
-      }
-
-      .navbar-nav .nav-link {
-        font-size: 15px;
-      }
-    }
-
-    @media (max-width: 430px) {
-      .container-fluid > div:first-child {
-        font-size: 28px;
-      }
-
-      .navbar-nav .nav-link {
-        font-size: 16px;
-      }
-    }
-
-    @media (max-width: 412px) {
-      .container-fluid > div:first-child {
-        font-size: 28px;
-      }
-
-      .navbar-nav .nav-link {
-        font-size: 15px;
-      }
-    }
-
-    @media (max-width: 360px) {
-      .container-fluid > div:first-child {
-        font-size: 22px;
-      }
-
-      .navbar-nav .nav-link {
-        font-size: 13px;
-      }
-
-      .d-flex.justify-content-end {
-        top: 10px;
-        right: 15px;
-      }
-    }
-
-    /* Adjusting navbar and dropdown for smaller devices */
-    .navbar-collapse {
-      padding-top: 20px;
-    }
-
-    .dropdown-menu {
-      width: 100%;
-    }
-  }
-`}</style>
-
     </nav>
 
 

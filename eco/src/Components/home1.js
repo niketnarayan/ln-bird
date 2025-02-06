@@ -717,276 +717,164 @@ const[product1,setproduct1]=useState([])
 
 {/* collection  start----------------------------------------------------------------------- */}
 <div
-  style={{
-    display: "grid",
-    gridTemplateColumns: "repeat(12, 1fr)",
-    gap: "16px",
-    padding: "16px",
-    backgroundColor: "#fcf7ee",
-  }}
->
-  {/* Body Care */}
-  <div style={{ gridColumn: "span 6" }}>
-    <div
       style={{
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: "8px",
-        height: "300px",
+        display: "grid",
+        gridTemplateColumns: "repeat(12, 1fr)",
+        gap: "20px",
+        padding: "40px",
+        backgroundColor: "#fdfaf5",
       }}
     >
-      <img
-        src="https://wdtlilacdemo.wpengine.com/wp-content/uploads/2023/06/Lilac-Demo-Grid-Banner-Img-2-768x737.webp"
-        alt="Body Care"
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "20px",
-          left: "20px",
-          color: "#000",
-        }}
-      >
-        <h6 style={{ margin: "0 0 8px", fontSize: "0.9rem" }}>QUEENS</h6>
-        <h5 style={{ margin: "0 0 8px", fontSize: "1.5rem" }}>Body Care</h5>
-        <a
-          href="#"
-          style={{
-            textDecoration: "none",
-            fontSize: "1rem",
-            color: "#000",
-            fontWeight: "bold",
-          }}
-        >
-          View Collections
-        </a>
+      {/* First Row */}
+      <div style={{ gridColumn: "span 6" }} className="gallery-item">
+        <img
+          src="https://wdtlilacdemo.wpengine.com/wp-content/uploads/2023/06/Lilac-Demo-Grid-Banner-Img-2-768x737.webp"
+          alt="Body Care"
+          className="gallery-img"
+        />
+        <div className="overlay">
+          <h6>QUEENS</h6>
+          <h5>Body Care</h5>
+          <a href="#">View Collections →</a>
+        </div>
       </div>
-    </div>
-  </div>
 
-  {/* Face Care */}
-  <div style={{ gridColumn: "span 3" }}>
-    <div
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: "8px",
-        height: "300px",
-      }}
-    >
-      <img
-        src="https://wdtlilacdemo.wpengine.com/wp-content/uploads/2023/06/filler-img-10-768x353.webp"
-        alt="Face Care"
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "20px",
-          left: "20px",
-          color: "#000",
-        }}
-      >
-        <h6 style={{ margin: "0 0 8px", fontSize: "0.9rem" }}>GAMBARO</h6>
-        <h5 style={{ margin: "0 0 8px", fontSize: "1.5rem" }}>Face Care</h5>
-        <a
-          href="#"
-          style={{
-            textDecoration: "none",
-            fontSize: "1rem",
-            color: "#000",
-            fontWeight: "bold",
-          }}
-        >
-          View Collections
-        </a>
+      <div style={{ gridColumn: "span 3" }} className="gallery-item">
+        <img
+          src="https://wdtlilacdemo.wpengine.com/wp-content/uploads/2023/06/filler-img-10-768x353.webp"
+          alt="Face Care"
+          className="gallery-img"
+        />
+          <div className="overlay">
+          <h6>QUEENS</h6>
+          <h5>Body Care</h5>
+          <a href="#">View Collections →</a>
+        </div>
       </div>
-    </div>
-  </div>
 
-  {/* Leg Care */}
-  <div style={{ gridColumn: "span 3" }}>
-    <div
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: "8px",
-        height: "300px",
-      }}
-    >
-      <img
-        src="https://wdtlilacdemo.wpengine.com/wp-content/uploads/2023/06/filler-img-12-768x353.webp"
-        alt="Leg Care"
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "20px",
-          left: "20px",
-          color: "#000",
-        }}
-      >
-        <h6 style={{ margin: "0 0 8px", fontSize: "0.9rem" }}>LEICA</h6>
-        <h5 style={{ margin: "0 0 8px", fontSize: "1.5rem" }}>Leg Care</h5>
-        <a
-          href="#"
-          style={{
-            textDecoration: "none",
-            fontSize: "1rem",
-            color: "#000",
-            fontWeight: "bold",
-          }}
-        >
-          View Collections
-        </a>
+      <div style={{ gridColumn: "span 3" }} className="gallery-item">
+        <img
+          src="https://wdtlilacdemo.wpengine.com/wp-content/uploads/2023/06/filler-img-12-768x353.webp"
+          alt="Leg Care"
+          className="gallery-img"
+        />
+          <div className="overlay">
+          <h6>QUEENS</h6>
+          <h5>Body Care</h5>
+          <a href="#">View Collections →</a>
+        </div>
       </div>
-    </div>
-  </div>
 
-  {/* Hair Care */}
-  <div style={{ gridColumn: "span 6" }}>
-    <div
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: "8px",
-        height: "300px",
-      }}
-    >
-      <img
-        src="https://wdtlilacdemo.wpengine.com/wp-content/uploads/2023/06/Lilac-Demo-Grid-Banner-Img-768x353.webp"
-        alt="Hair Care"
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "20px",
-          left: "20px",
-          color: "#000",
-        }}
-      >
-        <h6 style={{ margin: "0 0 8px", fontSize: "0.9rem" }}>MARIEKE</h6>
-        <h5 style={{ margin: "0 0 8px", fontSize: "1.5rem" }}>Hair Care</h5>
-        <a
-          href="#"
-          style={{
-            textDecoration: "none",
-            fontSize: "1rem",
-            color: "#000",
-            fontWeight: "bold",
-          }}
-        >
-          View Collections
-        </a>
+      {/* Second Row */}
+      <div style={{ gridColumn: "span 6" }} className="gallery-item">
+        <img
+          src="https://wdtlilacdemo.wpengine.com/wp-content/uploads/2023/06/Lilac-Demo-Grid-Banner-Img-768x353.webp"
+          alt="Hair Care"
+          className="gallery-img"
+        />
+          <div className="overlay">
+          <h6>QUEENS</h6>
+          <h5>Body Care</h5>
+          <a href="#">View Collections →</a>
+        </div>
       </div>
-    </div>
-  </div>
 
-  {/* Fragrance */}
-  <div style={{ gridColumn: "span 6" }}>
-    <div
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: "8px",
-        height: "300px",
-      }}
-    >
-      <img
-        src="https://wdtlilacdemo.wpengine.com/wp-content/uploads/2023/06/filler-img-13-768x353.webp"
-        alt="Fragrance"
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "20px",
-          left: "20px",
-          color: "#000",
-        }}
-      >
-        <h6 style={{ margin: "0 0 8px", fontSize: "0.9rem" }}>ISELA</h6>
-        <h5 style={{ margin: "0 0 8px", fontSize: "1.5rem" }}>Fragrance</h5>
-        <a
-          href="#"
-          style={{
-            textDecoration: "none",
-            fontSize: "1rem",
-            color: "#000",
-            fontWeight: "bold",
-          }}
-        >
-          View Collections
-        </a>
+      <div style={{ gridColumn: "span 6" }} className="gallery-item">
+        <img
+          src="https://wdtlilacdemo.wpengine.com/wp-content/uploads/2023/06/filler-img-13-768x353.webp"
+          alt="Fragrance"
+          className="gallery-img"
+        />
+          <div className="overlay">
+          <h6>QUEENS</h6>
+          <h5>Body Care</h5>
+          <a href="#">View Collections →</a>
+        </div>
       </div>
+
+      <style>{`
+        .gallery-item {
+          position: relative;
+          overflow: hidden;
+          border-radius: 12px;
+          height: 300px;
+          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover {
+          transform: scale(1.05);
+          box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 12px;
+        }
+
+        .overlay {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          color: #fff;
+          backdrop-filter: blur(8px);
+          padding: 10px;
+        }
+
+        .overlay h6 {
+          font-size: 0.9rem;
+          opacity: 0.9;
+          font-weight: bold;
+        }
+
+        .overlay h5 {
+          font-size: 1.8rem;
+          font-weight: bold;
+        }
+
+        .overlay a {
+          text-decoration: none;
+          font-size: 1rem;
+          color: #fff;
+          font-weight: bold;
+          border-bottom: 2px solid #fff;
+          transition: opacity 0.3s ease-in-out;
+          opacity: 0.9;
+        }
+
+        .overlay a:hover {
+          opacity: 1;
+        }
+
+        @media (max-width: 1200px) {
+          .gallery-item {
+            grid-column: span 6 !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .gallery-item {
+            grid-column: span 12 !important;
+            height: 250px;
+          }
+
+          .overlay h5 {
+            font-size: 1.4rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .gallery-item {
+            height: 200px;
+          }
+        }
+      `}</style>
     </div>
-  </div>
 
-  <style>
-    {`
-      @media (max-width: 1200px) {
-        div[style*="gridColumn"] {
-          grid-column: span 6 !important; /* Adjust for medium screens */
-        }
-      }
 
-      @media (max-width: 768px) {
-        div[style*="gridColumn"] {
-          grid-column: span 12 !important; /* Stack items for small screens */
-        }
 
-        img {
-          height: auto; /* Ensure images maintain aspect ratio */
-        }
-      }
-
-      @media (max-width: 480px) {
-        div[style*="gridColumn"] {
-          padding: 8px; /* Reduce padding for smaller screens */
-        }
-
-        div[style*="height: 300px"] {
-          height: 200px; /* Adjust height for smaller screens */
-        }
-
-        h5 {
-          font-size: 1.2rem; /* Smaller heading size */
-        }
-
-        h6 {
-          font-size: 0.8rem; /* Adjust subheading */
-        }
-
-        a {
-          font-size: 0.9rem; /* Adjust link size */
-        }
-      }
-    `}
-  </style>
-</div>
 
 
 

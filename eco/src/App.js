@@ -42,6 +42,8 @@ import Manageadds from './Components/Customerdashboard/Manageadds';
 import Cuheader from './Components/Customerdashboard/Cuheader';
 import Cudashboard from './Components/Customerdashboard/Cudashboard';
 import Myorders from './Components/Customerdashboard/myorders';
+import Usermessage from './Components/Admin/Usermessage';
+import Alluser from './Components/Admin/Alluser';
 
 
 
@@ -79,6 +81,8 @@ function App() {
      <Route path='/allproductlist' element={<PrivateRoute><Allproductlist/></PrivateRoute>}/>
      <Route path='/banner' element={<PrivateRoute><Banner/></PrivateRoute>}/>
      <Route path='/accountsetting' element={<PrivateRoute><Accountsetting/></PrivateRoute>}/>
+     <Route path='/usermessage' element={<PrivateRoute><Usermessage/></PrivateRoute>}/>
+     <Route path='/alluser' element={<PrivateRoute><Alluser/></PrivateRoute>}/>
      <Route path='/login' element={<Login/>}/>
     <Route path='/singup' element={<Sinup/>}/>
      <Route path='/forgot' element={<Forgatpassword/>}/>

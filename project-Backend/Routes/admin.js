@@ -8,8 +8,10 @@ const { signup, login } = require('../Controllers/user');
 const protectRoute=require('../Middleware/routemiddle');
 const payment = require('../Controllers/payment');
 const { createBlog, getBlogs, deleteBlog, editBlog, viewblogbyid } = require('../Controllers/blog');
-const { registerUser, loginUser, getAllUsers, getUserByEmail, getmail } = require('../Controllers/registation');
+const { registerUser, loginUser, getAllUsers, getUserByEmail, getmail, deleteUserByEmail } = require('../Controllers/registation');
 const { addReview, getReviews, getallReviews } = require('../Controllers/review');
+const usercontact = require('../Modals/contact');
+const { usercontacts, getContact, deleteContact } = require('../Controllers/contact');
 const router=express.Router()
 
 
@@ -69,6 +71,10 @@ router.get('/getreview/:productId', getReviews);
 router.get('/allreview', getallReviews);
 router.get('/alluser/:email', getUserByEmail)
 router.put('/getmail/:email',getmail)
+router.post('/contact',usercontacts)
+router.get('/getcontact', getContact)
+router.delete('/contactdelete/:id', deleteContact)
+router.delete('/deletealluser/:email', deleteUserByEmail)
  
 
 module.exports=router

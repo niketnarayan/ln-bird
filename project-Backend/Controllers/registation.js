@@ -8,6 +8,10 @@ const registerUser = async (req, res) => {
 
   try {
     const { name, email, phone, password, apartmentNumber, selectstate, area, landmark, addressType, pincode } = req.body;
+    if(!name || !phone)
+    {
+      return res.send({message:"name or phone can't be empthy"})
+    }
     // Check if the user already exists
     let user = await User.findOne({ email:email });
      if (user) return res.status(400).json({ message: "User already exists" });
@@ -36,6 +40,22 @@ const getUserByEmail = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+
+const deleteUserByEmail = async (req, res) => {
+  const { email } = req.params; // Get email from URL parameters
+
+  try {
+    const deletedUser = await User.findOneAndDelete({ email }); // Find and delete user by email
+    if (!deletedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.status(200).json({ message: "User deleted successfully", deletedUser });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 
 
 
@@ -93,5 +113,5 @@ const loginUser = async (req, res) => {
   
 
 module.exports = {
-  registerUser, loginUser, getUserByEmail, getmail
+  registerUser, loginUser, getUserByEmail, getmail, deleteUserByEmail
 };
