@@ -163,6 +163,41 @@ function Dashboard() {
 
 
 
+    const [totalUsers, setTotalUsers] = useState(0);
+
+    useEffect(() => {
+      // Fetch total user count
+      const fetchUserCount = async () => {
+        try {
+          const response = await api.get("totaluser");
+          setTotalUsers(response.data.totalUsers);
+        } catch (error) {
+          console.error("Error fetching user count:", error);
+        }
+      };
+  
+      fetchUserCount();
+    }, []);
+
+
+    const [satisfaction, setSatisfaction] = useState(0);
+
+  useEffect(() => {
+    const fetchSatisfaction = async () => {
+      try {
+        const response = await axios.get("getcustomersetification");
+        setSatisfaction(response.data.satisfaction);
+      } catch (error) {
+        console.error("Error fetching customer satisfaction:", error);
+      }
+    };
+
+    fetchSatisfaction();
+  }, []);
+  
+
+
+
   return (
     <div>
       {/* Sidebar */}
@@ -281,97 +316,85 @@ function Dashboard() {
 
             {/* Card 3: New Customers */}
             <div className="col-md-3">
-              <div
-                style={{
-                  border: "none",
-                  borderRadius: 15,
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                  padding: 20,
-                  transition: "transform 0.3s ease-in-out",
-                }}
-                onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
-                  <div>
-                    <h2 style={{ color: "#198754", margin: 0 }}>146</h2>
-                    <p style={{ margin: 0, color: "#6c757d" }}>New Customers</p>
-                  </div>
-                  <i className="fa fa-user-plus" style={{ fontSize: 40, color: "#198754" }} />
-                </div>
-                <div
-                  style={{
-                    width: "100%",
-                    height: 8,
-                    backgroundColor: "#e9ecef",
-                    borderRadius: 10,
-                    marginTop: 10,
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "80%",
-                      height: "100%",
-                      backgroundColor: "#198754",
-                      borderRadius: 10,
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
+      <div
+        style={{
+          border: "none",
+          borderRadius: 15,
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          padding: 20,
+          transition: "transform 0.3s ease-in-out",
+        }}
+        onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+        onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+      >
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div>
+            <h2 style={{ color: "#198754", margin: 0 }}>{totalUsers}</h2>
+            <p style={{ margin: 0, color: "#6c757d" }}>Total Users</p>
+          </div>
+          <i className="fa fa-users" style={{ fontSize: 40, color: "#198754" }} />
+        </div>
+        <div
+          style={{
+            width: "100%",
+            height: 8,
+            backgroundColor: "#e9ecef",
+            borderRadius: 10,
+            marginTop: 10,
+          }}
+        >
+          <div
+            style={{
+              width: `${(totalUsers / 500) * 100}%`, // Adjust width dynamically
+              height: "100%",
+              backgroundColor: "#198754",
+              borderRadius: 10,
+            }}
+          />
+        </div>
+      </div>
+    </div>
 
             {/* Card 4: Customer Satisfaction */}
             <div className="col-md-3">
-              <div
-                style={{
-                  border: "none",
-                  borderRadius: 15,
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                  padding: 20,
-                  transition: "transform 0.3s ease-in-out",
-                }}
-                onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
-                  <div>
-                    <h2 style={{ color: "#dc3545", margin: 0 }}>99.89%</h2>
-                    <p style={{ margin: 0, color: "#6c757d" }}>Customer Satisfaction</p>
-                  </div>
-                  <i className="fa fa-heart" style={{ fontSize: 40, color: "#dc3545" }} />
-                </div>
-                <div
-                  style={{
-                    width: "100%",
-                    height: 8,
-                    backgroundColor: "#e9ecef",
-                    borderRadius: 10,
-                    marginTop: 10,
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "95%",
-                      height: "100%",
-                      backgroundColor: "#dc3545",
-                      borderRadius: 10,
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
+      <div
+        style={{
+          border: "none",
+          borderRadius: 15,
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          padding: 20,
+          transition: "transform 0.3s ease-in-out",
+        }}
+        onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+        onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+      >
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div>
+            <h2 style={{ color: "#dc3545", margin: 0 }}>{satisfaction}%</h2>
+            <p style={{ margin: 0, color: "#6c757d" }}>Customer Satisfaction</p>
+          </div>
+          <i className="fa fa-heart" style={{ fontSize: 40, color: "#dc3545" }} />
+        </div>
+        <div
+          style={{
+            width: "100%",
+            height: 8,
+            backgroundColor: "#e9ecef",
+            borderRadius: 10,
+            marginTop: 10,
+          }}
+        >
+          <div
+            style={{
+              width: `${satisfaction}%`,
+              height: "100%",
+              backgroundColor: "#dc3545",
+              borderRadius: 10,
+            }}
+          />
+        </div>
+      </div>
+    </div>
 
           {/* Time Range Buttons (Placed Above the Chart) */}
         <div className="d-flex justify-content-start mb-4">

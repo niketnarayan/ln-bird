@@ -45,6 +45,25 @@ const getallReviews = async (req, res) => {
   
 };
 
+
+
+const getCustomerSatisfaction = async (req, res) => {
+  try {
+    const totalReviews = await Review.countDocuments();
+    if (totalReviews === 0) {
+      return res.status(200).json({ satisfaction: 0 }); // Avoid division by zero
+    }
+
+    const positiveReviews = await Review.countDocuments({ rating: { $gte: 4 } }); // 4 and 5 star ratings
+    const satisfactionPercentage = ((positiveReviews / totalReviews) * 100).toFixed(2);
+
+    res.status(200).json({ satisfaction: satisfactionPercentage });
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+
 // ✅ Delete a Review
 const deleteReview = async (req, res) => {
   try {
@@ -56,5 +75,5 @@ const deleteReview = async (req, res) => {
 };
 
 module.exports = {
-    addReview , getReviews , getallReviews
+    addReview , getReviews , getallReviews, getCustomerSatisfaction
 }

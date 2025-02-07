@@ -7,17 +7,14 @@ const registerUser = async (req, res) => {
 
 
   try {
-    const { name, email, phone, password, apartmentNumber, selectstate, area, landmark, addressType, pincode } = req.body;
-    if(!name || !phone)
-    {
-      return res.send({message:"name or phone can't be empthy"})
-    }
+    const { firstName, lastName, email, phone, password, apartmentNumber, selectstate, area, landmark, addressType, pincode } = req.body;
+ 
     // Check if the user already exists
     let user = await User.findOne({ email:email });
      if (user) return res.status(400).json({ message: "User already exists" });
 
     // Create a new user
-    user = new User({  name, email, phone, password, apartmentNumber, selectstate, area, landmark, addressType, pincode });
+    user = new User({ firstName, lastName,  email, phone, password, apartmentNumber, selectstate, area, landmark, addressType, pincode });
     await user.save();
 
     res.status(201).json({ message: "User registered successfully" });
@@ -36,6 +33,17 @@ const getUserByEmail = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
     res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+
+
+const getTotalUsers = async (req, res) => {
+  try {
+    const userCount = await User.countDocuments(); // Get total users count
+    res.status(200).json({ totalUsers: userCount });
   } catch (err) {
     res.status(500).json({ message: "Server error" });
   }
@@ -105,7 +113,7 @@ const loginUser = async (req, res) => {
 
   
       // Login successful
-      res.status(200).json({ message: "Login successful", user });
+      res.status(200).json({ message: "Login successful", user,token });
     } catch (err) {
       res.status(500).json({ message: "Server error" });
     }
@@ -113,5 +121,5 @@ const loginUser = async (req, res) => {
   
 
 module.exports = {
-  registerUser, loginUser, getUserByEmail, getmail, deleteUserByEmail
+  registerUser, loginUser, getUserByEmail, getmail, deleteUserByEmail, getTotalUsers
 };

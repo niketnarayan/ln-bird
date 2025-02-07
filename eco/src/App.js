@@ -84,7 +84,7 @@ function App() {
      <Route path='/usermessage' element={<PrivateRoute><Usermessage/></PrivateRoute>}/>
      <Route path='/alluser' element={<PrivateRoute><Alluser/></PrivateRoute>}/>
      <Route path='/login' element={<Login/>}/>
-    <Route path='/singup' element={<Sinup/>}/>
+     <Route path='/singup' element={<Sinup/>}/>
      <Route path='/forgot' element={<Forgatpassword/>}/>
      <Route path='/blog' element={<PrivateRoute><Blog/></PrivateRoute>}/>
      <Route path='/blog1' element={<Blog1/>}/>

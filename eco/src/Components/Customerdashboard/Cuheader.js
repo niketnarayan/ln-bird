@@ -16,6 +16,11 @@ function Cuheader() {
 
   const useremail = localStorage.getItem('email')
 
+  const [validation, setValidation] = useState({});
+
+
+  
+
 
 
     const {cart,setcart}=useCart()
@@ -136,12 +141,60 @@ function Cuheader() {
   
   
   const handleChange = (e) => {
-    const { name, value, type, checked, select } = e.target;
-    setorderdata({
-      ...orderdata,
-      [name]: type === "checkbox" ? checked : value,
-    });
-  };
+    const { name, value, type, checked } = e.target;
+    
+    setorderdata((prevData) => ({
+        ...prevData,
+        [name]: type === "checkbox" ? checked : value,
+    }));
+
+    validateField(name, value);
+};
+
+const validateField = (name, value) => {
+  let newValidation = { ...validation };
+
+  // Required Fields
+  if (["firstName", "lastName","mobileNumber", "apartmentNumber", "selectstate","landmark", "area", "pincode"].includes(name) && !value.trim()) {
+      newValidation[name] = `${name.replace(/([A-Z])/g, " $1")} is required!`;
+  } else {
+      delete newValidation[name];
+  }
+
+  // Mobile Number Validation
+  if (name === "mobileNumber" && value.trim() && !/^\d{10}$/.test(value)) {
+      newValidation.mobileNumber = "Enter a valid 10-digit Mobile Number!";
+  }
+
+  // Pincode Validation
+  if (name === "pincode" && value.trim() && !/^\d{6}$/.test(value)) {
+      newValidation.pincode = "Enter a valid 6-digit Pincode!";
+  }
+
+  setValidation(newValidation);
+};
+
+const validateForm = () => {
+  let newValidation = {};
+
+  if (!orderdata.firstName.trim()) newValidation.firstName = "First Name is required!";
+  if (!orderdata.lastName.trim()) newValidation.lastName = "Last Name is required!";
+  if (!orderdata.mobileNumber.trim() || !/^\d{10}$/.test(orderdata.mobileNumber)) 
+      newValidation.mobileNumber = "Enter a valid 10-digit Mobile Number!";
+  if (!orderdata.apartmentNumber.trim()) newValidation.apartmentNumber = "Apartment Number is required!";
+  if (!orderdata.selectstate.trim()) newValidation.selectstate = "State is required!";
+  if (!orderdata.landmark.trim()) newValidation.landmark = "Landmark is required!";
+  if (!orderdata.area.trim()) newValidation.area = "Area is required!";
+  if (!orderdata.pincode.trim() || !/^\d{6}$/.test(orderdata.pincode)) 
+      newValidation.pincode = "Enter a valid 6-digit Pincode!";
+
+  setValidation(newValidation);
+  
+  return Object.keys(newValidation).length === 0; // ✅ Return true if no errors
+};
+
+
+  
   
   const handleAddressType = (type) => {
     setorderdata({ ...orderdata, addressType: type });
@@ -154,7 +207,7 @@ function Cuheader() {
   
   
  useEffect(()=>
-{
+{      
   setorderdata({...orderdata,email:useremail})
   
   
@@ -230,6 +283,16 @@ useEffect(()=>
 
   
   const handlePayment = async () => {
+
+    if (!validateForm()) {
+      Swal.fire({
+          title: 'Validation Error!',
+          text: 'Please correct the errors before submitting.',
+          icon: 'warning',
+          confirmButtonText: 'OK',
+      });
+      return;
+  }
     try {
       // Step 1: Create Order on Backend
       const { data: order } = await api.post('payment', {
@@ -1178,6 +1241,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
               fontSize: "14px",
             }}
           />
+          {validation.firstName && <span style={{ color: "red", fontSize: "12px" }}>{validation.firstName}</span>}
         </div>
         <div className="col-md-6">
           <label htmlFor="lastName" className="form-label">
@@ -1197,6 +1261,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
               fontSize: "14px",
             }}
           />
+            {validation.lastName && <span style={{ color: "red", fontSize: "12px" }}>{validation.lastName}</span>}
         </div>
       </div>
       <div className="col-md-6 mb-3">
@@ -1218,6 +1283,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
             fontSize: "14px",
           }}
         />
+          {validation.mobileNumber && <span style={{ color: "red", fontSize: "12px" }}>{validation.mobileNumber}</span>}
       </div>
 
 
@@ -1247,6 +1313,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
               fontSize: "14px",
             }}
           />
+            {validation.apartmentNumber && <span style={{ color: "red", fontSize: "12px" }}>{validation.apartmentNumber}</span>}
         </div>
         <div className="col-md-6">
   <label htmlFor="state" className="form-label">
@@ -1273,6 +1340,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
       </option>
     ))}
   </select>
+  {validation.selectstate && <span style={{ color: "red", fontSize: "12px" }}>{validation.selectstate}</span>}
 </div>
       </div>
       <div className="mb-3 row">
@@ -1294,6 +1362,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
               fontSize: "14px",
             }}
           />
+            {validation.area && <span style={{ color: "red", fontSize: "12px" }}>{validation.area}</span>}
         </div>
         <div className="col-md-6">
           <label htmlFor="StreetDetails" className="form-label">
@@ -1313,6 +1382,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
               fontSize: "14px",
             }}
           />
+            {validation.landmark && <span style={{ color: "red", fontSize: "12px" }}>{validation.landmark}</span>}
         </div>
 
         <div className="col-md-6">
@@ -1353,6 +1423,7 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
             fontSize: "14px",
           }}
         />
+          {validation.pincode && <span style={{ color: "red", fontSize: "12px" }}>{validation.pincode}</span>}
       </div>
       
       <div className="mb-3">

@@ -75,7 +75,8 @@ console.log(users);
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Name</th>
+              <th scope="col">Fist Name</th>
+              <th scope="col">Last Name</th>
               <th scope="col">Email</th>
               <th scope="col">Phone no.</th>
               <th scope="col">Password</th>
@@ -92,7 +93,8 @@ console.log(users);
   {users && Array.isArray(users) && users.map((user, index) => (
     <tr key={user._id}>
       <th scope="row">{index + 1}</th>
-      <td>{user.name}</td>
+      <td>{user.firstName}</td>
+      <td>{user.lastName}</td>
       <td>{user.email}</td>
       <td>{user.phone}</td>
       <td>{user.password}</td>

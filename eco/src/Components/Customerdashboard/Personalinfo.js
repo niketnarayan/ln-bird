@@ -22,7 +22,8 @@ const user=localStorage.getItem('email')
   };
 
   const [userInfo, setUserInfo] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     gender: "",
     email: "",
     mobile: "",
@@ -35,7 +36,8 @@ const user=localStorage.getItem('email')
   });
 
   const [isEditing, setIsEditing] = useState({
-    name: false,
+    firstName: false,
+    lastNameName: false,
     gender: false,
     email: false,
     mobile: false,
@@ -198,7 +200,7 @@ const user=localStorage.getItem('email')
 
           {/* First Name and Last Name */}
           <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
-            {/* <input
+            <input
               type="text"
               name="firstName"
               placeholder="First Name"
@@ -213,14 +215,14 @@ const user=localStorage.getItem('email')
                 backgroundColor: isEditing.firstName ? "white" : "#f9f9f9",
                 outline: isEditing.firstName ? "2px solid #007bff" : "none",
               }}
-            /> */}
+            />
             <input
               type="text"
-              name="name"
-              placeholder="Name"
-              value={userInfo.name}
+              name="lastName"
+              placeholder="LastName"
+              value={userInfo.lastName}
               onChange={handleChange}
-              disabled={!isEditing.name}
+              disabled={!isEditing.lastName}
               style={{
                 flex: 1,
                 padding: "12px",
@@ -518,6 +520,7 @@ const user=localStorage.getItem('email')
             className="form-control"
             id="area"
             name="area"
+            value={userInfo.area}
             onChange={handleChange}
             placeholder="e.g. 12/228"
             required
@@ -537,7 +540,7 @@ const user=localStorage.getItem('email')
             className="form-control"
             id="landmark"
             name="landmark"
-           
+            value={userInfo.landmark}
             onChange={handleChange}
             placeholder="e.g. Park Avenue"
             style={{
@@ -557,7 +560,7 @@ const user=localStorage.getItem('email')
           className="form-control"
           id="pincode"
           name="pincode"
-          
+          value={userInfo.pincode}
           onChange={handleChange}
           style={{
             borderRadius: "5px",
