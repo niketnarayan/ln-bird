@@ -8,14 +8,14 @@ function Faq() {
 
         <Header/>
         <div style={{ 
-  padding: "40px", 
-  backgroundColor: "#fcf7ee", 
-  marginTop: "9rem", 
-  marginLeft: "100px", 
-  marginRight: "100px", 
-  boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)", 
-  borderRadius: "10px" 
-}}>
+        padding: "40px", 
+        backgroundColor: "#fcf7ee", 
+        marginTop: "9rem", 
+        maxWidth: "90%", 
+        margin: "9rem auto", 
+        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)", 
+        borderRadius: "10px"
+      }}>
       <h1 style={{ textAlign: "center", marginBottom: "30px", color: "#333" , fontFamily:"'ITC Modern No 216', serif" }}>
         Frequently Asked Questions
       </h1>

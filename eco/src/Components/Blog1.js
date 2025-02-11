@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import api from './api'
 import Header from './Header';
 import { useNavigate } from 'react-router-dom';
+import Footer from "./footer";
 
 
 function Blog1() {
@@ -107,6 +108,7 @@ function Blog1() {
     </button>
   </div>
 </div>
+<Footer/>
     </div>
   );
 }

@@ -1224,7 +1224,7 @@ Nothing it doesn’t</h2>
       <div className="icon-circle">
         <i className="fa-solid fa-seedling" style={{ fontSize: '40px', color: '#fff' }}></i>
       </div>
-      <h4 style={{ marginTop: '10px', color: '#333' }}>Spiritually Infused</h4>
+      <h4 style={{ marginTop: '10px', color: '#333' }}>Pure & Clean</h4>
     </div>
     <div className="col-md-3" style={{ flex: 1, textAlign: 'center', padding: '20px', backgroundColor: '#e3f2fd', borderRadius: '10px', border: '1px solid #ddd', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', height: '15rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
       <div className="icon-circle">

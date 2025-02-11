@@ -9,15 +9,15 @@ function Termcondition() {
         <Header/>
 
         <div style={{ 
-  padding: "40px", 
-  backgroundColor: "#fcf7ee", 
-  marginTop: "9rem", 
-  marginLeft: "100px", 
-  marginRight: "100px", 
-  boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)", 
-  borderRadius: "10px" 
-}}>
-      <h1 style={{ textAlign: "center", marginBottom: "20px", color: "#333", fontFamily:"'ITC Modern No 216', serif" }}>
+        padding: "40px", 
+        backgroundColor: "#fcf7ee", 
+        marginTop: "9rem", 
+        maxWidth: "90%", 
+        margin: "9rem auto", 
+        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)", 
+        borderRadius: "10px"
+      }}>
+          <h1 style={{ textAlign: "center", marginBottom: "20px", color: "#333", fontFamily:"'ITC Modern No 216', serif" }}>
         TERMS AND CONDITIONS FOR USE OF KIONA
       </h1>
       <p style={{ textAlign: "center", fontSize: "18px", color: "#555",fontFamily:"'Harmonia Sans', sans-serif" }}>

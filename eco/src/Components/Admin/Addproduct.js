@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Sidebar from './Sidebar'
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import "react-quill/dist/quill.snow.css"; // ReactQuill styles
 import ReactQuill from "react-quill";
-import axios from "axios";
 import Swal from 'sweetalert2';
 import api from '../api'
 
@@ -143,19 +143,19 @@ function Addproduct() {
       <Sidebar/>
 
       <div
-        style={{
-          marginLeft: isSidebarCollapsed ? "80px" : "250px",
-          transition: "margin-left 0.3s ease",
-          padding: "20px",
-          flexGrow: 1,
-          backgroundColor: "#f8f9fa",
-          minHeight: "100vh",
-        }}
+        // style={{
+        //   marginLeft: isSidebarCollapsed ? "80px" : "250px",
+        //   transition: "margin-left 0.3s ease",
+        //   padding: "20px",
+        //   flexGrow: 1,
+        //   backgroundColor: "#f8f9fa",
+        //   minHeight: "100vh",
+        // }}
       >
    <div className="container mt-4">
-      <h2 className="mb-4" style={{textAlign:"center"}}>Add New Product</h2>
-      <div className="row">
-        <div className="col-md-8 mx-auto">
+      <h2 className="mb-4" style={{textAlign:"center",alignItems:"center"}}>Add New Product</h2>
+      <div className="row" style={{display:"flex", justifyContent:"cemtre",alignItems:"center",marginTop:"50px"}}>
+        <div className="col-md-8" style={{width:"700px"}}>
           <div
             style={{
               background: "white",
@@ -172,6 +172,7 @@ function Addproduct() {
                   type="number"
                   name="Productcode"
                   className="form-control"
+                  // style={{width:"1000px"}}
                   
                   onChange={(e)=>setproduct({...product,product_code:e.target.value})}
                   placeholder="Enter Productcode"
@@ -352,6 +353,7 @@ function Addproduct() {
            
           </div>
         </div>
+        <div className="col-md-4"></div>
       </div>
     </div>
 

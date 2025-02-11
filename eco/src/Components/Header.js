@@ -330,52 +330,87 @@ navigate('/categoryproduct',{state:data})
 
 
 
-const [user, setuser] = useState({
-firstName: "",
-lastName: "",
-email: "",
-phone: "",
-password: "",
-});
-
-const [error, setError] = useState(null);
-const [successMessage, setSuccessMessage] = useState(null);
-
-// Handle input changes
-const handleInputChange = (e) => {
-const { name, value } = e.target;
-setuser({
-...user,
-[name]: value,
-});
-};
-
-// Handle form submission
-const handleSubmit6 = async (e) => {
-e.preventDefault();
-
-try {
-// Send POST request to backend for user registration
-const response = await api.post("register", user);
-
-// Handle successful response
-setSuccessMessage(response.data.message);
-setError(null); // Clear any previous errors
-
-// Optionally, reset the form fields
-setuser({
-firstName: "",
-lastNameName: "",
-email: "",
-phone: "",
-password: "",
-});
-} catch (err) {
-// Handle error response
-setError(err.response?.data?.message || "Server error");
-setSuccessMessage(null); // Clear any previous success messages
-}
-};
+const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    password: "",
+  });
+  
+  const [formErrors, setFormErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState(null);
+  
+  // Handle input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
+  
+  // Validation function
+  const validateForm = () => {
+    let newErrors = {};
+    if (!user.firstName.trim()) newErrors.firstName = "First name is required";
+    if (!user.lastName.trim()) newErrors.lastName = "Last name is required";
+  
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!user.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!emailPattern.test(user.email)) {
+      newErrors.email = "Enter a valid email address";
+    }
+  
+    // Phone number validation (Assuming 10-digit number for India)
+    const phonePattern = /^[6-9]\d{9}$/;
+    if (!user.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!phonePattern.test(user.phone)) {
+      newErrors.phone = "Enter a valid 10-digit phone number";
+    }
+  
+    // Password validation (at least 8 characters, uppercase, lowercase, number, special char)
+    const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!user.password.trim()) {
+      newErrors.password = "Password is required";
+    } else if (!passwordPattern.test(user.password)) {
+      newErrors.password =
+        "Password must be at least 8 characters, including uppercase, lowercase, number, and special character";
+    }
+  
+    setFormErrors(newErrors);
+    return Object.keys(newErrors).length === 0; // Returns true if no errors
+  };
+  
+  const handleSubmit6 = async (e) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+  
+    try {
+      const response = await api.post("register", user);
+  
+      setSuccessMessage(response.data.message);
+      setFormErrors({});
+      
+      // Reset form fields
+      setUser({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        password: "",
+      });
+    } catch (err) {
+      setFormErrors({ general: err.response?.data?.message || "Server error" });
+      setSuccessMessage(null);
+    }
+  };
 
 
 
@@ -1344,85 +1379,90 @@ Go to Payment
 {/* sinup for user--------------------------------------------------------------------- */}
 
 <Modal show={show6} onHide={handleClose6}>
-<Modal.Header closeButton>
-<Modal.Title>Customer Signup</Modal.Title>
-</Modal.Header>
-<Modal.Body>
-<Form onSubmit={handleSubmit6}>
-<Form.Group controlId="formfirstName" className="mb-3">
-<Form.Label>First Name</Form.Label>
-<Form.Control
-type="text"
-placeholder="Enter your First name"
-name="firstName"
-// value={setFormData1.name}
-onChange={handleInputChange}
+    <Modal.Header closeButton>
+      <Modal.Title>Customer Signup</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+      <Form onSubmit={handleSubmit6}>
+        <Form.Group controlId="formFirstName" className="mb-3">
+          <Form.Label>First Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter your First name"
+            name="firstName"
+            value={user.firstName}
+            onChange={handleInputChange}
+            isInvalid={!!formErrors.firstName}
+          />
+          <Form.Control.Feedback type="invalid">{formErrors.firstName}</Form.Control.Feedback>
+        </Form.Group>
 
-/>
-</Form.Group>
+        <Form.Group controlId="formLastName" className="mb-3">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter your Last name"
+            name="lastName"
+            value={user.lastName}
+            onChange={handleInputChange}
+            isInvalid={!!formErrors.lastName}
+          />
+          <Form.Control.Feedback type="invalid">{formErrors.lastName}</Form.Control.Feedback>
+        </Form.Group>
 
-<Form.Group controlId="formlastName" className="mb-3">
-<Form.Label>Last Name</Form.Label>
-<Form.Control
-type="text"
-placeholder="Enter your Last name"
-name="lastName"
-// value={setFormData1.name}
-onChange={handleInputChange}
+        <Form.Group controlId="formEmail" className="mb-3">
+          <Form.Label>Email ID</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Enter your email"
+            name="email"
+            value={user.email}
+            onChange={handleInputChange}
+            isInvalid={!!formErrors.email}
+          />
+          <Form.Control.Feedback type="invalid">{formErrors.email}</Form.Control.Feedback>
+        </Form.Group>
 
-/>
-</Form.Group>
+        <Form.Group controlId="formPhone" className="mb-3">
+          <Form.Label>Phone Number</Form.Label>
+          <Form.Control
+            type="tel"
+            placeholder="Enter your phone number"
+            name="phone"
+            value={user.phone}
+            onChange={handleInputChange}
+            isInvalid={!!formErrors.phone}
+          />
+          <Form.Control.Feedback type="invalid">{formErrors.phone}</Form.Control.Feedback>
+        </Form.Group>
 
-<Form.Group controlId="formEmail" className="mb-3">
-<Form.Label>Email ID</Form.Label>
-<Form.Control
-type="email"
-placeholder="Enter your email"
-name="email"
-// value={setFormData1.email}
-onChange={handleInputChange}
+        <Form.Group controlId="formPassword" className="mb-3">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Enter your password"
+            name="password"
+            value={user.password}
+            onChange={handleInputChange}
+            isInvalid={!!formErrors.password}
+          />
+          <Form.Control.Feedback type="invalid">{formErrors.password}</Form.Control.Feedback>
+        </Form.Group>
 
-/>
-</Form.Group>
+        {formErrors.general && <div className="alert alert-danger">{formErrors.general}</div>}
+        {successMessage && <div className="alert alert-success">{successMessage}</div>}
 
-<Form.Group controlId="formPhone" className="mb-3">
-<Form.Label>Phone Number</Form.Label>
-<Form.Control
-type="tel"
-placeholder="Enter your phone number"
-name="phone"
-// value={setFormData1.phone}
-onChange={handleInputChange}
-
-/>
-</Form.Group>
-
-<Form.Group controlId="formPassword" className="mb-3">
-<Form.Label>Password</Form.Label>
-<Form.Control
-type="password"
-placeholder="Enter your password"
-name="password"
-// value={setFormData1.password}
-onChange={handleInputChange}
-
-/>
-</Form.Group>
-
-{error && <div className="alert alert-danger">{error}</div>}
-{successMessage && <div className="alert alert-success">{successMessage}</div>}
-
-<Button variant="primary" type="submit">
-Signup
-</Button>
-</Form>
-</Modal.Body>
-<Modal.Footer>
-<Button variant="secondary" onClick={handleClose6}>
-Close
-</Button>
-</Modal.Footer>
-</Modal>
+        <Button variant="primary" type="submit">
+          Signup
+        </Button>
+      </Form>
+    </Modal.Body>
+    <Modal.Footer>
+      <Button variant="secondary" onClick={handleClose6}>
+        Close
+      </Button>
+    </Modal.Footer>
+  </Modal>
 
 
 {/* forgot password user code----------------------------------------------------------------- */}

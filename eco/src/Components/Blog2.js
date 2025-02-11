@@ -5,6 +5,7 @@ import api from '../Components/api'
 import Footer from "./footer";
 
 
+
 function Blog2() {
 
 
@@ -113,9 +114,9 @@ function Blog2() {
   </div>
 </div>
 
+<Footer />
 
 
-<Footer/>
     </div>
   )
 }
