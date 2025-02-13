@@ -15,6 +15,15 @@ import Cuheader from "./Cuheader";
 
 function Cudashboard() {
 
+    const [comboProduct, setcomboproduct] = useState([])
+    const [singleProduct, setsingleProduct] = useState([])
+
+
+  const navigatecategory=(data)=>
+    {
+    navigate('/categoryproduct',{state:data})
+    }
+
     const {cart,setcart}=useCart()
 
     useEffect(()=>
@@ -32,6 +41,8 @@ function Cudashboard() {
       try {
         const resp=await api.get("getproduct")
         setproduct1(resp.data.product)
+        setcomboproduct(resp.data.product.filter((item)=>item.product_type==="combo"))
+        setsingleProduct(resp.data.product.filter((item)=>item.product_type==="single"))
         // setcart(resp.data.product)
         
       } catch (error) {
@@ -75,19 +86,28 @@ function Cudashboard() {
   
     const Combo = [
       {
-        name: "Hair Care",
-        imgSrc: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
+        _id: "1",
+        product_name: "Hair Care",
+        product_image: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
         description: "Unleash the power of Earth's essential bounty for naturally beautiful hair.",
+        product_price: 599,
+        product_quantity1: 1,
       },
       {
-        name: "Face Care",
-        imgSrc: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
+        _id: "2",
+        product_name: "Face Care",
+        product_image: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
         description: "Embrace radiance naturally with the science of Earth's bounty.",
+        product_price: 599,
+        product_quantity1: 1,
       },
       {
-        name: "Body Care",
-        imgSrc: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
+        _id: "3",
+        product_name: "Body Care",
+        product_image: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
         description: "Elevate your daily bath with Earth's nourishing touch for a rejuvenated you.",
+        product_price: 599,
+        product_quantity1: 1,
       },
     ];
   
@@ -508,75 +528,75 @@ fontFamily: "'Arial', sans-serif",
 </div>  */}
 
 
-<div className="grocery">
-<h1
-className="grocery-heading text-center"
-style={{ marginBottom: "20px", color: "#333" }}
->
-Combo Product
-</h1>
-<div className="empty-div"></div>
-<div className="container">
-<div className="row justify-content-center" > {/* g-3 for consistent gaps */}
-{product1.map((product, index) => (
-  <React.Fragment key={product.id}>
-    <div
-    key={product.id}
-    className="col-12 col-sm-6 col-md-4 col-lg-3"
-    style={{
-      height: "550px",
-      background: "transparent",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-    }}
+<div className="grocery" style={{ background: 'linear-gradient(to right, #FFF9B1, #FFB6C1, #FFF9B1)', width:"100%" }}>
+  <h1
+    className="grocery-heading text-center"
+    style={{ marginBottom: "20px", color: "#333" }}
   >
-    <div
-      className="grocery-card"
-      style={{
-        width: "95%",
-        maxWidth: "300px",
-        backgroundColor: "#fff",
-        padding: "15px",
-        border: "1px solid #ddd",
-        borderRadius: "10px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
-        position: "relative",
-        overflow: "hidden",
-        transition: "transform 0.3s ease, box-shadow 0.3s ease",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "scale(1.05)";
-        e.currentTarget.style.boxShadow = "0 6px 10px rgba(0, 0, 0, 0.2)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "scale(1)";
-        e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
-      }}
-    >
-      <div style={{ position: "relative", width: "100%" }}>
-        <img
-          src={product.product_image}
-          alt={product.product_name}
-          className="grocery-card-image img-fluid"
+Combo Products
+  </h1>
+  <div className="empty-div"></div>
+  <div className="container">
+  <div className="row justify-content-center" > {/* g-3 for consistent gaps */}
+    {comboProduct.map((product, index) => (
+      <React.Fragment key={product.id}>
+        <div
+        key={product.id}
+        className="col-12 col-sm-6 col-md-4 col-lg-3"
+        style={{
+          height: "550px",
+          background: "transparent",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          className="grocery-card"
           style={{
             width: "100%",
-            height: "270px",
-            objectFit: "cover",
-            cursor: "pointer",
-            transition: "transform 0.3s ease",
+            maxWidth: "300px",
+            backgroundColor: "#fff",
+            padding: "15px",
+            border: "1px solid #ddd",
             borderRadius: "10px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            position: "relative",
+            overflow: "hidden",
+            transition: "transform 0.3s ease, box-shadow 0.3s ease",
           }}
-          onClick={() =>
-            navigate("/vitamincfaceash", { state: product._id })
-            }
-        />
-      </div>
-      <span
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "scale(1.05)";
+            e.currentTarget.style.boxShadow = "0 6px 10px rgba(0, 0, 0, 0.2)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+          }}
+        >
+          <div style={{ position: "relative", width: "100%" }}>
+            <img
+              src={product.product_image}
+              alt={product.product_name}
+              className="grocery-card-image img-fluid"
+              style={{
+                width: "100%",
+                height: "270px",
+                objectFit: "cover",
+                cursor: "pointer",
+                transition: "transform 0.3s ease",
+                borderRadius: "10px",
+              }}
+              onClick={() =>
+                navigate("/vitamincfaceash", { state: product._id })
+                }
+            />
+          </div>
+          <span
   className="grocery-card-name"
   style={{
     fontSize: "1rem",
@@ -594,75 +614,74 @@ Combo Product
 >
   {truncateText(product.product_name, 30)} {/* Adjust maxLength as needed */}
 </span>
-      <div
-        className="grocery-card-rating"
-        style={{
-          fontSize: "1rem",
-          color: "#ffc107",
-          margin: "5px 0",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        {"★".repeat(product.rating)}
-        <span style={{ color: "#ccc", marginLeft: "5px" }}>
-          {"★".repeat(5 - product.rating)}
-        </span>
+          <div
+            className="grocery-card-rating"
+            style={{
+              fontSize: "1rem",
+              color: "#ffc107",
+              margin: "5px 0",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            {"★".repeat(product.rating)}
+            <span style={{ color: "#ccc", marginLeft: "5px" }}>
+              {"★".repeat(5 - product.rating)}
+            </span>
+          </div>
+          <p
+            className="grocery-card-price"
+            style={{
+              fontSize: "1rem",
+              color: "#666",
+              marginTop: "5px",
+            }}
+          >
+            ₹{product.product_price}
+          </p>
+          <button
+            onClick={() => handleprouctadd(product)}
+            className="add-to-cart-btn"
+            style={{
+              backgroundColor: "#c8b89a",
+              color: "white",
+              border: "none",
+              padding: "12px 30px",
+              borderRadius: "5px",
+              fontSize: "0.9rem",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              marginTop: "10px",
+              width: "80%",
+              fontWeight: "bold",
+            }}
+          >
+            Add to Cart
+          </button>
+        </div>
       </div>
-      <p
-        className="grocery-card-price"
-        style={{
-          fontSize: "1rem",
-          color: "#666",
-          marginTop: "5px",
-        }}
-      >
-        ₹{product.product_price}
-      </p>
-      <button
-        onClick={() => handleprouctadd(product)}
-        className="add-to-cart-btn"
-        style={{
-          backgroundColor: "#c8b89a",
-          color: "white",
-          border: "none",
-          padding: "12px 30px",
-          borderRadius: "5px",
-          fontSize: "0.9rem",
-          cursor: "pointer",
-          transition: "all 0.3s ease",
-          marginTop: "10px",
-          width: "80%",
-          fontWeight: "bold",
-        }}
-      >
-        Add to Cart
-      </button>
+      </React.Fragment>
+    ))}
     </div>
   </div>
-  </React.Fragment>
-))}
-</div>
-</div>
-<div className="text-center mt-4">
-{visibleProducts < product1.length && (
-  <button
-    className="view-more-btn"
-    style={{
-      backgroundColor: "#333",
-      color: "#fff",
-      border: "none",
-      padding: "10px 20px",
-      borderRadius: "5px",
-      fontSize: "1rem",
-      cursor: "pointer",
-    }}
-    onClick={handleViewMore}
-  >
-    View More
-  </button>
-)}
-</div>
+  <div className="text-center mt-4">
+    <button
+      className="view-all-btn"
+      style={{
+        backgroundColor: "#333",
+        color: "#fff",
+        border: "none",
+        padding: "10px 20px",
+        borderRadius: "5px",
+        fontSize: "1rem",
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+      }}
+      onClick={() => navigate("/combo")}
+    >
+      View All
+    </button>
+  </div>
 </div>
 
 
@@ -689,9 +708,9 @@ Combo Product
           className="gallery-img"
         />
         <div className="overlay">
-          <h6>QUEENS</h6>
-          <h5>Body Care</h5>
-          <a href="#">View Collections →</a>
+          <h6>KIONA</h6>
+          <h5>Hair Serum</h5>
+          <a  onClick={() => navigatecategory("hair serum")} >View Collections →</a>
         </div>
       </div>
 
@@ -702,9 +721,9 @@ Combo Product
           className="gallery-img"
         />
           <div className="overlay">
-          <h6>QUEENS</h6>
-          <h5>Body Care</h5>
-          <a href="#">View Collections →</a>
+          <h6>KIONA</h6>
+          <h5>Face Wash</h5>
+          <a onClick={() => navigatecategory("face wash")}>View Collections →</a>
         </div>
       </div>
 
@@ -715,9 +734,9 @@ Combo Product
           className="gallery-img"
         />
           <div className="overlay">
-          <h6>QUEENS</h6>
-          <h5>Body Care</h5>
-          <a href="#">View Collections →</a>
+          <h6>KIONA</h6>
+          <h5>Shampoo</h5>
+          <a onClick={() => navigatecategory("shampoo")}>View Collections →</a>
         </div>
       </div>
 
@@ -729,9 +748,9 @@ Combo Product
           className="gallery-img"
         />
           <div className="overlay">
-          <h6>QUEENS</h6>
-          <h5>Body Care</h5>
-          <a href="#">View Collections →</a>
+          <h6>KIONA</h6>
+          <h5>Soap</h5>
+          <a onClick={() => navigatecategory("soap")}>View Collections →</a>
         </div>
       </div>
 
@@ -742,9 +761,9 @@ Combo Product
           className="gallery-img"
         />
           <div className="overlay">
-          <h6>QUEENS</h6>
-          <h5>Body Care</h5>
-          <a href="#">View Collections →</a>
+          <h6>KIONA</h6>
+          <h5>Hair oil</h5>
+          <a onClick={() => navigatecategory("hair oil")}>View Collections →</a>
         </div>
       </div>
 
@@ -844,7 +863,7 @@ Incredible Products
 <div className="empty-div"></div>
 <div className="container">
 <div className="row justify-content-center" > {/* g-3 for consistent gaps */}
-{product1.map((product, index) => (
+{singleProduct.map((product, index) => (
   <React.Fragment key={product.id}>
     <div
     key={product.id}
@@ -1281,99 +1300,102 @@ Nothing it doesn’t</h2>
 {/* combo start----------------------------------------------------------------------------------- */}
 
 <div
-style={{
-padding: "50px 0",
-marginTop: "2rem",
-backgroundColor:"rgb(255, 255, 255)",
-}}
+  style={{
+    padding: "50px 0",
+    marginTop: "2rem",
+    background: 'linear-gradient(to right, #FFF9B1, #FFB6C1, #FFF9B1)',
+  }}
 >
-<div className="container" style={{}}>
-<div className="row g-4 main-product-div">
-  {Combo.map((product, index) => (
-    <div
-      className="col-12 d-flex align-items-center product-item-div"
-      key={index}
-      style={{
-        flexDirection: index % 2 === 0 ? "row" : "row-reverse",
-        display: "flex",
-        alignItems: "center",
-        marginTop:"0px",
-        
-      }}
-    >
-    
-      <div className="product-image-div" style={{ flex: "1", width:"50%" }}>
-        <img
-          src={product.imgSrc}
-          alt={product.name}
+  <div className="container" style={{}}>
+    <div className="row g-4 main-product-div">
+      {Combo.map((product, index) => (
+        <div
+          className="col-12 d-flex align-items-center product-item-div"
+          key={product._id}
           style={{
-            width: "100%",
-            height: "100%",
-            borderRadius: index % 2 === 0 
-              ? "10px 0 0 10px" 
-              : "0 10px 10px 0", 
+            flexDirection: index % 2 === 0 ? "row" : "row-reverse",
+            display: "flex",
+            alignItems: "center",
+            marginTop:"0px",
+            
           }}
-        />
-      </div>
-     
-     <div className="product-content-div" 
-      style={{
-        padding:"0 20px", 
-        width: "50%", 
-        height:"100%",
-        display:"flex",
-        justifyContent:"space-between",
-        alignItems:"center",
-      }}
-     >
-      <div
-        className="product-content-item-div"
-        style={{
-          flex: "1",
-          height: "12rem",
-          width: "100%", 
-          // padding: "20px",
-          borderRadius: index % 2 === 0 
-            ? "0 10px 10px 0" 
-            : "10px 0 0 10px", 
-          boxSizing: "border-box", 
-        }}
-      >
-        <h4 style={{ fontWeight: "bold", margin: "20px 0 10px 20px" }} className="product-name-title">
-          {product.name}
-        </h4>
-        <p style={{ margin: "0 0 10px 20px",fontFamily: "'Harmonia Sans', sans-serif" }}>{product.description}</p>
-        <a
-          href="#"
-          style={{
-            backgroundColor: "#37AFE1",
-            border: "1px solid rgba(0,0,0,0.4)",
-            color: "white",
-            fontWeight: "bold",
-            padding: "10px 20px",
-            textDecoration: "none",
-            display: "inline-block",
-            textAlign: "center",
-            borderRadius: "5px",
-            marginLeft: "20px",
-            transition:"ease 0.3s all",
-          }}
-          onMouseEnter={(e) =>
-            (e.currentTarget.style.backgroundColor = "#4CC9FE")
-          }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.backgroundColor = "#37AFE1")
-          }
         >
-          Shop Now
-        </a>
-      </div>
-      </div>
+        
+          <div className="product-image-div" style={{ flex: "1", width:"50%" }}>
+            <img
+              src={product.product_image}
+              alt={product.name}
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: index % 2 === 0 
+                  ? "10px 0 0 10px" 
+                  : "0 10px 10px 0", 
+              }}
+            />
+          </div>
+         
+         <div className="product-content-div" 
+          style={{
+            padding:"0 20px", 
+            width: "50%", 
+            height:"100%",
+            display:"flex",
+            justifyContent:"space-between",
+            alignItems:"center",
+          }}
+         >
+          <div
+            className="product-content-item-div"
+            style={{
+              flex: "1",
+              height: "12rem",
+              width: "100%", 
+              // padding: "20px",
+              borderRadius: index % 2 === 0 
+                ? "0 10px 10px 0" 
+                : "10px 0 0 10px", 
+              boxSizing: "border-box", 
+            }}
+          >
+            <h4 style={{ fontWeight: "bold", margin: "20px 0 10px 20px" }} className="product-name-title">
+              {product.product_name}
+            </h4>
+            <p style={{ margin: "0 0 10px 20px",fontFamily: "'Harmonia Sans', sans-serif" }}>{product.description}</p>
+            <h6 style={{ fontWeight: "bold", margin: "20px 0 10px 20px" }}>
+            ₹ {product.product_price}
+            </h6>
+            <a
+            onClick={() => handleprouctadd(product)}
+              style={{
+                backgroundColor: "#37AFE1",
+                border: "1px solid rgba(0,0,0,0.4)",
+                color: "white",
+                fontWeight: "bold",
+                padding: "10px 20px",
+                textDecoration: "none",
+                display: "inline-block",
+                textAlign: "center",
+                borderRadius: "5px",
+                marginLeft: "20px",
+                transition:"ease 0.3s all",
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = "#4CC9FE")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "#37AFE1")
+              }
+            >
+              Shop Now
+            </a>
+          </div>
+          </div>
 
+        </div>
+      ))}
     </div>
-  ))}
-</div>
-</div>
+  </div>
 </div>
 
 

@@ -74,9 +74,9 @@ console.log(users);
         <table className="table">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Fist Name</th>
-              <th scope="col">Last Name</th>
+              <th scope="col" >#</th>
+              <th scope="col" >Fist Name</th>
+              <th scope="col" >Last Name</th>
               <th scope="col">Email</th>
               <th scope="col">Phone no.</th>
               <th scope="col">Password</th>

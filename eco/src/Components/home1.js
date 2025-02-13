@@ -18,6 +18,14 @@ import Swal from 'sweetalert2';
 
 function Home1() {
   const [cartMessage, setCartMessage] = useState("");
+  const [comboProduct, setcomboproduct] = useState([])
+  const [singleProduct, setsingleProduct] = useState([])
+  const [showAll1, setShowAll1] = useState(false);
+
+  const navigatecategory=(data)=>
+    {
+    navigate('/categoryproduct',{state:data})
+    }
 
 const {cart,setcart}=useCart()
 
@@ -33,6 +41,8 @@ const[product1,setproduct1]=useState([])
     try {
       const resp=await api.get("getproduct")
       setproduct1(resp.data.product)
+      setcomboproduct(resp.data.product.filter((item)=>item.product_type==="combo"))
+      setsingleProduct(resp.data.product.filter((item)=>item.product_type==="single"))
       // setcart(resp.data.product)
       
     } catch (error) {
@@ -40,6 +50,8 @@ const[product1,setproduct1]=useState([])
       
     }
   }
+  const visibleCombo = showAll1 ? comboProduct : comboProduct.slice(0, 4);
+
   
   const[fetchbanner,setfetchbanner]=useState([])
   const [sliderImages, setSliderImages] = useState([]);
@@ -77,24 +89,27 @@ const[product1,setproduct1]=useState([])
   const Combo = [
     {
       _id: "1",
-      name: "Hair Care",
-      imgSrc: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
+      product_name: "Hair Care",
+      product_image: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
       description: "Unleash the power of Earth's essential bounty for naturally beautiful hair.",
-      price: 599,
+      product_price: 599,
+      product_quantity1: 1,
     },
     {
       _id: "2",
-      name: "Face Care",
-      imgSrc: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
+      product_name: "Face Care",
+      product_image: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
       description: "Embrace radiance naturally with the science of Earth's bounty.",
-      price: 599,
+      product_price: 599,
+      product_quantity1: 1,
     },
     {
       _id: "3",
-      name: "Body Care",
-      imgSrc: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
+      product_name: "Body Care",
+      product_image: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
       description: "Elevate your daily bath with Earth's nourishing touch for a rejuvenated you.",
-      price: 599,
+      product_price: 599,
+      product_quantity1: 1,
     },
   ];
 
@@ -134,6 +149,8 @@ const[product1,setproduct1]=useState([])
                       });
         }
       };
+
+
     
 
 
@@ -533,12 +550,12 @@ const[product1,setproduct1]=useState([])
     className="grocery-heading text-center"
     style={{ marginBottom: "20px", color: "#333" }}
   >
-    Combo Product
+Combo Products
   </h1>
   <div className="empty-div"></div>
   <div className="container">
   <div className="row justify-content-center" > {/* g-3 for consistent gaps */}
-    {product1.map((product, index) => (
+    {visibleCombo.map((product, index) => (
       <React.Fragment key={product.id}>
         <div
         key={product.id}
@@ -554,7 +571,7 @@ const[product1,setproduct1]=useState([])
         <div
           className="grocery-card"
           style={{
-            width: "95%",
+            width: "100%",
             maxWidth: "300px",
             backgroundColor: "#fff",
             padding: "15px",
@@ -614,8 +631,6 @@ const[product1,setproduct1]=useState([])
 >
   {truncateText(product.product_name, 30)} {/* Adjust maxLength as needed */}
 </span>
-
-
           <div
             className="grocery-card-rating"
             style={{
@@ -667,23 +682,22 @@ const[product1,setproduct1]=useState([])
     </div>
   </div>
   <div className="text-center mt-4">
-    {visibleProducts < product1.length && (
-      <button
-        className="view-more-btn"
-        style={{
-          backgroundColor: "#333",
-          color: "#fff",
-          border: "none",
-          padding: "10px 20px",
-          borderRadius: "5px",
-          fontSize: "1rem",
-          cursor: "pointer",
-        }}
-        onClick={handleViewMore}
-      >
-        View More
-      </button>
-    )}
+    <button
+      className="view-all-btn"
+      style={{
+        backgroundColor: "#333",
+        color: "#fff",
+        border: "none",
+        padding: "10px 20px",
+        borderRadius: "5px",
+        fontSize: "1rem",
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+      }}
+      onClick={() => navigate("/combo")}
+    >
+      View All
+    </button>
   </div>
 </div>
 
@@ -711,9 +725,9 @@ const[product1,setproduct1]=useState([])
           className="gallery-img"
         />
         <div className="overlay">
-          <h6>QUEENS</h6>
-          <h5>Body Care</h5>
-          <a href="#">View Collections →</a>
+          <h6>KIONA</h6>
+          <h5>Hair Serum</h5>
+          <a  onClick={() => navigatecategory("hair serum")} >View Collections →</a>
         </div>
       </div>
 
@@ -724,9 +738,9 @@ const[product1,setproduct1]=useState([])
           className="gallery-img"
         />
           <div className="overlay">
-          <h6>QUEENS</h6>
-          <h5>Body Care</h5>
-          <a href="#">View Collections →</a>
+          <h6>KIONA</h6>
+          <h5>Face Wash</h5>
+          <a onClick={() => navigatecategory("face wash")}>View Collections →</a>
         </div>
       </div>
 
@@ -737,9 +751,9 @@ const[product1,setproduct1]=useState([])
           className="gallery-img"
         />
           <div className="overlay">
-          <h6>QUEENS</h6>
-          <h5>Body Care</h5>
-          <a href="#">View Collections →</a>
+          <h6>KIONA</h6>
+          <h5>Shampoo</h5>
+          <a onClick={() => navigatecategory("shampoo")}>View Collections →</a>
         </div>
       </div>
 
@@ -751,9 +765,9 @@ const[product1,setproduct1]=useState([])
           className="gallery-img"
         />
           <div className="overlay">
-          <h6>QUEENS</h6>
-          <h5>Body Care</h5>
-          <a href="#">View Collections →</a>
+          <h6>KIONA</h6>
+          <h5>Soap</h5>
+          <a onClick={() => navigatecategory("soap")}>View Collections →</a>
         </div>
       </div>
 
@@ -764,9 +778,9 @@ const[product1,setproduct1]=useState([])
           className="gallery-img"
         />
           <div className="overlay">
-          <h6>QUEENS</h6>
-          <h5>Body Care</h5>
-          <a href="#">View Collections →</a>
+          <h6>KIONA</h6>
+          <h5>Hair oil</h5>
+          <a onClick={() => navigatecategory("hair oil")}>View Collections →</a>
         </div>
       </div>
 
@@ -869,7 +883,7 @@ Incredible Products
   <div className="empty-div"></div>
   <div className="container">
   <div className="row justify-content-center" > {/* g-3 for consistent gaps */}
-    {product1.map((product, index) => (
+    {singleProduct.map((product, index) => (
       <React.Fragment key={product.id}>
         <div
         key={product.id}
@@ -1328,7 +1342,7 @@ Incredible Products
         
           <div className="product-image-div" style={{ flex: "1", width:"50%" }}>
             <img
-              src={product.imgSrc}
+              src={product.product_image}
               alt={product.name}
               style={{
                 width: "100%",
@@ -1364,12 +1378,14 @@ Incredible Products
             }}
           >
             <h4 style={{ fontWeight: "bold", margin: "20px 0 10px 20px" }} className="product-name-title">
-              {product.name}
+              {product.product_name}
             </h4>
             <p style={{ margin: "0 0 10px 20px",fontFamily: "'Harmonia Sans', sans-serif" }}>{product.description}</p>
+            <h6 style={{ fontWeight: "bold", margin: "20px 0 10px 20px" }}>
+            ₹ {product.product_price}
+            </h6>
             <a
             onClick={() => handleprouctadd(product)}
-              href="#"
               style={{
                 backgroundColor: "#37AFE1",
                 border: "1px solid rgba(0,0,0,0.4)",

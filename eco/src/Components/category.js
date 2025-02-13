@@ -15,6 +15,9 @@ function Category() {
     
     const location=useLocation()
     const category=location.state
+
+    console.log(category);
+    
    
     
 

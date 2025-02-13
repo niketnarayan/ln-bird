@@ -1,231 +1,152 @@
 import React, { useState, useEffect } from "react";
-import { DataGrid } from "@mui/x-data-grid";
-import Paper from "@mui/material/Paper";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
-import TextField from "@mui/material/TextField";
-import axios from "axios";
+import { Modal, Button, Form, Table } from "react-bootstrap";
 import Sidebar from "../Admin/Sidebar";
-import Swal from "sweetalert2"; // Import Swal
-import api from '../api'
+import Swal from "sweetalert2";
+import api from "../api"; // Ensure you have a proper API instance
 
 function Banner() {
-  const [banners, setBanners] = useState([]);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
-  const [openDialog, setOpenDialog] = useState(false);
-  const [editData, setEditData] = useState(null);
-  const [newBanner, setNewBanner] = useState({
+  const [banners, setBanners] = useState([]); // Initialize as an array
+  const [show, setShow] = useState(false);
+  const [editMode, setEditMode] = useState(false); // Track edit mode
+  const [currentBanner, setCurrentBanner] = useState(null); // Track current banner for edit
+
+  const [bannerData, setBannerData] = useState({
     bannerTitle: "",
-    sliderBannerImage: [], // Slider banner image file
-    productBannerImage: [], // Product banner image file
     bannerLink: "",
+    sliderBannerImage: null,
   });
 
   const toggleSidebar = () => setIsSidebarCollapsed(!isSidebarCollapsed);
 
-  useEffect(() => {
-    fetchBanners();
-  }, []);
-
-  // Fetch banners from backend
-  const fetchBanners = async () => {
-    try {
-      const response = await api.get("getAllBanners");
-      console.log(response);
-      
-      setBanners(response.data.banner); // Set the banners state with fetched data
-    } catch (error) {
-      console.error("Error fetching banners:", error);
-    }
+  const handleShow = () => {
+    setEditMode(false); // Ensure we're in add mode
+    setBannerData({ bannerTitle: "", bannerLink: "", sliderBannerImage: null });
+    setShow(true);
   };
 
-  // Handle Banner Form Changes
+  const handleClose = () => setShow(false);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNewBanner((prev) => ({
+    setBannerData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  const handleImageChange = (e, type) => {
-    const files = Array.from(e.target.files);
-    setNewBanner((prev) => ({
+  const handleFileChange = (e) => {
+    setBannerData((prev) => ({
       ...prev,
-      [type]: files,
+      sliderBannerImage: e.target.files[0],
     }));
   };
-  
 
-  // Reset form and dialog state
-  const resetForm = () => {
-    setNewBanner({
-      bannerTitle: "",
-      sliderBannerImage: [],
-      productBannerImage: [],
-      bannerLink: "",
-    });
-    setEditData(null);
-    setOpenDialog(false);
-  };
-
-  // Handle banner submission (Adding or Editing)
-  const handleBannerSubmit = async () => {
-    const formData = new FormData();
-    formData.append("bannerTitle", newBanner.bannerTitle);
-    formData.append("bannerLink", newBanner.bannerLink);
-
-    // Handle slider banner image
-// Handle slider banner images
-if (Array.isArray(newBanner.sliderBannerImage) && newBanner.sliderBannerImage.length > 0) {
-  newBanner.sliderBannerImage.forEach((image, index) => {
-    formData.append(`sliderBannerImage[${index}]`, image);
-  });
-} else if (editData?.sliderBannerImage && !newBanner.sliderBannerImage) {
-  editData.sliderBannerImage.forEach((image, index) => {
-    formData.append(`sliderBannerImage[${index}]`, image); // Use existing images
-  });
-}
-
-// Handle product banner images
-if (Array.isArray(newBanner.productBannerImage) && newBanner.productBannerImage.length > 0) {
-  newBanner.productBannerImage.forEach((image, index) => {
-    formData.append(`productBannerImage[${index}]`, image);
-  });
-} else if (editData?.productBannerImage && !newBanner.productBannerImage) {
-  editData.productBannerImage.forEach((image, index) => {
-    formData.append(`productBannerImage[${index}]`, image); // Use existing images
-  });
-}
-
-
+  const fetchBanners = async () => {
     try {
-      if (editData) {
-        await api.put(`editBanner/${editData._id}`, formData);
-        Swal.fire("Updated!", "Banner updated successfully.", "success");
-      } else {
-        await api.post("uploadBanner", formData);
-        Swal.fire("Added!", "Banner added successfully.", "success");
-      }         
-      resetForm();
-      fetchBanners(); // Reload the banners list
+      const response = await api.get("getAllBanners");
+      if (response.status === 200) {
+        setBanners(response.data.banner); // Adjust based on API response
+      }
     } catch (error) {
-      console.error("Error submitting banner:", error);
-      Swal.fire("Error!", "There was an issue submitting the banner.", "error");
+      console.error("Error fetching banners:", error);
     }
   };
 
+  const addBanner = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("bannerTitle", bannerData.bannerTitle);
+      formData.append("bannerLink", bannerData.bannerLink);
+      if (bannerData.sliderBannerImage)
+        formData.append("sliderBannerImage", bannerData.sliderBannerImage);
 
-
-
-  // Handle Edit Banner
-  const handleEdit = (row) => {
-    setEditData(row);
-    setNewBanner({
-      bannerTitle: row.bannerTitle,
-      bannerLink: row.bannerLink,
-      sliderBannerImage: null, // Reset to null for file upload
-      productBannerImage: null, // Reset to null for file upload
-    });
-    setOpenDialog(true);
+      const response = await api.post("/banner", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      if (response.status === 200) {
+        Swal.fire("Success", "Banner added successfully!", "success");
+        fetchBanners();
+        setShow(false);
+      }
+    } catch (error) {
+      console.error("Error adding banner:", error);
+      Swal.fire("Error", "Failed to add banner. Please try again.", "error");
+    }
   };
 
-  // Handle Delete Banner
+  const updateBanner = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("bannerTitle", bannerData.bannerTitle);
+      formData.append("bannerLink", bannerData.bannerLink);
+  
+      // Only append the image if a new one is selected
+      if (bannerData.sliderBannerImage) {
+        formData.append("sliderBannerImage", bannerData.sliderBannerImage);
+      } else {
+        // If no new image is selected, keep the existing one
+        formData.append("sliderBannerImage", currentBanner.sliderBannerImage);
+      }
+  
+      const response = await api.put(`/editBanner/${currentBanner._id}`, bannerData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+  
+      if (response.status === 200) {
+        Swal.fire("Success", "Banner updated successfully!", "success");
+        fetchBanners(); // Refresh the banners list
+        setShow(false); // Close the modal
+      }
+    } catch (error) {
+      console.error("Error updating banner:", error);
+      Swal.fire("Error", "Failed to update banner. Please try again.", "error");
+    }
+  };
+  
+
+  const handleSave = () => {
+    if (editMode) {
+      updateBanner();
+    } else {
+      addBanner();
+    }
+  };
+
+  const handleEdit = (banner) => {
+    setEditMode(true);
+    setCurrentBanner(banner); // Set the current banner object
+    setBannerData({
+      bannerTitle: banner.bannerTitle,
+      bannerLink: banner.bannerLink,
+      sliderBannerImage: null, // Do not prefill the file input for the new image
+    });
+    setShow(true); // Open the modal
+  }
+
   const handleDelete = async (id) => {
     try {
-      await api.delete(`deleteBanner/${id}`);
-      fetchBanners(); // Reload the banners list after delete
-      Swal.fire("Deleted!", "Banner deleted successfully.", "success");
+      const response = await api.delete(`deleteBanner/${id}`);
+      if (response.status === 200) {
+        Swal.fire("Deleted", "Banner deleted successfully!", "success");
+        fetchBanners();
+      }
     } catch (error) {
       console.error("Error deleting banner:", error);
-      Swal.fire("Error!", "There was an issue deleting the banner.", "error");
+      Swal.fire("Error", "Failed to delete banner. Please try again.", "error");
     }
   };
 
-  // DataGrid columns
-  const columns = [
-    { field: "bannerTitle", headerName: "Banner Title", width: 200 },
-    { field: "bannerLink", headerName: "Banner Link", width: 200 },
-    {
-      field: "sliderBannerImage",
-      headerName: "Slider Banner",
-      width: 150,
-      renderCell: (params) => (
-        <img
-          src={params.row.sliderBannerImage}
-          alt="Slider Banner"
-          style={{ width: "50px", height: "50px" }}
-        />
-      ),
-    },
-    {
-      field: "productBannerImage",
-      headerName: "Product Banner",
-      width: 150,
-      renderCell: (params) => (
-        <img
-          src={params.row.productBannerImage}
-          alt="Product Banner"
-          style={{ width: "50px", height: "50px" }}
-        />
-      ),
-    },
-    {
-      field: "actions",
-      headerName: "Actions",
-      width: 180,
-      sortable: false,
-      renderCell: (params) => (
-        <>
-          <Button
-            variant="contained"
-            color="primary"
-            size="small"
-            style={{ marginRight: "10px" }}
-            onClick={() => handleEdit(params.row)}
-          >
-            Edit
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            size="small"
-            onClick={() => handleDelete(params.row._id)}
-          >
-            Delete
-          </Button>
-        </>
-      ),
-    },
-  ];
-
-  // Utility function to check if an object is a File or Blob
-
-
-  // Utility function to handle image preview
-  const getImagePreview = (images) => {
-    if (Array.isArray(images)) {
-      // Map over the array and return previews for each item
-      return images.map((image, index) => {
-        if (image instanceof File || image instanceof Blob) {
-          return URL.createObjectURL(image); // For File/Blob, create object URL
-        } else if (typeof image === "string" && image.startsWith("http")) {
-          return image; // For URL strings, return them as is
-        }
-        return null; // Return null if neither condition is met
-      });
-    }
-    return null; // Return null if the images array is not valid
-  };
-  
+  useEffect(() => {
+    fetchBanners();
+  }, []);
 
   return (
     <div>
-      <Sidebar isSidebarCollapsed={isSidebarCollapsed} toggleSidebar={toggleSidebar} />
-
+      <Sidebar
+        isSidebarCollapsed={isSidebarCollapsed}
+        toggleSidebar={toggleSidebar}
+      />
       <div
         style={{
           marginLeft: isSidebarCollapsed ? "80px" : "250px",
@@ -242,111 +163,109 @@ if (Array.isArray(newBanner.productBannerImage) && newBanner.productBannerImage.
           </span>
         </div>
 
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => setOpenDialog(true)}
-        >
+        <Button variant="primary" onClick={handleShow}>
           Add Banner
         </Button>
 
-        <Paper sx={{ height: 400, width: "100%", marginTop: "20px" }}>
-          <DataGrid
-            rows={banners}
-            columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5, 10, 20]}
-            checkboxSelection
-            disableRowSelectionOnClick
-            getRowId={(row) => row._id} // Use the _id field as the unique identifier
-          />
-        </Paper>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>{editMode ? "Edit Banner" : "Add New Banner"}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group className="mb-3" controlId="bannerTitle">
+                <Form.Label>Banner Title</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter banner title"
+                  name="bannerTitle"
+                  value={bannerData.bannerTitle}
+                  onChange={handleInputChange}
+                />
+              </Form.Group>
 
-        <Dialog open={openDialog} onClose={resetForm}>
-          <DialogTitle>{editData ? "Edit Banner" : "Add Banner"}</DialogTitle>
-          <DialogContent>
-            <TextField
-              label="Banner Title"
-              variant="outlined"
-              fullWidth
-              name="bannerTitle"
-              value={newBanner.bannerTitle}
-              onChange={handleInputChange}
-              margin="normal"
-            />
-            <TextField
-              label="Banner Link"
-              variant="outlined"
-              fullWidth
-              name="bannerLink"
-              value={newBanner.bannerLink}
-              onChange={handleInputChange}
-              margin="normal"
-            />
-            <div>
-              <label>Slider Banner</label>
-            </div>
-            <input
-              type="file"
-              accept="image/*"
-              name="sliderBannerImage"
-              onChange={(e) => handleImageChange(e, "sliderBannerImage")}
-              style={{ marginTop: "10px" }}
-            />
-            {newBanner.sliderBannerImage ? (
-              <img
-                src={getImagePreview(newBanner.sliderBannerImage)}
-                alt="Preview"
-                style={{ width: "50px", height: "50px", marginTop: "10px" }}
-              />
-            ) : (
-              editData?.sliderBannerImage && (
-                <img
-                  src={getImagePreview(editData.sliderBannerImage)}
-                  alt="Existing Slider Banner"
-                  style={{ width: "50px", height: "50px", marginTop: "10px" }}
+              <Form.Group className="mb-3" controlId="bannerLink">
+                <Form.Label>Banner Link</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter banner link"
+                  name="bannerLink"
+                  value={bannerData.bannerLink}
+                  onChange={handleInputChange}
                 />
-              )
-            )}
-            <div>
-              <label>Product Banner</label>
-            </div>
-            <input
-              type="file"
-              accept="image/*"
-              name="productBannerImage"
-              onChange={(e) => handleImageChange(e, "productBannerImage")}
-              style={{ marginTop: "10px" }}
-            />
-            {newBanner.productBannerImage ? (
-              <img
-                src={getImagePreview(newBanner.productBannerImage)}
-                alt="Preview"
-                style={{ width: "50px", height: "50px", marginTop: "10px" }}
-              />
-            ) : (
-              editData?.productBannerImage && (
-                <img
-                  src={getImagePreview(editData.productBannerImage)}
-                  alt="Existing Product Banner"
-                  style={{ width: "50px", height: "50px", marginTop: "10px" }}
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="sliderBannerImage">
+                <Form.Label>Upload Banner</Form.Label>
+                <Form.Control
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
                 />
-              )
+              </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleSave}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Banner Title</th>
+              <th>Banner Link</th>
+              <th>Banner</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Array.isArray(banners) && banners.length > 0 ? (
+              banners.map((banner, index) => (
+                <tr key={banner._id}>
+                  <td>{index + 1}</td>
+                  <td>{banner.bannerTitle}</td>
+                  <td>{banner.bannerLink}</td>
+                  <td>
+                    <img
+                      src={banner.sliderBannerImage} // Ensure API provides image URL
+                      alt={banner.bannerTitle}
+                      style={{ width: "100px", height: "50px" }}
+                    />
+                  </td>
+                  <td>
+                    <Button
+                      variant="warning"
+                      size="sm"
+                      onClick={() => handleEdit(banner)}
+                    >
+                      Edit
+                    </Button>{" "}
+                    <Button
+                      variant="danger"
+                      size="sm"
+                      onClick={() => handleDelete(banner._id)}
+                    >
+                      Delete
+                    </Button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="5" style={{ textAlign: "center" }}>
+                  No banners found
+                </td>
+              </tr>
             )}
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={resetForm} color="primary">
-              Cancel
-            </Button>
-            <Button
-              onClick={handleBannerSubmit}
-              color="primary"
-              variant="contained"
-            >
-              {editData ? "Update" : "Add"}
-            </Button>
-          </DialogActions>
-        </Dialog>
+          </tbody>
+        </Table>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 const express=require('express');
 const {add_product,viewproduct, delete_product,edit_product, viewproductbyid, viewproductbycategory} = require('../Controllers/addproduct');
 const upload=require('../Middleware/file');
-const { uploadBanner, getAllBanners, deleteBanner, editBanner } = require('../Controllers/addbanner');
+const { uploadBanner, getAllBanners, deleteBanner, editBanner, createBanner } = require('../Controllers/addbanner');
 const uploadFields = require('../Middleware/bannerfile');
 const { createOrder, getAllOrders, vieworderbyemail } = require('../Controllers/order');
 const { signup, login } = require('../Controllers/user');
@@ -29,23 +29,15 @@ router.put('/edit_product/:_id',upload.any(),edit_product);
 router.post('/payment',payment)
 
 
-router.post(
-    '/uploadBanner',
-   uploadFields,
-    uploadBanner
-  );
+router.post('/banner',upload.any(),createBanner)
   
   // Get All Banners
   router.get('/getAllBanners', getAllBanners);
   
   // Delete Banner
-  router.delete('/deleteBanner/:_id', deleteBanner);
+  router.delete('/deleteBanner/:id', deleteBanner);
 
-  router.put(
-    "/editBanner/:_id",
-    uploadFields,
-    editBanner
-  );
+  router.put("/editBanner/:_id", upload.any(), editBanner);
   
   router.post('/createOrder', createOrder);
   router.get('/getAllOrders', getAllOrders);

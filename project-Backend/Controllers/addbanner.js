@@ -12,70 +12,34 @@ cloudinary.config({
     api_secret:process.env.API_SECRET
 })
 // Upload Banners
-const uploadBanner = async (req, res) => {
+const createBanner = async (req, res) => {
   try {
-    const { bannerTitle, bannerLink } = req.body;
-
-
-
-
-    const images = [];
-  
-      // Filter files by fieldname 'sliderBannerImage'
-      const sliderBannerImages = req.files.filter(file => file.fieldname.includes('sliderBannerImage'));
-      for (let file of sliderBannerImages) {
-        try {
-          const result = await cloudinary.uploader.upload(file.path);
-          images.push(result.secure_url);
-
-          fs.unlink(file.path, (err) => {
-            if (err) {
-              console.error('Error deleting file:', err);
-            } else {
-              console.log('File deleted:', file.path);
-            }
-          });
-        } catch (error) {
-          console.error('Error uploading sliderBannerImage:', error);
-        }
+    const { bannerTitle, bannerLink} = req.body;
+   
+     
+    const newDocumentPic = [];
+    if (req.files) {
+      // Upload files to Cloudinary and get the URLs
+      for (let file of req.files) {
+        const result = await cloudinary.uploader.upload(file.path);
+        newDocumentPic.push(result.secure_url);  // Store the URL of the uploaded image
+        // Optionally, you could delete the file from the server after uploading (uncomment below if needed)
+        // fs.unlinkSync(file.path);
       }
-    
+    }
   
-      const images1 = [];
-  
-      // Filter files by fieldname 'sliderBannerImage'
-
-      const productBannerImage = req.files.filter(file => file.fieldname.includes('productBannerImage'));
-      for (let file of productBannerImage) {
-        try {
-          const result = await cloudinary.uploader.upload(file.path);
-          images1.push(result.secure_url);
-
-          fs.unlink(file.path, (err) => {
-            if (err) {
-              console.error('Error deleting file:', err);
-            } else {
-              console.log('File deleted:', file.path);
-            }
-          });
-        } catch (error) {
-          console.error('Error uploading sliderBannerImage:', error);
-        }
-      }
-
+   
+    // Create a new blog entry
     const newBanner = new banner({
       bannerTitle,
       bannerLink,
-      sliderBannerImage: images,
-       
-      productBannerImage: images1
+      sliderBannerImage:newDocumentPic, // Save Cloudinary image URL in the database
     });
 
-    const resp=await newBanner.save();
-    res.status(200).send({ message: 'Banner uploaded successfully', banner: resp });
+    await newBanner.save();
+    res.status(200).json({ message: "Blog created successfully", newBanner });
   } catch (error) {
-    console.error('Error uploading banner:', error);
-    res.status(500).json({ message: 'Error uploading banner' });
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -93,96 +57,47 @@ const getAllBanners = async (req, res) => {
 // Delete Banner
 const deleteBanner = async (req, res) => {
   try {
-    const  id  = req.params._id;
-    const resp = await banner.findByIdAndDelete({_id:id});
-
-    res.status(200).json({ message: 'Banner deleted successfully' });
+    const { id } = req.params;
+    await banner.findByIdAndDelete(id);
+    res.status(200).json({ message: "Banner deleted successfully" });
   } catch (error) {
-    console.error('Error deleting banner:', error);
-    res.status(500).json({ message: 'Error deleting banner' });
+    res.status(500).json({ message: error.message });
   }
 };
 
 
 const editBanner = async (req, res) => {
   try {
-    const id = req.params._id; // Get the banner ID from the request params
-    const { bannerTitle, bannerLink } = req.body; // Get text fields from the request body
+    const id = req.params._id; // Get banner ID from request params
+    const { bannerTitle, bannerLink } = req.body; // Get text fields from request body
 
-    // Find the existing banner
-    const existingBanner = await banner.findById(id);
-    if (!existingBanner) {
+    // Check if a new file is uploaded for sliderBannerImage
+    const newDocumentPic = [];
+    if (req.files) {
+      // Upload files to Cloudinary and get the URLs
+      for (let file of req.files) {
+        const result = await cloudinary.uploader.upload(file.path);
+        newDocumentPic.push(result.secure_url);  // Store the URL of the uploaded image
+        // Optionally, you could delete the file from the server after uploading (uncomment below if needed)
+        // fs.unlinkSync(file.path);
+      }
+    }
+
+    const updatebanners={
+      ...req.body,
+      sliderBannerImage:newDocumentPic
+    }
+    // Update the banner in the database
+    const updatedBanner = await banner.findByIdAndUpdate(id,updatebanners) 
+  
+
+    if (!updatedBanner) {
       return res.status(404).json({ message: "Banner not found" });
     }
 
-    // Handle file uploads
-    let sliderBannerImage1 = existingBanner.sliderBannerImage; // Default to existing image
-    let productBannerImage1 = existingBanner.productBannerImage; // Default to existing image
-
-
-    const images = [];
-
-
-    
-  
-    // Filter files by fieldname 'sliderBannerImage'
-    const sliderBannerImages = req.files.filter(file => file.fieldname.includes('sliderBannerImage'));
-    for (let file of sliderBannerImages) {
-      try {
-        const result = await cloudinary.uploader.upload(file.path);
-        images.push(result.secure_url);
-
-        fs.unlink(file.path, (err) => {
-          if (err) {
-            console.error('Error deleting file:', err);
-          } else {
-            console.log('File deleted:', file.path);
-          }
-        });
-      } catch (error) {
-        console.error('Error uploading sliderBannerImage:', error);
-      }
-    }
-  
-
-    const images1 = [];
-
-    // Filter files by fieldname 'sliderBannerImage'
-
-    const productBannerImage = req.files.filter(file => file.fieldname.includes('productBannerImage'));
-    for (let file of productBannerImage) {
-      try {
-        const result = await cloudinary.uploader.upload(file.path);
-        images1.push(result.secure_url);
-
-        fs.unlink(file.path, (err) => {
-          if (err) {
-            console.error('Error deleting file:', err);
-          } else {
-            console.log('File deleted:', file.path);
-          }
-        });
-      } catch (error) {
-        console.error('Error uploading sliderBannerImage:', error);
-      }
-    }
-    
-
-    // Update the banner in the database
-    const updatedBanner = await banner.findByIdAndUpdate(
-      id,
-      {
-        bannerTitle,
-      bannerLink,
-      sliderBannerImage: images,
-      productBannerImage: images1
-      },
-      { new: true } // Return the updated banner
-    );
-
     res.status(200).json({
       message: "Banner updated successfully",
-      updatedBanner, // Return the updated banner data
+      updatedBanner,
     });
   } catch (error) {
     console.error("Error updating banner:", error);
@@ -194,9 +109,8 @@ const editBanner = async (req, res) => {
 
 
 
-
 module.exports = {
-  uploadBanner,
+  createBanner,
   getAllBanners,
   deleteBanner,
   editBanner,

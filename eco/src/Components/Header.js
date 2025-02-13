@@ -610,7 +610,7 @@ About Us
 {/* Product Range Dropdown */}
 <li className="nav-item dropdown">
 <a
-className="nav-link dropdown-toggle no-hover"
+className="nav-link dropdown-toggle no-hover" 
 href="#"
 id="navbarDropdown"
 role="button"
@@ -650,6 +650,11 @@ Track Your Order
 <li className="nav-item">
 <Link className="nav-link no-hover" to="/contact">
 Contact Us
+</Link>
+</li>
+<li className="nav-item">
+<Link className="nav-link no-hover" to="/combo">
+Combo
 </Link>
 </li>
 {/* Terms & Conditions Dropdown */}
@@ -1380,7 +1385,18 @@ Go to Payment
 
 <Modal show={show6} onHide={handleClose6}>
     <Modal.Header closeButton>
-      <Modal.Title>Customer Signup</Modal.Title>
+    <Modal.Title>
+<div className="modal-title">
+<div>
+<img
+className="img-fluid"
+src={logo}
+alt="Product"
+/>
+</div>
+<span>Create Your Account</span>
+</div>
+</Modal.Title>
     </Modal.Header>
     <Modal.Body>
       <Form onSubmit={handleSubmit6}>

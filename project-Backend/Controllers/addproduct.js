@@ -39,7 +39,7 @@ const add_product = async (req, res) => {
               // fs.unlinkSync(file.path);
             }
           }
- console.log(req.files);
+ 
 
         // Create a new contact with the uploaded Cloudinary URLs
         const newAddproduct = new addproduct({

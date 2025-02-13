@@ -145,7 +145,7 @@ function VitamincFacewash() {
     <div>
       <Header />
 
-      <div style={{ display: "flex", gap: "10px", padding: "20px",marginTop:"100px",padding:"90px", backgroundColor:"rgb(252, 248, 238)" }}>
+      <div style={{ display: "flex", gap: "10px", padding: "20px",marginTop:"100px",padding:"90px", backgroundColor:"#fcf7ee" }}>
   {Products.map((product) => (
     <div
       key={product.id}
@@ -181,6 +181,7 @@ function VitamincFacewash() {
           Pellentesque habitant morbi tristique senectus et netus et malesuada
           fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
           ultricies eget, tempor sit amet, ante.
+          
         </p>
         <div>
           <button
