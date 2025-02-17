@@ -103,19 +103,31 @@ function Cuheader() {
   
   // Calculate total price
   const calculateTotalPrice = () => {
-    return cart.reduce(
+    // Calculate Subtotal (total without GST)
+    const subtotal = cart.reduce(
       (total, item) => total + parseFloat(item.product_price) * item.product_quantity1,
       0
     );
+  
+    const gstPercentage = 18; // Example: 18% GST (you can change this value)
+    const gstAmount = (subtotal * gstPercentage) / 100; // Calculate GST
+  
+    const total = subtotal + gstAmount; // Final total price including GST
+  
+    return { subtotal, gstAmount, total };
   };
   
   useEffect(() => {
-    const total = calculateTotalPrice();
+    const { subtotal, gstAmount, total } = calculateTotalPrice(); // Get values
+  
     setorderdata(prevData => ({
       ...prevData,
-      totalPrice: total, 
+      totalPrice: total, // The final price after adding GST
+      subtotal: subtotal, // Subtotal without GST
+      gstAmount: gstAmount, // GST amount
     }));
-  }, [orderdata.cartItems]);
+  }, [orderdata.cartItems]); // Dependency array includes cartItems to recalculate on cart update
+  
   
   
   const [show1, setShow1] = useState(false);
@@ -317,7 +329,7 @@ useEffect(()=>
             alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
             
             // Step 3: Generate PDF Invoice after Successful Payment
-            generateInvoice(response);
+            generateInvoice(response,companyDetails);
   
             // Directly update the payment status in frontend
             setorderdata({ ...orderdata, payment_status: 'success' });
@@ -365,23 +377,35 @@ useEffect(()=>
   ];
     
   
+
   
   
   const generateInvoice = (paymentResponse, orderData, companyDetails) => {
+    // Debugging: Log the orderData to check its structure
+    console.log('Order Data:', orderData);
+  
+    if (!orderData || !orderData.products || !Array.isArray(orderData.products)) {
+      console.error('Invalid orderData or products array:', orderData);
+      alert('Invalid order data. Unable to generate invoice.');
+      return;
+    }
+  
     const doc = new jsPDF();
   
+    const company = companyDetails[0]; // Access the first item in the array
+  
     // --- Add Company Logo ---
-    if (companyDetails.logo) {
+    if (company.logo) {
       const imgWidth = 50; // Adjust width as needed
       const imgHeight = 20; // Adjust height as needed
-      doc.addImage(companyDetails.logo, 'JPEG', 20, 10, imgWidth, imgHeight);
+      doc.addImage(company.logo, 'JPEG', 20, 10, imgWidth, imgHeight);
     }
   
     // --- Add Company Details ---
     doc.setFontSize(12);
-    doc.text(`${companyDetails.name}`, 20, 40);
-    doc.text(`${companyDetails.address}`, 20, 50);
-    doc.text(`Contact: ${companyDetails.contact}`, 20, 60);
+    doc.text(company.name, 20, 40);
+    doc.text(company.address, 20, 50);
+    doc.text(`Contact: ${company.contact}`, 20, 60);
   
     // --- Invoice Header ---
     doc.setFontSize(16);
@@ -393,22 +417,24 @@ useEffect(()=>
     doc.text(`Transaction Date: ${new Date().toLocaleDateString()}`, 20, 90);
   
     // --- Customer Details ---
-    doc.text(`Customer Name: ${orderData.customer.name}`, 20, 100);
-    doc.text(`Email: ${orderData.customer.email}`, 20, 110);
-    doc.text(`Phone: ${orderData.customer.phone}`, 20, 120);
-    doc.text(`Address: ${orderData.customer.address}`, 20, 130);
+    doc.text(`Customer Name: ${orderData.firstName} ${orderData.lastName}`, 20, 100);
+    doc.text(`Email: ${orderData.email}`, 20, 110);
+    doc.text(`Phone: ${orderData.mobileNumber}`, 20, 120);
+    doc.text(`Address: ${orderData.address}`, 20, 130);
   
     // --- Product Table ---
     const startY = 140;
     doc.text('Product Details:', 20, startY);
   
     const tableStartY = startY + 10;
+  
+    // Map products to table data
     const tableData = orderData.products.map((product, index) => [
       index + 1,
       product.name,
       product.quantity,
-      `₹${product.unitPrice}`,
-      `₹${product.totalPrice}`,
+      `₹${product.unitPrice.toFixed(2)}`,
+      `₹${product.totalPrice.toFixed(2)}`,
     ]);
   
     doc.autoTable({
@@ -419,15 +445,15 @@ useEffect(()=>
   
     // --- Summary Section ---
     const summaryStartY = doc.lastAutoTable.finalY + 10;
-    doc.text(`Subtotal: ₹${orderData.subtotal}`, 150, summaryStartY);
-    doc.text(`GST (${orderData.gstPercentage}%): ₹${orderData.gstAmount}`, 150, summaryStartY + 10);
-    doc.text(`Discount: ₹${orderData.discount}`, 150, summaryStartY + 20);
-    doc.text(`Grand Total: ₹${orderData.totalPrice}`, 150, summaryStartY + 30);
+    doc.text(`Subtotal: ₹${orderData.subtotal.toFixed(2)}`, 150, summaryStartY);
+    doc.text(`GST (${orderData.gstPercentage}%): ₹${orderData.gstAmount.toFixed(2)}`, 150, summaryStartY + 10);
+    doc.text(`Discount: ₹${orderData.discount.toFixed(2)}`, 150, summaryStartY + 20);
+    doc.text(`Grand Total: ₹${orderData.totalPrice.toFixed(2)}`, 150, summaryStartY + 30);
   
     // --- Footer ---
     const footerStartY = summaryStartY + 50;
     doc.text('Thank you for your purchase!', 20, footerStartY);
-    doc.text(`For queries, contact us at: ${companyDetails.contact}`, 20, footerStartY + 10);
+    doc.text(`For queries, contact us at: ${company.contact}`, 20, footerStartY + 10);
   
     // --- Save the PDF ---
     doc.save('invoice.pdf');
@@ -1546,9 +1572,59 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
         </div>
       </div>
     ))}
-    <div  style={{ fontWeight: "600", fontSize: "18px", marginTop: "20px" }}>
-    Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
-    </div>
+<div style={{
+  fontWeight: "600", 
+  fontSize: "20px", 
+  marginTop: "20px", 
+  color: "#333", 
+  textAlign: "left",
+  letterSpacing: "0.5px",
+  borderBottom: "2px solid #ddd",
+  paddingBottom: "10px"
+}}>
+  <strong>Subtotal:</strong> 
+  <span style={{ color: "#333", fontSize: "18px", fontWeight: "400" }}>
+    ₹{orderdata.subtotal ? orderdata.subtotal.toFixed(2) : '0.00'}
+  </span>
+</div>
+
+<div style={{
+  fontWeight: "600", 
+  fontSize: "20px", 
+  marginTop: "10px", 
+  color: "#333", 
+  textAlign: "left",
+  letterSpacing: "0.5px",
+  borderBottom: "2px solid #ddd",
+  paddingBottom: "10px"
+}}>
+  <strong>GST (18%):</strong> 
+  <span style={{ color: "#e74c3c", fontSize: "18px", fontWeight: "400" }}>
+    ₹{orderdata.gstAmount ? orderdata.gstAmount.toFixed(2) : '0.00'}
+  </span>
+</div>
+
+<div style={{
+  fontWeight: "700", 
+  fontSize: "22px", 
+  marginTop: "10px", 
+  color: "#333", 
+  textAlign: "left",
+  letterSpacing: "0.5px",
+  paddingTop: "10px",
+  borderTop: "2px solid #ddd"
+}}>
+  <strong>Total Price:</strong> 
+  <span style={{
+    color: "#27ae60", 
+    fontSize: "20px", 
+    fontWeight: "500"
+  }}>
+    ₹{orderdata.totalPrice ? orderdata.totalPrice.toFixed(2) : '0.00'}
+  </span>
+</div>
+
+
   </div>
 </div>
 

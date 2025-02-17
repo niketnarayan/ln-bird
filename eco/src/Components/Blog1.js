@@ -91,7 +91,7 @@ function Blog1() {
       </div>
     ))}
   </div>
-  <div style={{ textAlign: "center", marginTop: "20px" }}>
+  {/* <div style={{ textAlign: "center", marginTop: "20px" }}>
     <button
       style={{
         backgroundColor: "#000",
@@ -106,7 +106,7 @@ function Blog1() {
     >
       View All
     </button>
-  </div>
+  </div> */}
 </div>
 <Footer/>
     </div>

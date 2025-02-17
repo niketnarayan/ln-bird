@@ -34,6 +34,8 @@ function VitamincFacewash() {
     }
   };
  
+  console.log(Products);
+  console.log(Products.product_description);
   
 
   const [relatedproducts, setrelatedproducts] = useState([]);
@@ -177,12 +179,20 @@ function VitamincFacewash() {
           <span style={{ color: "#f4c150", marginRight: "10px" }}>★★★★☆</span>
           <span>(4.5)</span>
         </div>
-        <p style={{ color: "#777", marginBottom: "20px" }}>
-          Pellentesque habitant morbi tristique senectus et netus et malesuada
-          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
-          ultricies eget, tempor sit amet, ante.
-          
-        </p>
+        <p
+  style={{
+    color: "#777",
+    marginBottom: "20px",
+    display: "-webkit-box",
+    WebkitBoxOrient: "vertical",
+    overflow: "hidden",
+    WebkitLineClamp: 3, // Show only 3 lines
+  }}
+  dangerouslySetInnerHTML={{
+    __html: product.product_description, // Pass the actual HTML content
+  }}
+/>
+
         <div>
           <button
            onClick={() => handleprouctadd(product)}
@@ -211,8 +221,8 @@ function VitamincFacewash() {
         </div>
         <div style={{ marginTop: "20px", fontSize: "14px", color: "#555" }}>
           <p>SKU: {product.product_sku}</p>
-          <p>Categories: {product.categories}</p>
-          <p>Tag: {product.tag}</p>
+          <p>Categories: {product.product_category}</p>
+          {/* <p>Tag: {product.tag}</p> */}
           <p>
             Share:{" "}
             <span style={{ color: "#0077b5", margin: "0 5px" }}>LinkedIn</span>
@@ -260,8 +270,25 @@ function VitamincFacewash() {
 
   {/* ⭐ Tab Content */}
   <div style={{ background:"transparent", padding: "30px", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)", textAlign: "center" }}>
-  {activeTab === "description" && <p style={{ fontSize: "18px", lineHeight: "1.6", color: "#444" }}>{Products[0]?.description || "No description available."}</p>}
-  {activeTab === "info" && <p style={{ fontSize: "18px", lineHeight: "1.6", color: "#444" }}>{Products[0]?.additional_info || "No additional information available."}</p>}
+  {activeTab === "description" && (
+  <div style={{ fontSize: "18px", lineHeight: "1.6", color: "#444" }}>
+    {Products.map((item, index) => (
+      <p style={{ color: "#777", marginBottom: "20px" }}
+      dangerouslySetInnerHTML={{
+        __html: item.product_description, // Pass the actual HTML content
+      }}
+   />
+    ))}
+  </div>
+)}
+
+  {activeTab === "info" &&   <div style={{ fontSize: "18px", lineHeight: "1.6", color: "#444" }}>
+  {Products.map((item, index) => (
+    <p key={index} style={{ color: "#777", marginBottom: "20px" }}>
+      {item.product_benefits }  {/* Render as plain text */}
+    </p>
+  ))}
+</div>}
   {activeTab === "reviews" && (
     <div>
      <h3 style={{ fontSize: "22px", marginBottom: "15px", color: "#333" }}>Customer Reviews</h3>

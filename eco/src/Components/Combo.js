@@ -5,12 +5,16 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from './cartcontext'
 import Swal from 'sweetalert2';
 import Footer from './footer';
+import Carousel from 'react-bootstrap/Carousel';
 
 function Combo() {
 
      const {cart,setcart}=useCart()
 
     const[comboproduct,setcomboproduct]=useState([])
+    const[fetchbanner,setfetchbanner]=useState([])
+    const [sliderImages, setSliderImages] = useState([]);
+    const [banners,setbanners] =useState([]);
 
     const allproduct=async()=>
     {
@@ -54,6 +58,39 @@ function Combo() {
                     }
                     return text;
                   };
+
+
+
+
+                  
+                
+                  useEffect(() => {
+                    fetchSliderImages();
+                  }, []);
+                
+                  const fetchSliderImages = async () => {
+                    try {
+                      const response = await api.get("getAllBanners"); // Replace with your API endpoint
+                      console.log(response);
+                      
+                      setfetchbanner(response.data.banner)
+                      // Filter only sliderBannerImage data
+                      const sliderData = response.data.banner.filter((banner) => banner.sliderBannerImage);
+                      setSliderImages(sliderData);
+                
+                      const productData = response.data.banner.filter((banner) => banner.productBannerImage);
+                      setbanners(productData.flatMap((item) => item.productBannerImage)); // Derive banners directly
+                      
+                      
+                
+                    } catch (error) {
+                      console.error("Error fetching slider images:", error);
+                    }
+                  };
+                
+                  useEffect(() => {
+                    console.log("Banners updated:", banners);
+                  }, [banners]);
                         
 
 
@@ -64,13 +101,37 @@ function Combo() {
 
 
 
+      {/* banner start----------------------------------------------------------------------------------------------- */}
+
+<div className="container-fluid p-0">
+  <Carousel data-bs-theme="dark" style={{marginTop:"100px",position:"relative"}}>
+    {sliderImages.map((banner, index) => (
+      <Carousel.Item key={index}>
+        <img
+          className="d-block w-100 img-fluid"
+          src={banner.sliderBannerImage}
+          alt={`Slide ${index + 1}`}
+          style={{
+            objectFit: "cover",
+            height: "100%", 
+            maxHeight: "500px", // Maximum height for larger screens
+          }}
+          onClick={() => window.location.href = banner.bannerLink}
+        />
+      </Carousel.Item>
+    ))}
+  </Carousel>
+</div>
+
+
+
 
 
       <div
   className="grocery1"
   style={{
     marginTop: "5rem",
-    backgroundColor: "#fcf7ee",
+    backgroundColor: "#fcf7ee", 
     overflow: "hidden", // Prevents scrolling
   }}
 >

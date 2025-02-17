@@ -115,7 +115,7 @@ const handleShow4 = () => {
 
 if(!utocken){
 Swal.fire({
-text: `Please firstly sinup`,
+text: `Please Firstly Login`,
 icon: "error",
 confirmButtonText: "OK",
 });
@@ -620,19 +620,19 @@ aria-expanded="false"
 Product
 </a>
 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-<li className="dropdown-item" onClick={() => navigatecategory("shampoo")}>
+<li className="dropdown-item" onClick={() => navigatecategory("shampoo")} style={{cursor:"pointer"}}>
 Shampoo
 </li>
-<li className="dropdown-item" onClick={() => navigatecategory("soap")}>
+<li className="dropdown-item" onClick={() => navigatecategory("soap")} style={{cursor:"pointer"}}>
 Soap
 </li>
-<li className="dropdown-item" onClick={() => navigatecategory("face wash")}>
+<li className="dropdown-item" onClick={() => navigatecategory("face wash")} style={{cursor:"pointer"}}>
 Face Wash
 </li>
-<li className="dropdown-item" onClick={() => navigatecategory("hair serum")}>
+<li className="dropdown-item" onClick={() => navigatecategory("hair serum")} style={{cursor:"pointer"}}>
 Hair Serum
 </li>
-<li className="dropdown-item" onClick={() => navigatecategory("hair oil")}>
+<li className="dropdown-item" onClick={() => navigatecategory("hair oil")} style={{cursor:"pointer"}}>
 Hair Oil
 </li>
 </ul>

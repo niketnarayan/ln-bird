@@ -562,6 +562,7 @@ Combo Products
         className="col-12 col-sm-6 col-md-4 col-lg-3"
         style={{
           height: "550px",
+          width:"300px",
           background: "transparent",
           display: "flex",
           justifyContent: "center",
@@ -882,7 +883,7 @@ Incredible Products
   </h1>
   <div className="empty-div"></div>
   <div className="container">
-  <div className="row justify-content-center" > {/* g-3 for consistent gaps */}
+  <div className="row justify-content-center" > 
     {singleProduct.map((product, index) => (
       <React.Fragment key={product.id}>
         <div
@@ -890,6 +891,7 @@ Incredible Products
         className="col-12 col-sm-6 col-md-4 col-lg-3"
         style={{
           height: "550px",
+          width:"300px",
           background: "transparent",
           display: "flex",
           justifyContent: "center",
@@ -1009,7 +1011,7 @@ Incredible Products
     ))}
     </div>
   </div>
-  <div className="text-center mt-4">
+  {/* <div className="text-center mt-4">
     <button
       className="view-all-btn"
       style={{
@@ -1026,7 +1028,7 @@ Incredible Products
     >
       View All
     </button>
-  </div>
+  </div> */}
 </div>
 
 
@@ -1465,7 +1467,7 @@ Incredible Products
                   }}
                 >
                   <img
-                    src={review.image}
+                    src={review.product_image}
                     alt={review.name}
                     style={{
                       borderRadius: "50%",

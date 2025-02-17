@@ -17,6 +17,7 @@ function Cudashboard() {
 
     const [comboProduct, setcomboproduct] = useState([])
     const [singleProduct, setsingleProduct] = useState([])
+     const [showAll1, setShowAll1] = useState(false);
 
 
   const navigatecategory=(data)=>
@@ -51,6 +52,8 @@ function Cudashboard() {
       }
     }
     
+    const visibleCombo = showAll1 ? comboProduct : comboProduct.slice(0, 4);
+
     const[fetchbanner,setfetchbanner]=useState([])
     const [sliderImages, setSliderImages] = useState([]);
     const [banners,setbanners] =useState([]);
@@ -545,6 +548,7 @@ Combo Products
         className="col-12 col-sm-6 col-md-4 col-lg-3"
         style={{
           height: "550px",
+          width:"300px",
           background: "transparent",
           display: "flex",
           justifyContent: "center",
@@ -870,6 +874,7 @@ Incredible Products
     className="col-12 col-sm-6 col-md-4 col-lg-3"
     style={{
       height: "550px",
+      width:"300px",
       background: "transparent",
       display: "flex",
       justifyContent: "center",
