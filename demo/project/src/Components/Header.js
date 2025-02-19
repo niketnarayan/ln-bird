@@ -611,7 +611,7 @@ function Header() {
                 width: "100%",
             height: "100%",
             objectFit: "cover",
-            zIndex: 1,
+            zIndex: 1,    
                 borderRadius: "20px",
               }}
               animate={{
@@ -669,7 +669,7 @@ function Header() {
       </div>
     </div>
 
-
+<img ></img>
 
     </>
   );
