@@ -1,16 +1,52 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "./Header.css";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { motion } from "framer-motion";
+
 
 function Header() {
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    // Auto-slide every 5 seconds
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+      }, 5000);
+  
+      return () => clearInterval(interval);
+    }, []);
+  
+    const nextSlide = () => {
+      setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    };
+  
+    const prevSlide = () => {
+      setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    };
+
+
+
+
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
+
+
+
+
+  const images = [
+    "https://images.pexels.com/photos/3182836/pexels-photo-3182836.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "https://images.pexels.com/photos/3184303/pexels-photo-3184303.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "https://images.pexels.com/photos/3184648/pexels-photo-3184648.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "https://images.pexels.com/photos/3182802/pexels-photo-3182802.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  ];
+  
+  
 
   return (
     <>
@@ -408,7 +444,231 @@ function Header() {
       </div>
     </motion.div>
   </div>
-</div>;
+</div>
+
+
+
+<div
+      style={{
+        backgroundImage:
+          "url('https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        height: "400px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "20px",
+        position: "relative",
+        marginTop: "100px",
+        marginBottom: "100px",
+      }}
+    >
+      {/* Left Text Content */}
+      <div style={{ flex: "1", padding: "20px", color: "#fff", zIndex: 2 }}>
+        <h3
+          style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "10px" }}
+        >
+          Meeting Space Management
+        </h3>
+        <h2 style={{ fontSize: "30px", marginBottom: "20px" }}>
+          Enhanced Visitor Experience
+        </h2>
+        <ul style={{ listStyleType: "none", padding: 0 }}>
+          <li>ePaper - Sustainable Workspace Signage</li>
+          <li>Personal Space Management</li>
+          <li>Interactive Animations</li>
+        </ul>
+      </div>
+
+      {/* Right Image Content */}
+      <div
+        style={{
+          flex: "1",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
+        }}
+      >
+        <motion.div
+          style={{
+            width: "400px", // Adjust width of the inner image container
+            height: "500px", // Adjust height
+            borderRadius: "20px", // Rounded corners
+            overflow: "hidden",
+            boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.3)", // Optional shadow
+            position: "absolute", // To overlap
+            zIndex: 3, // Bring above background
+            border: "4px solid #00ffff", // Optional border
+          }}
+          whileHover={{ scale: 1.05 }} // Slight enlargement on hover
+        >
+          <motion.img
+            src="https://images.pexels.com/photos/3182836/pexels-photo-3182836.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            alt="Meeting"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+            initial={{ x: "-100%" }} // Image starts from outside the container (left)
+            animate={{ x: "0%" }} // Image slides into view
+            whileHover={{ x: "0%", scale: 1.1 }} // Smooth hover zoom
+            transition={{
+              duration: 0.6, // Smooth transition duration
+              ease: "easeInOut", // Easing function for smooth animation
+            }}
+          />
+        </motion.div>
+      </div>
+    </div>
+
+
+
+ 
+
+
+
+
+
+
+    <div
+      style={{
+        backgroundImage:
+          "url('https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        height: "400px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "20px",
+        position: "relative",
+        marginTop: "300px",
+        marginBottom: "300px",
+      }}
+    >
+      {/* Left Text Content */}
+      <div style={{ flex: "1", padding: "20px", color: "#fff", zIndex: 2 }}>
+        <h3
+          style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "10px" }}
+        >
+          Meeting Space Management
+        </h3>
+        <h2 style={{ fontSize: "30px", marginBottom: "20px" }}>
+          Enhanced Visitor Experience
+        </h2>
+        <ul style={{ listStyleType: "none", padding: 0 }}>
+          <li>ePaper - Sustainable Workspace Signage</li>
+          <li>Personal Space Management</li>
+          <li>Interactive Animations</li>
+        </ul>
+      </div>
+
+      {/* Right Image Content */}
+      <div
+        style={{
+          flex: "1",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
+          overflow: "hidden",
+          width: "300px",
+          height: "450px",
+          borderRadius: "20px",
+          boxShadow: "0 20px 30px rgba(0, 0, 0, 0.3)",
+          zIndex: 2,
+        }}
+      >
+        <AnimatePresence>
+          <motion.div
+            key={currentIndex}
+            style={{
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              overflow: "hidden",
+            }}
+            initial={{ opacity: 0, scale: 1.1, x: 100 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            exit={{ opacity: 0, scale: 1.1, x: -100 }}
+            transition={{
+              duration: 1.5,
+              ease: "easeInOut",
+            }}
+          >
+            <motion.img
+              src={images[currentIndex]}
+              alt={`Slide ${currentIndex}`}
+              style={{
+                width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: 1,
+                borderRadius: "20px",
+              }}
+              animate={{
+                scale: [1, 1.2],
+                translateY: ["0%", "-10%"],
+              }}
+              transition={{
+                duration: 5,
+                ease: "easeInOut",
+                repeat: Infinity,
+              }}
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Left Button */}
+        <button
+          onClick={prevSlide}
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "20px",
+            transform: "translateY(-50%)",
+            background: "rgba(0, 0, 0, 0.5)",
+            color: "white",
+            border: "none",
+            padding: "10px 15px",
+            borderRadius: "50%",
+            cursor: "pointer",
+            zIndex: 10,
+          }}
+        >
+          {"<"}
+        </button>
+
+        {/* Right Button */}
+        <button
+          onClick={nextSlide}
+          style={{
+            position: "absolute",
+            top: "50%",
+            right: "20px",
+            transform: "translateY(-50%)",
+            background: "rgba(0, 0, 0, 0.5)",
+            color: "white",
+            border: "none",
+            padding: "10px 15px",
+            borderRadius: "50%",
+            cursor: "pointer",
+            zIndex: 10,
+          }}
+        >
+          {">"}
+        </button>
+      </div>
+    </div>
+
 
 
     </>
