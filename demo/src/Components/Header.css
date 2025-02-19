@@ -1,0 +1,87 @@
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .custom-carousel-image {
+    height: 90vh; /* Fullscreen height */
+    object-fit: cover;
+  }
+  
+  /* Navbar Styles */
+  .overlay-navbar {
+    position: absolute; /* Position Navbar over the carousel */
+    top: 20px; /* Margin from the top of the carousel */
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 10; /* Bring to front */
+  }
+  
+  .custom-navbar {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    padding: 10px 20px;
+    border-radius: 20px; /* Rounded corners for the left and right sides */
+    margin: 0 auto; /* Center the navbar */
+    max-width: 90%; /* Add some margin on the left and right */
+  }
+  
+  /* Navbar Links */
+  .custom-navbar .nav-link {
+    color: white !important;
+    font-size: 16px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .custom-navbar .nav-link:hover {
+    color: #f8d210 !important; /* Add a hover color */
+  }
+  
+  /* Text Alignment */
+  .carousel-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for contrast */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  /* Buttons inside Carousel */
+  .header-buttons {
+    margin-top: 20px;
+  }
+  
+  .btn-demo,
+  .btn-pricing {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-demo {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-pricing {
+    background-color: #28a745;
+    color: white;
+  }
+
+  
+
+
+
+
+
+
+
+ 
