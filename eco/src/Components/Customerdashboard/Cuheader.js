@@ -327,9 +327,12 @@ useEffect(()=>
           // Check if response contains the expected payment info
           if (response && response.razorpay_payment_id) {
             alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
+            console.log(orderdata
+            );
+            console.log(orderdata, cart);
             
             // Step 3: Generate PDF Invoice after Successful Payment
-            generateInvoice(response,companyDetails);
+            generateInvoice(response,orderdata,companyDetails);
   
             // Directly update the payment status in frontend
             setorderdata({ ...orderdata, payment_status: 'success' });
@@ -380,15 +383,15 @@ useEffect(()=>
 
   
   
-  const generateInvoice = (paymentResponse, orderData, companyDetails) => {
-    // Debugging: Log the orderData to check its structure
-    console.log('Order Data:', orderData);
+  const generateInvoice = (paymentResponse, orderdata, companyDetails) => {
+    // Debugging: Log the orderdata to check its structure
+    console.log('Order Data:', orderdata);
   
-    if (!orderData || !orderData.products || !Array.isArray(orderData.products)) {
-      console.error('Invalid orderData or products array:', orderData);
-      alert('Invalid order data. Unable to generate invoice.');
-      return;
-    }
+    // if (!orderdata || !orderdata.products || !Array.isArray(orderdata.products)) {
+    //   console.error('Invalid orderdata or products array:', orderdata);
+    //   alert('Invalid order data. Unable to generate invoice.');
+    //   return;
+    // }
   
     const doc = new jsPDF();
   
@@ -417,10 +420,10 @@ useEffect(()=>
     doc.text(`Transaction Date: ${new Date().toLocaleDateString()}`, 20, 90);
   
     // --- Customer Details ---
-    doc.text(`Customer Name: ${orderData.firstName} ${orderData.lastName}`, 20, 100);
-    doc.text(`Email: ${orderData.email}`, 20, 110);
-    doc.text(`Phone: ${orderData.mobileNumber}`, 20, 120);
-    doc.text(`Address: ${orderData.address}`, 20, 130);
+    doc.text(`Customer Name: ${orderdata.firstName} ${orderdata.lastName}`, 20, 100);
+    doc.text(`Email: ${orderdata.email}`, 20, 110);
+    doc.text(`Phone: ${orderdata.mobileNumber}`, 20, 120);
+    doc.text(`Address: ${orderdata.address}`, 20, 130);
   
     // --- Product Table ---
     const startY = 140;
@@ -429,12 +432,12 @@ useEffect(()=>
     const tableStartY = startY + 10;
   
     // Map products to table data
-    const tableData = orderData.products.map((product, index) => [
+    const tableData = orderdata.cartItems.map((product, index) => [
       index + 1,
-      product.name,
-      product.quantity,
-      `₹${product.unitPrice.toFixed(2)}`,
-      `₹${product.totalPrice.toFixed(2)}`,
+      product.product_name,
+      product.product_quantity,
+      `₹${product.product_price}`,
+      // `₹${product.totalPrice.toFixed(2)}`,
     ]);
   
     doc.autoTable({
@@ -445,10 +448,10 @@ useEffect(()=>
   
     // --- Summary Section ---
     const summaryStartY = doc.lastAutoTable.finalY + 10;
-    doc.text(`Subtotal: ₹${orderData.subtotal.toFixed(2)}`, 150, summaryStartY);
-    doc.text(`GST (${orderData.gstPercentage}%): ₹${orderData.gstAmount.toFixed(2)}`, 150, summaryStartY + 10);
-    doc.text(`Discount: ₹${orderData.discount.toFixed(2)}`, 150, summaryStartY + 20);
-    doc.text(`Grand Total: ₹${orderData.totalPrice.toFixed(2)}`, 150, summaryStartY + 30);
+    doc.text(`Subtotal: ₹${orderdata.subtotal}`, 150, summaryStartY);
+    doc.text(`GST (${orderdata.gstPercentage}%): ₹${orderdata.gstAmount}`, 150, summaryStartY + 10);
+    doc.text(`Discount: ₹${orderdata.discount}`, 150, summaryStartY + 20);
+    doc.text(`Grand Total: ₹${orderdata.totalPrice}`, 150, summaryStartY + 30);
   
     // --- Footer ---
     const footerStartY = summaryStartY + 50;
