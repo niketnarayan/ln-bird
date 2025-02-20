@@ -49,7 +49,7 @@ const images = [
           <Carousel.Item>
             <img
               className="d-block w-100 custom-carousel-image"
-              src="https://t4.ftcdn.net/jpg/03/84/55/29/360_F_384552930_zPoe9zgmCF7qgt8fqSedcyJ6C6Ye3dFs.jpg"
+              src="https://img.freepik.com/premium-photo/colorful-office-desks-chairs-are-neatly-arranged-there-is-nobody-sight-vibrant-atmosphere-awaits-hustle-bustle-busy-workday-generative-ai_213438-11838.jpg"
               alt="First slide"
             />
             <div className="overlay-navbar">
@@ -94,7 +94,7 @@ const images = [
           <Carousel.Item>
             <img
               className="d-block w-100 custom-carousel-image"
-              src="https://images.pexels.com/photos/840996/pexels-photo-840996.jpeg?cs=srgb&dl=pexels-olly-840996.jpg&fm=jpg"
+              src="https://cdn.pixabay.com/photo/2023/05/23/14/26/ai-generated-8012887_1280.jpg"
               alt="Second slide"
             />
                     <div className="overlay-navbar">
@@ -127,7 +127,7 @@ const images = [
           <Carousel.Item>
             <img
               className="d-block w-100 custom-carousel-image"
-              src="https://thumbs.dreamstime.com/b/business-woman-office-work-laptop-desk-staff-planning-creative-writing-startup-writer-seo-article-research-reading-338993641.jpg"
+              src="https://plus.unsplash.com/premium_photo-1661955917112-32d44c5c0f78?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8b3JhbmdlJTIwb2ZmaWNlfGVufDB8fDB8fHww"
               alt="Third slide"
             />
                     <div className="overlay-navbar">
@@ -224,12 +224,12 @@ const images = [
 <div
   style={{
     width: "100%",
-    height: "400px",
+    height: "350px",
     display: "flex",
     justifyContent: "space-between", // Ensure equal spacing
     alignItems: "center",
-    marginTop: "50px",
-    marginBottom: "50px",
+    marginTop: "200px",
+    marginBottom: "200px",
     position: "relative",
     backgroundImage:
       "url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",
