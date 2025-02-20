@@ -38,12 +38,7 @@ function Header() {
 
 
 
-  // const images = [
-  //   "https://images.pexels.com/photos/3182836/pexels-photo-3182836.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  //   "https://images.pexels.com/photos/3184303/pexels-photo-3184303.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  //   "https://images.pexels.com/photos/3184648/pexels-photo-3184648.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  //   "https://images.pexels.com/photos/3182802/pexels-photo-3182802.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  // ];
+
   
   
 
@@ -680,102 +675,138 @@ function Header() {
 
 
 
+    <div
+      style={{
+        backgroundImage:
+          "url('https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        height: "600px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "20px",
+        position: "relative",
+        marginTop: "100px",
+        marginBottom: "100px",
+      }}
+    >
+      {/* Left Text Content */}
+      <div style={{ flex: "1", padding: "20px", color: "#fff", zIndex: 2 }}>
+        <h3
+          style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "10px" }}
+        >
+          Meeting Space Management
+        </h3>
+        <h2 style={{ fontSize: "30px", marginBottom: "20px" }}>
+          Enhanced Visitor Experience
+        </h2>
+        <ul style={{ listStyleType: "none", padding: 0 }}>
+          <li>ePaper - Sustainable Workspace Signage</li>
+          <li>Personal Space Management</li>
+          <li>Interactive Animations</li>
+        </ul>
+      </div>
 
- <div
-style={{
-width: "700px",
-height: "450px",
-overflow: "hidden",
-margin: "50px auto",
-position: "relative",
-borderRadius: "20px",
-boxShadow: "0 20px 30px rgba(0, 0, 0, 0.3)",
-}}
->
-{/* Image Container */}
-<AnimatePresence>
-<motion.div
-key={currentIndex}
-style={{
-width: "100%",
-height: "100%",
-position: "absolute",
-display: "flex",
-justifyContent: "center",
-alignItems: "center",
-overflow: "hidden",
-}}
-initial={{ opacity: 0, scale: 1.1, x: 100 }}
-animate={{ opacity: 1, scale: 1, x: 0 }}
-exit={{ opacity: 0, scale: 1.1, x: -100 }}
-transition={{
-duration: 1.5,
-ease: "easeInOut",
-}}
->
-{/* Ken Burns Effect */}
-<motion.img
-src={images[currentIndex]}
-alt={`Slide ${currentIndex}`}
-style={{
-width: "100%",
-height: "100%",
-objectFit: "cover",
-borderRadius: "20px",
-}}
-animate={{
-scale: [1, 1.2],
-translateY: ["0%", "-10%"],
-}}
-transition={{
-duration: 5,
-ease: "easeInOut",
-repeat: Infinity,
-}}
-/>
-</motion.div>
-</AnimatePresence>
+      {/* Right Image Content */}
+      <div
+        style={{
+          flex: "1",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
+          overflow: "hidden",
+          width: "700px",
+          height: "450px",
+          borderRadius: "20px",
+          boxShadow: "0 20px 30px rgba(0, 0, 0, 0.3)",
+        }}
+      >
+        <AnimatePresence>
+          <motion.div
+            key={currentIndex}
+            style={{
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              overflow: "hidden",
+            }}
+            initial={{ opacity: 0, scale: 1.1, x: 100 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            exit={{ opacity: 0, scale: 1.1, x: -100 }}
+            transition={{
+              duration: 1.5,
+              ease: "easeInOut",
+            }}
+          >
+            <motion.img
+              src={images[currentIndex]}
+              alt={`Slide ${currentIndex}`}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                borderRadius: "20px",
+              }}
+              animate={{
+                scale: [1, 1.2],
+                translateY: ["0%", "-10%"],
+              }}
+              transition={{
+                duration: 5,
+                ease: "easeInOut",
+                repeat: Infinity,
+              }}
+            />
+          </motion.div>
+        </AnimatePresence>
 
-{/* Left Button */}
-<button
-onClick={prevSlide}
-style={{
-position: "absolute",
-top: "50%",
-left: "20px",
-transform: "translateY(-50%)",
-background: "rgba(0, 0, 0, 0.5)",
-color: "white",
-border: "none",
-padding: "10px 15px",
-borderRadius: "50%",
-cursor: "pointer",
-zIndex: 10,
-}}
->
-{"<"}
-</button>
+        {/* Left Button */}
+        <button
+          onClick={prevSlide}
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "20px",
+            transform: "translateY(-50%)",
+            background: "rgba(0, 0, 0, 0.5)",
+            color: "white",
+            border: "none",
+            padding: "10px 15px",
+            borderRadius: "50%",
+            cursor: "pointer",
+            zIndex: 10,
+          }}
+        >
+          {"<"}
+        </button>
 
-{/* Right Button */}
-<button
-onClick={nextSlide}
-style={{
-position: "absolute",
-top: "50%",
-right: "20px",
-transform: "translateY(-50%)",
-background: "rgba(0, 0, 0, 0.5)",
-color: "white",
-border: "none",
-padding: "10px 15px",
-borderRadius: "50%",
-cursor: "pointer",
-zIndex: 10,
-}}
->
-{">"}
-</button>
-</div> 
+        {/* Right Button */}
+        <button
+          onClick={nextSlide}
+          style={{
+            position: "absolute",
+            top: "50%",
+            right: "20px",
+            transform: "translateY(-50%)",
+            background: "rgba(0, 0, 0, 0.5)",
+            color: "white",
+            border: "none",
+            padding: "10px 15px",
+            borderRadius: "50%",
+            cursor: "pointer",
+            zIndex: 10,
+          }}
+        >
+          {">"}
+        </button>
+      </div>
+    </div>
 
 <h1>niket</h1>
 
