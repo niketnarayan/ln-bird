@@ -45,120 +45,58 @@ const images = [
 <>
       {/* Carousel with Navbar inside */}
       <div className="carousel-container">
-        <Carousel activeIndex={index} onSelect={handleSelect}>
-          <Carousel.Item>
+  {/* First Slide Content */}
+  <div className="static-slide">
+    <img
+      className="d-block w-100 custom-carousel-image"
+      src="https://plus.unsplash.com/premium_photo-1661955917112-32d44c5c0f78?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8b3JhbmdlJTIwb2ZmaWNlfGVufDB8fDB8fHww"
+      alt="First Slide"
+    />
+    <div className="overlay-navbar">
+      <Navbar expand="lg" className="custom-navbar">
+        <Container>
+          <Navbar.Brand href="#home" className="text-white">
             <img
-              className="d-block w-100 custom-carousel-image"
-              src="https://img.freepik.com/premium-photo/colorful-office-desks-chairs-are-neatly-arranged-there-is-nobody-sight-vibrant-atmosphere-awaits-hustle-bustle-busy-workday-generative-ai_213438-11838.jpg"
-              alt="First slide"
+              src="https://shuddham.org/Meet/wp-content/uploads/2025/02/KuiqMeeting-logo.png"
+              style={{ width: "80px", height: "40px", color: "white" }}
+              alt="Logo"
             />
-            <div className="overlay-navbar">
-              <Navbar expand="lg" className="custom-navbar">
-                <Container>
-                  <Navbar.Brand href="#home" className="text-white">
-                    <img src="https://shuddham.org/Meet/wp-content/uploads/2025/02/KuiqMeeting-logo.png" style={{width:"80px", height:"40px",color:"white"}}></img>
-                  </Navbar.Brand>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                  <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-auto">
-                      <Nav.Link href="#home" className="text-white">
-                        Home
-                      </Nav.Link>
-                      <Nav.Link href="#about" className="text-white">
-                        About
-                      </Nav.Link>
-                      <Nav.Link href="#services" className="text-white">
-                        Services
-                      </Nav.Link>
-                      <Nav.Link href="#contact" className="text-white">
-                        Contact
-                      </Nav.Link>
-                    </Nav>
-                  </Navbar.Collapse>
-                </Container>
-              </Navbar>
-            </div>
-            <div className="carousel-header">
-              <h1>Room Scheduling System</h1>
-              <h3>With Crestron Room Panels</h3>
-              <p>
-                Workspace Management For A Seamless Experience <br />
-                For Employees & Visitors
-              </p>
-              <div className="header-buttons">
-                <button className="btn-demo">Ask Demo</button>
-                <button className="btn-pricing">Get Pricing</button>
-              </div>
-            </div>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100 custom-carousel-image"
-              src="https://cdn.pixabay.com/photo/2023/05/23/14/26/ai-generated-8012887_1280.jpg"
-              alt="Second slide"
-            />
-                    <div className="overlay-navbar">
-              <Navbar expand="lg" className="custom-navbar">
-                <Container>
-                  <Navbar.Brand href="#home" className="text-white">
-                  <img src="https://shuddham.org/Meet/wp-content/uploads/2025/02/KuiqMeeting-logo.png" style={{width:"80px", height:"40px",color:"white"}}></img>
-                  </Navbar.Brand>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                  <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-auto">
-                      <Nav.Link href="#home" className="text-white">
-                        Home
-                      </Nav.Link>
-                      <Nav.Link href="#about" className="text-white">
-                        About
-                      </Nav.Link>
-                      <Nav.Link href="#services" className="text-white">
-                        Services
-                      </Nav.Link>
-                      <Nav.Link href="#contact" className="text-white">
-                        Contact
-                      </Nav.Link>
-                    </Nav>
-                  </Navbar.Collapse>
-                </Container>
-              </Navbar>
-            </div>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100 custom-carousel-image"
-              src="https://plus.unsplash.com/premium_photo-1661955917112-32d44c5c0f78?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8b3JhbmdlJTIwb2ZmaWNlfGVufDB8fDB8fHww"
-              alt="Third slide"
-            />
-                    <div className="overlay-navbar">
-              <Navbar expand="lg" className="custom-navbar">
-                <Container>
-                  <Navbar.Brand href="#home" className="text-white">
-                  <img src="https://shuddham.org/Meet/wp-content/uploads/2025/02/KuiqMeeting-logo.png" style={{width:"80px", height:"40px",color:"white"}}></img>
-                  </Navbar.Brand>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                  <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-auto">
-                      <Nav.Link href="#home" className="text-white">
-                        Home
-                      </Nav.Link>
-                      <Nav.Link href="#about" className="text-white">
-                        About
-                      </Nav.Link>
-                      <Nav.Link href="#services" className="text-white">
-                        Services
-                      </Nav.Link>
-                      <Nav.Link href="#contact" className="text-white">
-                        Contact
-                      </Nav.Link>
-                    </Nav>
-                  </Navbar.Collapse>
-                </Container>
-              </Navbar>
-            </div>
-          </Carousel.Item>
-        </Carousel>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto">
+              <Nav.Link href="#home" className="text-white">
+                Home
+              </Nav.Link>
+              <Nav.Link href="#about" className="text-white">
+                About
+              </Nav.Link>
+              <Nav.Link href="#services" className="text-white">
+                Services
+              </Nav.Link>
+              <Nav.Link href="#contact" className="text-white">
+                Contact
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
+    <div className="carousel-header">
+      <h1>Room Scheduling System</h1>
+      <h3>With Crestron Room Panels</h3>
+      <p>
+        Workspace Management For A Seamless Experience <br />
+        For Employees & Visitors
+      </p>
+      <div className="header-buttons">
+        <button className="btn-demo">Ask Demo</button>
+        <button className="btn-pricing">Get Pricing</button>
       </div>
+    </div>
+  </div>
+  </div>
+
 
 
 
