@@ -21,11 +21,11 @@ setIndex(selectedIndex);
 const [hoveredIndex, setHoveredIndex] = useState(null);
 
 const images = [
-  "https://images.pexels.com/photos/3182836/pexels-photo-3182836.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  "https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  "https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  "https://images.unsplash.com/photo-1497215728101-856f4ea42174?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b2ZmaWNlfGVufDB8fDB8fHww",
+  "https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?cs=srgb&dl=pexels-pixabay-37347.jpg&fm=jpg",
+  "https://freedesignfile.com/upload/2016/10/Office-HD-picture-in-white-03.jpg",
+  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b2ZmaWNlJTIwaW50ZXJpb3J8ZW58MHx8MHx8fDA%3D",
+  "https://st3.depositphotos.com/8911320/33966/i/450/depositphotos_339665118-stock-photo-render-modern-office-interior.jpg",
 ];
 
 
@@ -56,7 +56,7 @@ const images = [
               <Navbar expand="lg" className="custom-navbar">
                 <Container>
                   <Navbar.Brand href="#home" className="text-white">
-                    MyWebsite
+                    <img src="https://shuddham.org/Meet/wp-content/uploads/2025/02/KuiqMeeting-logo.png" style={{width:"80px", height:"40px",color:"white"}}></img>
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
                   <Navbar.Collapse id="basic-navbar-nav">
@@ -101,7 +101,7 @@ const images = [
               <Navbar expand="lg" className="custom-navbar">
                 <Container>
                   <Navbar.Brand href="#home" className="text-white">
-                    MyWebsite
+                  <img src="https://shuddham.org/Meet/wp-content/uploads/2025/02/KuiqMeeting-logo.png" style={{width:"80px", height:"40px",color:"white"}}></img>
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
                   <Navbar.Collapse id="basic-navbar-nav">
@@ -134,7 +134,7 @@ const images = [
               <Navbar expand="lg" className="custom-navbar">
                 <Container>
                   <Navbar.Brand href="#home" className="text-white">
-                    MyWebsite
+                  <img src="https://shuddham.org/Meet/wp-content/uploads/2025/02/KuiqMeeting-logo.png" style={{width:"80px", height:"40px",color:"white"}}></img>
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
                   <Navbar.Collapse id="basic-navbar-nav">
@@ -243,139 +243,61 @@ const images = [
 >
   {/* Text Section */}
   <div
-  style={{
-    width: "35%", // Fixed width for content div
-    maxWidth: "500px", // Ensures it doesn't expand too much
-    padding: "20px",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    zIndex: 2,
-    backdropFilter: "blur(8px)",
-    background: "rgba(0, 0, 0, 0.7)",
-    borderRadius: "15px",
-    color: "#fff",
-    boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.5)",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.transform = "scale(1.05)";
-    e.currentTarget.style.boxShadow = "0px 15px 40px rgba(0, 0, 0, 0.7)";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.transform = "scale(1)";
-    e.currentTarget.style.boxShadow = "0px 10px 30px rgba(0, 0, 0, 0.5)";
-  }}
->
-  <div
-    style={{
-      fontSize: "18px",
-      lineHeight: "1.8",
-      textShadow: "1px 1px 5px rgba(0, 0, 0, 0.6)",
-      marginBottom: "15px",
-      animation: "fadeIn 1s ease",
-    }}
-  >
-    <h6
       style={{
-        fontSize: "20px",
-        fontWeight: "500",
-        color: "#00f2ea",
-        marginBottom: "10px",
-        animation: "slideInLeft 0.8s ease",
+        width: "50%",
+        maxWidth: "600px",
+        margin: "0 auto",
+        textAlign: "center",
+        fontFamily: "Arial, sans-serif",
+        color: "#333",
       }}
     >
-      ePaper – Sustainable Workspace Signage
-    </h6>
-    <h5
-      style={{
-        fontSize: "22px",
-        fontWeight: "600",
-        color: "#f4b400",
-        marginBottom: "10px",
-        animation: "slideInLeft 1s ease",
-      }}
-    >
-      Personal Space Management
-    </h5>
-    <h4
-      style={{
-        fontSize: "24px",
-        fontWeight: "700",
-        color: "#34a853",
-        animation: "slideInLeft 1.2s ease",
-      }}
-    >
-      Interactive Animations
-    </h4>
-  </div>
+      {/* Top Section */}
+      <div style={{ marginBottom: "20px" }}>
+        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+          Enhance visitor experience
+        </p>
+        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+          ePaper
+        </p>
+        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+          Personal Space Management
+        </p>
+        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+          ePaper – Sustainable Workspace Signage
+        </p>
+      </div>
 
-  <h1
-    style={{
-      fontSize: "26px",
-      fontWeight: "bold",
-      marginBottom: "15px",
-      textShadow: "2px 2px 10px rgba(0, 0, 0, 0.7)",
-      color: "#fff",
-      animation: "zoomIn 1.5s ease",
-    }}
-  >
-    Meeting Space Management
-  </h1>
+      {/* Heading */}
+      <h2
+        style={{
+          margin: "20px 0",
+          fontSize: "22px",
+          fontWeight: "600",
+          color: "#222",
+        }}
+      >
+        Meeting Space Management
+      </h2>
 
-  <p
-    style={{
-      fontSize: "18px",
-      fontWeight: "lighter",
-      marginBottom: "15px",
-      textShadow: "2px 2px 10px rgba(0, 0, 0, 0.7)",
-      animation: "fadeIn 1.5s ease",
-    }}
-  >
-    Enhanced Visitor Experience
-  </p>
+      {/* Bottom Section */}
+      <div style={{ marginTop: "20px" }}>
+        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+          ePaper – Sustainable Workspace Signage
+        </p>
+        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+          Personal Space Management
+        </p>
+        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+          ePaper
+        </p>
+        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+          Enhance visitor experience
+        </p>
+      </div>
+    </div>
 
-  <div
-    style={{
-      fontSize: "16px",
-      lineHeight: "1.6",
-      textShadow: "1px 1px 3px rgba(0, 0, 0, 0.6)",
-      marginTop: "10px",
-      animation: "slideInRight 1s ease",
-    }}
-  >
-    <h6
-      style={{
-        fontSize: "18px",
-        fontWeight: "500",
-        color: "#00f2ea",
-        marginBottom: "8px",
-      }}
-    >
-      ePaper – Sustainable Workspace Signage
-    </h6>
-    <h5
-      style={{
-        fontSize: "20px",
-        fontWeight: "600",
-        color: "#f4b400",
-        marginBottom: "8px",
-      }}
-    >
-      Personal Space Management
-    </h5>
-    <h4
-      style={{
-        fontSize: "22px",
-        fontWeight: "700",
-        color: "#34a853",
-      }}
-    >
-      Interactive Animations
-    </h4>
-  </div>
-</div>
+
 
 
   {/* Images Section */}
