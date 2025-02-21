@@ -8,25 +8,20 @@ import gsap from "gsap";
 import { Power3 } from "gsap";
 
 function Header() {
+  const [flippedIndex, setFlippedIndex] = useState(null);
 
-    const [index, setIndex] = useState(0);
+  const images = [
+    "https://images.unsplash.com/photo-1497215728101-856f4ea42174?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b2ZmaWNlfGVufDB8fDB8fHww",
+    "https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?cs=srgb&dl=pexels-pixabay-37347.jpg&fm=jpg",
+    "https://freedesignfile.com/upload/2016/10/Office-HD-picture-in-white-03.jpg",
+    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b2ZmaWNlJTIwaW50ZXJpb3J8ZW58MHx8MHx8fDA%3D",
+    "https://st3.depositphotos.com/8911320/33966/i/450/depositphotos_339665118-stock-photo-render-modern-office-interior.jpg",
+  ];
 
-const handleSelect = (selectedIndex) => {
-setIndex(selectedIndex);
-};
+  const handleContentClick = (index) => {
+    setFlippedIndex(index); // Flip only the clicked image
+  };
 
-
-
-
-const [hoveredIndex, setHoveredIndex] = useState(null);
-
-const images = [
-  "https://images.unsplash.com/photo-1497215728101-856f4ea42174?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b2ZmaWNlfGVufDB8fDB8fHww",
-  "https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?cs=srgb&dl=pexels-pixabay-37347.jpg&fm=jpg",
-  "https://freedesignfile.com/upload/2016/10/Office-HD-picture-in-white-03.jpg",
-  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b2ZmaWNlJTIwaW50ZXJpb3J8ZW58MHx8MHx8fDA%3D",
-  "https://st3.depositphotos.com/8911320/33966/i/450/depositphotos_339665118-stock-photo-render-modern-office-interior.jpg",
-];
 
 
 
@@ -160,130 +155,111 @@ const images = [
 
 
 <div
-  style={{
-    width: "100%",
-    height: "350px",
-    display: "flex",
-    justifyContent: "space-between", // Ensure equal spacing
-    alignItems: "center",
-    marginTop: "200px",
-    marginBottom: "200px",
-    position: "relative",
-    backgroundImage:
-      "url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    borderRadius: "20px",
-    boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.5)",
-    padding: "20px",
-    color: "#fff",
-  }}
->
-  {/* Text Section */}
-  <div
       style={{
-        width: "50%",
-        maxWidth: "600px",
-        margin: "0 auto",
-        textAlign: "center",
-        fontFamily: "Arial, sans-serif",
-        color: "#333",
+        width: "100%",
+        height: "350px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginTop: "200px",
+        marginBottom: "200px",
+        position: "relative",
+        backgroundImage:
+          "url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        borderRadius: "20px",
+        boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.5)",
+        padding: "20px",
+        color: "#fff",
       }}
     >
-      {/* Top Section */}
-      <div style={{ marginBottom: "20px" }}>
-        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-          Enhance visitor experience
-        </p>
-        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-          ePaper
-        </p>
-        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-          Personal Space Management
-        </p>
-        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-          ePaper – Sustainable Workspace Signage
-        </p>
-      </div>
-
-      {/* Heading */}
-      <h2
+      {/* Text Section */}
+      <div
         style={{
-          margin: "20px 0",
-          fontSize: "22px",
-          fontWeight: "600",
-          color: "#222",
+          width: "50%",
+          maxWidth: "600px",
+          margin: "0 auto",
+          textAlign: "center",
+          fontFamily: "Arial, sans-serif",
+          color: "#333",
         }}
       >
-        Meeting Space Management
-      </h2>
 
-      {/* Bottom Section */}
-      <div style={{ marginTop: "20px" }}>
-        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-          ePaper – Sustainable Workspace Signage
-        </p>
-        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-          Personal Space Management
-        </p>
-        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-          ePaper
-        </p>
-        <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-          Enhance visitor experience
-        </p>
+{["Enhance visitor experience", "ePaper", "Personal Space Management", "Sustainable Workspace Signage"].map(
+          (text, index) => (
+            <p
+              key={index}
+              style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400", cursor: "pointer" }}
+              onClick={() => handleContentClick(index)}
+            >
+              {text}
+            </p>
+          )
+        )}
+        <h2
+          style={{
+            margin: "20px 0",
+            fontSize: "22px",
+            fontWeight: "600",
+            color: "#222",
+          }}
+        >
+          Meeting Space Management
+        </h2>
+
+        {/* Clickable Content */}
+        {["Enhance visitor experience", "ePaper", "Personal Space Management", "Sustainable Workspace Signage"].map(
+          (text, index) => (
+            <p
+              key={index}
+              style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400", cursor: "pointer" }}
+              onClick={() => handleContentClick(index)}
+            >
+              {text}
+            </p>
+          )
+        )}
+      </div>
+
+      {/* Images Section */}
+      <div
+        style={{
+          width: "50%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "450px",
+          position: "relative",
+          borderRadius: "20px",
+          border: "4px solid rgba(0, 242, 234, 1)",
+          zIndex: 10,
+          overflow: "hidden",
+          boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
+          background: "#fff",
+        }}
+      >
+        {images.map((image, index) => (
+          <motion.div
+            key={index}
+            style={{
+              width: "20%",
+              height: "100%",
+              backgroundImage: `url(${image})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              position: "absolute",
+              left: `${index * 20}%`,
+              zIndex: 2,
+            }}
+            animate={{
+              rotateY: flippedIndex === index ? 180 : 0, // Flip animation on the selected image
+            }}
+            transition={{ type: "spring", stiffness: 100, damping: 10 }}
+          />
+        ))}
       </div>
     </div>
-
-
-
-
-  {/* Images Section */}
-  <div
-    style={{
-      width: "50%", // Fixed width for image frame div
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      height: "450px",
-      position: "relative",
-      borderRadius: "20px",
-      border: "4px solid rgba(0, 242, 234, 1)",
-      zIndex: 10,
-      overflow: "hidden",
-      boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
-      background: "#fff",
-    }}
-  >
-    {images.map((image, index) => (
-      <motion.div
-        key={index}
-        style={{
-          width: "20%", // Adjust size to fit within the container
-          height: "100%",
-          backgroundImage: `url(${hoveredIndex === index ? images[(index + 1) % images.length] : image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          position: "absolute",
-          left: `${index * 20}%`,
-          zIndex: 2,
-        }}
-        initial={{ translateY: "0%" }}
-        whileHover={{
-          translateY: index % 2 === 0 ? "-10%" : "10%", // Hover animation
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 80,
-          damping: 15,
-          duration: 0.5,
-        }}
-        onHoverStart={() => setHoveredIndex(index)}
-        onHoverEnd={() => setHoveredIndex(null)}
-      />
-    ))}
-  </div>
-</div>
 
 
 
