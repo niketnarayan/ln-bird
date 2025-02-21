@@ -8,20 +8,38 @@ import gsap from "gsap";
 import { Power3 } from "gsap";
 
 function Header() {
-  const [flippedIndex, setFlippedIndex] = useState(null);
-
-  const images = [
-    "https://images.unsplash.com/photo-1497215728101-856f4ea42174?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b2ZmaWNlfGVufDB8fDB8fHww",
-    "https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?cs=srgb&dl=pexels-pixabay-37347.jpg&fm=jpg",
-    "https://freedesignfile.com/upload/2016/10/Office-HD-picture-in-white-03.jpg",
-    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b2ZmaWNlJTIwaW50ZXJpb3J8ZW58MHx8MHx8fDA%3D",
-    "https://st3.depositphotos.com/8911320/33966/i/450/depositphotos_339665118-stock-photo-render-modern-office-interior.jpg",
+  const originalImages = [
+    "https://images.pexels.com/photos/257360/pexels-photo-257360.jpeg?cs=srgb&dl=pexels-pixabay-257360.jpg&fm=jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbwodAnHVNRByzhLdg3GC7qIoLqDL8TZIaWw&s",
+    "https://static.vecteezy.com/system/resources/thumbnails/043/548/407/small/deer-drinking-water-in-river-in-forest-serene-wildlife-landscape-photo.jpg",
+    "https://static.vecteezy.com/system/resources/thumbnails/040/873/406/small/ai-generated-harmonious-tiger-and-deer-coexistence-in-a-sunlit-forest-inspiring-unity-for-conservation-efforts-photo.jpeg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRERyw8xcJfDq2rxpxgTXHjx7c3Fg441SaadQ&s",
   ];
 
-  const handleContentClick = (index) => {
-    setFlippedIndex(index); // Flip only the clicked image
-  };
+  const newImages = [
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScfQt4e3lIdOu2DWmc1-BHFtiApCO_Zn2JXg&s",
+    "https://t3.ftcdn.net/jpg/07/38/89/48/360_F_738894857_62jRatktPCpiBnPiBHrBLgy5ecPD1gTR.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThziS7gC1RP5AHpqsVb2DDUnWua1SsjgvRfg&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR__swHJWsZe6xq5Q9p9SD3ggYKhh0sawBkug&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUMcTgRQrzjCvSjYVQDdHVM7C6k73j9b74gA&s",
+  ];
 
+  const [flippedIndex, setFlippedIndex] = useState(null);
+  const [images, setImages] = useState(originalImages);
+
+  const handleContentClick = (index) => {
+    setFlippedIndex(index);
+
+    // Wait for flip animation to complete before changing the image
+    setTimeout(() => {
+      setImages((prevImages) =>
+        prevImages.map((img, i) => (i === index ? newImages[index] : img))
+      );
+
+      // Reset flip after changing the image
+      setTimeout(() => setFlippedIndex(null), 300);
+    }, 200);
+  };
 
 
 
@@ -251,9 +269,10 @@ function Header() {
               position: "absolute",
               left: `${index * 20}%`,
               zIndex: 2,
+              backfaceVisibility: "hidden",
             }}
             animate={{
-              rotateY: flippedIndex === index ? 180 : 0, // Flip animation on the selected image
+              rotateY: flippedIndex === index ? 180 : 0, // Flip animation
             }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
           />
