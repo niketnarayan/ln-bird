@@ -24,26 +24,22 @@ function Header() {
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUMcTgRQrzjCvSjYVQDdHVM7C6k73j9b74gA&s",
   ];
 
-  const [flippedIndex, setFlippedIndex] = useState(null);
+  const [toggle, setToggle] = useState(false);
   const [images, setImages] = useState(originalImages);
+  const [flipped, setFlipped] = useState(false);
 
-  const handleContentClick = (index) => {
-    setFlippedIndex(index);
+  const handleContentClick = () => {
+    setFlipped(true); // Trigger flip animation
 
-    // Wait for flip animation to complete before changing the image
     setTimeout(() => {
-      setImages((prevImages) =>
-        prevImages.map((img, i) => (i === index ? newImages[index] : img))
-      );
-
-      // Reset flip after changing the image
-      setTimeout(() => setFlippedIndex(null), 300);
+      setImages(toggle ? originalImages : newImages);
+      setToggle(!toggle);
+      // After images are swapped, reset the flip state.
+      setTimeout(() => {
+        setFlipped(false);
+      }, 300);
     }, 200);
   };
-
-
-
-
 
 
 
@@ -203,18 +199,26 @@ function Header() {
           color: "#333",
         }}
       >
+        {[
+          "Enhance visitor experience",
+          "ePaper",
+          "Personal Space Management",
+          "Sustainable Workspace Signage",
+        ].map((text, index) => (
+          <p
+            key={index}
+            style={{
+              margin: "5px 0",
+              fontSize: "18px",
+              fontWeight: "400",
+              cursor: "pointer",
+            }}
+            onClick={handleContentClick}
+          >
+            {text}
+          </p>
+        ))}
 
-{["Enhance visitor experience", "ePaper", "Personal Space Management", "Sustainable Workspace Signage"].map(
-          (text, index) => (
-            <p
-              key={index}
-              style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400", cursor: "pointer" }}
-              onClick={() => handleContentClick(index)}
-            >
-              {text}
-            </p>
-          )
-        )}
         <h2
           style={{
             margin: "20px 0",
@@ -226,18 +230,25 @@ function Header() {
           Meeting Space Management
         </h2>
 
-        {/* Clickable Content */}
-        {["Enhance visitor experience", "ePaper", "Personal Space Management", "Sustainable Workspace Signage"].map(
-          (text, index) => (
-            <p
-              key={index}
-              style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400", cursor: "pointer" }}
-              onClick={() => handleContentClick(index)}
-            >
-              {text}
-            </p>
-          )
-        )}
+        {[
+          "Enhance visitor experience",
+          "ePaper",
+          "Personal Space Management",
+          "Sustainable Workspace Signage",
+        ].map((text, index) => (
+          <p
+            key={index}
+            style={{
+              margin: "5px 0",
+              fontSize: "18px",
+              fontWeight: "400",
+              cursor: "pointer",
+            }}
+            onClick={handleContentClick}
+          >
+            {text}
+          </p>
+        ))}
       </div>
 
       {/* Images Section */}
@@ -272,7 +283,7 @@ function Header() {
               backfaceVisibility: "hidden",
             }}
             animate={{
-              rotateY: flippedIndex === index ? 180 : 0, // Flip animation
+              rotateY: flipped ? 180 : 0,
             }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
           />
