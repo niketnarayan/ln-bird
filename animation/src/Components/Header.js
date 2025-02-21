@@ -8,37 +8,18 @@ import gsap from "gsap";
 import { Power3 } from "gsap";
 
 function Header() {
-  const originalImages = [
-    "https://images.pexels.com/photos/257360/pexels-photo-257360.jpeg?cs=srgb&dl=pexels-pixabay-257360.jpg&fm=jpg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbwodAnHVNRByzhLdg3GC7qIoLqDL8TZIaWw&s",
-    "https://static.vecteezy.com/system/resources/thumbnails/043/548/407/small/deer-drinking-water-in-river-in-forest-serene-wildlife-landscape-photo.jpg",
-    "https://static.vecteezy.com/system/resources/thumbnails/040/873/406/small/ai-generated-harmonious-tiger-and-deer-coexistence-in-a-sunlit-forest-inspiring-unity-for-conservation-efforts-photo.jpeg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRERyw8xcJfDq2rxpxgTXHjx7c3Fg441SaadQ&s",
+  const images = [
+    "https://images.unsplash.com/photo-1497215728101-856f4ea42174?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b2ZmaWNlfGVufDB8fDB8fHww",
+    "https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?cs=srgb&dl=pexels-pixabay-37347.jpg&fm=jpg",
+    "https://freedesignfile.com/upload/2016/10/Office-HD-picture-in-white-03.jpg",
+    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b2ZmaWNlJTIwaW50ZXJpb3J8ZW58MHx8MHx8fDA%3D",
+    "https://st3.depositphotos.com/8911320/33966/i/450/depositphotos_339665118-stock-photo-render-modern-office-interior.jpg",
   ];
-
-  const newImages = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScfQt4e3lIdOu2DWmc1-BHFtiApCO_Zn2JXg&s",
-    "https://t3.ftcdn.net/jpg/07/38/89/48/360_F_738894857_62jRatktPCpiBnPiBHrBLgy5ecPD1gTR.jpg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThziS7gC1RP5AHpqsVb2DDUnWua1SsjgvRfg&s",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR__swHJWsZe6xq5Q9p9SD3ggYKhh0sawBkug&s",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUMcTgRQrzjCvSjYVQDdHVM7C6k73j9b74gA&s",
-  ];
-
-  const [toggle, setToggle] = useState(false);
-  const [images, setImages] = useState(originalImages);
-  const [flipped, setFlipped] = useState(false);
+  
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleContentClick = () => {
-    setFlipped(true); // Trigger flip animation
-
-    setTimeout(() => {
-      setImages(toggle ? originalImages : newImages);
-      setToggle(!toggle);
-      // After images are swapped, reset the flip state.
-      setTimeout(() => {
-        setFlipped(false);
-      }, 300);
-    }, 200);
+    setSelectedIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
 
@@ -197,27 +178,23 @@ function Header() {
           textAlign: "center",
           fontFamily: "Arial, sans-serif",
           color: "#333",
+          cursor: "pointer",
         }}
       >
-        {[
-          "Enhance visitor experience",
-          "ePaper",
-          "Personal Space Management",
-          "Sustainable Workspace Signage",
-        ].map((text, index) => (
-          <p
-            key={index}
-            style={{
-              margin: "5px 0",
-              fontSize: "18px",
-              fontWeight: "400",
-              cursor: "pointer",
-            }}
-            onClick={handleContentClick}
-          >
-            {text}
+        <div style={{ marginBottom: "20px" }} onClick={handleContentClick}>
+          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+            Enhance visitor experience
           </p>
-        ))}
+          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+            ePaper
+          </p>
+          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+            Personal Space Management
+          </p>
+          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+            ePaper – Sustainable Workspace Signage
+          </p>
+        </div>
 
         <h2
           style={{
@@ -230,28 +207,23 @@ function Header() {
           Meeting Space Management
         </h2>
 
-        {[
-          "Enhance visitor experience",
-          "ePaper",
-          "Personal Space Management",
-          "Sustainable Workspace Signage",
-        ].map((text, index) => (
-          <p
-            key={index}
-            style={{
-              margin: "5px 0",
-              fontSize: "18px",
-              fontWeight: "400",
-              cursor: "pointer",
-            }}
-            onClick={handleContentClick}
-          >
-            {text}
+        <div style={{ marginTop: "20px" }} onClick={handleContentClick}>
+          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+            ePaper – Sustainable Workspace Signage
           </p>
-        ))}
+          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+            Personal Space Management
+          </p>
+          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+            ePaper
+          </p>
+          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
+            Enhance visitor experience
+          </p>
+        </div>
       </div>
 
-      {/* Images Section */}
+      {/* Image Section */}
       <div
         style={{
           width: "50%",
@@ -268,26 +240,23 @@ function Header() {
           background: "#fff",
         }}
       >
-        {images.map((image, index) => (
+        <AnimatePresence mode="wait">
           <motion.div
-            key={index}
+            key={selectedIndex}
             style={{
-              width: "20%",
+              width: "100%",
               height: "100%",
-              backgroundImage: `url(${image})`,
+              backgroundImage: `url(${images[selectedIndex]})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               position: "absolute",
-              left: `${index * 20}%`,
-              zIndex: 2,
-              backfaceVisibility: "hidden",
             }}
-            animate={{
-              rotateY: flipped ? 180 : 0,
-            }}
-            transition={{ type: "spring", stiffness: 100, damping: 10 }}
+            initial={{ opacity: 0, x: 100 }} // Slide in from right
+            animate={{ opacity: 1, x: 0 }} // Fade in and settle
+            exit={{ opacity: 0, x: -100 }} // Slide out to left
+            transition={{ duration: 0.6, ease: "easeInOut" }}
           />
-        ))}
+        </AnimatePresence>
       </div>
     </div>
 
