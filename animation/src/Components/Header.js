@@ -16,12 +16,33 @@ function Header() {
     "https://st3.depositphotos.com/8911320/33966/i/450/depositphotos_339665118-stock-photo-render-modern-office-interior.jpg",
   ];
   
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const textItems = [
+    "Enhance visitor experience",
+    "ePaper",
+    "Personal Space Management",
+    "ePaper – Sustainable Workspace Signage",
+  ];
 
-  const handleContentClick = () => {
-    setSelectedIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
 
+  const textItems1 = [
+    "Enhance visitor experience",
+    "ePaper",
+    "Personal Space Management",
+    "ePaper – Sustainable Workspace Signage",
+  ];
+    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [selectedText, setSelectedText] = useState(null);
+    const [selectedText1, setSelectedText1] = useState(null);
+  
+    const handleContentClick = (index, text) => {
+      setSelectedIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setSelectedText(text);
+    };
+
+    const handleContentClick1 = (index, text) => {
+      setSelectedIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setSelectedText1(text);
+    };
 
 
 
@@ -148,7 +169,6 @@ function Header() {
 
 
 
-
 <div
       style={{
         width: "100%",
@@ -181,19 +201,23 @@ function Header() {
           cursor: "pointer",
         }}
       >
-        <div style={{ marginBottom: "20px" }} onClick={handleContentClick}>
-          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-            Enhance visitor experience
-          </p>
-          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-            ePaper
-          </p>
-          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-            Personal Space Management
-          </p>
-          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-            ePaper – Sustainable Workspace Signage
-          </p>
+        <div style={{ marginBottom: "20px" }}>
+          {textItems.map((text, index) => (
+            <motion.p
+              key={index}
+              style={{
+                margin: "5px 0",
+                fontSize: "18px",
+                fontWeight: selectedText === text ? "bold" : "400",
+                // color: selectedText === text ? "#008cff" : "#333",
+                transition: "all 0.3s ease-in-out",
+              }}
+              whileHover={{ scale: 1.1 }}
+              onClick={() => handleContentClick(index, text)}
+            >
+              {text}
+            </motion.p>
+          ))}
         </div>
 
         <h2
@@ -207,19 +231,23 @@ function Header() {
           Meeting Space Management
         </h2>
 
-        <div style={{ marginTop: "20px" }} onClick={handleContentClick}>
-          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-            ePaper – Sustainable Workspace Signage
-          </p>
-          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-            Personal Space Management
-          </p>
-          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-            ePaper
-          </p>
-          <p style={{ margin: "5px 0", fontSize: "18px", fontWeight: "400" }}>
-            Enhance visitor experience
-          </p>
+        <div>
+          {textItems1.map((text, index) => (
+            <motion.p
+              key={index}
+              style={{
+                margin: "5px 0",
+                fontSize: "18px",
+                fontWeight: selectedText1 === text ? "bold" : "400",
+                // color: selectedText === text ? "#008cff" : "#333",
+                transition: "all 0.3s ease-in-out",
+              }}
+              whileHover={{ scale: 1.1 }}
+              onClick={() => handleContentClick1(index, text)}
+            >
+              {text}
+            </motion.p>
+          ))}
         </div>
       </div>
 
@@ -251,9 +279,9 @@ function Header() {
               backgroundPosition: "center",
               position: "absolute",
             }}
-            initial={{ opacity: 0, x: 100 }} // Slide in from right
-            animate={{ opacity: 1, x: 0 }} // Fade in and settle
-            exit={{ opacity: 0, x: -100 }} // Slide out to left
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
           />
         </AnimatePresence>
