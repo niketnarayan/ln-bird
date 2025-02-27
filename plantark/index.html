@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanrArk</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="Assets/logo.png" alt="Plantark Logo">
+            <div class="logo-text">
+            </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Fees</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+
+        <!-- Cart & Auth Section -->
+        <div class="cart">
+            <div class="cart-icon">
+                <img src="Assets/Icon.svg" alt="Cart Icon">
+                <span class="cart-count">0</span>
+            </div>
+            <span class="cart-text">MY CART - 0.00 AUD</span>
+        </div>
+    </nav>
+         <!-- Search & Category Section -->
+         <div class="search-area">
+            <select>
+                <option>All Categories</option>
+            </select>
+            <div class="search-box">
+                <input type="text" placeholder="Search name">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search store">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+
+
+
+            <div class="user-Register">
+                <div class="auth">
+                    <a href="#">Sign in</a> | <a href="#">Register</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div style="display: flex; justify-content: center; padding: 20px;">
+            <aside style="width: 250px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); font-size: 14px;">
+                <h3 style="font-size: 16px; margin-bottom: 10px; display: flex; align-items: center; font-weight: bold;">
+                    <i class="fas fa-filter" style="margin-right: 5px;"></i> Filters
+                </h3>
+        
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
+                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Type</h4>
+                    <div style="padding-left: 10px;">
+                        <label><input type="checkbox"> Seed (0)</label><br>
+                        <label><input type="checkbox"> Plant (55)</label>
+                    </div>
+                </div>
+        
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
+                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Foliage</h4>
+                    <div style="padding-left: 10px;">
+                        <label><input type="checkbox"> Evergreen (55)</label><br>
+                        <label><input type="checkbox"> Deciduous (0)</label>
+                    </div>
+                </div>
+        
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
+                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Mature height</h4>
+                    <div style="padding-left: 10px; max-height: 80px; overflow-y: auto;">
+                        <label><input type="checkbox"> 0 - 0.5m (40)</label><br>
+                        <label><input type="checkbox"> 0.5 - 1.0m (7)</label><br>
+                        <label><input type="checkbox"> 1.0 - 2.0m (7)</label>
+                    </div>
+                </div>
+        
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
+                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Climate - Tolerance</h4>
+                    <div style="padding-left: 10px; max-height: 80px; overflow-y: auto;">
+                        <label><input type="checkbox"> Frost Tolerant (0)</label><br>
+                        <label><input type="checkbox"> Cold - Cool Temperature (5)</label><br>
+                        <label><input type="checkbox"> Temperate (21)</label>
+                    </div>
+                </div>
+        
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
+                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Aspect</h4>
+                    <div style="padding-left: 10px;">
+                        <label><input type="checkbox"> Shade (4)</label><br>
+                        <label><input type="checkbox"> Semi-Shade (23)</label><br>
+                        <label><input type="checkbox"> Full Sun (27)</label>
+                    </div>
+                </div>
+        
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
+                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Flower Colour</h4>
+                    <div style="padding-left: 10px; max-height: 80px; overflow-y: auto;">
+                        <label><input type="checkbox"> White (7)</label><br>
+                        <label><input type="checkbox"> Cream (2)</label><br>
+                        <label><input type="checkbox"> Yellow (1)</label>
+                    </div>
+                </div>
+        
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
+                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Water Use</h4>
+                    <div style="padding-left: 10px;">
+                        <label><input type="checkbox"> Low (34)</label><br>
+                        <label><input type="checkbox"> Medium (19)</label>
+                    </div>
+                </div>
+        
+                <button style="width: 100%; padding: 8px; background: #4CAF50; color: white; border: none; cursor: pointer; border-radius: 5px; margin-top: 10px;">Search</button>
+            </aside>
+            
+    
+            <!-- Main Content -->
+            <main class="content">
+                <!-- Hero Slider -->
+                <div style="position: relative; width: 100%; max-width: 900px; margin: auto; border-radius: 8px; overflow: hidden;">
+                    <!-- Background Image -->
+                    <img src="Assets/Group 39581.png" alt="Plants" style="width: 100%; height: auto; display: block; border-radius: 8px;">
+                    
+                    <!-- Overlay Box with Opacity and Blur -->
+                    <div style="
+                        position: absolute; top: 15%; left: 5%; 
+                        background: rgba(0, 0, 0, 0.5); 
+                        padding: 20px; 
+                        border-radius: 8px; 
+                        backdrop-filter: blur(8px);
+                        width: 40vw; /* Responsive width */
+                        min-width: 250px; /* Minimum size for mobile */
+                        max-width: 400px;
+                    ">
+                        <h2 style="margin: 0; font-size: 2vw; font-weight: bold; color: white;">
+                            Welcome to PlantArk
+                        </h2>
+                        <p style="margin: 5px 0 15px; font-size: 1.8vw; color: white;">
+                            Online Marketplace <br> for Plants & Seeds
+                        </p>
+                        <button style="
+                            background: white; 
+                            color: black; 
+                            border: none; 
+                            padding: 10px 20px; 
+                            font-size: 1.5vw; 
+                            border-radius: 20px; 
+                            cursor: pointer;
+                        ">
+                            Join us
+                        </button>
+                    </div>
+                
+                    <!-- Dots Pagination -->
+                    <div style="
+                        position: absolute; 
+                        bottom: 10px; 
+                        left: 50%; 
+                        transform: translateX(-50%); 
+                        display: flex; 
+                        gap: 5px;
+                    ">
+                        <span style="width: 8px; height: 8px; background: gray; border-radius: 50%;"></span>
+                        <span style="width: 8px; height: 8px; background: rgb(71, 71, 71); border-radius: 50%;"></span>
+                        <span style="width: 8px; height: 8px; background: rgb(99, 98, 98); border-radius: 50%;"></span>
+                    </div>
+                </div>
+                
+                
+    
+                <!-- Features -->
+                <section style="display: flex; justify-content: center; gap: 20px; padding: 20px; flex-wrap: wrap;">
+                    <!-- Card 1 -->
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 280px; 
+                        padding: 20px; 
+                        border-radius: 12px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/seller.svg" alt="Verified Sellers" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 18px; font-weight: bold; margin: 0;">Verified Sellers</p>
+                        <p style="font-size: 14px; color: gray; margin: 5px 0 0;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, laborum.
+                        </p>
+                    </div>
+                
+                    <!-- Card 2 -->
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 280px; 
+                        padding: 20px; 
+                        border-radius: 12px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/online-survey.svg" alt="Free Listing" style="width: 60px; height: 60px; margin-bottom: 10px;">
+                        <p style="font-size: 18px; font-weight: bold; margin: 0;">Unlimited Free Listings</p>
+                        <p style="font-size: 14px; color: gray; margin: 5px 0 0;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, laborum.
+                        </p>
+                    </div>
+                
+                    <!-- Card 3 -->
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 280px; 
+                        padding: 20px; 
+                        border-radius: 12px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/handshake.svg" alt="Support" style="width: 60px; height: 60px; margin-bottom: 10px;">
+                        <p style="font-size: 18px; font-weight: bold; margin: 0;">Free Onboarding Support</p>
+                        <p style="font-size: 14px; color: gray; margin: 5px 0 0;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, laborum.
+                        </p>
+                    </div>
+                </section>
+                
+    
+                <!-- Products -->
+                <h1 style="padding: 20px;">Latest Products</h1>
+                <section style="display: flex; justify-content: center; gap: 20px; padding: 20px; flex-wrap: wrap;">
+                    <!-- Card 1 -->
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                
+                    <!-- Repeat the above card 4 more times for the row -->
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                </section>
+
+
+                <section style="display: flex; justify-content: center; gap: 20px; padding: 20px; flex-wrap: wrap;">
+                    <!-- Card 1 -->
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                
+                    <!-- Repeat the above card 4 more times for the row -->
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                </section>
+
+
+
+
+                <section style="display: flex; justify-content: center; gap: 20px; padding: 20px; flex-wrap: wrap;">
+                    <!-- Card 1 -->
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                
+                    <!-- Repeat the above card 4 more times for the row -->
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                
+                    <div style="
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        text-align: center;
+                        width: 180px; 
+                        padding: 20px; 
+                        border-radius: 20px; 
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        background: white;
+                    ">
+                        <img src="Assets/unsplash_T0inbt7nRME-Photoroom 1.png" alt="Hedera Canariensis" style="width: 100px; height: 100px; margin-bottom: 10px;">
+                        <p style="font-size: 16px; margin: 0;">Hedera Canariensis</p>
+                        <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">$90.99</p>
+                        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            background: white;
+                            border-radius: 20px;
+                            cursor: pointer;
+                        ">BUY NOW</button>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+       <div class="show-more" style="display: flex; align-items: center; justify-content: center;">
+        <button style="
+                            padding: 8px 15px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: green;
+                            border: 2px solid green;
+                            border-radius: 20px;
+                            cursor: pointer;
+                            background-color: #f5f5f5; color: #000000;
+                            width: 150px;
+                            height: 40px;
+                         ">Show more</button>
+       </div>
+
+
+
+       <!-- blog section-------------------------------------------------------------------------------------------------------- -->
+
+
+       <div style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f8f8f8; margin-top: 60px; margin-bottom: 70px;">
+
+        <div style="max-width: 1200px; margin: auto; padding: 50px 20px;">
+            <h2 style="text-align: center; font-size: 28px; color: #333;">Our Latest Posts</h2>
+    
+            <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+                
+                <!-- Card 1 -->
+                <div style="width: 32%; background: white; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+                    <img src="Assets/Rectangle 25.png" alt="Blog Image" style="width: 100%; height: auto;">
+                    <div style="padding: 15px;">
+                        <p style="font-size: 14px; color: #888; margin: 0;">18/07/2025</p>
+                        <h3 style="font-size: 18px; margin: 8px 0;">The principal alcohol in Purell hand sanitizer</h3>
+                        <p style="font-size: 14px; color: #666;">Yo Reddit! What’s a small thing that anyone can do at nearly anytime to improve their mood and make...</p>
+                        <p style="font-size: 12px; color: #aaa;">2 minutes ago</p>
+                    </div>
+                </div>
+    
+                <!-- Card 2 -->
+                <div style="width: 32%; background: white; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+                    <img src="Assets/Rectangle 25.png" alt="Blog Image" style="width: 100%; height: auto;">
+                    <div style="padding: 15px;">
+                        <p style="font-size: 14px; color: #888; margin: 0;">18/07/2025</p>
+                        <h3 style="font-size: 18px; margin: 8px 0;">The principal alcohol in Purell hand sanitizer</h3>
+                        <p style="font-size: 14px; color: #666;">Yo Reddit! What’s a small thing that anyone can do at nearly anytime to improve their mood and make...</p>
+                        <p style="font-size: 12px; color: #aaa;">2 minutes ago</p>
+                    </div>
+                </div>
+    
+                <!-- Card 3 -->
+                <div style="width: 32%; background: white; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+                    <img src="Assets/Rectangle 25.png" alt="Blog Image" style="width: 100%; height: auto;">
+                    <div style="padding: 15px;">
+                        <p style="font-size: 14px; color: #888; margin: 0;">18/07/2025</p>
+                        <h3 style="font-size: 18px; margin: 8px 0;">The principal alcohol in Purell hand sanitizer</h3>
+                        <p style="font-size: 14px; color: #666;">Yo Reddit! What’s a small thing that anyone can do at nearly anytime to improve their mood and make...</p>
+                        <p style="font-size: 12px; color: #aaa;">2 minutes ago</p>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+       </div>
+
+       <!-- FAQ------------------------------------------------------------------------------------>
+
+  <div style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #ffffff;">
+    <div style="max-width: 800px; margin: auto; padding: 50px 20px;">
+        <h2 style="text-align: center; font-size: 28px; color: #000;">FAQs</h2>
+
+        <div>
+
+            <!-- FAQ Item -->
+            <div style="border-bottom: 1px solid #ddd; padding: 15px; border-top: 1px solid #ddd; margin-top: 30px;">
+                <p style="margin: 0; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                    Can I buy plants without registering as a seller?  
+                    <i class="fa-solid fa-angle-down"></i>
+                </p>
+                <p style="margin-top: 5px; color: #555; font-size: 14px;">
+                    Yes, you can buy as many plants/seeds as you like without becoming a seller. Just register with PlantArk as a customer.
+                    <br><br>
+                    <a href="#" style="color: blue; text-decoration: none; display: inline-flex; align-items: center;">
+                        Contact our sales team 
+                        <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 5px;"></i>
+                    </a> 
+                    to learn more.
+                </p>
+            </div>
+
+            <div style="border-bottom: 1px solid #ddd; padding: 15px; margin-top: 10px;">
+                <p style="margin: 0; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                    How much does it cost to list plants for sale? 
+                    <i class="fa-solid fa-angle-down"></i>
+                </p>
+            </div>
+
+            <div style="border-bottom: 1px solid #ddd; padding: 15px; margin-top: 10px;">
+                <p style="margin: 0; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                    Who is responsible for the compliance? 
+                    <i class="fa-solid fa-angle-down"></i>
+                </p>
+            </div>
+
+            <div style="border-bottom: 1px solid #ddd; padding: 15px; margin-top: 10px;">
+                <p style="margin: 0; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                    What happens if I am not happy with the plants/seeds I have received? 
+                    <i class="fa-solid fa-angle-down"></i>
+                </p>
+            </div>
+
+            <div style="border-bottom: 1px solid #ddd; padding: 15px; margin-top: 10px;">
+                <p style="margin: 0; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                    What happens if I have made a purchase and I want to change my mind.  
+                    <i class="fa-solid fa-angle-down"></i>
+                </p>
+            </div>
+
+            <div style="border-bottom: 1px solid #ddd; padding: 15px; margin-top: 10px;">
+                <p style="margin: 0; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                    What does “bare rooted” mean?
+                    <i class="fa-solid fa-angle-down"></i>
+                </p>
+            </div>
+
+            <div style="border-bottom: 1px solid #ddd; padding: 15px; margin-top: 10px;">
+                <p style="margin: 0; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                    What if I need a tax invoice? 
+                    <i class="fa-solid fa-angle-down"></i>
+                </p>
+            </div>
+
+            <div style="border-bottom: 1px solid #ddd; padding: 15px; margin-top: 10px;">
+                <p style="margin: 0; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                    What type of payments do you accept?
+                    <i class="fa-solid fa-angle-down"></i>
+                </p>
+            </div>
+
+            <div style="padding: 15px;border-bottom: 1px solid #ddd; margin-top: 10px;">
+                <p style="margin: 0; font-size: 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                    How does Vercel calculate usage?  
+                    <i class="fa-solid fa-angle-down"></i>
+                </p>
+            </div>
+
+        </div>
+    </div>
+  </div>
+
+
+  <!-- footer----------------------------------------------------------------------------------------------------------- -->
+
+  <div style="margin: 0; font-family: Arial, sans-serif;">
+
+     <!-- Footer Section -->
+     <div style="background-color: #F4F4F4; padding: 40px 60px;">
+        
+        <!-- Subscription Box -->
+        <div style="background: white; padding: 20px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+            <div style="display: flex; align-items: center;">
+                <img src="your-image.jpg" alt="Plants" style="width: 100px; height: auto; margin-right: 20px;">
+                <div>
+                    <h2 style="color: green; margin: 0;">Grow with Us! - Sign up for News, Tips, and Special Offers</h2>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <input type="text" placeholder="Your Email Address..." style="padding: 10px; border: 1px solid green; border-radius: 5px;">
+                <button style="padding: 10px 20px; margin-left: 10px; background: green; color: white; border: none; border-radius: 5px;">SUBSCRIBE</button>
+            </div>
+        </div>
+
+        <!-- Footer Content -->
+        <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+            
+            <!-- Logo & About -->
+            <div style="width: 25%;">
+                <h3 style="color: green; margin: 0;">PLANTARK</h3>
+                <p style="color: #777; font-size: 14px;">Find that perfect plant</p>
+                <p style="color: #555; font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, laborom.</p>
+                <h4 style="margin-top: 20px;">We Accept</h4>
+                <img src="visa-mastercard.png" alt="Payment Methods" style="width: 80px;">
+            </div>
+
+            <!-- Popular Categories -->
+            <div style="width: 20%;">
+                <h4 style="margin-bottom: 10px;">Popular Categories</h4>
+                <p style="color: #555; font-size: 14px;">Aroids</p>
+                <p style="color: #555; font-size: 14px;">Australian Native Plants</p>
+                <p style="color: #555; font-size: 14px;">Indoor Plants</p>
+                <p style="color: #555; font-size: 14px;">Succulents</p>
+                <p style="color: #555; font-size: 14px;">Tropical Plants</p>
+            </div>
+
+            <!-- Account Information -->
+            <div style="width: 20%;">
+                <h4 style="margin-bottom: 10px;">Account Information</h4>
+                <p style="color: #555; font-size: 14px;">Login / Register</p>
+                <p style="color: #555; font-size: 14px;">Cart</p>
+            </div>
+
+            <!-- Support & Contact -->
+            <div style="width: 25%;">
+                <h4 style="margin-bottom: 10px;">Contact Us</h4>
+                <p style="font-size: 14px;"><b>Address:</b> Maroubra NSW, 2035 Sydney Australia</p>
+                <p style="font-size: 14px;"><b>Email:</b> inquiries@plantark.com.au</p>
+                <p style="font-size: 14px;">Customer Support</p>
+                <h4 style="margin-top: 20px;">Follow us on</h4>
+                <i class="fa-brands fa-facebook" style="font-size: 20px; margin-right: 10px;"></i>
+                <i class="fa-brands fa-instagram" style="font-size: 20px; margin-right: 10px;"></i>
+                <i class="fa-brands fa-youtube" style="font-size: 20px;"></i>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div style="margin-top: 40px; text-align: center;">
+            <p style="font-size: 14px; color: #777;">Our Vision & Mission | Fees | Sitemap | Privacy Policy | Terms & Conditions | FAQs</p>
+            <p style="font-size: 14px; color: green;">Copyright © 2025 PlantArk. All rights reserved.</p>
+        </div>
+        
+    </div>
+
+  </div>
+
+
+</body>
+</html>
+
+
+
+
