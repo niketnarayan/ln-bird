@@ -90,6 +90,9 @@ return cart.reduce(
 );
 };
 
+console.log(calculateTotalPrice);
+
+
 useEffect(() => {
 const total = calculateTotalPrice();
 setFormData(prevData => ({

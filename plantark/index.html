@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -68,63 +69,124 @@
                     <i class="fas fa-filter" style="margin-right: 5px;"></i> Filters
                 </h3>
         
-                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
-                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Type</h4>
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0; font-family: 'Poppins', sans-serif;">
+                    <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 5px;">Type</h4>
                     <div style="padding-left: 10px;">
-                        <label><input type="checkbox"> Seed (0)</label><br>
-                        <label><input type="checkbox"> Plant (55)</label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> Seed (0)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox"> Plant (55)
+                        </label>
                     </div>
                 </div>
         
-                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
-                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Foliage</h4>
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0; font-family: 'Poppins', sans-serif;">
+                    <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 5px;">Foliage</h4>
                     <div style="padding-left: 10px;">
-                        <label><input type="checkbox"> Evergreen (55)</label><br>
-                        <label><input type="checkbox"> Deciduous (0)</label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> Evergreen (55)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox"> Deciduous (0)
+                        </label>
                     </div>
                 </div>
         
-                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
-                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Mature height</h4>
-                    <div style="padding-left: 10px; max-height: 80px; overflow-y: auto;">
-                        <label><input type="checkbox"> 0 - 0.5m (40)</label><br>
-                        <label><input type="checkbox"> 0.5 - 1.0m (7)</label><br>
-                        <label><input type="checkbox"> 1.0 - 2.0m (7)</label>
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0; font-family: 'Poppins', sans-serif;">
+                    <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 5px;">Mature height</h4>
+                    <div style="padding-left: 10px; max-height: 80px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #bbb #f1f1f1;">
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> 0 - 0.5m (40)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> 0.5 - 1.0m (7)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> 1.0 - 2.0m (7)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> 2.0 - 3.0m (5)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> 3.0 - 4.0m (3)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox"> 4.0m+ (2)
+                        </label>
+                    </div>
+                </div>
+                
+        
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0; font-family: 'Poppins', sans-serif;">
+                    <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 5px;">Climate - Tolerance</h4>
+                    <div style="padding-left: 10px; max-height: 80px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #bbb #f1f1f1;">
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                            <input type="checkbox"> Frost Tolerant (0)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> Cold - Cool Temperature (5)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> Temperate (21)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> Temperate (22)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> Temperate (23)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox"> Temperate (24)
+                        </label>
                     </div>
                 </div>
         
-                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
-                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Climate - Tolerance</h4>
-                    <div style="padding-left: 10px; max-height: 80px; overflow-y: auto;">
-                        <label><input type="checkbox"> Frost Tolerant (0)</label><br>
-                        <label><input type="checkbox"> Cold - Cool Temperature (5)</label><br>
-                        <label><input type="checkbox"> Temperate (21)</label>
-                    </div>
-                </div>
-        
-                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
-                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Aspect</h4>
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0; font-family: 'Poppins', sans-serif;">
+                    <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 5px;">Aspect</h4>
                     <div style="padding-left: 10px;">
-                        <label><input type="checkbox"> Shade (4)</label><br>
-                        <label><input type="checkbox"> Semi-Shade (23)</label><br>
-                        <label><input type="checkbox"> Full Sun (27)</label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> Shade (4)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> Semi-Shade (23)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox"> Full Sun (27)
+                        </label>
                     </div>
                 </div>
         
-                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
-                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Flower Colour</h4>
-                    <div style="padding-left: 10px; max-height: 80px; overflow-y: auto;">
-                        <label><input type="checkbox"> White (7)</label><br>
-                        <label><input type="checkbox"> Cream (2)</label><br>
-                        <label><input type="checkbox"> Yellow (1)</label>
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0; font-family: 'Poppins', sans-serif;">
+                    <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 5px;">Flower Colour</h4>
+                    <div style="padding-left: 10px; max-height: 80px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #bbb #f1f1f1;">
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                            <input type="checkbox"> White (7)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> Cream (2)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> Yellow (1)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> Red (1)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox"> Pink (1)
+                        </label>
                     </div>
                 </div>
         
-                <div style="border-bottom: 1px solid #ddd; padding: 10px 0;">
-                    <h4 style="font-size: 14px; font-weight: bold; margin-bottom: 5px;">Water Use</h4>
+                <div style="border-bottom: 1px solid #ddd; padding: 10px 0; font-family: 'Poppins', sans-serif;">
+                    <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 5px;">Water Use</h4>
                     <div style="padding-left: 10px;">
-                        <label><input type="checkbox"> Low (34)</label><br>
-                        <label><input type="checkbox"> Medium (19)</label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <input type="checkbox"> Low (34)
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox"> Medium (19)
+                        </label>
                     </div>
                 </div>
         
@@ -829,20 +891,19 @@
 
   <div style="margin: 0; font-family: Arial, sans-serif;">
 
-     <!-- Footer Section -->
-     <div style="background-color: #F4F4F4; padding: 40px 60px;">
+    <!-- Footer Section -->
+    <div style="background-color: #F4F4F4; padding: 40px 60px;">
         
         <!-- Subscription Box -->
-        <div style="background: white; padding: 20px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
-            <div style="display: flex; align-items: center;">
-                <img src="your-image.jpg" alt="Plants" style="width: 100px; height: auto; margin-right: 20px;">
-                <div>
-                    <h2 style="color: green; margin: 0;">Grow with Us! - Sign up for News, Tips, and Special Offers</h2>
-                </div>
-            </div>
-            <div style="display: flex; align-items: center;">
-                <input type="text" placeholder="Your Email Address..." style="padding: 10px; border: 1px solid green; border-radius: 5px;">
-                <button style="padding: 10px 20px; margin-left: 10px; background: green; color: white; border: none; border-radius: 5px;">SUBSCRIBE</button>
+        <div style="max-width: 600px; margin: 20px auto; padding: 20px; border-radius: 12px; background: #f9f9f9; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); display: flex; align-items: center; gap: 20px; flex-wrap: wrap; overflow: hidden;">
+            <img src="Assets/17 1-Photoroom 1.png" alt="Plants in pots" style="width: 130px; height: 200px; border-radius: 8px; object-fit: contain; margin-top: 0;">
+            <div style="flex: 1;">
+                <p style="font-size: 18px; font-weight: bold; color: green; margin: 0;">Grow with Us! - Sign up for News, Tips, and Special Offers</p>
+                <form style="display: flex; border: 1px solid green; border-radius: 20px; overflow: hidden; margin-top: 10px;">
+                    <input type="email" placeholder="Your Email Address..." style="flex: 1; padding: 10px; border: none; outline: none;">
+                    <div style="width: 1px; background: green;"></div> <!-- Divider Line -->
+                    <button type="submit" style="background: white; color: green; padding: 10px 20px; border: none; cursor: pointer;">SUBSCRIBE</button>
+                </form>
             </div>
         </div>
 
@@ -851,52 +912,123 @@
             
             <!-- Logo & About -->
             <div style="width: 25%;">
-                <h3 style="color: green; margin: 0;">PLANTARK</h3>
-                <p style="color: #777; font-size: 14px;">Find that perfect plant</p>
-                <p style="color: #555; font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, laborom.</p>
-                <h4 style="margin-top: 20px;">We Accept</h4>
-                <img src="visa-mastercard.png" alt="Payment Methods" style="width: 80px;">
+               <img src="Assets/logo.png" style="margin-bottom: 15px;">
+                <p style="color: #555; font-size: 14px; line-height: 2.6;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, laborum.</p>
             </div>
 
             <!-- Popular Categories -->
             <div style="width: 20%;">
                 <h4 style="margin-bottom: 10px;">Popular Categories</h4>
-                <p style="color: #555; font-size: 14px;">Aroids</p>
-                <p style="color: #555; font-size: 14px;">Australian Native Plants</p>
-                <p style="color: #555; font-size: 14px;">Indoor Plants</p>
-                <p style="color: #555; font-size: 14px;">Succulents</p>
-                <p style="color: #555; font-size: 14px;">Tropical Plants</p>
+                <p style="color: #555; font-size: 14px; line-height: 2.6;">Aroids
+                </p>
+                <p style="color: #555; font-size: 14px; line-height: 2.6;">Australian Native Plants
+                </p>
+                <p style="color: #555; font-size: 14px; line-height: 2.6;">Indoor Plants
+                </p>
+                <p style="color: #555; font-size: 14px; line-height: 2.6;">Succulents
+                </p>
+                <p style="color: #555; font-size: 14px; line-height: 2.6;">Tropical Plants</p>
+                <p style="color: #555; font-size: 14px; line-height: 2.6;">Vertical Garden / Green Wall
+                </p>
             </div>
 
             <!-- Account Information -->
             <div style="width: 20%;">
                 <h4 style="margin-bottom: 10px;">Account Information</h4>
-                <p style="color: #555; font-size: 14px;">Login / Register</p>
-                <p style="color: #555; font-size: 14px;">Cart</p>
+                <p style="color: #555; font-size: 14px; line-height: 2.6;">Login / Register</p>
+                <p style="color: #555; font-size: 14px; line-height: 2.6;">Cart</p>
+            </div>
+
+             <!-- Account Information -->
+              <div style="width: 20%;">
+                <h4 style="margin-bottom: 10px;">Get support</h4>
+                <p style="color: #555; font-size: 14px; line-height: 2.6;">Help Center</p>
             </div>
 
             <!-- Support & Contact -->
             <div style="width: 25%;">
                 <h4 style="margin-bottom: 10px;">Contact Us</h4>
-                <p style="font-size: 14px;"><b>Address:</b> Maroubra NSW, 2035 Sydney Australia</p>
-                <p style="font-size: 14px;"><b>Email:</b> inquiries@plantark.com.au</p>
-                <p style="font-size: 14px;">Customer Support</p>
-                <h4 style="margin-top: 20px;">Follow us on</h4>
-                <i class="fa-brands fa-facebook" style="font-size: 20px; margin-right: 10px;"></i>
-                <i class="fa-brands fa-instagram" style="font-size: 20px; margin-right: 10px;"></i>
-                <i class="fa-brands fa-youtube" style="font-size: 20px;"></i>
+                <p style="font-size: 14px; line-height: 2.6;"><b>Address:</b> Maroubra NSW, 2035 Sydney Australia</p>
+                <p style="font-size: 14px; line-height: 2.6;"><b>Email:</b> inquiries@plantark.com.au</p>
+                <p style="font-size: 14px; line-height: 2.6;">Customer Support</p>
             </div>
         </div>
 
-        <!-- Footer Bottom -->
-        <div style="margin-top: 40px; text-align: center;">
-            <p style="font-size: 14px; color: #777;">Our Vision & Mission | Fees | Sitemap | Privacy Policy | Terms & Conditions | FAQs</p>
-            <p style="font-size: 14px; color: green;">Copyright © 2025 PlantArk. All rights reserved.</p>
+
+      
+
+
+
+         <!-- social icons & payment accept -->
+         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+    
+            <!-- Payment Section -->
+            <div>
+                <h4 style="margin-top: 20px;">We Accept</h4>
+                <img src="Assets/payment.png" alt="Payment Methods" style="width: 100px;">
+            </div>
+        
+            <!-- Social Media Icons -->
+            <div>
+                <h4 style="margin-top: 20px;">Follow us on</h4>
+                <i class="fa-brands fa-facebook-f" 
+                   style="font-size: 20px; margin-right: 10px; 
+                          color: white; background: #555; 
+                          padding: 10px; border-radius: 5px; 
+                          width: 40px; height: 40px; display: inline-flex; 
+                          align-items: center; justify-content: center;"></i>
+        
+                <i class="fa-brands fa-instagram" 
+                   style="font-size: 20px; margin-right: 10px; 
+                          color: white; background: #555; 
+                          padding: 10px; border-radius: 5px; 
+                          width: 40px; height: 40px; display: inline-flex; 
+                          align-items: center; justify-content: center;"></i>
+        
+                <i class="fa-brands fa-youtube" 
+                   style="font-size: 20px; 
+                          color: white; background: #555; 
+                          padding: 10px; border-radius: 5px; 
+                          width: 40px; height: 40px; display: inline-flex; 
+                          align-items: center; justify-content: center;"></i>
+            </div>
+        
         </div>
+        
+    
+
+
+        
+
+
+        <!-- Footer Bottom -->
+        <div style="margin-top: 40px; display: flex; justify-content: space-between; align-items: center; width: 100%;">
+    
+            <!-- Centered Text -->
+            <div style="flex: 1; display: flex; justify-content: center;">
+                <div style="text-align: center;">
+                    <p style="font-size: 14px; color: #777; line-height: 2.6;">
+                        Our Vision & Mission | Fees | Sitemap | Privacy Policy | Terms & Conditions | FAQs
+                    </p>
+                    <p style="font-size: 14px; color: #777; font-weight: bold;">
+                        Copyright © 2025 PlantArk. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Secure Image (Right Side) -->
+            <div>
+                <img src="Assets/secure.png" style="width: 150px;">
+            </div>
+        
+        </div>
+        
+        
         
     </div>
 
-  </div>
+</div>
+
 
 
 </body>
