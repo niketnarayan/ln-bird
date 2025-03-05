@@ -325,7 +325,7 @@ const[product1,setproduct1]=useState([])
 <div style={{ padding: "40px", marginBottom: "3rem", marginTop: "3rem", textAlign: "center" }}>
   <h1
     style={{
-      fontSize: "3.5rem",
+      fontSize: "3vw",
       fontFamily: "'ITC Modern No 216', serif",
       fontWeight: "bold",
       color: "#222",
@@ -336,7 +336,7 @@ const[product1,setproduct1]=useState([])
   </h1>
   <p
     style={{
-      fontSize: "20px",
+      fontSize: "1.3vw",
       fontFamily: "Georgia, serif",
       color: "#444",
       lineHeight: "1.8",
