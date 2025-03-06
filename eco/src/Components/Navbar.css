@@ -436,7 +436,7 @@
 /* Responsive Styles */
 
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .navbar-nav {
     flex-direction: column;
     align-items: flex-start;
@@ -476,5 +476,32 @@
   .d-flex.justify-content-end i {
     font-size: 25px;
   }
+
+  
+  #navbar1 {
+    display: none !important;
+  }
+
+  #navbar2 {
+    display: block !important;
+  }
+  
+} */
+
+/* @media (min-width: 769px) {
+  
+  #navbar1 {
+    display: block;
+  }
+
+  #navbar2 {
+    display: none;
+  }
 }
+
+
+
+ */
+
+
 

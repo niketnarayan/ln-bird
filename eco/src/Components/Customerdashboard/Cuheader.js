@@ -5,6 +5,10 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../cartcontext'
 import logo from '../Assets/Logo (2).png'
+import payment from '../Assets/payment.jpg'
+import upi from '../Assets/upi.avif'
+import Visa from '../Assets/visa.png'
+import rupay from '../Assets/rupay.avif'
 import api from '../api';
 import Swal from 'sweetalert2';
 import { jsPDF } from "jspdf";
@@ -634,6 +638,24 @@ useEffect(()=>
   ];
 
 
+
+const removeFromCart = (index) => {
+  const updatedCart = cart.filter((_, i) => i !== index);
+  setcart(updatedCart); 
+
+  // Show success message using SweetAlert
+  Swal.fire({
+    title: "Removed!",
+    text: "Your product has been removed from the cart.",
+    icon: "success",
+    confirmButtonText: "OK",
+  });
+};
+
+
+
+const [selectedPayment, setSelectedPayment] = useState("cod");
+
   return (
     <div>
  <div style={{position:"absolute",left:"0",right:"0",zIndex:"1000",top:"0"}}>
@@ -656,7 +678,7 @@ useEffect(()=>
             transform: "translateX(-50%)",
             fontSize: "40px",
             fontWeight: "400",
-            fontFamily: "serif",
+            fontFamily: '"ITC Modern No 216", serif',
           }}
         >
           Kiona
@@ -718,15 +740,15 @@ useEffect(()=>
                 <li className="dropdown-item" onClick={() => navigatecategory("shampoo")} style={{cursor:"pointer"}}>
                   Shampoo
                 </li>
-                <li className="dropdown-item" onClick={() => navigatecategory("soap")} style={{cursor:"pointer"}}>
+                {/* <li className="dropdown-item" onClick={() => navigatecategory("soap")} style={{cursor:"pointer"}}>
                   Soap
-                </li>
+                </li> */}
                 <li className="dropdown-item" onClick={() => navigatecategory("face wash")} style={{cursor:"pointer"}}>
                   Face Wash
                 </li>
-                <li className="dropdown-item" onClick={() => navigatecategory("hair serum")} style={{cursor:"pointer"}}>
+                {/* <li className="dropdown-item" onClick={() => navigatecategory("hair serum")} style={{cursor:"pointer"}}>
                   Hair Serum
-                </li>
+                </li> */}
                 <li className="dropdown-item" onClick={() => navigatecategory("hair oil")} style={{cursor:"pointer"}}>
                   Hair Oil
                 </li>
@@ -746,6 +768,11 @@ useEffect(()=>
               <Link className="nav-link no-hover" to="/contact">
                 Contact Us
               </Link>
+            </li>
+            <li className="nav-item">
+            <Link className="nav-link no-hover" to="/combo">
+            Combo
+            </Link>
             </li>
             {/* Terms & Conditions Dropdown */}
             <li className="nav-item dropdown">
@@ -1181,8 +1208,11 @@ style={{
        
         <div className="cart-item-price">
       ₹{((parseFloat(item.product_price) || 0) * 1).toFixed(2)} 
-      <span style={{marginLeft:"14rem"}}>Quantity {item.product_quantity1}</span>
+      <span style={{marginLeft:"12rem"}}>Quantity {item.product_quantity1}</span>
     </div>
+    <span onClick={() => removeFromCart(index)} style={{ cursor: "pointer", color: "red" }}>
+            <i className="fa-solid fa-trash"></i>
+          </span>
       </div>
       <div className="cart-item-actions">
         <button onClick={() => decrementQuantity(index)}>-</button>
@@ -1194,7 +1224,9 @@ style={{
         ))}
                <div className="cart-total">
                <h3>
-Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
+Total Price:  <span  >
+₹{orderdata.subtotal ? orderdata.subtotal.toFixed(2) : '0.00'}
+</span>
 </h3>
 </div>
 
@@ -1630,6 +1662,73 @@ Total Price: <span>₹{parseFloat(calculateTotalPrice()).toFixed(2)}</span>
 
   </div>
 </div>
+
+
+{/* payment method */}
+
+<div className="max-w-lg  p-4 border rounded-lg shadow-md bg-white" style={{width:"600px",marginTop:"30px"}}>
+            <h2 className="text-lg font-semibold">Payment</h2>
+            <p className="text-sm text-gray-500">All transactions are secure and encrypted.</p>
+
+            {/* GoKwik Cash on Delivery */}
+            <div
+              className={`border rounded-lg p-4 mt-4 cursor-pointer ${
+                selectedPayment === "cod" ? "border-blue-500 bg-blue-50" : "border-gray-300"
+              }`}
+              onClick={() => setSelectedPayment("cod")}
+            >
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  name="payment"
+                  checked={selectedPayment === "cod"}
+                  onChange={() => setSelectedPayment("cod")}
+                  className="mr-3"
+                />
+                <span className="font-medium">Cash On Delivery</span>
+                <span className="ml-auto">💰</span>
+              </div>
+
+              {selectedPayment === "cod" && (
+                <div className="mt-3 text-center border-t pt-3">
+                  <img src={payment} alt="Payment process" className="mx-auto" />
+                  <p className="text-sm text-gray-600 mt-2">
+                  You will be redirected to complete your Cash on Delivery order securely.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* PhonePe Payment Gateway */}
+            <div
+              className={`border rounded-lg p-4 mt-4 cursor-pointer ${
+                selectedPayment === "phonepe" ? "border-blue-500 bg-blue-50" : "border-gray-300"
+              }`}
+              onClick={() => setSelectedPayment("phonepe")}
+            >
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  name="payment"
+                  checked={selectedPayment === "phonepe"}
+                  onChange={() => setSelectedPayment("phonepe")}
+                  className="mr-3"
+                />
+                <span className="font-medium">PhonePe Payment Gateway (UPI, Cards & NetBanking)</span>
+              </div>
+              {selectedPayment === "phonepe" && (
+                <div className="mt-3 flex space-x-2 border-t pt-3">
+                  <img src={upi} alt="UPI" style={{ width: "60px", height: "40px" }} />
+                  <img src={Visa} alt="Visa" style={{ width: "60px", height: "40px" }} />
+                  <img src={rupay} alt="Rupay" style={{ width: "60px", height: "40px" }} />
+                </div>
+              )}
+            </div>
+          </div>
+
+
+
+
 
     </Modal.Body>
     <Modal.Footer>

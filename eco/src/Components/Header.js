@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./Navbar.css";
+import "../Components/Navbar.css";
 import { Modal, Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from './cartcontext'
@@ -14,6 +14,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function Header() {
 const [utocken, setutocken] = useState('')
 
+localStorage.getItem('token')
 
 const {cart,setcart}=useCart()
 const [formData, setFormData] = useState({
@@ -490,6 +491,25 @@ const [isOpen, setIsOpen] = useState(false);
 
 
 
+
+
+const removeFromCart = (index) => {
+  const updatedCart = cart.filter((_, i) => i !== index);
+  setcart(updatedCart); 
+
+  // Show success message using SweetAlert
+  Swal.fire({
+    title: "Removed!",
+    text: "Your product has been removed from the cart.",
+    icon: "success",
+    confirmButtonText: "OK",
+  });
+};
+
+
+
+
+
 return (
 
 <>
@@ -500,7 +520,7 @@ return (
 
 <div style={{position:"fixed",left:"0",right:"0",zIndex:"1000",top:"0"}}>
 <nav
-className="navbar navbar-expand-lg"
+className="navbar navbar-expand-lg" id="navbar1"
 style={{
 backgroundColor: "#f8f9f3",
 height: "120px",
@@ -531,10 +551,10 @@ left: "50%",
 transform: "translateX(-50%)",
 fontSize: "40px",
 fontWeight: "400",
-fontFamily: "serif",
+fontFamily: '"ITC Modern No 216", serif',
 }}
 >
-Kiona
+KIONA
 </div>
 
 {/* Cart and User Icons on the Right */}
@@ -626,15 +646,227 @@ Product
 <li className="dropdown-item" onClick={() => navigatecategory("shampoo")} style={{cursor:"pointer"}}>
 Shampoo
 </li>
-<li className="dropdown-item" onClick={() => navigatecategory("soap")} style={{cursor:"pointer"}}>
+{/* <li className="dropdown-item" onClick={() => navigatecategory("soap")} style={{cursor:"pointer"}}>
 Soap
-</li>
+</li> */}
 <li className="dropdown-item" onClick={() => navigatecategory("face wash")} style={{cursor:"pointer"}}>
 Face Wash
 </li>
-<li className="dropdown-item" onClick={() => navigatecategory("hair serum")} style={{cursor:"pointer"}}>
+{/* <li className="dropdown-item" onClick={() => navigatecategory("hair serum")} style={{cursor:"pointer"}}>
 Hair Serum
+</li> */}
+<li className="dropdown-item" onClick={() => navigatecategory("hair oil")} style={{cursor:"pointer"}}>
+Hair Oil
 </li>
+</ul>
+</li>
+<li className="nav-item">
+<Link className="nav-link no-hover" to="/blog1">
+Blogs
+</Link>
+</li>
+<li className="nav-item">
+<Link className="nav-link no-hover" to="/track-order">
+Track Your Order
+</Link>
+</li>
+<li className="nav-item">
+<Link className="nav-link no-hover" to="/contact">
+Contact Us
+</Link>
+</li>
+<li className="nav-item">
+<Link className="nav-link no-hover" to="/combo">
+Combo
+</Link>
+</li>
+{/* Terms & Conditions Dropdown */}
+<li className="nav-item dropdown">
+<a
+className="nav-link dropdown-toggle no-hover"
+href="#"
+id="termsDropdown"
+role="button"
+data-bs-toggle="dropdown"
+aria-expanded="false"
+>
+Terms & Conditions
+</a>
+<ul className="dropdown-menu" aria-labelledby="termsDropdown">
+<li>
+<Link className="dropdown-item" to="/privacypolicy">
+Privacy Policy
+</Link>
+</li>
+<li>
+<Link className="dropdown-item" to="/ewaste">
+E-Waste Policy
+</Link>
+</li>
+<li>
+<Link className="dropdown-item" to="/cancelpolicy">
+Cancellation & Return Policy
+</Link>
+</li>
+<li>
+<Link className="dropdown-item" to="/deliverycancel">
+Shipping & Delivery Policy
+</Link>
+</li>
+<li>
+<Link className="dropdown-item" to="/faq">
+FAQ
+</Link>
+</li>
+<li>
+<Link className="dropdown-item" to="/term&condition">
+Terms & Conditions
+</Link>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+<nav
+className="navbar navbar-expand-lg" id="navbar2"
+style={{
+backgroundColor: "#f8f9f3",
+height: "120px",
+position: "relative",
+display:"none",
+}}
+>
+<div className="container-fluid">
+{/* Mobile Toggle Button on the Left */}
+<button
+className="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav"
+aria-controls="navbarNav"
+aria-expanded="false"
+aria-label="Toggle navigation"
+style={{ width: "fit-content", color: "#000", marginLeft: "10px" }}
+>
+<i className="fa-solid fa-bars"></i>
+</button>
+
+{/* Brand Name Centered */}
+<div
+style={{
+position: "absolute",
+top: "20px",
+left: "50%",
+transform: "translateX(-50%)",
+fontSize: "40px",
+fontWeight: "400",
+fontFamily: '"ITC Modern No 216", serif',
+}}
+>
+KIONA
+</div>
+
+{/* Cart and User Icons on the Right */}
+<div
+className="d-flex justify-content-end align-items-center"
+style={{
+position: "absolute",
+top: "40px",
+right: "20px",
+gap: "20px",
+}}
+>
+{/* Cart Icon with Badge */}
+<div style={{ position: "relative", cursor: "pointer" }} onClick={handleShow1}>
+<i className="fas fa-cart-shopping" style={{ fontSize: "25px", color: "#333" }}></i>
+{length > 0 && (
+<span
+style={{
+position: "absolute",
+top: "-5px",
+right: "-10px",
+background: "red",
+color: "white",
+fontSize: "12px",
+fontWeight: "bold",
+padding: "3px 6px",
+borderRadius: "50%",
+minWidth: "20px",
+textAlign: "center",
+boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
+}}
+>
+{length}
+</span>
+)}
+</div>
+
+{/* User Icon */}
+<i
+onClick={handleShow}
+className="fa-regular fa-user"
+style={{
+fontSize: "25px",
+color: "#333",
+cursor: "pointer",
+}}
+></i>
+</div>
+
+{/* Navigation Links */}
+<div
+className="collapse navbar-collapse justify-content-center"
+id="navbarNav"
+style={{ marginTop: "80px" }}
+>
+<ul
+className="navbar-nav"
+style={{
+gap: "20px",
+display: "flex",
+alignItems: "center",
+fontSize: "12px",
+fontWeight: "600",
+}}
+>
+<li className="nav-item">
+<Link className="nav-link no-hover" to="/">
+Home
+</Link>
+</li>
+<li className="nav-item">
+<Link className="nav-link no-hover" to="/aboutus">
+About Us
+</Link>
+</li>
+{/* Product Range Dropdown */}
+<li className="nav-item dropdown">
+<a
+className="nav-link dropdown-toggle no-hover" 
+href="#"
+id="navbarDropdown"
+role="button"
+data-bs-toggle="dropdown"
+aria-expanded="false"
+>
+Product
+</a>
+<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+<li className="dropdown-item" onClick={() => navigatecategory("shampoo")} style={{cursor:"pointer"}}>
+Shampoo
+</li>
+{/* <li className="dropdown-item" onClick={() => navigatecategory("soap")} style={{cursor:"pointer"}}>
+Soap
+</li> */}
+<li className="dropdown-item" onClick={() => navigatecategory("face wash")} style={{cursor:"pointer"}}>
+Face Wash
+</li>
+{/* <li className="dropdown-item" onClick={() => navigatecategory("hair serum")} style={{cursor:"pointer"}}>
+Hair Serum
+</li> */}
 <li className="dropdown-item" onClick={() => navigatecategory("hair oil")} style={{cursor:"pointer"}}>
 Hair Oil
 </li>
@@ -992,8 +1224,12 @@ alt="Product"
 
 <div className="cart-item-price">
 ₹{((parseFloat(item.product_price) || 0) * 1).toFixed(2)}
-<span style={{marginLeft:"14rem"}}>Quantity {item.product_quantity1}</span>
+<span style={{marginLeft:"12rem"}}>Quantity {item.product_quantity1}</span>
+
 </div>
+<span onClick={() => removeFromCart(index)} style={{ cursor: "pointer", color: "red" }}>
+            <i className="fa-solid fa-trash"></i>
+          </span>
 </div>
 <div className="cart-item-actions">
 <button onClick={() => decrementQuantity(index)}>-</button>

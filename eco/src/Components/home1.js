@@ -17,10 +17,13 @@ import Swal from 'sweetalert2';
 
 
 function Home1() {
-  const [cartMessage, setCartMessage] = useState("");
+  // const [cartMessage, setCartMessage] = useState("");
   const [comboProduct, setcomboproduct] = useState([])
   const [singleProduct, setsingleProduct] = useState([])
   const [showAll1, setShowAll1] = useState(false);
+  const [cartMessage, setCartMessage] = useState({}); // Individual messages for each product
+  const [buttonColors, setButtonColors] = useState({}); // Track button color per product
+
 
   const navigatecategory=(data)=>
     {
@@ -120,34 +123,39 @@ const[product1,setproduct1]=useState([])
       
 
       const handleprouctadd = (product) => {
-        // Check if the product already exists in the cart
         const isProductInCart = cart.some((item) => item._id === product._id);
-        if (!isProductInCart) {
-          // Add the product to the cart if it's not already present
-          setcart([...cart, product]);
-          setCartMessage((prev) => ({
-            ...prev,
-            [product._id]: "Your product has been added to the cart!",
-          }));
-      
-          // Hide the message after 2 seconds
-          setTimeout(() => {
-            setCartMessage((prev) => ({
-              ...prev,
-              [product._id]: "",
-            }));
-          }, 2000);
 
+    if (!isProductInCart) {
+      // Add product to the cart
+      setcart([...cart, product]); // Updated variable name
 
+      // Change button color for the clicked product
+      setButtonColors((prev) => ({
+        ...prev,
+        [product._id]: "#AEEA94",
+      }));
 
-        } else {
-          Swal.fire({
-                        title: 'Error!',
-                        text: 'Product alredy in your cart',
-                        icon: 'Error',
-                        confirmButtonText: 'OK',
-                      });
-        }
+      // Set cart message
+      setCartMessage((prev) => ({
+        ...prev,
+        [product._id]: "Your product has been added to the cart!",
+      }));
+
+      // Hide the message after 2 seconds
+      setTimeout(() => {
+        setCartMessage((prev) => ({
+          ...prev,
+          [product._id]: "",
+        }));
+      }, 2000);
+    } else {
+      Swal.fire({
+        title: "Error!",
+        text: "Product already in your cart",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
       };
 
 
@@ -323,7 +331,7 @@ const[product1,setproduct1]=useState([])
 
 {/* content start------------------------------------------------------------------- */}
 <div style={{ padding: "40px", marginBottom: "3rem", marginTop: "3rem", textAlign: "center" }}>
-  <h1
+  <h1 id="content1"
     style={{
       fontSize: "3vw",
       fontFamily: "'ITC Modern No 216', serif",
@@ -661,7 +669,7 @@ Combo Products
             onClick={() => handleprouctadd(product)}
             className="add-to-cart-btn"
             style={{
-              backgroundColor: "#c8b89a",
+              backgroundColor: buttonColors[product._id] || "#c8b89a",
               color: "white",
               border: "none",
               padding: "12px 30px",
@@ -676,6 +684,36 @@ Combo Products
           >
             Add to Cart
           </button>
+
+          {/* Display message if available */}
+          {cartMessage[product._id] && (
+  <p
+    style={{
+      color: "#fff", // White text for contrast
+      fontSize: "0.9rem",
+      fontWeight: "600",
+      background: "linear-gradient(45deg, #4CAF50, #45A049)", // Smooth green gradient
+      padding: "10px 15px",
+      borderRadius: "8px",
+      marginTop: "10px",
+      display: "inline-block",
+      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.15)", // Soft shadow effect
+      borderLeft: "4px solid #2E7D32", // Left border for a card-like feel
+      textAlign: "center",
+      letterSpacing: "0.5px",
+      transition: "transform 0.3s ease-in-out", // Animation on hover
+    }}
+    onMouseEnter={(e) => (e.target.style.transform = "scale(1.05)")} // Slight zoom on hover
+    onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+  >
+    ✅ {cartMessage[product._id]}
+  </p>
+)}
+
+
+
+
+
         </div>
       </div>
       </React.Fragment>
@@ -852,6 +890,9 @@ Combo Products
             grid-column: span 12 !important;
             height: 250px;
           }
+            #content1{
+            color:red;
+            }
 
           .overlay h5 {
             font-size: 1.4rem;
@@ -990,7 +1031,7 @@ Incredible Products
             onClick={() => handleprouctadd(product)}
             className="add-to-cart-btn"
             style={{
-              backgroundColor: "#c8b89a",
+              backgroundColor: buttonColors[product._id] || "#c8b89a",
               color: "white",
               border: "none",
               padding: "12px 30px",
@@ -1005,6 +1046,33 @@ Incredible Products
           >
             Add to Cart
           </button>
+
+          {/* Display message if available */}
+          {cartMessage[product._id] && (
+  <p
+    style={{
+      color: "#fff", // White text for contrast
+      fontSize: "0.9rem",
+      fontWeight: "600",
+      background: "linear-gradient(45deg, #4CAF50, #45A049)", // Smooth green gradient
+      padding: "10px 15px",
+      borderRadius: "8px",
+      marginTop: "10px",
+      display: "inline-block",
+      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.15)", // Soft shadow effect
+      borderLeft: "4px solid #2E7D32", // Left border for a card-like feel
+      textAlign: "center",
+      letterSpacing: "0.5px",
+      transition: "transform 0.3s ease-in-out", // Animation on hover
+    }}
+    onMouseEnter={(e) => (e.target.style.transform = "scale(1.05)")} // Slight zoom on hover
+    onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+  >
+    ✅ {cartMessage[product._id]}
+  </p>
+)}
+
+
         </div>
       </div>
       </React.Fragment>
@@ -1410,6 +1478,31 @@ Incredible Products
             >
               Shop Now
             </a>
+             {/* Display message if available */}
+         {cartMessage[product._id] && (
+  <p
+    style={{
+      color: "#fff", // White text for contrast
+      fontSize: "0.9rem",
+      fontWeight: "600",
+      background: "linear-gradient(45deg, #4CAF50, #45A049)", // Smooth green gradient
+      padding: "10px 15px",
+      borderRadius: "8px",
+      marginTop: "10px",
+      display: "inline-block",
+      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.15)", // Soft shadow effect
+      borderLeft: "4px solid #2E7D32", // Left border for a card-like feel
+      textAlign: "center",
+      letterSpacing: "0.5px",
+      transition: "transform 0.3s ease-in-out", // Animation on hover
+      cursor:"pointer",
+    }}
+    onMouseEnter={(e) => (e.target.style.transform = "scale(1.05)")} // Slight zoom on hover
+    onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+  >
+    ✅ {cartMessage[product._id]}
+  </p>
+)}
           </div>
           </div>
 

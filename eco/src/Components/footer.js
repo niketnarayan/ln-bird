@@ -25,8 +25,6 @@ function Footer() {
             <li>Gold Scrub Face Wash </li>
             <li>Anti Hair fall Shampoo </li>
             <li>Rosemary hair oil </li>
-            <li>Hair Serum </li>
-            <li>Gluta Soap   </li>
           </ul>
 
           <div className="social-media-icons">
@@ -50,8 +48,6 @@ function Footer() {
           <h3>Popular Categories</h3>
           <ul>
             <li>Anti Hair fall Shampoo</li>
-            <li>Gluta Soap </li>
-            <li>Hair Serum</li>
             <li>Rosemary hair oil</li>
             <li>Anti-Acne Face Wash </li>
             <li>Beauty</li>
@@ -85,12 +81,9 @@ function Footer() {
         <div className="col-md-4 col-sm-12 col-12 footer-column">
           <h3>Contact Us</h3>
           <p>
-            WhatsApp us: <a href="tel:7000370003">70003 70003</a>
+          support@kiona.com
           </p>
-          <p>
-            Call us: <a href="tel:18008901222">1800 890 1222</a>
-          </p>
-          <p>8:00 AM to 8:00 PM, 365 days</p>
+          <p>10:00 AM to 6:00 PM, 365 days</p>
           <p>Should you encounter any issues with the website.</p>
           <ul>
           <li><a href="/Contactus">Contact Us</a></li>

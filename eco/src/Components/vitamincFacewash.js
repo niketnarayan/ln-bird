@@ -18,6 +18,9 @@ function VitamincFacewash() {
   const [Products, setProducts] = useState([]);
   const [category, setcategory] = useState("");
   const [activeTab, setActiveTab] = useState("description"); // 🟢 State for Tab Switching
+   const [cartMessage, setCartMessage] = useState({}); // Individual messages for each product
+    const [buttonColors, setButtonColors] = useState({}); // Track button color per product
+  
 
   const [pid,setpid]=useState("")
   const getproduct = async () => {
@@ -60,12 +63,39 @@ function VitamincFacewash() {
 
   // Add to Cart function
   const handleprouctadd = (product) => {
-    const isProductInCart = cart.some((item) => item.name === product.name);
-    if (!isProductInCart) {
-      setcart([...cart, product]);
-    } else {
-      alert(`${product.name} is already in the cart.`);
-    }
+     const isProductInCart = cart.some((item) => item._id === product._id);
+    
+        if (!isProductInCart) {
+          // Add product to the cart
+          setcart([...cart, product]); // Updated variable name
+    
+          // Change button color for the clicked product
+          setButtonColors((prev) => ({
+            ...prev,
+            [product._id]: "#AEEA94",
+          }));
+    
+          // Set cart message
+          setCartMessage((prev) => ({
+            ...prev,
+            [product._id]: "Your product has been added to the cart!",
+          }));
+    
+          // Hide the message after 2 seconds
+          setTimeout(() => {
+            setCartMessage((prev) => ({
+              ...prev,
+              [product._id]: "",
+            }));
+          }, 2000);
+        } else {
+          Swal.fire({
+            title: "Error!",
+            text: "Product already in your cart",
+            icon: "error",
+            confirmButtonText: "OK",
+          });
+        }
   };
 
 
@@ -198,7 +228,7 @@ function VitamincFacewash() {
            onClick={() => handleprouctadd(product)}
             style={{
               padding: "10px 20px",
-              backgroundColor: "#f4c150",
+              backgroundColor: buttonColors[product._id] || "#c8b89a",
               border: "none",
               borderRadius: "5px",
               cursor: "pointer",
@@ -207,6 +237,8 @@ function VitamincFacewash() {
           >
             ADD TO CART
           </button>
+
+         
           <button
             style={{
               padding: "10px 20px",
@@ -219,6 +251,35 @@ function VitamincFacewash() {
             ADD TO WISHLIST
           </button>
         </div>
+
+
+  {/* Display message if available */}
+  {cartMessage[product._id] && (
+  <p
+    style={{
+      color: "#fff", // White text for contrast
+      fontSize: "0.9rem",
+      fontWeight: "600",
+      background: "linear-gradient(45deg, #4CAF50, #45A049)", // Smooth green gradient
+      padding: "10px 15px",
+      borderRadius: "8px",
+      marginTop: "10px",
+      display: "inline-block",
+      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.15)", // Soft shadow effect
+      borderLeft: "4px solid #2E7D32", // Left border for a card-like feel
+      textAlign: "center",
+      letterSpacing: "0.5px",
+      transition: "transform 0.3s ease-in-out", // Animation on hover
+    }}
+    onMouseEnter={(e) => (e.target.style.transform = "scale(1.05)")} // Slight zoom on hover
+    onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+  >
+    ✅ {cartMessage[product._id]}
+  </p>
+)}
+
+
+        
         <div style={{ marginTop: "20px", fontSize: "14px", color: "#555" }}>
           <p>SKU: {product.product_sku}</p>
           <p>Categories: {product.product_category}</p>
@@ -503,7 +564,7 @@ function VitamincFacewash() {
             onClick={() => handleprouctadd(product)}
             className="add-to-cart-btn"
             style={{
-              backgroundColor: "#c8b89a",
+              backgroundColor:  buttonColors[product._id] || "#c8b89a",
               color: "white",
               border: "none",
               padding: "12px 30px",
@@ -518,6 +579,32 @@ function VitamincFacewash() {
           >
             Add to Cart
           </button>
+
+           {/* Display message if available */}
+           {cartMessage[product._id] && (
+  <p
+    style={{
+      color: "#fff", // White text for contrast
+      fontSize: "0.9rem",
+      fontWeight: "600",
+      background: "linear-gradient(45deg, #4CAF50, #45A049)", // Smooth green gradient
+      padding: "10px 15px",
+      borderRadius: "8px",
+      marginTop: "10px",
+      display: "inline-block",
+      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.15)", // Soft shadow effect
+      borderLeft: "4px solid #2E7D32", // Left border for a card-like feel
+      textAlign: "center",
+      letterSpacing: "0.5px",
+      transition: "transform 0.3s ease-in-out", // Animation on hover
+    }}
+    onMouseEnter={(e) => (e.target.style.transform = "scale(1.05)")} // Slight zoom on hover
+    onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+  >
+    ✅ {cartMessage[product._id]}
+  </p>
+)}
+
         </div>
       </div>
     ))}

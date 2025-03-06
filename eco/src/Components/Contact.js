@@ -69,7 +69,8 @@ function Contact() {
     <div className='row'>
         <div className='col'>
           <span style={{fontSize:"40px", fontWeight:"bold"}}>Get In Touch</span>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita quaerat unde quam dolor culpa veritatis inventore, aut commodi eum veniam vel.</p>
+          <p>We value your questions and feedback. Get in touch with us for business inquiries, collaborations, or support.</p>
+
         </div>
     </div>
 </div>
@@ -79,15 +80,16 @@ function Contact() {
     <div className="col-md-4" style={{ textAlign: "center", backgroundColor: "#f3f3f6", height: "13rem",width:"20rem", borderRadius:"10px"}}>
       <div style={{marginTop:"40px"}}>
         <i className="fa-solid fa-location-dot" style={{ fontSize: "40px" }}></i><br />
-        <span>102 Street 2714 Donovan</span>
-        <p>Lorem ipsum dolor sit amet consectetur</p>
+        <span>Office No. 326, Kashi plaza,</span>
+        <p>kamrej, Surat pincode - 394185</p>
       </div>
     </div>
     <div className="col-md-4" style={{ textAlign: "center", backgroundColor: "#f3f3f6",height: "13rem",width:"20rem",borderRadius:"10px" }}>
       <div style={{marginTop:"40px"}}>
         <i className="fa-solid fa-phone-volume" style={{ fontSize: "40px" }}></i><br />
-        <span>+02 1234 567 88</span>
-        <p>Lorem ipsum dolor sit amet consectetur</p>
+        <span>support@kiona.con</span>
+        <p>Need assistance? Our support team is here 24/7 to help you!</p>
+
       </div>
     </div>
     <div className="col-md-4" style={{ textAlign: "center", backgroundColor: "#f3f3f6",height: "13rem",width:"20rem",borderRadius:"10px" }}>
