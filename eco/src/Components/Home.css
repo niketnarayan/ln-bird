@@ -119,9 +119,14 @@ body{
   }                                                                                                     
 } */
 
-.product-name-title, .grocery-heading, .kiona-tales, .revie-div {
+ .grocery-heading, .kiona-tales, .revie-div {
   font-family: "ITC Modern No 216", serif;
   font-size: 2.5rem;
+}
+
+.product-name-title{
+  font-family: "ITC Modern No 216", serif;
+  font-size: 1.8vw;
 }
 
 .empty-div {

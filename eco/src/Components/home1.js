@@ -13,6 +13,9 @@ import Carousel from 'react-bootstrap/Carousel';
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Swal from 'sweetalert2';
+import combo1 from '../Components/Assets/Combo product image (800X477) 1.jpg';
+import combo2 from '../Components/Assets/Combo product image (800X477) 2.jpg';
+import combo3 from '../Components/Assets/Combo product image (800X477) 3.jpg';
 
 
 
@@ -92,29 +95,31 @@ const[product1,setproduct1]=useState([])
   const Combo = [
     {
       _id: "1",
-      product_name: "Hair Care",
-      product_image: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
+      product_name: "Rosemary hair oil 100ml + Anti-Acne Face Wash 100 ml + Anti Hair fall Shampoo 200ml",
+      product_image: combo1, 
       description: "Unleash the power of Earth's essential bounty for naturally beautiful hair.",
-      product_price: 599,
+      product_price: 1196,
       product_quantity1: 1,
     },
     {
       _id: "2",
-      product_name: "Face Care",
-      product_image: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
+      product_name: "Rosemary hair oil 100ml + Gold Scrub Face Wash 100ml+ Anti-Acne Face Wash 100ml",
+      product_image: combo2,
       description: "Embrace radiance naturally with the science of Earth's bounty.",
-      product_price: 599,
+      product_price: 1045,
       product_quantity1: 1,
     },
     {
       _id: "3",
-      product_name: "Body Care",
-      product_image: "https://thumbs.dreamstime.com/b/composition-containers-global-cosmetics-brands-poznan-poland-dec-plastic-body-care-products-including-widely-available-106604090.jpg",
+      product_name: "Rosemary hair oil 100ml + Gold Scrub Face Wash 100ml+ Anti-Acne Face Wash 100ml",
+      product_image: combo3,
       description: "Elevate your daily bath with Earth's nourishing touch for a rejuvenated you.",
-      product_price: 599,
+      product_price: 1045,
       product_quantity1: 1,
     },
   ];
+  console.log(Combo);
+  
 
 
    
