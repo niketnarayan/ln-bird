@@ -17,6 +17,7 @@ import Bread from './Components/Bread';
 import Frozen from './Components/Frozen';
 import Snacks from './Components/Snacks';
 import Grocery from './Components/Grocery';
+import Demo from './Components/Demo';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
    <div>
 
 <BrowserRouter> 
-    <Routes>
+    {/* <Routes>
     <Route path='/' element={<Home/>}/>
       <Route path='/Contactus' element={<Contactus/>}/>
       <Route path='/fruits' element={<Fruitsveg/>}/>
@@ -37,7 +38,7 @@ function App() {
       <Route path='/grocery' element={<Grocery/>}/>
         
       
-    </Routes>
+    </Routes> */}
     
     {/* <Fruitsveg/> */}
     {/* <Chickenmeat/> */}
@@ -45,6 +46,7 @@ function App() {
     {/* <Beverage/> */}
     {/* <Bread/> */}
      </BrowserRouter>
+     <Demo/>
  
  
      

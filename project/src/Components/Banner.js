@@ -14,6 +14,8 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 import { Tab, Tabs, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import kiranawala from "../Components/Assests/mr. Kirana logo.png";
+import kiranawala1 from "../Components/Assests/1.png";
+
 
 function Banner() {
   const [quantity, setQuantity] = useState(1);
@@ -48,8 +50,7 @@ function Banner() {
       price: 88.99,
       originalPrice: 100.88,
       discount: "15.83% OFF",
-      image:
-        "https://tbn-prod-assets.s3.ap-south-1.amazonaws.com/PROD_IMG/104456709_1.webp",
+      image:{kiranawala1},
         quantity: 1,
     },
     {

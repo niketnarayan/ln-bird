@@ -62,41 +62,50 @@ function VitamincFacewash() {
   const { cart, setcart } = useCart();
 
   // Add to Cart function
-  const handleprouctadd = (product) => {
+     const handleprouctadd = (product) => {
      const isProductInCart = cart.some((item) => item._id === product._id);
-    
-        if (!isProductInCart) {
-          // Add product to the cart
-          setcart([...cart, product]); // Updated variable name
-    
-          // Change button color for the clicked product
-          setButtonColors((prev) => ({
-            ...prev,
-            [product._id]: "#AEEA94",
-          }));
-    
-          // Set cart message
-          setCartMessage((prev) => ({
-            ...prev,
-            [product._id]: "Your product has been added to the cart!",
-          }));
-    
-          // Hide the message after 2 seconds
-          setTimeout(() => {
-            setCartMessage((prev) => ({
-              ...prev,
-              [product._id]: "",
-            }));
-          }, 2000);
-        } else {
-          Swal.fire({
-            title: "Error!",
-            text: "Product already in your cart",
-            icon: "error",
-            confirmButtonText: "OK",
-          });
-        }
-  };
+   
+     if (!isProductInCart) {
+       // Add product to the cart
+       setcart([...cart, product]);
+   
+       // Change button color for the clicked product
+       setButtonColors((prev) => ({
+         ...prev,
+         [product._id]: "#FF5F00",
+       }));
+   
+       // Revert button color after 1 second
+       setTimeout(() => {
+         setButtonColors((prev) => ({
+           ...prev,
+           [product._id]: "#c8b89a", // Original color
+         }));
+       }, 1000);
+   
+       // Set cart message
+       setCartMessage((prev) => ({
+         ...prev,
+         [product._id]: "Your product has been added to the cart!",
+       }));
+   
+       // Hide the message after 2 seconds
+       setTimeout(() => {
+         setCartMessage((prev) => ({
+           ...prev,
+           [product._id]: "",
+         }));
+       }, 2000);
+     } else {
+       Swal.fire({
+         title: "Error!",
+         text: "Product already in your cart",
+         icon: "error",
+         confirmButtonText: "OK",
+       });
+     }
+   };
+   
 
 
      const navigate=useNavigate()
@@ -239,7 +248,7 @@ function VitamincFacewash() {
           </button>
 
          
-          <button
+          {/* <button
             style={{
               padding: "10px 20px",
               backgroundColor: "#ddd",
@@ -249,7 +258,7 @@ function VitamincFacewash() {
             }}
           >
             ADD TO WISHLIST
-          </button>
+          </button> */}
         </div>
 
 
@@ -564,7 +573,7 @@ function VitamincFacewash() {
             onClick={() => handleprouctadd(product)}
             className="add-to-cart-btn"
             style={{
-              backgroundColor:  buttonColors[product._id] || "#c8b89a",
+              backgroundColor:  buttonColors[product._id] || "rgb(51, 51, 51)",
               color: "white",
               border: "none",
               padding: "12px 30px",

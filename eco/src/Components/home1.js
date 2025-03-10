@@ -16,6 +16,7 @@ import Swal from 'sweetalert2';
 import combo1 from '../Components/Assets/Combo product image (800X477) 1.jpg';
 import combo2 from '../Components/Assets/Combo product image (800X477) 2.jpg';
 import combo3 from '../Components/Assets/Combo product image (800X477) 3.jpg';
+import three from '../Components/Assets/2 Combo 1.jpg';
 
 
 
@@ -127,25 +128,33 @@ const[product1,setproduct1]=useState([])
 
       
 
-      const handleprouctadd = (product) => {
-        const isProductInCart = cart.some((item) => item._id === product._id);
-
+  const handleprouctadd = (product) => {
+    const isProductInCart = cart.some((item) => item._id === product._id);
+  
     if (!isProductInCart) {
       // Add product to the cart
-      setcart([...cart, product]); // Updated variable name
-
+      setcart([...cart, product]);
+  
       // Change button color for the clicked product
       setButtonColors((prev) => ({
         ...prev,
-        [product._id]: "#AEEA94",
+        [product._id]: "#FF5F00",
       }));
-
+  
+      // Revert button color after 1 second
+      setTimeout(() => {
+        setButtonColors((prev) => ({
+          ...prev,
+          [product._id]: "rgb(51, 51, 51)", // Original color
+        }));
+      }, 1000);
+  
       // Set cart message
       setCartMessage((prev) => ({
         ...prev,
         [product._id]: "Your product has been added to the cart!",
       }));
-
+  
       // Hide the message after 2 seconds
       setTimeout(() => {
         setCartMessage((prev) => ({
@@ -161,7 +170,8 @@ const[product1,setproduct1]=useState([])
         confirmButtonText: "OK",
       });
     }
-      };
+  };
+  
 
 
     
@@ -610,22 +620,22 @@ Combo Products
           }}
         >
           <div style={{ position: "relative", width: "100%" }}>
-            <img
-              src={product.product_image}
-              alt={product.product_name}
-              className="grocery-card-image img-fluid"
-              style={{
-                width: "100%",
-                height: "270px",
-                objectFit: "cover",
-                cursor: "pointer",
-                transition: "transform 0.3s ease",
-                borderRadius: "10px",
-              }}
-              onClick={() =>
-                navigate("/vitamincfaceash", { state: product._id })
-                }
-            />
+          <img
+  src={product.product_image}
+  alt={product.product_name}
+  loading="eager"
+  className="grocery-card-image"
+  style={{
+    width: "100%",
+    height: "270px",
+    objectFit: "contain",
+    cursor: "pointer",
+    transition: "transform 0.3s ease",
+    borderRadius: "10px",
+  }}
+  onClick={() => navigate("/vitamincfaceash", { state: product._id })}
+/>
+
           </div>
           <span
   className="grocery-card-name"
@@ -674,7 +684,7 @@ Combo Products
             onClick={() => handleprouctadd(product)}
             className="add-to-cart-btn"
             style={{
-              backgroundColor: buttonColors[product._id] || "#c8b89a",
+              backgroundColor: buttonColors[product._id] || "rgb(51, 51, 51)",
               color: "white",
               border: "none",
               padding: "12px 30px",
@@ -744,6 +754,7 @@ Combo Products
     </button>
   </div>
 </div>
+
 
 
 
@@ -972,22 +983,23 @@ Incredible Products
           }}
         >
           <div style={{ position: "relative", width: "100%" }}>
-            <img
-              src={product.product_image}
-              alt={product.product_name}
-              className="grocery-card-image img-fluid"
-              style={{
-                width: "100%",
-                height: "270px",
-                objectFit: "cover",
-                cursor: "pointer",
-                transition: "transform 0.3s ease",
-                borderRadius: "10px",
-              }}
-              onClick={() =>
-                navigate("/vitamincfaceash", { state: product._id })
-                }
-            />
+          <img
+  src={product.product_image}
+  alt={product.product_name}
+  className="grocery-card-image img-fluid"
+  style={{
+    width: "100%",
+    height: "270px",
+    objectFit: "cover",
+    cursor: "pointer",
+    transition: "transform 0.3s ease",
+    borderRadius: "10px",
+    imageRendering: "crisp-edges", // Ensures sharp display
+    WebkitImageRendering: "optimize-contrast", // Better quality for WebKit browsers
+  }}
+  onClick={() => navigate("/vitamincfaceash", { state: product._id })}
+/>
+
           </div>
           <span
   className="grocery-card-name"
@@ -1036,7 +1048,7 @@ Incredible Products
             onClick={() => handleprouctadd(product)}
             className="add-to-cart-btn"
             style={{
-              backgroundColor: buttonColors[product._id] || "#c8b89a",
+              backgroundColor: buttonColors[product._id] || "rgb(51, 51, 51)",
               color: "white",
               border: "none",
               padding: "12px 30px",
