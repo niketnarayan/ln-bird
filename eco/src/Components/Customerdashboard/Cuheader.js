@@ -1666,7 +1666,7 @@ Total Price:  <span  >
 
 {/* payment method */}
 
-<div className="max-w-lg  p-4 border rounded-lg shadow-md bg-white" style={{width:"600px",marginTop:"30px"}}>
+<div className="fixed inset-0 flex items-center justify-center  px-4">
             <h2 className="text-lg font-semibold">Payment</h2>
             <p className="text-sm text-gray-500">All transactions are secure and encrypted.</p>
 
@@ -1691,7 +1691,14 @@ Total Price:  <span  >
 
               {selectedPayment === "cod" && (
                 <div className="mt-3 text-center border-t pt-3">
-                  <img src={payment} alt="Payment process" className="mx-auto" />
+<img 
+  src={payment} 
+  alt="Payment process" 
+  className="mx-auto w-auto max-w-[80px] sm:max-w-[20px] md:max-w-[120px] h-auto" 
+/>
+
+
+
                   <p className="text-sm text-gray-600 mt-2">
                   You will be redirected to complete your Cash on Delivery order securely.
                   </p>
