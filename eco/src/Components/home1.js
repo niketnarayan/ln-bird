@@ -757,6 +757,10 @@ Combo Products
 
 
 
+{/* --------------------------------------------------------------------------------------------------------------- */}
+
+
+
 
 
 
@@ -781,8 +785,8 @@ Combo Products
         />
         <div className="overlay">
           <h6>KIONA</h6>
-          <h5>Hair Serum</h5>
-          <a  onClick={() => navigatecategory("hair serum")} >View Collections →</a>
+          <h5>Hair oil</h5>
+          <a  onClick={() => navigatecategory("hair oil")} >View Collections →</a>
         </div>
       </div>
 
@@ -821,8 +825,8 @@ Combo Products
         />
           <div className="overlay">
           <h6>KIONA</h6>
-          <h5>Soap</h5>
-          <a onClick={() => navigatecategory("soap")}>View Collections →</a>
+          <h5>Face wash</h5>
+          <a onClick={() => navigatecategory("face wash")}>View Collections →</a>
         </div>
       </div>
 
