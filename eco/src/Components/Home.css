@@ -261,6 +261,13 @@ body{
     padding: 10px 25px;
     font-size: 0.85rem;
   }
+  .description-text {
+    font-size: 14px !important;
+    margin: 0 0 10px 10px !important;
+  }
+  .product-name-title1{
+    font-size: 14px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -287,6 +294,13 @@ body{
   .add-to-cart-btn {
     padding: 8px 20px;
     font-size: 0.8rem;
+  }
+  .description-text {
+    font-size: 12px !important;
+    margin: 0 0 10px 5px !important;
+  }
+  .product-name-title1{
+    font-size: 14px !important;
   }
 }
 

@@ -376,10 +376,10 @@ useEffect(()=>
   
   const companyDetails = [
     {
-      name: 'My Company',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Horned_logo.jpeg', // Relative URL to the public folder
-      address: '456 Business Rd, City, State, 789101',
-      contact: 'support@mycompany.com',
+      name: 'KIONA',
+      logo: 'E:\niket2\Ecommerce\eco\src\Components\Assets\Logo (2).png', // Relative URL to the public folder
+      address: 'office no 326, Kashi plaza, kamrej, Surat pincode - 394185',
+      contact: 'support@kiona.com',
     },
   ];
     
@@ -388,83 +388,120 @@ useEffect(()=>
   
   
   const generateInvoice = (paymentResponse, orderdata, companyDetails) => {
-    // Debugging: Log the orderdata to check its structure
-    console.log('Order Data:', orderdata);
-  
-    // if (!orderdata || !orderdata.products || !Array.isArray(orderdata.products)) {
-    //   console.error('Invalid orderdata or products array:', orderdata);
-    //   alert('Invalid order data. Unable to generate invoice.');
-    //   return;
-    // }
-  
+    console.log("Order Data:", orderdata); // Debugging: Log the order data
+
     const doc = new jsPDF();
-  
-    const company = companyDetails[0]; // Access the first item in the array
-  
-    // --- Add Company Logo ---
-    if (company.logo) {
-      const imgWidth = 50; // Adjust width as needed
-      const imgHeight = 20; // Adjust height as needed
-      doc.addImage(company.logo, 'JPEG', 20, 10, imgWidth, imgHeight);
-    }
-  
-    // --- Add Company Details ---
-    doc.setFontSize(12);
-    doc.text(company.name, 20, 40);
-    doc.text(company.address, 20, 50);
-    doc.text(`Contact: ${company.contact}`, 20, 60);
-  
-    // --- Invoice Header ---
-    doc.setFontSize(16);
-    doc.text('Invoice', 150, 20);
-  
-    doc.setFontSize(12);
-    doc.text(`Invoice Number: ${paymentResponse.razorpay_payment_id}`, 20, 70);
-    doc.text(`Order ID: ${paymentResponse.razorpay_order_id}`, 20, 80);
-    doc.text(`Transaction Date: ${new Date().toLocaleDateString()}`, 20, 90);
-  
-    // --- Customer Details ---
-    doc.text(`Customer Name: ${orderdata.firstName} ${orderdata.lastName}`, 20, 100);
-    doc.text(`Email: ${orderdata.email}`, 20, 110);
-    doc.text(`Phone: ${orderdata.mobileNumber}`, 20, 120);
-    doc.text(`Address: ${orderdata.address}`, 20, 130);
-  
+    const company = companyDetails[0]; // Extract company details
+    const marginLeft = 20;
+    const marginRight = 140;
+    let cursorY = 20; // Track Y position
+
+    // Function to add page header (Logo + Company & Customer Details + Invoice Details)
+    const addPageHeader = (pageNumber) => {
+        doc.setFontSize(18);
+        doc.setFont("helvetica", "bold");
+        doc.text("INVOICE", 105, 20, { align: "center" });
+
+        // --- Add Company Logo ---
+        if (company.logo) {
+            doc.addImage(company.logo, "JPEG", marginLeft, 25, 50, 20);
+        }
+
+        doc.setFontSize(12);
+        doc.setFont("helvetica", "bold");
+        doc.text("Company Details", marginLeft, 50);
+        doc.text("Customer Details", marginRight, 50);
+
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(10);
+
+        doc.text(company.name, marginLeft, 60);
+        doc.text(company.address, marginLeft, 70);
+        doc.text(`Contact: ${company.contact}`, marginLeft, 80);
+
+        doc.text(`Name: ${orderdata.firstName} ${orderdata.lastName}`, marginRight, 60);
+        doc.text(`Email: ${orderdata.email}`, marginRight, 70);
+        doc.text(`Phone: ${orderdata.mobileNumber}`, marginRight, 80);
+        doc.text(`Address: ${orderdata.apartmentNumber} ${orderdata.area} ${orderdata.landmark} ${orderdata.selectstate} ${orderdata.pincode} India`, marginRight, 90);
+
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(10);
+        doc.text(`Invoice Number: ${paymentResponse.razorpay_payment_id}`, marginLeft, 100);
+        doc.text(`Order ID: ${paymentResponse.razorpay_order_id}`, marginLeft, 110);
+        doc.text(`Transaction Date: ${new Date().toLocaleDateString()}`, marginLeft, 120);
+
+        // Show Page Number at the bottom of every page
+        doc.setFontSize(10);
+        doc.text(`Page ${pageNumber}`, 105, 285, { align: "center" });
+    };
+
+    // --- First Page Header ---
+    addPageHeader(1);
+    cursorY = 130; // Move cursor after header
+
     // --- Product Table ---
-    const startY = 140;
-    doc.text('Product Details:', 20, startY);
-  
-    const tableStartY = startY + 10;
-  
-    // Map products to table data
-    const tableData = orderdata.cartItems.map((product, index) => [
-      index + 1,
-      product.product_name,
-      product.product_quantity,
-      `₹${product.product_price}`,
-      // `₹${product.totalPrice.toFixed(2)}`,
-    ]);
-  
+    doc.setFont("helvetica", "bold");
+    doc.text("Product Details", marginLeft, cursorY);
+    cursorY += 10;
+
     doc.autoTable({
-      head: [['S.No', 'Product Name', 'Quantity', 'Unit Price', 'Total']],
-      body: tableData,
-      startY: tableStartY,
+        startY: cursorY,
+        head: [["S.No", "Product Name", "Quantity", "Unit Price", "Total"]],
+        body: orderdata.cartItems.map((product, index) => [
+            index + 1,
+            product.product_name,
+            product.product_quantity1,
+            product.product_price,
+            (product.product_quantity1 * product.product_price),
+        ]),
+        theme: "grid",
+        headStyles: { fillColor: [0, 102, 204], textColor: [255, 255, 255] },
+        styles: { fontSize: 10, cellPadding: 3 },
+        columnStyles: { 0: { cellWidth: 15 }, 1: { cellWidth: 60 }, 2: { cellWidth: 25 }, 3: { cellWidth: 35 }, 4: { cellWidth: 35 } },
+        margin: { top: 10 },
+
+        // Ensure that company details and logo are re-added on new pages
+        didDrawPage: function (data) {
+            if (data.pageNumber > 1) {
+                doc.setPage(data.pageNumber);
+                addPageHeader(data.pageNumber);
+            }
+        },
     });
-  
-    // --- Summary Section ---
-    const summaryStartY = doc.lastAutoTable.finalY + 10;
-    doc.text(`Subtotal: ₹${orderdata.subtotal}`, 150, summaryStartY);
-    doc.text(`GST (${orderdata.gstPercentage}%): ₹${orderdata.gstAmount}`, 150, summaryStartY + 10);
-    doc.text(`Discount: ₹${orderdata.discount}`, 150, summaryStartY + 20);
-    doc.text(`Grand Total: ₹${orderdata.totalPrice}`, 150, summaryStartY + 30);
-  
+
+    // Move to the last page before adding the summary
+    const totalPages = doc.internal.getNumberOfPages();
+    doc.setPage(totalPages);
+
+    let finalY = doc.lastAutoTable.finalY + 10;
+
+    // --- Summary Section (With Border) ---
+    const summaryX = marginRight - 20;
+    const summaryWidth = 70;
+    const summaryHeight = 40;
+
+    doc.setLineWidth(0.5);
+    doc.rect(summaryX, finalY, summaryWidth, summaryHeight);
+
+    doc.setFont("helvetica", "bold");
+    doc.text("Summary", summaryX + 5, finalY + 7);
+    doc.setFont("helvetica", "normal");
+
+    doc.text(`Subtotal:  ${orderdata.subtotal}`, summaryX + 5, finalY + 17);
+    doc.text(`GST (${18}%):  ${(orderdata.subtotal * (orderdata.gstAmount / 100))}`, summaryX + 5, finalY + 27);
+    doc.text(`Grand Total:  ${orderdata.totalPrice}`, summaryX + 5, finalY + 37);
+
+    finalY += summaryHeight + 10;
+
     // --- Footer ---
-    const footerStartY = summaryStartY + 50;
-    doc.text('Thank you for your purchase!', 20, footerStartY);
-    doc.text(`For queries, contact us at: ${company.contact}`, 20, footerStartY + 10);
-  
+    doc.setFont("helvetica", "italic");
+    doc.text("Thank you for your purchase!", marginLeft, finalY);
+    doc.text(`For queries, contact us at: ${company.contact}`, marginLeft, finalY + 10);
+
     // --- Save the PDF ---
-    doc.save('invoice.pdf');
-  };
+    doc.save(`Invoice_${paymentResponse.razorpay_payment_id}.pdf`);
+};
+
   
   
   const [show6, setShow6] = useState(false);
