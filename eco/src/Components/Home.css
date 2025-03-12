@@ -191,7 +191,7 @@ body{
   transition: transform 0.3s ease;
 }
 
-.grocery-card-name {
+/* .grocery-card-name {
   font-size: 1rem;
   height: 3rem;
   font-weight: bold;
@@ -199,10 +199,25 @@ body{
   margin-top: 10px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  /* -webkit-line-clamp: 2; */
+  -webkit-line-clamp: 2/ ;
   overflow: hidden;
   max-width: 90%;
+} */
+
+.grocery-card-name {
+  font-size: 1rem;
+  height: 3rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Use for single-line */
+  max-width: 90%;
 }
+
 
 .add-to-cart-btn {
   background-color: #c8b89a;
