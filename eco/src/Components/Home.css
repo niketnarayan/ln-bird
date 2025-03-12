@@ -1,6 +1,5 @@
 body{
-  background-color:rgb(255, 255, 255)
-  ;
+  background-color:rgb(255, 255, 255) ;
 }
 /* product cart css-------------------------------------------------------------------------------------------------- */
 /* Container Styling */
@@ -200,7 +199,7 @@ body{
   margin-top: 10px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  /* -webkit-line-clamp: 2; */
   overflow: hidden;
   max-width: 90%;
 }
